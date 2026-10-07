@@ -1,0 +1,18 @@
+[
+  {
+    "image": "vbe640.ppm",
+    "width": 640,
+    "height": 480,
+    "matched_pixels": 307200,
+    "mismatched_pixels": 0,
+    "sha256": "06760ea795d61a05127f120c02be7cd7cb2dc690a4ee1756f7fa8e71d0b09a36"
+  },
+  {
+    "image": "vbe800.ppm",
+    "width": 800,
+    "height": 600,
+    "matched_pixels": 480000,
+    "mismatched_pixels": 0,
+    "sha256": "fddcf3b7e191cfda72565fc3ed3912b880664a02faff0d5d1ea52e67a1c5a668"
+  }
+]

@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>ver
+
+MS-DOS Version 6.22
+
+
+C:\>c:\freeciv\freeciv --version
+Load error: no DPMI - Get csdpmi*b.zip
+
+C:\>
+
+
+
+
+
+
+
+
+
+
+
+

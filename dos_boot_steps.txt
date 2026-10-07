@@ -1,0 +1,226 @@
+DOS 6.22 boot and runtime steps for the Freeciv DOS port project
+
+1. Boot DOS from DOS622.img (A:). Attach dos-vm/DOS622_VHD.img as C:.
+   dos-vm/DOS622_VHD.vhd is a separate older image; do not use or synchronize it.
+
+2. The working raw hard disk has an MBR partition table and an active primary
+   type-06 FAT16 partition at LBA 63 (byte offset 32256), length 524288 sectors.
+   Its BIOS geometry is 521 cylinders / 16 heads / 63 sectors, without translation.
+   The disk is 268886016 bytes; the FAT16 volume inside it is 268435456 bytes.
+   The former unpartitioned FAT16 image was readable by mtools but was NOT exposed
+   as C: by actual DOS. A filesystem image alone is not a DOS hard-disk layout.
+
+3. From the project directory, boot the tested Pentium / 16 MB configuration:
+   qemu-system-i386 \
+     -machine pc -accel tcg -m 16 -cpu pentium \
+     -drive file=DOS622.img,format=raw,if=floppy \
+     -drive file=dos-vm/DOS622_VHD.img,format=raw,if=none,id=drivec \
+     -device ide-hd,drive=drivec,bus=ide.0,unit=0,cyls=521,heads=16,secs=63,bios-chs-trans=none \
+     -boot a -nic none \
+     -monitor stdio
+
+   The graphical QEMU window shows the DOS screen; the terminal is the QEMU
+   monitor, not a DOS input console. Use the window keyboard for DOS commands.
+   Stop QEMU using "quit" at its monitor before accessing images with host tools.
+   The equivalent headless test used QMP keyboard injection/text-screen capture;
+   it did not validate a Freeciv graphics mode.
+
+4. Startup stops at C:\>, without launching a game or demo. Run:
+   ver
+   dir C:\
+   echo write-test>C:\FREECIV\WRITE.TXT
+   type C:\FREECIV\WRITE.TXT
+
+   Actual tests reached MS-DOS Version 6.22 and read back a DOS-created C: file.
+   If C: is unavailable, the floppy startup reports a partition/geometry error
+   and stays at A:\> for recovery. Do not attempt Freeciv until C: is accessible.
+
+5. C: root retains only IO.SYS, MSDOS.SYS, COMMAND.COM, DRVSPACE.BIN,
+   AUTOEXEC.BAT, CONFIG.SYS, and DOS/FREECIV/ARCHIVE directories.
+   - C:\DOS contains DOS utilities/support files.
+   - C:\FREECIV\FREECIV.EXE is the verified builds/phase5-dos/civclient.exe.
+   - C:\FREECIV\CWSDPMI.EXE and CWSDPMI.DOC are unchanged CWSDPMI r7 files.
+   - C:\FREECIV\RTCHECK.EXE is the separate runtime diagnostic.
+   - C:\FREECIV\VBECHECK.EXE is the separate actual VBE display diagnostic.
+   - C:\FREECIV\RNDCHECK.EXE is the separate primitive/font/dirty-render diagnostic.
+   - C:\FREECIV\DATA\RUNTIME.DAT is its test marker, NOT game resources.
+   - C:\ARCHIVE\OLDCLI.EXE preserves the previous installed client unchanged.
+     PHASE2.EXE preserves the Phase 2 candidate installed during Phase 3.
+     PHASE4.EXE preserves the preceding Phase 4 candidate unchanged.
+     FCSTUB.COM, AUTOOLD.BAT, and IMPORT.TMP preserve the older demo/startup.
+
+6. Host startup sources are dos-vm/BOOT_A.BAT and dos-vm/AUTOEXEC.BAT.
+   Floppy AUTOEXEC checks C:\COMMAND.COM before handing off to C:\AUTOEXEC.BAT.
+   C: startup sets PATH=C:\DOS;C:\FREECIV, COMSPEC=C:\COMMAND.COM, and C:\.
+   No DPMI host or game is loaded automatically by AUTOEXEC.
+
+   Booting A: reads A:\CONFIG.SYS, not C:\CONFIG.SYS. The tested A: configuration
+   is COUNTRY=001 with the floppy COUNTRY.SYS; it loads neither HIMEM.SYS nor
+   EMM386. C:\CONFIG.SYS is retained but is not applied by the AUTOEXEC handoff.
+   CWSDPMI works in this tested minimal configuration. Other memory-manager
+   combinations are untested; do not prescribe them as prerequisites.
+
+7. Test the normal client:
+   FREECIV --version
+   FREECIV
+   if errorlevel 1 echo Expected unavailable-GUI failure
+
+   --version prints "Freeciv version 1.14.1 gui-dos-vbe". CWSDPMI can auto-load
+   from the executable directory. Normal startup explicitly reports unavailable
+   production graphics resources/input/GUI integration and returns failure to DOS.
+   The real VBE display is tested separately as described below. This gate is
+   intentional; the installed program is not yet a playable graphical game.
+   Without a DPMI host the DJGPP loader reports "Load error: no DPMI".
+
+8. For the verified runtime-only test, explicitly disable paging:
+   C:\FREECIV\CWSDPMI -s-
+   C:\FREECIV\RTCHECK --log C:\FREECIV\RUNTIME.LOG
+
+   The diagnostic verifies DOS/DPMI, a read/written 1 MiB heap, real-mode INT 21h,
+   a 512-byte conventional transfer buffer, executable-relative marker lookup,
+   and real isolated-engine join/request/reset/teardown. It stays at READY until
+   Q is pressed, then returns successfully to DOS. --batch skips that input wait.
+   READY is diagnostic readiness only: no VBE/video mapping, actual rulesets,
+   game map/AI turn, graphics, sound, or production event loop is exercised.
+
+   CWSDPMI without -p unloads after ONE protected-mode application exits.
+   Repeat "CWSDPMI -s-" before EACH no-paging test; running FREECIV --version
+   between those commands consumes the one-process host. If paging is desired,
+   use "CWSDPMI -sC:\FREECIV\CWSDPMI.SWP" before the application. Its unmodified
+   auto-load default instead uses C:\CWSDPMI.SWP; do not mistake swap-assisted
+   operation for a successful 16 MB physical-memory fit test.
+
+9. Validate working-directory-independent diagnostic lookup:
+   A:
+   C:\FREECIV\RTCHECK --batch --log C:\FREECIV\FROMA.LOG
+   C:
+   cd \
+   RTCHECK --batch --log C:\FREECIV\ROOT.LOG
+   cd \FREECIV
+   RTCHECK --batch --log C:\FREECIV\FROMDIR.LOG
+
+   All three were actually executed successfully. The normal --version path
+   also works from A:, C:\, and the install directory. Actual game resource
+   discovery remains pending DOS filename/resource packaging.
+   An explicit missing --fixture path fails without READY and returns nonzero.
+   With 2 MB RAM and paging disabled, the diagnostic loader reports
+   "Load error: no DPMI memory" and returns nonzero to the DOS prompt.
+   This negative test is not a lower supported hardware target.
+
+10. Host-side installation/inspection must use the PARTITION offset:
+    mdir -i dos-vm/DOS622_VHD.img@@32256 ::/
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase5-dos/civclient.exe ::/FREECIV/FREECIV.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase5-dos/RNDCHECK.EXE ::/FREECIV/RNDCHECK.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase4-dos/VBECHECK.EXE ::/FREECIV/VBECHECK.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase3-runtime/RTCHECK.EXE ::/FREECIV/RTCHECK.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 runtime/cwsdpmi-r7/bin/CWSDPMI.EXE ::/FREECIV/CWSDPMI.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 runtime/cwsdpmi-r7/bin/cwsdpmi.doc ::/FREECIV/CWSDPMI.DOC
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 dos-vm/RUNTIME.DAT ::/FREECIV/DATA/RUNTIME.DAT
+
+    These install directories already exist on the published working image.
+    Never run mtools or replace images while a VM is using them. sfdisk --verify
+    checks the partition table, not FAT; FAT checking needs an extracted
+    524288-sector partition (starting at byte 32256) and fsck.fat -n.
+    dos-vm/partition_drive.py wraps only an UNPARTITIONED FAT16 source into a NEW
+    output file; do not run it on the already partitioned working image.
+
+11. Recovery copies:
+    - dos-vm/backups/DOS622_VHD.before-phase5.img and DOS622.before-phase5.img
+      preserve the verified Phase 4 display/runtime pair and previous candidate.
+    - dos-vm/backups/DOS622_VHD.before-phase4.img and DOS622.before-phase4.img
+      preserve the boot/runtime-validated Phase 3 layout and earlier candidate.
+    - dos-vm/backups/DOS622_VHD.before-phase3.img and DOS622.before-phase3.img
+      preserve the cleaned but unpartitioned pre-runtime layout.
+    - dos-vm/backups/DOS622_VHD.before-layout.img and DOS622.before-layout.img
+      preserve the earlier scattered-root layout.
+    Backups are historical pairs, not boot-validated replacements. The
+    before-phase3 C: backup retains the original missing-partition problem.
+    No standalone hard-drive boot loader was installed in the MBR; continue
+    booting A:. System files in C:\ alone do not make C: independently bootable.
+
+12. CWSDPMI provenance/licensing and evidence:
+    runtime/cwsdpmi-r7/ retains original csdpmi7b.zip, csdpmi7s.zip and supplier
+    documentation. Users have the right to obtain CWSDPMI source/binary updates;
+    source is included and is available from
+    https://www.delorie.com/pub/djgpp/current/v2misc/csdpmi7s.zip .
+    Preserve CWSDPMI notices/redistribution terms; do not modify its binary
+    except through the supplier-authorized configuration tools.
+
+    builds/phase3-runtime/ holds the diagnostic, compile/config/symbol evidence,
+    actual DOS logs/text screens, partition/FAT checks and verification.json.
+    All 129 original C: files and their attributes were preserved; all 60
+    non-AUTOEXEC floppy files and its boot sector remain unchanged.
+    The floppy's pre-existing volume-label mismatch/full allocation was not
+    repaired. Full game GUI startup and gameplay still require later work.
+
+13. Real VBE display diagnostic (not the game):
+    Use QEMU's standard VGA adapter (add "-vga std" to step 3). The tested
+    display contract is VESA 2.0+ RGB565 LFB plus BIOS 4F04 state save/restore
+    and the host's 0508 managed-device-mapping extension. Banked-only hardware
+    is unsupported. QEMU cirrus fails clearly because its requested BIOS
+    state service is unavailable; VESA presence alone is insufficient.
+
+    For 640x480:
+    C:\FREECIV\CWSDPMI -s-
+    C:\FREECIV\VBECHECK --640 --log C:\FREECIV\VBE640.LOG
+
+    For preferred 800x600 (falls back to validated 640x480 if unavailable):
+    C:\FREECIV\CWSDPMI -s-
+    C:\FREECIV\VBECHECK --log C:\FREECIV\VBE800.LOG
+
+    The upper half shows red/green/blue/white/black/yellow/cyan/magenta bars;
+    the lower half is a black/white 16-pixel checkerboard. Press Q to return
+    to the original text display with DOS screen contents preserved.
+    --batch draws/reads back/restores without waiting, for repeated runs.
+    Hardware/DPMI errors are written to the supplied log; success requires
+    presentation/readback, original mode restoration and resource release.
+    Repeat CWSDPMI -s- immediately before EACH no-paging application.
+
+    Actual Pentium/16 MB/no-paging tests passed in both resolutions, using
+    modes 0x111/0x114, pitches 1280/1600 and physical LFB 0xFD000000.
+    Captured VGA output matched all 307200/480000 expected pixels with zero
+    mismatches. Original text mode 3, keyboard Q, repeat launch and subsequent
+    RTCHECK passed. No game resources, fonts, map, UI or gameplay are tested.
+    Optional 1024x768 and real physical adapters are not certified.
+
+    builds/phase4-dos/ holds the exact diagnostic/candidate, clean build and
+    source distribution, host ASan/UBSan tests, actual DOS logs/screens,
+    image checks and pixel-by-pixel verification. Its BUILDINFO.txt documents
+    the discovered CWSDPMI unmap limitation and corrected resource lifecycle.
+
+14. Primitive/font/dirty-render diagnostic (not the game):
+    cd \FREECIV
+    CWSDPMI -s-
+    RNDCHECK 640 > RND640.LOG
+    Press Q when the rendered pattern is visible to restore the DOS screen.
+    Then repeat at the preferred resolution:
+    CWSDPMI -s-
+    RNDCHECK 800 > RND800.LOG
+
+    Standard output MUST be redirected to a writable log as shown; the
+    diagnostic sends hardware errors to the same destination. Inspect the log
+    after returning to DOS. PASS initial readback, PASS local bytes=32,
+    PASS repeated bytes=0, PASS coalesced bytes=12, PASS Q received and
+    EXIT SUCCESS establish the diagnostic's measured outcomes. Readback alone
+    does not replace inspection/capture of the actual VGA output.
+
+    The pattern shows RGB bars, original printable-ASCII text at scale 2,
+    clipped fill/lines and opaque/transparent/overlapping blits/icons.
+    Required 640x480 and 800x600 outputs were captured and compared at every
+    pixel against the native reference: 307200 and 480000 matching pixels,
+    zero mismatches. Actual 16 MB/Pentium/CWSDPMI -s- tests also verify Q,
+    original DOS text contents, repeat launch and post-render RTCHECK.
+
+    A 4x4 update writes only 32 bytes; a repeated clean present writes zero.
+    Dirty changes coalesce to a bounding rectangle, not an exact sparse list;
+    separate distant updates may include unchanged pixels between them.
+    Source build/test commands and embedded-font licensing are in DOS_PORT_SPEC.md.
+    Exact artifacts, source/build/test logs, images, hashes and verification
+    scripts are retained in builds/phase5-dos/. The unchanged Phase 4 VBECHECK
+    and Phase 3 RTCHECK remain installed alongside the new diagnostic.
+
+    These tests certify rendering foundations, NOT usable tileset loading,
+    an interactive game HUD/map/event loop, DOS dialog/report integration,
+    localized fonts, audio, complete gameplay or whole-game 16 MB memory fit.
+    The normal FREECIV startup still returns nonzero with its honest readiness
+    diagnostic; --version remains available.

@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\>vbecheck --batch --log c:\freeciv\cirrus.log
+VBECHECK failed; see log for display/restoration results.
+
+C:\>if errorlevel 1 echo unsupported_video_failure
+unsupported_video_failure
+
+C:\>
+
+
+
+
+
+
+
+
+
+
+

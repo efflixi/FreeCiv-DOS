@@ -1,0 +1,25 @@
+MS-DOS Version 6.22
+
+
+C:\>c:\freeciv\freeciv --version
+Load error: no DPMI - Get csdpmi*b.zip
+
+C:\>echo cwrite>c:\freeciv\write.txt
+
+C:\>mem
+
+Memory Type        Total  =   Used  +   Free
+----------------  -------   -------   -------
+Conventional         639K       62K      577K
+Upper                  0K        0K        0K
+Reserved               0K        0K        0K
+Extended (XMS)    15,232K   15,232K        0K
+----------------  -------   -------   -------
+Total memory      15,871K   15,294K      577K
+
+Total under 1 MB     639K       62K      577K
+
+Largest executable program size       577K (591,056 bytes)
+Largest free upper memory block         0K       (0 bytes)
+
+C:\>

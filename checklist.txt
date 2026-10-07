@@ -1,0 +1,369 @@
+Freeciv DOS Port Completion Checklist
+
+Goal:
+Complete a playable, offline, single-user Freeciv 1.14.1 port for DOS 6.22 using a 32-bit DJGPP/DPMI protected-mode runtime, Pentium 100 / 16 MB RAM, and VESA 2.0+ graphics. Preserve the game rules and reusable engine logic while replacing platform-dependent runtime, GUI, input, and audio layers.
+
+Status note:
+This checklist is based on source review, build artifacts, and the supplied documents, not on the completion claims in the old checklist. The project is a prototype, not a playable DOS game. Phase 2 established clean real-backend/isolated-engine linkage; Phase 3 verified DOS boot/deployment/CWSDPMI and separate runtime diagnostics. Phase 4 now implements and visibly verifies real BIOS/DPMI display initialization/presentation/restoration; builds/phase4-dos/ holds the fresh candidate and display evidence. The normal GUI remains gated because game resources, input and production integration are incomplete. Historical source artifacts and previous candidates remain preserved.
+
+Review basis:
+- DOS_PORT_SPEC.md defines the hardware, graphics, extender, input, audio, and offline scope.
+- old/goal.txt and progress.txt contain useful history but also conflicting completion claims.
+- dos_boot_steps.txt supplies the verified floppy A: / partitioned hard-drive C: boot/runtime procedure. Phase 3 corrected the unpartitioned-image defect and records actual component success and the expected production GUI failure in progress.txt.
+- old/playability_checklist.txt supplies the formatting style, not authoritative completion status.
+- old/ preserves superseded goals/checklists, historical build/link logs, and missing_symbols.txt for reference only. Current requirements belong in DOS_PORT_SPEC.md; this checklist tracks implementation/validation work, and progress.txt records history.
+- Source review covered the DOS GUI/audio implementation, build integration, platform boundaries, client lifecycle, packet/control paths, and authoritative server engine.
+- The supplied freeciv-1.14.1-2.RH9.0.i386.rpm is extracted unchanged under assets/freeciv-1.14.1-rh9/; its runtime data is in usr/share/freeciv/ there. DOS_PORT_SPEC.md records provenance, inventory, reference checks, and remaining asset-compatibility requirements. Extraction is resource preparation only, not authorization to start Phase 2.
+- The existing dos_vbe_backend_check.sh passed during this review. It only searches source text for names; it does not compile, execute, validate graphics, or establish gameplay.
+- No new DOS execution, clean cross-build, or gameplay test was performed during the initial review. Subsequent verified work is recorded in the Phase statuses and progress.txt.
+
+Recent milestone corrections:
+- [x] A DOS GUI backend directory and interface scaffolding exist.
+  - Status: client/gui-dos-vbe contains GUI, rendering, input-queue, VBE, framebuffer, and extender source files.
+- [x] A real 32-bit DOS executable artifact exists.
+  - Status: client/civclient.exe is identified as an MZ/COFF DJGPP go32 DOS-extender executable. Its existence is not proof of functional graphics or gameplay.
+- [x] DOS audio plugin registration scaffolding exists.
+  - Status: client/audio.c registers client/audio_dos.c for DOS/DJGPP builds; device playback is not implemented.
+- [ ] Replace the stub-linked executable with a functional DOS game.
+  - Status: the old in-place archive still contains dos_client_stubs.o. A fresh Phase 2 archive has all 26 real backend modules and the new candidate includes the engine, but its GUI startup is intentionally gated. Functional DOS graphics/gameplay remain later requirements.
+
+Checklist:
+
+Execution policy:
+Work on one Phase at a time. Check an item only after its stated outcome is implemented or resolved and verified, and record the evidence in progress.txt. Update matching cleanup.txt items when their outcomes are verified. On completing a Phase, stop, document the results and remaining limitations, and request user review. Do not begin the next Phase without explicit permission.
+
+Phase 1. Offline game architecture and scope
+- [x] Resolve the client-only / no-networking architecture before claiming playability.
+  - Status: user approved one executable with isolated embedded engine state, an in-memory packet bridge, and cooperative scheduling. DOS_PORT_SPEC.md defines the concrete boundary and verification commands; this is not a playability claim.
+- [x] Provide a DOS-compatible local authoritative engine and action/state bridge without requiring an external network server.
+  - Status: client/offline reuses real common/server/AI code, with client/clinet.c local connection/start/read/disconnect seams. Native tests generate a real game, apply rates, and advance an authoritative turn. The complete component harness cross-builds with DJGPP; DOS execution and production GUI/library linkage remain later work.
+- [x] Separate authoritative engine state from the client-visible game cache and its lifecycle.
+  - Status: separately compiled, symbol-isolated engine state; only copied wire bytes and scalar snapshots cross the boundary. Tests preserve an allocated client map and client game state across engine startup, actions, teardown, and repeated games; ASan reports no memory errors or leaks in the exercised paths.
+- [x] Resolve duplicate entry points, globals, and client/server mode assumptions in any combined executable.
+  - Status: component linkage excludes civserver.c, namespaces engine-defined symbols including game/map/is_server, and exports only six opaque engine APIs. The engine does not call blocking srv_main(); cooperative helpers reuse its startup/turn/game-over logic. Production build-system integration remains Phase 2.
+- [x] Preserve local packet/request semantics or provide an equally complete, explicitly mapped replacement.
+  - Status: unchanged encoders/decoders and real server handlers preserve join capabilities, request IDs, processing boundaries, ordering, and visibility filtering. Tests cover fragmentation, packet budgets, backpressure/wraparound, malformed frames, explicit transport failures, reentrancy guards, and delivery of rejection replies before session failure.
+- [x] Keep sockets, multiplayer connection screens, server discovery, and external autoconnect unsupported for the DOS target.
+  - Status: these remain explicitly excluded from DOS scope. FC_NO_SOCKET_API external-connect helpers now log and return useful unsupported errors; the local transport never requires a socket. Offline startup APIs are provided; wiring the normal DOS startup/event loop and excluding network UI from the functional product remain under Phases 2 and 4.
+- [x] Keep game rules and AI behavior unchanged except for necessary platform/state-integration adaptations.
+  - Status: no ruleset or AI-rule rewrite. Shared server lifecycle helpers supply normal and cooperative paths; local state/reset, transport, and active-turn cleanup adaptations are documented. Real-game component tests include an AI opponent and player-filtered map updates, not a full DOS gameplay/regression certification.
+
+Phase 1 verification boundary:
+Architecture and its executable component harness were completed and reviewed before the user authorized Phase 2. The original in-place civclient.exe and GUI archive were preserved. Phase 1 did not claim production build integration, actual DOS execution, VESA, save/load UI, full-game completion, or minimum-hardware certification.
+
+Phase 2. Reproducible toolchain and functional linkage
+- [x] Document and verify a clean DJGPP cross-build from the source rather than relying on the existing executable and modified archives.
+  - Status: build-dos.sh snapshots sources, regenerates autotools inputs, configures out of tree, and links without old objects/archives. Multiple clean builds passed, including a build from the regenerated source distribution. DOS_PORT_SPEC.md documents commands, dependencies, outputs, and limitations.
+- [x] Verify target compiler, linker, archiver, ranlib, and their host-side runtime dependencies work together.
+  - Status: DJGPP GCC 12.2.0 and Binutils 2.30 compile/archive/index/isolate/link the complete client plus engine. Tools execute directly with no fallback archives or missing libfl failure; their versions and final hashes are recorded.
+- [x] Ensure --host=i586-pc-msdosdjgpp and --enable-client=dos-vbe select the intended DOS source set and libraries.
+  - Status: configuration selects gui-dos-vbe, offline broker and isolated engine, DOS audio source, and target CRT/libm. It rejects a native compiler posing as DJGPP and excludes separate civserver/network and host GUI/audio dependencies.
+- [x] Make the GUI archive contain the real backend implementations, with exactly one correct definition of each required interface.
+  - Status: all 26 real backend modules compile and appear once in the fresh archive; generic interface symbol audit has no missing functions or duplicate backend definitions. Device/GUI functionality remains incomplete and is safely gated before startup.
+- [x] Remove gameplay/rendering/timer ABI stubs from the production link once their real implementations are available.
+  - Status: dos_client_stubs.c is excluded entirely; actual backend modules provide correctly declared GUI symbols and common/timing.c supplies real timers. This removes link-only ABI substitutions, not all later-phase backend placeholders: required unavailable GUI paths are explicitly blocked by startup failure rather than used as pretend working replacements.
+- [x] Compile all DOS backend implementations against the existing generic headers and fix signature, return-value, and ownership mismatches.
+  - Status: corrected race/help signatures, missing city/message/color hooks, notification ownership, and shared command declarations. Strict return/prototype/type checks pass on all 26 modules. Required unavailable device/resource/input behavior is excluded by explicit fatal startup gates, verified with host-side tests; later implementation tasks remain unchecked.
+- [x] Verify the authoritative engine, AI, and offline integration code are included in the chosen DOS build.
+  - Status: normal autotools client linkage includes offline/liboffline.a and symbol-isolated common/server/AI engine.o. Final symbols prove separate client/engine state, six engine APIs, real AI and timing; the shared builder also passes native ASan real-game regressions.
+- [x] Make configure/build generation reproducible and establish which autoconf inputs are authoritative.
+  - Status: configure.ac/Makefile.am are authoritative; bootstrap.sh and autogen.sh no longer switch to configure.in. Generated templates are updated, config.rpath is supplied explicitly, and make dist plus a fresh build from that distribution pass.
+- [x] Audit target feature detection, libraries, compiler flags, and generated config.h for actual DJGPP behavior.
+  - Status: generated config enables FC_LOCAL_ENGINE/FC_NO_SOCKET_API, disables NLS/zlib/readline/X/SDL/ESD/WinMM and nonblocking sockets, and uses target libraries with GNU89/common-symbol compatibility. DOS runtime APIs and timing behavior still require Phase 3+ validation; native server build/version check passes, while the unchanged generic gui-stub target has unrelated existing compile failures.
+- [x] Verify the final executable's identity and backend symbols after a clean build and record its matching source/build configuration.
+  - Status: builds/phase2-dos/civclient.exe is a fresh MZ/COFF DJGPP go32 executable with real backend/isolated-engine/AI/timer symbols. Its logs, source/configuration hashes, tool versions, archive members, and source distribution are retained alongside it. No DOS runtime execution or playable graphics is claimed.
+
+Phase 2 verification boundary:
+Clean regeneration, target compilation, correct interface linkage, and artifact provenance are complete. The candidate deliberately reports unavailable backend functionality and exits before graphics/scripted execution. All later runtime/video/input/gameplay/packaging requirements remain unchecked. Original source artifacts and DOS images were preserved. Stop for user review; Phase 3 requires explicit permission.
+
+Phase 3. DOS deployment, boot, and DPMI runtime
+Scope:
+User approved correcting the phase dependencies: this Phase verifies the DOS/runtime foundation using the actual candidate's loader/failure path and the separate real-service diagnostic. Production GUI persistence, video mapping, actual game-resource handling and complete-game startup remain required in the later Phases named below. Closure does not mean those implementations are complete.
+- [x] Verify the documented dual-drive boot sequence reaches a DOS 6.22 prompt and exposes a readable, writable C: volume.
+  - Status: actual QEMU Pentium/16 MB boot reaches C:\>; VER reports DOS 6.22, and a DOS-created C: file was read back. Fixed the former FAT16 superfloppy by wrapping it in a type-06 MBR partition, with verified explicit 521/16/63 geometry. Preserved all original files/attributes, clean root/startup, and named pre-Phase-3 backups.
+- [x] Verify C:\FREECIV\FREECIV.EXE exists on the attached working image and matches the newly built executable.
+  - Status: Phase 3 installed and verified the Phase 2 candidate (SHA-256 bfc18c218e5953b3a30bcb3c3b2b5ead16b6401f0b0bd660c2657ff7d13930df). Phase 4 replaces it with its verified successor below, preserving Phase 2 as C:\ARCHIVE\PHASE2.EXE and the earlier client as OLDCLI.EXE. The older DOS622_VHD.vhd remains separate and untouched.
+- [x] Package and test an appropriate DPMI host/extender runtime and document DOS memory-manager requirements.
+  - Status: unchanged CWSDPMI r7 binary/docs installed; original binary/source archives and source-rights notice retained. Actual DPMI 0.90/32-bit operation and executable-directory auto-loading pass. Explicit -s- no-paging tests pass at 16 MB. Tested A: CONFIG loads COUNTRY only, without HIMEM/EMM386; dos_boot_steps.txt documents one-process residency and optional app-local swap.
+- [x] Run the actual candidate's loader and honest startup-failure path under DOS; verify the separate runtime diagnostic remains alive awaiting input and exits cleanly.
+  - Status: actual FREECIV --version works; normal startup reports the unavailable GUI and returns nonzero to DOS, as intended. RTCHECK initializes real DOS/DPMI/local-engine services, remains at READY, accepts Q, releases resources, and returns zero. Production GUI persistence is retained in Phase 7 and verified as part of Phase 16; the diagnostic is not its replacement.
+- [x] Confirm real 32-bit memory access, real-mode DOS interrupt calls, and conventional-memory transfer buffers under the selected DPMI host.
+  - Status: actual 1 MiB heap read/write/release, real-mode DOS INT 21h, and 512-byte conventional-memory transfer roundtrip/free pass. Video-memory mapping and display presentation remain unchecked in Phase 4, with visible validation in Phase 16.
+- [x] Start the separate real-service/local-engine diagnostic successfully with the minimum 16 MB VM configuration and paging disabled.
+  - Status: passes with the documented DOS configuration, including authoritative join/request boundaries, client/engine state isolation, teardown and reopen/reset. No actual game resources/map/AI turns or production GUI are loaded. Complete game startup remains in Phase 8, whole-game memory fit in Phase 15, and packaged startup acceptance in Phase 17.
+- [x] Validate executable lookup and executable-relative diagnostic fixture lookup from A:\, C:\, and the installed directory.
+  - Status: actual client --version and diagnostic DATA\RUNTIME.DAT lookup pass from all three working directories, with app-local logs. The marker is not game data. Real ruleset/graphics/font lookup from each directory remains unchecked in Phase 14 and packaged acceptance in Phase 17.
+- [x] Verify clear runtime-foundation failures for a missing DPMI host, insufficient loader memory, missing diagnostic fixture, and an unusable C: drive.
+  - Status: actual client loader reports missing DPMI; 2 MB/no-paging diagnostic loader reports no DPMI memory and returns nonzero. Missing diagnostic fixture logs failure/nonzero without READY. Floppy startup reports inaccessible C: and stays at A:. Production allocation/resource errors and cleanup remain unchecked in Phases 14/15 and their negative tests in Phase 16.
+- [x] Document installation, launch command, driver requirements, memory configuration, and recovery to the DOS prompt.
+  - Status: dos_boot_steps.txt documents partition-aware installation, verified QEMU geometry, minimal configuration, CWSDPMI/no-paging commands, diagnostic scope, expected production failure, source/licensing, prompt recovery and backups. builds/phase3-runtime/ preserves actual DOS screens/logs and build/filesystem/hash evidence.
+
+Phase 3 completion boundary:
+All nine runtime-foundation items are verified under the user-approved corrected scope. The former five combined items were narrowed to their tested runtime outcomes, not marked complete as production features. Their outstanding requirements remain unchecked in Phases 4/7/8/14/15/16/17 as mapped above. This is Phase 3 runtime completion, not graphical/playable-game completion. Stop for review; do not begin Phase 4 without explicit permission.
+
+Phase 4. Real VESA detection and mode initialization
+- [x] Implement real VBE controller and mode queries through DJGPP/DPMI BIOS services.
+  - Status: real-mode INT 10h functions 4F00/4F01/4F02/4F03/4F04 through __dpmi_int and allocated conventional buffers; extender readiness checks the actual host. No fabricated controller detection/query/set success remains.
+- [x] Validate VESA signature/version, supported-mode list, query return codes, and mode attributes.
+  - Status: VESA 2.0+ signature/version/memory and bounded far mode list; exact AX success; supported color/graphics/LFB, planes/depth/direct-color checks. Host tests reject malformed/unsupported metadata, malformed mode lists and failed BIOS calls.
+- [x] Use a correctly sized/layout-checked VBE BIOS information block and DOS-accessible transfer storage.
+  - Status: compile-time checked 512-byte controller and 256-byte mode arrays, fixed-offset little-endian decoding, conventional DPMI allocation/transfer/release. VBE 2 and VBE 3 linear pitch/mask variants are tested without struct-packing assumptions.
+- [x] Correct the 16-bit mode selection and choose modes from validated BIOS metadata.
+  - Status: corrected standard candidates to 0x111/0x114/0x117; actual selection enumerates advertised modes and accepts only validated RGB565 LFB metadata. Tests use nonstandard IDs and reject 8-bit/RGB555/invalid pitch/mask/address candidates.
+- [x] Support a real 640x480x16 graphics path and prefer 800x600x16 when supported and affordable.
+  - Status: actual DOS 6.22/CWSDPMI r7/Pentium/16 MB/no-paging tests display both resolutions. BIOS modes 0x111/0x114 report pitches 1280/1600. Captured VGA output matches all 307200/480000 expected pixels respectively, with zero mismatches. Optional 1024x768 is not hardware-certified.
+- [x] Implement actual mode setting, including linear-framebuffer selection when available, and verify BIOS success.
+  - Status: 4F02 with bit 14 followed by 4F03 verification; mismatched current mode or failed BIOS status triggers cleanup/fallback, not ready. Actual graphical mode captures prove this is not just metadata.
+- [x] Use real pitch, dimensions, pixel depth, color masks, and physical/banked framebuffer metadata.
+  - Status: BIOS RGB565 masks and LFB physical address drive checked pitch-sized backbuffer/mapping; actual QEMU std reports LFB 0xFD000000 and RGB 5@11/6@5/5@0. Banked modes are deliberately excluded rather than fabricated; hardware requirements are documented.
+- [x] Implement DPMI mapping/access to video memory and a working display-present path.
+  - Status: releasable managed block (0501), device mapping (0508), bounded LDT selector and movedata presentation/readback; releases use free selector/0502. Avoids CWSDPMI's unsupported 0801 service. Maps/presents all pitch*height bytes and proves visible output; write_to_screen invokes presentation while FALSE stays offscreen.
+  - Dependency correction: completes the real video-mapping requirement previously deferred from Phase 3, without certifying the remaining GUI or game renderer.
+- [x] Handle lack of a usable linear framebuffer with either a tested banked implementation or a clearly documented hardware restriction and explicit error.
+  - Status: requires RGB565 LFB, VBE 2.0+ and BIOS state save/restore, plus host 0508 support. Banked-only hardware is explicitly unsupported. Host tests reject absent LFB; actual QEMU cirrus lacks the requested state service and cleanly fails with nonzero/text prompt. Do not claim broad real-hardware compatibility.
+- [x] Try validated supported modes on failure and report failure if none can display the game.
+  - Status: same-profile alternative modes and lower-resolution fallback are tested, including failed mode set/mapping/allocation/readback/current-mode verification. No viable candidate returns failure with resources unwound; a RAM-only allocation is never ready. These are display-path tests, not gameplay.
+- [x] Save/restore the original display state and release BIOS buffers/video mappings on exit and failed startup.
+  - Status: save hardware/BDA/DAC/VBE state and legacy text pages; explicitly reset original mode before state restore. Actual Q restores mode 3, DOS screen contents and zero exit; repeated launch/idempotent init/shutdown and post-display RTCHECK pass. Failed restore/release retains ownership for retry in host tests; original graphical pixel contents are not backed up.
+
+Phase 4 completion boundary:
+All eleven display-lifecycle requirements are implemented and verified through host behavioral/sanitizer tests, clean production DJGPP linkage and a separate actual DOS visible-display diagnostic. The production candidate remains honestly gated until game resource/input/integration requirements are ready. Artifacts and source distribution are in builds/phase4-dos/; the installed candidate is SHA-256 70104ba29fc2da1ab0fb5414336bb5b2a6d77d07c3950ac78ba648008674f801. Stop for user review; do not begin Phase 5 without explicit permission.
+
+Phase 5. Framebuffer correctness and rendering primitives
+- [x] Separate the offscreen drawing buffer from the actual display target and present completed updates without visible corruption.
+  - Status: RAM pixels remain separate from the managed LFB mapping. Exact final RNDCHECK real DOS output matches all 307200/480000 reference pixels at 640/800, including primitives, icons and ASCII text; full mapped readback also passes.
+- [x] Check allocation failures, dimensions, pitch, supported pixel formats, and multiplication overflow before drawing.
+  - Status: every primitive validates owned size/pitch/RGB565 metadata. Signed-coordinate limits, overflow, pitched padding and failure-atomic reallocation are sanitizer-tested; failed presentation/readback rejects corrupted allocation metadata without draining pending dirtiness.
+- [x] Bound every pixel, rectangle, overlay, and HUD access against the allocated buffer.
+  - Status: world rectangles clip before lookup/drawing; terrain/city/unit/selection share viewport-relative coordinates. HUD height saturates at zero map height for buffers <=48 pixels tall. Native tests cover off-origin overlays, tiny dimensions, absent maps, negative requests and INT_MIN/INT_MAX coordinates.
+- [x] Encode colors using the selected mode's channel masks and reject unsupported formats.
+  - Status: one checked RGB encoder accepts only validated 16-bit 5@11/6@5/5@0 with no reserved mask, rejects unsupported layouts/components, and supplies the standard palette and swamp color without truncating RGB888 constants.
+- [x] Provide clipped fill/blit/line/text/icon primitives usable by the map and dialogs.
+  - Status: signed clipping, aligned source/destination clipping, opaque/keyed transparency and snapshot-correct self-overlap are tested. Actual map/HUD use bounded operations; adapting remaining generic sprite/dialog hooks is later resource/UI work.
+- [x] Implement bitmap text rendering and font resources suitable for both required resolutions.
+  - Status: original embedded GPL-2.0-or-later printable-ASCII 5x7 glyphs, 6x8 cells, scale-2 readable labels at both real resolutions. No external font data is copied; unsupported bytes use '?'. Localization and tileset font-name/dialog/report integration remain later requirements.
+- [x] Make initialization/reinitialization and teardown idempotent and leak-free.
+  - Status: native allocation-failure/reinitialization/double-destroy and display lifecycle suites pass ASan/UBSan. Font storage is static. Actual no-paging repeated RNDCHECK/Q restores mode 3 and DOS contents; original RTCHECK passes after display teardown.
+- [x] Respect write_to_screen and partial-update contracts instead of always clearing/redrawing the entire software buffer.
+  - Status: FALSE draws requested visible world tiles offscreen without presentation; TRUE flushes accumulated changes. Unrelated map pixels remain unchanged, selected-tile HUD changes are separately bounded/cached, and redraw no longer resets selection. Viewport/movement controls remain coupled pending playable-map work.
+- [x] Add dirty-region presentation and coalesce redraws so repeated commands/state updates do not redraw the whole screen unnecessarily.
+  - Status: actual changed pixels form one bounding rectangle; presentation copies visible row spans, clears dirtiness after successful writes and initially synchronizes pitch padding once. Actual DOS 4x4=32 bytes, repeated clean present=0, nearby coalesced updates=12; identical native composed-tile/HUD redraws are clean. Distant changes may copy unchanged pixels inside the union, not an exact sparse list.
+
+Phase 5 completion boundary:
+All nine rendering-foundation requirements are verified by native behavioral/sanitizer tests, a clean 28-module DJGPP production build, 5/5 integrated backend checks, source distribution and a separate actual no-paging DOS RNDCHECK. Evidence is in builds/phase5-dos/. The production candidate remains gated: this does not certify tileset loaders, a playable map/HUD/dialog/event loop, audio, localization or whole-game 16 MB fit. Stop for user review; do not begin Phase 6 without explicit permission.
+
+Phase 6. Graphics resources and playable map display
+- [ ] Implement a usable graphics-resource path compatible with the selected tileset.
+  - Status: graphics.c advertises xpm but load_gfxfile() and crop_sprite() return NULL. client/tilespec.c exits fatally when a referenced graphics file cannot load.
+  - Assets: the RPM provides Trident, Trident with shields, and MacroIsoTrident tilesets, 20 sprite specs, and 21 runtime XPMs, all byte-identical to existing source data. File references resolve; a working DOS loader/conversion path must still preserve atlas tags, transparency, and one-/two-character pixel codes.
+- [ ] Either support packaged tileset sprites or provide a complete simplified DOS graphics/resource adapter that satisfies shared client expectations.
+  - Status: a full upstream sprite pipeline is not mandatory, but NULL placeholders cannot remain in required startup paths.
+- [ ] Implement sprite/icon allocation, cropping or its supported equivalent, caching, and release with correct ownership.
+- [ ] Draw terrain from a valid initialized game map and distinguish unknown, explored, and currently visible tiles.
+  - Status: no playable map/session source is present in the DOS scaffold; synthetic fallback colors must not masquerade as live game state.
+- [ ] Display terrain improvements and strategically important features such as roads, railroads, irrigation, mines, rivers, resources, pollution, and fortifications.
+- [ ] Distinguish unit types, owners, focus, stacks, and relevant status, not merely the presence of a green square.
+- [ ] Distinguish city ownership and show readable city names, sizes, and relevant status.
+- [ ] Convert world coordinates to viewport-relative screen coordinates for all markers and selections.
+  - Status: mapview.c renders terrain using viewport indices but unit/city/selection overlays use world coordinates. Scrolling misplaces them and can cause selection writes outside the buffer.
+- [ ] Keep the selected tile/focused unit independent of redraw and viewport position.
+  - Status: every map redraw overwrites selection with center + (3,2), and SELECT_TILE changes coordinates after acting.
+- [ ] Implement map wrapping/normalization and consistent map-to-screen/screen-to-map transforms using existing map helpers.
+  - Status: current rectangular clamping and unnormalized rendering do not preserve wrapped-map behavior.
+- [ ] Make tile_visible_mapcanvas() and border visibility describe the visible viewport, not the whole map.
+- [ ] Implement correct centering, scrolling, border clipping, and redraw behavior for small maps and map edges.
+- [ ] Implement overview/minimap dimensions, drawing, selection/view rectangle, and refresh.
+  - Status: overview hooks are empty; the current overview command calls request_toggle_map_grid() instead of showing an overview.
+- [ ] Display a readable HUD with year/turn, player/economy/research/government data, selected tile, unit movement/HP/activity, and city details.
+  - Status: update_info_label, update_unit_info_label, indicator, timeout, and turn-button hooks are empty.
+- [ ] Update map/HUD/overview after authoritative state changes, including movement, combat, city changes, visibility updates, and turn transitions.
+- [ ] Provide route/target and city-worker overlays needed for supported actions.
+  - Status: put_cross_overlay_tile, put_city_workers, draw_segment, and related functions are empty.
+
+Phase 7. Persistent event loop and input
+- [ ] Replace the scripted turn sequence with a persistent user-driven DOS event loop and an explicit quit path.
+  - Status: gui_main.c:ui_main() queues eight predefined commands, drains them, redraws, and returns. It does not poll input or wait for a game.
+  - Dependency correction: retain production startup/input-wait validation formerly bundled into Phase 3. Replace the readiness gate only after required GUI/resources/input are functional; RTCHECK's READY/Q loop is not production implementation.
+- [ ] Poll real keyboard events and distinguish ASCII keys from extended scan codes.
+  - Status: raw scan values 72/80/77/75 overlap printable characters; the current mapping alone is not a working arrow-key reader.
+- [ ] Support keypad/diagonal movement, modifiers, focus cycling, selection, cancellation, end-turn, and command/menu navigation.
+- [ ] Separate viewport/cursor navigation from movement orders for the focused unit.
+  - Status: current movement commands both invoke key_move_* and change the viewport locally before authoritative results are received.
+- [ ] Route supported actions through genuine client controls and the offline engine bridge, with correct client-state/ownership checks.
+- [ ] Implement a usable GUI interaction layer for buttons, lists, dialogs, text entry, focus, and confirmation prompts.
+- [ ] Add DOS mouse-driver detection and mouse event handling when a driver is available.
+  - Status: no mouse acquisition or click handling exists. Convert pixel positions to correct tile/UI coordinates and provide a visible cursor.
+- [ ] Keep every required operation accessible by keyboard when no mouse driver is installed.
+- [ ] Handle key repeat and queue capacity predictably without silently losing important actions.
+  - Status: the 32-slot command queue currently discards the oldest command on overflow.
+- [ ] Interleave input, local engine/packet work, timers, audio service, and presentation without starving any subsystem.
+- [ ] Limit idle CPU use and keep the GUI responsive during AI turns, modal dialogs, and large redraws.
+- [ ] Define safe cancellation/quit behavior separately from action cancellation and guard accidental unsaved-game loss.
+
+Phase 8. New-game, load-game, and session lifecycle
+- [ ] Provide an offline startup screen with new game, load game, options, and quit.
+  - Status: connectdlg.c only prints connection/autoconnect stub messages.
+- [ ] Initialize rulesets, map generation or scenario loading, players, nations, and AI opponents.
+- [ ] Expose the supported single-player setup options, including nation/leader, map settings, and AI configuration.
+  - Status: popup_races_dialog() and its selection/update hooks are empty.
+- [ ] Complete local join/start/state transitions and populate the client cache before enabling gameplay controls.
+  - Dependency correction: retain complete production startup formerly bundled into Phase 3, including actual rulesets/map/AI and the DOS GUI. Diagnostic join/reset success alone is insufficient.
+- [ ] Replace socket/select-driven waits with a tested local scheduler while preserving engine turn and packet-order behavior.
+  - Status: server/sernet.c and common/connection.c assume socket servicing; server turns cannot simply run as a blocking desktop loop inside ui_main.
+- [ ] Verify unit focus, selection, and command availability throughout pregame, running, AI processing, and game-over states.
+- [ ] Implement save, autosave, load, overwrite confirmation, and useful read/write error reporting.
+  - Status: reusable server/savegame.c exists, but no DOS session/UI path invokes it for a playable game.
+- [ ] Preserve savegame state faithfully, including players/AI, rulesets, units, cities, research, turn, and visibility.
+- [ ] Handle victory, defeat, retirement, and end-of-game results with a usable summary and return-to-menu/exit path.
+- [ ] Start another game or load another save without stale globals, callbacks, queues, resources, or leaked state.
+
+Phase 9. Unit actions and turn controls
+- [ ] Select the intended unit from stacked units and maintain focus/next-unit/wait/done behavior.
+  - Status: popup_unit_select_dialog() and unit-icon hooks are empty.
+- [ ] Implement movement, goto/route selection, patrol where supported, and cancellation with authoritative movement-point feedback.
+- [ ] Implement founding/naming cities and the required confirmation/text-entry path.
+  - Status: mapctrl.c:popup_newcity_dialog() is empty.
+- [ ] Implement supported settler/worker activities, roads/railroads, irrigation, mines, terrain work, pollution cleanup, and connect routes.
+- [ ] Implement fortify/sentry, auto-explore/automation where supported, home-city assignment, upgrade, and disband actions.
+- [ ] Implement transport loading/unloading and legal unit/city target selection.
+- [ ] Implement combat/pillage actions and visible success/failure/state feedback.
+  - Status: pillage and unit-connect dialogs are empty; optional animations may be omitted, but final HP/state redraws must work.
+- [ ] Implement caravan/freight choices such as trade routes and wonder assistance.
+  - Status: popup_caravan_dialog() and its lifecycle are placeholders.
+- [ ] Implement diplomat/spy choices, costs, targets, confirmations, bribery/incitement, and sabotage.
+  - Status: related dialogs in dialogs.c are empty.
+- [ ] Implement a visible end-turn control and keyboard action with correct enabled/disabled state and processing feedback.
+- [ ] Verify end-turn reaches the authoritative engine, runs AI/city/unit processing, advances the year, and returns updated control to the player.
+  - Status: calling key_end_turn() in a scripted queue does not prove any of these outcomes.
+
+Phase 10. City management and production
+- [ ] Implement city dialog opening, closing, refresh, and safe invalidation when a city is removed or changes ownership.
+  - Status: every implementation in citydlg.c is empty.
+- [ ] Show city population, food, production, trade, happiness, upkeep, improvements, and supported units.
+- [ ] Implement worker/specialist assignment and its map display with authoritative updates.
+- [ ] Implement production selection/change, buy/rush production, improvement sale, and the required costs/confirmations.
+- [ ] Implement city naming and supported city/unit management controls.
+- [ ] Implement production worklists and their report/editor/update path.
+  - Status: wldlg.c only contains an empty update hook.
+- [ ] Implement a usable city report/list and navigation to cities.
+  - Status: cityrep.c is entirely placeholder code.
+
+Phase 11. Research, economy, government, diplomacy, and endgame
+- [ ] Implement research selection, current progress, goals, and readable technology availability.
+  - Status: science/report hooks in repodlgs.c are empty.
+- [ ] Implement tax/science/luxury rates with legal totals and authoritative confirmation.
+  - Status: ratesdlg.c is empty.
+- [ ] Implement economy and active-unit reports, including useful upkeep and maintenance information.
+- [ ] Implement revolution/government selection and status feedback.
+  - Status: government/revolution dialogs and HUD indicators are empty.
+- [ ] Implement player/intelligence information needed for interacting with AI opponents.
+  - Status: plrdlg.c and inteldlg.c are placeholders. Offline scope excludes human networking, not AI diplomacy.
+- [ ] Implement AI diplomacy meetings, clauses, treaty acceptance/cancellation, and correct dialog lifecycle.
+  - Status: diplodlg.c handlers are all empty.
+- [ ] Implement spaceship information and assembly/launch controls if using rulesets with the space-race victory.
+  - Status: spaceshipdlg.c contains only empty popup/popdown/refresh functions.
+- [ ] Make all supported ruleset victory conditions and relevant reports accessible from the DOS UI.
+  - Status: feature cuts must be explicit scope decisions, not silent omissions of actions required by the selected ruleset.
+
+Phase 12. Menus, messages, help, and options
+- [ ] Implement menus/commands for the supported gameplay, reports, session operations, and options.
+  - Status: menu.c:update_menus() is empty.
+- [ ] Display game notifications, action rejection reasons, errors, and processing feedback inside the graphical UI.
+  - Status: chatline.c and messagewin.c drop messages; stderr output is not a usable graphical message log.
+- [ ] Implement message history, scrolling, selection, and go-to-location notification actions.
+- [ ] Implement modal/nonmodal notification dialogs without blocking engine/input servicing.
+- [ ] Provide usable help/rules/action descriptions and navigation to cities/targets needed for play.
+  - Status: helpdlg.c, finddlg.c, and gotodlg.c are placeholders.
+- [ ] Implement relevant client options and persistence using DOS-safe configuration storage.
+- [ ] Make menu/dialog layouts, labels, focus indicators, and controls readable at 640x480 and 800x600.
+- [ ] Audit every generic GUI hook and classify it as implemented, safely optional, or explicitly unsupported.
+  - Status: no required hook may silently do nothing, return an invalid pointer, or report success for unavailable functionality.
+
+Phase 13. DOS sound and music
+- [ ] Preserve an honest no-audio mode with explicit reporting and no startup/gameplay failures.
+- [ ] Implement actual compatible DOS audio initialization, device detection, playback, stop/wait, and shutdown for the chosen practical hardware path.
+  - Status: audio_dos.c initializes successfully without probing hardware and returns TRUE for non-repeating file playback without playing anything.
+- [ ] Select the DOS plugin automatically when appropriate or expose a working explicit selection option.
+  - Status: audio.c registers "dos" but its automatic real-plugin selection path does not try it.
+- [ ] Support packaged sound effects/music through a documented DOS-compatible format/device strategy.
+  - Status: SB-compatible playback, FM, or General MIDI are possible choices; implementing every suggested hardware family is not mandatory.
+  - Assets: extracted stdsounds.soundspec and 15 PCM WAVs are new relative to source data. All 48 active tags resolve. Samples span 8-/16-bit, mono/stereo, and 11025/22050/44100 Hz; music_start is amb18.wav, not a supplied MIDI/FM track. Decoding/conversion and real playback remain unchecked.
+- [ ] Validate repeat/music playback and stop/restart behavior through session transitions.
+  - Status: repeat playback currently returns FALSE and stop/wait/shutdown are empty.
+- [ ] Implement the bell if supported and report playback/device failures accurately.
+  - Status: sound_bell() is empty, so the turn-bell special case also reports success without output.
+- [ ] Manage any interrupt/DMA/device resources safely and fall back to silence when hardware is absent or unusable.
+  - Status: functional audio is a completion/preservation goal where practical, not a blocker for the first playable no-audio build.
+
+Phase 14. DOS filesystem, resources, and OS portability
+- [ ] Package all required rulesets, nation data, graphics/font resources, help, and configured audio resources with the executable.
+  - Assets: assets/freeciv-1.14.1-rh9/usr/share/freeciv contains 161 runtime files (5,959,034 bytes), including 90 rulesets and six scenarios. No standalone fonts are supplied despite tileset X11 font names. Keep Linux binaries/desktop integration out of the DOS package and preserve resource attributions/licensing.
+- [ ] Provide DOS-compatible data/config/save lookup rather than relying on host installation paths or ~/.freeciv.
+  - Status: current config.h/shared path handling still contains Unix-style default data paths.
+  - Dependency correction: validate actual packaged ruleset/graphics/font lookup when launched from A:\, C:\, and C:\FREECIV; Phase 3's marker lookup does not satisfy this requirement.
+- [ ] Make filenames and internal resource references work on plain DOS 6.22 FAT/8.3 filenames, or explicitly package and validate an LFN solution.
+  - Status: renaming long data filenames alone is insufficient; tilespec/ruleset/include references must resolve to the packaged names too.
+  - Assets: 125 of 161 supplied runtime filenames are not literal 8.3 names; isotrident and stdsounds are also long directory names. Keep the extraction unchanged and use a separate future DOS staging tree. No case-insensitive full-path collisions were found; no filename conversion or LFN validation has been done.
+- [ ] Handle DOS path separators, drive letters, case-insensitive lookup, environment variables, and read-only/missing directories consistently.
+- [ ] Validate writable config/save/log/temp locations, filename limits, disk-full behavior, and clean failure on unavailable drives.
+  - Dependency correction: retain missing/unreadable actual game-resource failures formerly bundled into Phase 3; fixture and boot-drive failures are only foundation evidence.
+- [ ] Audit all linked client/common/server/AI platform calls for DJGPP availability and real runtime behavior.
+  - Status: focus on filesystem, timing, signals, socket/select remnants, and terminal/process assumptions; do not require unnecessary Linux compatibility layers.
+- [ ] Supply real timing implementations where required and exclude the timer no-ops from dos_client_stubs.c.
+- [ ] Verify compression/library dependencies and supported save/resource formats on the DOS build.
+- [ ] Define and test a practical text encoding/font strategy for game names, labels, and input.
+  - Status: translated UI is not a minimum requirement if NLS remains deliberately disabled, but shipped text must remain readable.
+- [ ] Keep platform compatibility work guarded so shared rules and supported non-DOS builds retain their intended behavior.
+
+Phase 15. Reliability and minimum-hardware performance
+- [ ] Measure total conventional/protected-mode memory use on a Pentium 100 / 16 MB configuration.
+  - Status: include client cache, authoritative engine, AI, rulesets, graphics buffers, fonts/sprites, saves, and audio; executable size alone is not a memory test.
+  - Dependency correction: retain complete-game 16 MB startup/fit formerly bundled into Phase 3. Disable paging for physical-memory acceptance; diagnostic join plus 1 MiB heap success is not whole-game evidence.
+- [ ] Define a supported map/AI/resolution profile that actually fits and runs on minimum hardware.
+  - Status: do not claim unlimited map sizes or 1024x768 support as minimum-hardware requirements.
+- [ ] Benchmark input latency, map redraw/scroll, AI turns, and save/load for that profile.
+- [ ] Optimize full-screen clearing, per-pixel loops, resource caching, redundant redraws, and update presentation where measurements show a need.
+- [ ] Test long sessions, repeated turns, city/unit removal, dialog churn, new-game/load cycles, and repeated resolution initialization for leaks and stale pointers.
+- [ ] Handle allocation, VBE, device, file, and engine errors explicitly and preserve actionable diagnostics.
+  - Dependency correction: retain production low-memory/resource error handling and cleanup formerly bundled into Phase 3; loader/fixture failures do not certify initialized-game recovery.
+- [ ] Restore text mode, cursor/input state, sound resources, and DPMI/video allocations on normal exit and recoverable failure.
+- [ ] Ensure failed startup and unsupported hardware never leave an invisible "successful" client or a hung graphics-mode session.
+
+Phase 16. Behavioral tests and DOS validation
+- [ ] Retain the source-presence smoke check only as scaffolding coverage and add actual behavioral tests.
+  - Status: grep checks cannot detect stub BIOS calls, incorrect mode IDs, ABI mismatches, memory overwrites, or absent gameplay.
+- [ ] Test VBE metadata parsing/mode selection, pitch/color handling, clipping, allocation failure, buffer bounds, and cleanup.
+- [ ] Test map-to-screen transforms, wrapping, off-origin unit/city overlays, selection persistence, visibility, small maps, and map edges.
+- [ ] Test keyboard extended events, command-queue behavior, mouse/no-mouse operation, and distinction between scrolling and unit movement.
+- [ ] Test offline startup, packet/action delivery, client/engine state separation, AI turns, save/load, and repeated session resets.
+- [ ] Perform visible DOS graphics validation with the real executable, not just a headless boot prompt or .COM demonstration.
+- [ ] Exercise real user input in DOS: move a unit, found/manage a city, choose research/rates/production, interact with AI, and end turns.
+- [ ] Verify actions change authoritative state and that corresponding map/HUD/messages update correctly.
+- [ ] Save, exit to DOS, relaunch, load, and continue the same game successfully.
+- [ ] Test missing/unsupported VESA modes, insufficient memory, missing data, absent mouse/audio drivers, corrupt saves, and file-write failures.
+- [ ] Test 640x480 on minimum hardware and 800x600 where available; record actual results and runtime configuration.
+- [ ] Validate the declared real-hardware compatibility beyond QEMU, or explicitly limit release claims to tested environments.
+- [ ] Confirm supported non-DOS behavior is preserved by the DOS compatibility and offline integration changes.
+
+Phase 17. Definition of done and release documentation
+- [ ] A clean, documented build produces the functional 32-bit DOS game without ABI/gameplay stubs.
+- [ ] DOS 6.22 launches the packaged executable and runtime/data from the documented dual-drive or installation setup.
+- [ ] A real validated VESA display shows a readable map, HUD, and usable controls.
+- [ ] An offline game with AI can be created or loaded without sockets or an external network server.
+- [ ] Required unit, city, economy, research, government, diplomacy, and victory actions work through authoritative game logic.
+- [ ] Keyboard-only play works; mouse interaction works when a supported driver is present.
+- [ ] Multiple real turns, save/reload, game completion, and clean return to DOS pass without critical defects.
+- [ ] The supported minimum-hardware profile fits in 16 MB and has measured usable responsiveness.
+- [ ] Audio plays on the declared supported hardware path, or documented limitations and honest no-audio fallback apply.
+- [ ] Ship installation/runtime instructions, controls, supported modes/devices/map limits, troubleshooting, and save/config paths.
+- [ ] Reconcile outdated spec/checklist/progress claims after implementation using actual build/runtime evidence.
+  - Status: superseded goals/checklists and build evidence are archived in old/. The current spec defines requirements and this checklist records review corrections; future completion claims must be backed by actual build/runtime results.
+- [ ] Include required license notices and corresponding-source/build information with any distributed port.
+
+Notes:
+- [x] means the narrowly stated item is supported by current source/artifact evidence; it does not certify DOS runtime operation.
+- [ ] means implementation, correction, design resolution, or direct validation is still required.
+- The priorities are: resolve the offline architecture and real linkage, establish DOS/DPMI/video execution, implement a real event loop and readable UI, complete gameplay/session features, then validate and tune.
+- Networking/multiplayer, a 16-bit rewrite, mandatory 1024x768, all historical audio devices, decorative animations, and a full upstream sprite pipeline are not added requirements.
+- Simplified graphics and optional animation/sound cuts are acceptable only when the resulting client still conveys all information and actions needed for the supported ruleset.
+- Booting DOS, linking no-op functions, allocating a RAM framebuffer, calling a client control hook, or passing a source-text smoke check must not be counted as end-to-end playability.

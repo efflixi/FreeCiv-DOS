@@ -1,0 +1,25 @@
+PASS MEMORY: allocate 1 MiB protected-mode heap
+PASS MEMORY: all 1 MiB read/written and heap released
+PASS TRANSFER: DPMI allocate conventional DOS buffer
+INFO TRANSFER segment=0x2601 selector=0x00c7 bytes=512
+PASS TRANSFER: dosmemput/dosmemget roundtrip all 512 bytes
+PASS TRANSFER: DPMI conventional buffer released
+INFO DATA runtime-test fixture lookup: c:/freeciv/DATA\RUNTIME.DAT
+PASS DATA: exact runtime-test marker read and fixture closed
+PASS ENGINE: open actual isolated authoritative local session
+PASS ENGINE: join plus pong submitted as requests 1 and 2
+PASS ENGINE: authoritative join accepted inside request 1
+PASS ENGINE: real join capability compatibility
+INFO ENGINE accepted capability: +1.14.0 conn_info team
+INFO ENGINE counters starts=2 finishes=2 replies=1 client=2
+PASS ENGINE: 2 starts/2 finishes/1 join; request counters and queues
+PASS ENGINE: authoritative established player/request=2; no map
+PASS ENGINE: client/common game state remains separate
+INFO ENGINE authoritative last_request=2 players=1
+PASS ENGINE: clean idempotent teardown; client state preserved
+PASS ENGINE: reopen confirms clean authoritative reset
+INFO ENGINE no rulesets/assets loaded; gameplay/map/AI untested
+INIT SUCCESS: diagnostic DOS/DPMI/memory/data/local-engine only
+READY RTCHECK (not production GUI readiness)
+WAIT press Q to quit; diagnostic remains running
+

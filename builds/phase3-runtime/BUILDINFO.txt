@@ -1,0 +1,70 @@
+Freeciv Phase 3 DOS runtime component evidence
+
+Installed diagnostic: RTCHECK.EXE, 5073995 bytes
+SHA-256: 043aaaa4c00a3abea8284260e58a596efb29a65b258adf9424f8ec6050190e48
+The installed production candidate is the unchanged builds/phase2-dos executable.
+The diagnostic is not linked into the normal GUI target and does not certify it.
+
+Toolchain: DJGPP GCC 12.2.0; GNU Binutils 2.30.
+Configuration: config.h copied from the verified Phase 2 DOS configuration.
+SHA-256: 9962e691c28e461c8d0b559116e1fe3cdd2f4d640d03a30f3edb766839af167a
+
+Reproduce from the project directory, using an absolute nonexistent output
+directory outside the source, and the configuration directory of a completed
+build-dos.sh build:
+
+CC=/home/efflixi/djgpp/bin/i586-pc-msdosdjgpp-gcc \
+LD=/home/efflixi/djgpp/bin/i586-pc-msdosdjgpp-ld \
+NM=/home/efflixi/djgpp/bin/i586-pc-msdosdjgpp-nm \
+OBJCOPY=/home/efflixi/djgpp/bin/i586-pc-msdosdjgpp-objcopy \
+sh freeciv-1.14.1/client/offline/build-runtime-check.sh \
+  /tmp/freeciv-runtime-new /absolute/freeciv-dos-build/build
+
+The actual clean rebuild used:
+  /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase3-runtime-rebuild
+  /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-build/build
+Its uppercase RTCHECK.EXE is retained here as RTREBLD.EXE:
+SHA-256: 422dcc369248a03fe1014b473805ced14f1bbfee7c94f15cea179bc2ef8c52f8
+That exact rebuilt executable also passed actual DOS 6.22 / 16 MB / no-paging
+initialization, real engine checks, interactive Q, and successful prompt return.
+It was staged temporarily for this test; the installed RTCHECK was not replaced.
+The builder's intended deliverable is uppercase RTCHECK.EXE, not its toolchain's
+lowercase sibling. Different build hashes are recorded, not treated as equivalent.
+
+Effective compile flags:
+  -O2 -g -std=gnu89 -Wall -Wextra -Wstrict-prototypes
+  -Werror=implicit-function-declaration -Werror=incompatible-pointer-types
+  -UNDEBUG -fcommon -DHAVE_CONFIG_H -DFC_LOCAL_ENGINE
+No additional CPPFLAGS/LDFLAGS. GCC links real diagnostic/queue/session/common
+objects and the symbol-isolated engine with -lm; ld -r and objcopy isolate engine
+symbols. Final diagnostic source compiles without diagnostic-specific warnings.
+Existing upstream common/server/AI warnings remain in rebuild.log; no unrelated
+source cleanup was performed. compile.log preserves the original build history.
+runtime_check.c and its builder are included in offline Makefile.am/Makefile.in
+distribution inputs; neither enters the production GUI library.
+
+Actual DOS evidence:
+- final-boot-client.txt: revised startup, DOS version, production --version,
+  expected unavailable-GUI diagnostic and nonzero exit.
+- missing-dpmi.txt: actual production loader without a DPMI host.
+- initial-boot.txt: original unpartitioned hard disk did not expose C:.
+- missing-drive.txt: revised floppy reports missing C: and stays at A:\>.
+- dos-runtime.log / dos-no-paging16.log: real-service checks and Q success.
+- dos-root.log / dos-from-a.log / dos-from-install.log: fixture path checks.
+- dos-missing-data.log / missing-data.txt: missing marker, failure/nonzero.
+- low-memory.txt: 2 MB without paging, "Load error: no DPMI memory", nonzero.
+- dos-rebuilt.log / rebuilt-dos.txt: independently rebuilt binary DOS execution.
+- verification.json: image/runtime/source hashes and preservation counts.
+- fat-check.txt / partition-check.txt: read-only filesystem/partition checks.
+
+Tests use QEMU 8.2.2, pc machine/TCG/Pentium, 16 MB, no networking,
+floppy boot and explicit 521/16/63 untranslated IDE geometry. A: CONFIG loads
+COUNTRY=001, no HIMEM/EMM386. CWSDPMI r7 is unmodified. No-paging tests use
+CWSDPMI -s- immediately before the tested application; other auto-load tests
+retain the supplier's default paging policy and are not memory-fit evidence.
+
+Scope: real DOS/DPMI/32-bit 1 MiB heap, real-mode DOS interrupt, 512-byte DOS
+transfer buffer, test fixture, isolated authoritative join/request/reset/teardown.
+No graphics/video mapping, actual rulesets/fonts/images, map/AI turns, sound,
+production event loop, full gameplay, or whole-game 16 MB fit is certified.
+The normal GUI failure gate remains required. No Phase 4 work was started.

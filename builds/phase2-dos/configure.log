@@ -1,0 +1,189 @@
+checking build system type... x86_64-pc-linux-gnux32
+checking host system type... i586-pc-msdosdjgpp
+checking target system type... i586-pc-msdosdjgpp
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i586-pc-msdosdjgpp-strip... i586-pc-msdosdjgpp-strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gawk... (cached) gawk
+checking for i586-pc-msdosdjgpp-gcc... i586-pc-msdosdjgpp-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... .exe
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether i586-pc-msdosdjgpp-gcc accepts -g... yes
+checking for i586-pc-msdosdjgpp-gcc option to enable C11 features... none needed
+checking whether i586-pc-msdosdjgpp-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of i586-pc-msdosdjgpp-gcc... gcc3
+checking how to run the C preprocessor... i586-pc-msdosdjgpp-gcc -E
+checking whether ln -s works... yes
+checking for i586-pc-msdosdjgpp-ranlib... i586-pc-msdosdjgpp-ranlib
+checking for i586-pc-msdosdjgpp-ar... i586-pc-msdosdjgpp-ar
+checking for i586-pc-msdosdjgpp-ld... i586-pc-msdosdjgpp-ld
+checking for i586-pc-msdosdjgpp-nm... i586-pc-msdosdjgpp-nm
+checking for i586-pc-msdosdjgpp-objcopy... i586-pc-msdosdjgpp-objcopy
+checking for uname... uname
+checking for strerror in -lcposix... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for sys/param.h... yes
+checking for sys/time.h... yes
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking for working alloca.h... no
+checking for alloca... yes
+checking for getpagesize... yes
+checking for vprintf... yes
+checking for working mmap... no
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking for ld used by GCC... i586-pc-msdosdjgpp-ld
+checking if the linker (i586-pc-msdosdjgpp-ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for argz.h... no
+checking for limits.h... yes
+checking for locale.h... yes
+checking for nl_types.h... no
+checking for malloc.h... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for feof_unlocked... no
+checking for fgets_unlocked... no
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... no
+checking for munmap... no
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for stpcpy... yes
+checking for strchr... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... no
+checking for __argz_count... no
+checking for __argz_stringify... no
+checking for __argz_next... no
+checking for iconv... no, consider installing GNU libiconv
+checking for nl_langinfo and CODESET... no
+checking for LC_MESSAGES... no
+checking whether NLS is requested... no
+checking for bison... bison
+checking version of bison... 3.8.2, ok
+checking for iconv... (cached) no, consider installing GNU libiconv
+checking for libcharset... no
+checking for nl_langinfo and CODESET... (cached) no
+checking for main in -lnls... no
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fcntl.h... yes
+checking for sys/time.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/utsname.h... yes
+checking for arpa/inet.h... no
+checking for netdb.h... no
+checking for netinet/in.h... yes
+checking for pwd.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/select.h... no
+checking for sys/signal.h... no
+checking for sys/socket.h... no
+checking for sys/termio.h... no
+checking for sys/uio.h... yes
+checking for termios.h... yes
+checking for an ANSI C-conforming const... (cached) yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking return type of signal handlers... void
+checking for working strcoll... no
+checking for working vsnprintf... no
+checking for fileno... yes
+checking for gethostname... yes
+checking for getpwuid... yes
+checking for gettimeofday... yes
+checking for inet_aton... no
+checking for select... yes
+checking for snooze... no
+checking for strerror... yes
+checking for strcasecmp... (cached) yes
+checking for strncasecmp... yes
+checking for strlcat... yes
+checking for strlcpy... yes
+checking for strstr... yes
+checking for usleep... yes
+checking for vsnprintf... yes
+checking for uname... yes
+checking for fdopen... yes
+checking for SIGPIPE... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating data/Makefile
+config.status: creating data/misc/Makefile
+config.status: creating data/trident/Makefile
+config.status: creating data/isotrident/Makefile
+config.status: creating data/default/Makefile
+config.status: creating data/civ1/Makefile
+config.status: creating data/civ2/Makefile
+config.status: creating data/scenario/Makefile
+config.status: creating data/nation/Makefile
+config.status: creating data/history/Makefile
+config.status: creating common/Makefile
+config.status: creating ai/Makefile
+config.status: creating client/Makefile
+config.status: creating client/offline/Makefile
+config.status: creating client/agents/Makefile
+config.status: creating client/include/Makefile
+config.status: creating client/gui-gtk/Makefile
+config.status: creating client/gui-gtk-2.0/Makefile
+config.status: creating client/gui-xaw/Makefile
+config.status: creating client/gui-win32/Makefile
+config.status: creating client/gui-dos-vbe/Makefile
+config.status: creating client/gui-stub/Makefile
+config.status: creating server/Makefile
+config.status: creating intl/Makefile
+config.status: WARNING:  '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-build/source/intl/Makefile.in' seems to ignore the --datarootdir setting
+config.status: creating po/Makefile.in
+config.status: WARNING:  '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-build/source/po/Makefile.in.in' seems to ignore the --datarootdir setting
+config.status: creating doc/Makefile
+config.status: creating undep.sh
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+config.status: executing fc_default-1 commands
+extending po/Makefile
+config.status: executing fc_default-2 commands
+silencing po/Makefile
+config.status: executing fc_default-4 commands
+modifying po/Makefile add-comments/escape
+config.status: executing fc_default-5 commands
+config.status: executing default commands
+removing cvs-deps from common/Makefile
+removing cvs-deps from client/Makefile
+removing cvs-deps from client/agents/Makefile
+removing cvs-deps from client/gui-dos-vbe/Makefile

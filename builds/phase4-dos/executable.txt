@@ -1,0 +1,1 @@
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/civclient.exe: MS-DOS executable, MZ for MS-DOS, COFF for MS-DOS, DJGPP go32 DOS extender

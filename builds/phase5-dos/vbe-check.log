@@ -1,0 +1,79 @@
+DOS VBE: no validated 800x600x8 RGB565 linear mode.
+DOS VBE: BIOS mode 0x0150, 800x600x16, pitch 1616, RGB565 LFB 0xe0000000 initialized.
+DOS VBE framebuffer: allocation size does not match buffer metadata.
+DOS VBE: presentation requires a valid active display.
+DOS VBE framebuffer: allocation size does not match buffer metadata.
+DOS VBE: presentation requires a valid active display.
+DOS VBE: BIOS mode 0x0151, 640x480x16, pitch 1296, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: BIOS mode 0x0150, 800x600x16, pitch 1632, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: BIOS controller query failed (AX=0x014f).
+DOS VBE: invalid signature/version/video memory; VESA 2.0+ is required.
+DOS VBE: invalid signature/version/video memory; VESA 2.0+ is required.
+DOS VBE: invalid real-mode mode-list pointer.
+DOS VBE: unterminated/oversized real-mode mode list.
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: BIOS mode query failed (AX=0x014f).
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: BIOS linear graphics mode set failed (AX=0x014f).
+DOS VBE: rejected failed mode 0x0150; trying another validated candidate.
+DOS VBE: BIOS mode 0x0152, 800x600x16, pitch 1616, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: BIOS mode 0x0151, 640x480x16, pitch 1296, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: rejected failed mode 0x0150; trying another validated candidate.
+DOS VBE: rejected failed mode 0x0152; trying another validated candidate.
+DOS VBE: rejected failed mode 0x0151; trying another validated candidate.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE framebuffer: unable to allocate backbuffer.
+DOS VBE: rejected failed mode 0x0150; trying another validated candidate.
+DOS VBE framebuffer: unable to allocate backbuffer.
+DOS VBE: rejected failed mode 0x0152; trying another validated candidate.
+DOS VBE framebuffer: unable to allocate backbuffer.
+DOS VBE: rejected failed mode 0x0151; trying another validated candidate.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: BIOS display-state save failed (AX=0x014f).
+DOS VBE: BIOS did not select the requested linear mode.
+DOS VBE: rejected failed mode 0x0150; trying another validated candidate.
+DOS VBE: BIOS did not select the requested linear mode.
+DOS VBE: rejected failed mode 0x0152; trying another validated candidate.
+DOS VBE: BIOS did not select the requested linear mode.
+DOS VBE: rejected failed mode 0x0151; trying another validated candidate.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: mapped video readback mismatch at 0.
+DOS VBE: rejected failed mode 0x0150; trying another validated candidate.
+DOS VBE: mapped video readback mismatch at 0.
+DOS VBE: rejected failed mode 0x0152; trying another validated candidate.
+DOS VBE: mapped video readback mismatch at 0.
+DOS VBE: rejected failed mode 0x0151; trying another validated candidate.
+DOS VBE: no usable RGB565 linear framebuffer mode; VESA 2.0+ LFB with BIOS state save/restore is required. Banked-only hardware is unsupported.
+DOS VBE: BIOS mode 0x0150, 800x600x16, pitch 1616, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: BIOS display-state restore failed (AX=0x014f).
+DOS VBE: original mode recovered; full state restore failed. Saved state retained for retry.
+DOS VBE: BIOS mode 0x0150, 800x600x16, pitch 1616, RGB565 LFB 0xe0000000 initialized.
+DOS VBE: unsupported requested display profile.
+DOS VBE: unsupported requested display profile.
+DOS VBE: presentation requires a valid active display.
+DOS VBE: presentation requires a valid active display.
+DOS VBE: no active display for metadata query.
+DOS VBE: invalid mode query argument.
+DOS VBE: invalid mode query argument.
+DOS VBE framebuffer: width overflows pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+PASS VBE BIOS metadata, enumeration, pitch/masks, presentation, fallback, allocation/failure cleanup, repeated lifecycle and state recovery

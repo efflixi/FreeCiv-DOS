@@ -1,0 +1,25 @@
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv --version
+Freeciv version 1.14.1 gui-dos-vbe
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv
+DOS VBE client unavailable: production graphics resources, input handling and GU
+I integration are incomplete. The separately tested VBE display is not a playabl
+e client.
+
+C:\FREECIV>if errorlevel 1 echo production_gate_preserved>gate5.ok
+
+C:\FREECIV>type gate5.ok
+production_gate_preserved
+
+C:\FREECIV>
+
+
+
+

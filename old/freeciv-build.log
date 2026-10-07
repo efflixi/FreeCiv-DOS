@@ -1,0 +1,359 @@
+make  all-recursive
+make[1]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1'
+Making all in data
+make[2]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data'
+Making all in misc
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/misc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/misc'
+Making all in isotrident
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/isotrident'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/isotrident'
+Making all in trident
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/trident'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/trident'
+Making all in default
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/default'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/default'
+Making all in civ1
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/civ1'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/civ1'
+Making all in civ2
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/civ2'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/civ2'
+Making all in scenario
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/scenario'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/scenario'
+Making all in nation
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/nation'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/nation'
+Making all in history
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/history'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data/history'
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data'
+make[2]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/data'
+Making all in intl
+make[2]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/intl'
+Making all in common
+make[2]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common'
+Making all in client
+make[2]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client'
+Making all in gui-dos-vbe
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/gui-dos-vbe'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/gui-dos-vbe'
+Making all in agents
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents'
+make[3]: Entering directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client'
+i586-pc-msdosdjgpp-gcc  -g -O2 -Wall   -o civclient.exe    audio_dos.o attribute.o citydlg_common.o cityrepdata.o civclient.o chatline_common.o climisc.o clinet.o control.o goto.o helpdata.o mapctrl_common.o mapview_common.o messagewin_common.o packhand.o plrdlg_common.o options.o repodlgs_common.o tilespec.o audio.o audio_none.o gui-dos-vbe/libguiclient.a ../common/libcivcommon.a  gui-dos-vbe/libguiclient.a ../common/libcivcommon.a  agents/libagents.a  
+audio_dos.o: In function `my_play':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/audio_dos.c:58: undefined reference to `sound_bell'
+civclient.o: In function `handle_packet_input':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:343: undefined reference to `handle_diplomacy_accept_treaty'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:331: undefined reference to `handle_diplomacy_cancel_meeting'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:339: undefined reference to `handle_diplomacy_remove_clause'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:335: undefined reference to `handle_diplomacy_create_clause'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:327: undefined reference to `handle_diplomacy_init_meeting'
+civclient.o: In function `set_client_state':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:671: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:680: undefined reference to `server_autoconnect'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:684: undefined reference to `gui_server_connect'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:662: undefined reference to `popdown_all_city_dialogs'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:663: undefined reference to `close_all_diplomacy_dialogs'
+civclient.o: In function `real_timer_callback':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:783: undefined reference to `update_turn_done_button'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:790: undefined reference to `update_timeout_label'
+civclient.o: In function `main':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:194: undefined reference to `ui_init'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:228: undefined reference to `ui_main'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:152: undefined reference to `client_string'
+chatline_common.o: In function `append_output_window':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/chatline_common.c:75: undefined reference to `real_append_output_window'
+climisc.o: In function `client_remove_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:246: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:253: undefined reference to `refresh_city_dialog'
+climisc.o: In function `client_remove_city':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:285: undefined reference to `popdown_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:287: undefined reference to `city_report_dialog_update'
+climisc.o: In function `center_on_something':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:511: undefined reference to `center_tile_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:506: undefined reference to `center_tile_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:524: undefined reference to `center_tile_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/climisc.c:517: undefined reference to `center_tile_mapcanvas'
+clinet.o: In function `close_socket_nomessage':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:103: undefined reference to `remove_net_input'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:104: undefined reference to `popdown_races_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:103: undefined reference to `remove_net_input'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:104: undefined reference to `popdown_races_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:103: undefined reference to `remove_net_input'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/clinet.c:104: undefined reference to `popdown_races_dialog'
+control.o: In function `find_best_focus_candidate':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:248: undefined reference to `get_center_tile_mapcanvas'
+control.o: In function `auto_center_on_focus_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:98: undefined reference to `tile_visible_and_not_on_border_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:99: undefined reference to `center_tile_mapcanvas'
+control.o: In function `set_unit_focus':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:128: undefined reference to `update_unit_info_label'
+control.o: In function `set_unit_focus_and_select':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:155: undefined reference to `put_cross_overlay_tile'
+control.o: In function `update_unit_pix_label':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:380: undefined reference to `set_unit_icon'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:400: undefined reference to `set_unit_icons_more_arrow'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:402: undefined reference to `set_unit_icon'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:390: undefined reference to `set_unit_icon'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:411: undefined reference to `set_unit_icon'
+control.o: In function `process_caravan_arrival':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:453: undefined reference to `caravan_dialog_is_open'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:473: undefined reference to `popup_caravan_dialog'
+control.o: In function `process_diplomat_arrival':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:508: undefined reference to `diplomat_dialog_is_open'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:542: undefined reference to `popup_diplomat_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:535: undefined reference to `popup_diplomat_dialog'
+control.o: In function `request_unit_goto':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:560: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_connect':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:584: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_patrol':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:862: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_pillage':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:912: undefined reference to `popup_pillage_dialog'
+control.o: In function `request_toggle_fog_of_war':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1094: undefined reference to `update_map_canvas_visible'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1095: undefined reference to `refresh_overview_canvas'
+control.o: In function `request_center_focus_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1107: undefined reference to `center_tile_mapcanvas'
+control.o: In function `do_move_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1158: undefined reference to `tile_visible_and_not_on_border_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1167: undefined reference to `move_unit_map_canvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1159: undefined reference to `center_tile_mapcanvas'
+control.o: In function `do_map_click':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1254: undefined reference to `popup_unit_select_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1228: undefined reference to `popup_unit_connect_dialog'
+control.o: In function `key_cancel_action':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1353: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_connect':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:584: undefined reference to `update_unit_info_label'
+control.o: In function `key_unit_diplomat_actions':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1473: undefined reference to `diplomat_dialog_is_open'
+control.o: In function `request_toggle_fog_of_war':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1094: undefined reference to `update_map_canvas_visible'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1095: undefined reference to `refresh_overview_canvas'
+control.o: In function `set_unit_focus':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:129: undefined reference to `update_menus'
+control.o: In function `update_unit_pix_label':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:413: undefined reference to `set_unit_icons_more_arrow'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:413: undefined reference to `set_unit_icons_more_arrow'
+control.o: In function `request_unit_goto':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:566: undefined reference to `create_line_at_mouse_pos'
+control.o: In function `request_unit_nuke':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:830: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_paradrop':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:847: undefined reference to `update_unit_info_label'
+control.o: In function `request_unit_patrol':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:868: undefined reference to `create_line_at_mouse_pos'
+control.o: In function `request_toggle_map_grid':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:926: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_city_names':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:938: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_city_productions':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:950: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_terrain':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:962: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_coastline':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:974: undefined reference to `update_map_canvas_visible'
+control.o:/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:986: more undefined references to `update_map_canvas_visible' follow
+control.o: In function `request_toggle_fog_of_war':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1096: undefined reference to `refresh_overview_viewrect'
+control.o: In function `do_move_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1194: undefined reference to `update_menus'
+control.o: In function `do_map_click':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1235: undefined reference to `update_unit_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1240: undefined reference to `popup_city_dialog'
+control.o: In function `request_toggle_map_grid':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:926: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_city_names':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:938: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_city_productions':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:950: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_terrain':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:962: undefined reference to `update_map_canvas_visible'
+control.o: In function `request_toggle_coastline':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:974: undefined reference to `update_map_canvas_visible'
+control.o:/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:986: more undefined references to `update_map_canvas_visible' follow
+control.o: In function `request_toggle_fog_of_war':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/control.c:1096: undefined reference to `refresh_overview_viewrect'
+goto.o: In function `undraw_one':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/goto.c:701: undefined reference to `undraw_segment'
+goto.o: In function `goto_array_insert':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/goto.c:487: undefined reference to `draw_segment'
+helpdata.o: In function `boot_help_texts':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/helpdata.c:194: undefined reference to `popdown_help_dialog'
+mapctrl_common.o: In function `update_turn_done_button_state':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapctrl_common.c:66: undefined reference to `set_turn_done_button_state'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapctrl_common.c:73: undefined reference to `update_turn_done_button'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapctrl_common.c:49: undefined reference to `set_turn_done_button_state'
+mapview_common.o: In function `refresh_tile_mapcanvas':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapview_common.c:39: undefined reference to `tile_visible_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapview_common.c:42: undefined reference to `overview_update_tile'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapview_common.c:40: undefined reference to `update_map_canvas'
+mapview_common.o: In function `unqueue_mapview_update':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/mapview_common.c:388: undefined reference to `update_map_canvas_visible'
+messagewin_common.o: In function `update_meswin_dialog':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:73: undefined reference to `is_meswin_open'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:80: undefined reference to `is_meswin_open'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:81: undefined reference to `real_update_meswin_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:75: undefined reference to `popup_meswin_dialog'
+messagewin_common.o: In function `meswin_popup_city':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:206: undefined reference to `popup_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:198: undefined reference to `center_tile_mapcanvas'
+messagewin_common.o: In function `meswin_goto':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/messagewin_common.c:219: undefined reference to `center_tile_mapcanvas'
+packhand.o: In function `handle_city_packet_common':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:486: undefined reference to `city_workers_display'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:493: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:494: undefined reference to `city_dialog_is_open'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:501: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:508: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:495: undefined reference to `popup_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:486: undefined reference to `city_workers_display'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:487: undefined reference to `put_city_workers'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:488: undefined reference to `city_workers_display'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:470: undefined reference to `city_report_dialog_update'
+packhand.o: In function `handle_nuke_tile':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:191: undefined reference to `put_nuke_mushroom_pixmaps'
+packhand.o: In function `handle_unit_combat':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:204: undefined reference to `tile_visible_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:211: undefined reference to `center_tile_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:224: undefined reference to `decrease_unit_hp_smooth'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:205: undefined reference to `tile_visible_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:209: undefined reference to `center_tile_mapcanvas'
+packhand.o: In function `handle_game_state':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:280: undefined reference to `popdown_races_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:286: undefined reference to `refresh_overview_canvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:287: undefined reference to `refresh_overview_viewrect'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:290: undefined reference to `update_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:292: undefined reference to `update_unit_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:297: undefined reference to `free_intro_radar_sprites'
+packhand.o: In function `handle_city_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:343: undefined reference to `tile_visible_mapcanvas'
+packhand.o: In function `handle_short_city':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:639: undefined reference to `tile_visible_mapcanvas'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:640: undefined reference to `update_city_descriptions'
+packhand.o: In function `handle_new_year':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:656: undefined reference to `update_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:662: undefined reference to `update_unit_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:663: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:670: undefined reference to `update_city_descriptions'
+packhand.o: In function `handle_chat_msg':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:745: undefined reference to `popup_notify_goto_dialog'
+packhand.o: In function `handle_page_msg':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:776: undefined reference to `popup_notify_dialog'
+packhand.o: In function `handle_unit_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:878: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:901: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:971: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1019: undefined reference to `update_unit_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1015: undefined reference to `update_unit_info_label'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:862: undefined reference to `refresh_unit_city_dialogs'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:871: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:905: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:930: undefined reference to `refresh_city_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:937: undefined reference to `refresh_city_dialog'
+packhand.o: In function `handle_map_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1045: undefined reference to `set_overview_dimensions'
+packhand.o: In function `handle_game_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1108: undefined reference to `popdown_races_dialog'
+packhand.o: In function `handle_player_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1247: undefined reference to `update_players_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1248: undefined reference to `update_worklist_report_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1244: undefined reference to `popup_government_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1207: undefined reference to `popup_science_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1208: undefined reference to `science_dialog_update'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1214: undefined reference to `update_menus'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1252: undefined reference to `update_info_label'
+packhand.o: In function `handle_spaceship_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1512: undefined reference to `update_menus'
+packhand.o: In function `handle_select_nation':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1632: undefined reference to `popup_races_dialog'
+packhand.o: In function `handle_city_name_suggestion':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:2216: undefined reference to `popup_newcity_dialog'
+packhand.o: In function `handle_remove_city':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:167: undefined reference to `update_menus'
+packhand.o: In function `handle_conn_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1320: undefined reference to `update_players_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1320: undefined reference to `update_players_dialog'
+packhand.o: In function `handle_spaceship_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1515: undefined reference to `refresh_spaceship_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1515: undefined reference to `refresh_spaceship_dialog'
+packhand.o: In function `handle_tile_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1605: undefined reference to `update_menus'
+packhand.o: In function `handle_select_nation':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1628: undefined reference to `races_toggles_set_sensitive'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:1626: undefined reference to `popdown_races_dialog'
+packhand.o: In function `handle_incite_cost':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:2185: undefined reference to `popup_incite_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:2192: undefined reference to `popup_bribe_dialog'
+packhand.o: In function `handle_sabotage_list':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/packhand.c:2259: undefined reference to `popup_sabotage_dialog'
+plrdlg_common.o: In function `plrdlg_thaw':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/plrdlg_common.c:38: undefined reference to `update_players_dialog'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/plrdlg_common.c:38: undefined reference to `update_players_dialog'
+repodlgs_common.o: In function `report_dialogs_thaw':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/repodlgs_common.c:90: undefined reference to `update_report_dialogs'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/repodlgs_common.c:90: undefined reference to `update_report_dialogs'
+tilespec.o: In function `tilespec_gfx_filename':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:211: undefined reference to `gfx_fileextensions'
+tilespec.o: In function `tilespec_fullname':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:145: undefined reference to `isometric_view_supported'
+tilespec.o: In function `tilespec_read_toplevel':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:260: undefined reference to `overhead_view_supported'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:251: undefined reference to `isometric_view_supported'
+tilespec.o: In function `tilespec_load_one':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:349: undefined reference to `gfx_fileextensions'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:361: undefined reference to `load_gfxfile'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:402: undefined reference to `crop_sprite'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:416: undefined reference to `free_sprite'
+tilespec.o: In function `tilespec_free_tiles':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/tilespec.c:1904: undefined reference to `free_sprite'
+audio_none.o: In function `my_play':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/audio_none.c:54: undefined reference to `sound_bell'
+agents/libagents.a(agents.o): In function `agents_free':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/agents.c:327: undefined reference to `free_timer'
+agents/libagents.a(agents.o): In function `register_agent':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/agents.c:346: undefined reference to `new_timer'
+agents/libagents.a(agents.o): In function `wait_for_requests':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/agents.c:636: undefined reference to `start_timer'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/agents.c:638: undefined reference to `stop_timer'
+agents/libagents.a(cma_core.o): In function `cma_init':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1900: undefined reference to `new_timer'
+agents/libagents.a(cma_core.o): In function `cma_free':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1917: undefined reference to `free_timer'
+agents/libagents.a(cma_core.o): In function `cma_query_result':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1941: undefined reference to `start_timer'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1943: undefined reference to `stop_timer'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1941: undefined reference to `start_timer'
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.c:1943: undefined reference to `stop_timer'
+collect2: error: ld returned 1 exit status
+make[3]: *** [Makefile:622: civclient.exe] Error 1
+make[3]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client'
+make[2]: *** [Makefile:682: all-recursive] Error 1
+make[2]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client'
+make[1]: *** [Makefile:489: all-recursive] Error 1
+make[1]: Leaving directory '/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1'
+make: *** [Makefile:426: all] Error 2

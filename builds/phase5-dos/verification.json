@@ -1,0 +1,29 @@
+{
+  "preserved_pre_phase5_files_and_attributes": 152,
+  "floppy_sha256": "c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b",
+  "disk_sha256": "ab784754f5254634fa44fbd58f855a55c8c37788d4f1f07341576749524efe5d",
+  "baseline_disk_sha256": "664068c4848125e3dc57fd823be0a46bb06dcc924a69e7868ef1b87bc2c15a79",
+  "installed_files": {
+    "::/FREECIV/FREECIV.EXE": {
+      "bytes": 6016389,
+      "sha256": "d7dab74a77d02ee011b7d2baa858e8244a6dc9e56bf0eb06141a6b5ec8d77ec8"
+    },
+    "::/FREECIV/RNDCHECK.EXE": {
+      "bytes": 308144,
+      "sha256": "aab4fbda81e8a8db63b0308685f2e28f65be19887787d04aca537703e4035f68"
+    },
+    "::/FREECIV/VBECHECK.EXE": {
+      "bytes": 289669,
+      "sha256": "3e6ec5e4c34bcc5678d52f4863a4ec2a48b96aa96dc34d5760d311368fd20af6"
+    },
+    "::/FREECIV/RTCHECK.EXE": {
+      "bytes": 5073995,
+      "sha256": "043aaaa4c00a3abea8284260e58a596efb29a65b258adf9424f8ec6050190e48"
+    },
+    "::/FREECIV/CWSDPMI.EXE": {
+      "bytes": 21325,
+      "sha256": "2de899fecaa90632b8b9bdfc0305cb0375e59ae252c37e32d06c1ed3f98a8f44"
+    }
+  },
+  "phase6_not_started": true
+}

@@ -1,0 +1,2 @@
+fsck.fat 4.2 (2021-01-31)
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase3-vm/fat-check.img: 149 files, 4785/65467 clusters

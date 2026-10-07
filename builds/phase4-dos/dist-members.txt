@@ -1,0 +1,14 @@
+freeciv-1.14.1/client/gui-dos-vbe/vbe_check.sh
+freeciv-1.14.1/client/gui-dos-vbe/build-vbe-check.sh
+freeciv-1.14.1/client/gui-dos-vbe/dpmi_check.sh
+freeciv-1.14.1/client/gui-dos-vbe/tests/
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi-stubs/
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi-stubs/sys/
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi-stubs/sys/movedata.h
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi-stubs/sys/segments.h
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi-stubs/dpmi.h
+freeciv-1.14.1/client/gui-dos-vbe/tests/vbe_check.c
+freeciv-1.14.1/client/gui-dos-vbe/tests/vbe_test.c
+freeciv-1.14.1/client/gui-dos-vbe/tests/dpmi_test.c
+freeciv-1.14.1/client/gui-dos-vbe/vbe_hw.c
+freeciv-1.14.1/client/gui-dos-vbe/vbe_hw.h

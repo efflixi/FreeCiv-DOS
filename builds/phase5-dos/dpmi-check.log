@@ -1,0 +1,37 @@
+DOS VBE: a 32-bit DPMI host and 386+ CPU are required.
+DOS VBE: a 32-bit DPMI host and 386+ CPU are required.
+DOS VBE: a 32-bit DPMI host and 386+ CPU are required.
+DOS VBE: DPMI version query failed (0x8001).
+DOS VBE: DPMI real-mode INT 10h failed (0x8001).
+DOS VBE: invalid conventional-buffer allocation.
+DOS VBE: invalid conventional-buffer allocation.
+DOS VBE: DPMI conventional memory allocation failed (0x8001).
+DOS VBE: invalid conventional-buffer allocation.
+DOS VBE: DPMI conventional memory release failed (0x8001).
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: invalid physical video mapping.
+DOS VBE: DPMI managed video address-space allocation failed (0x8001).
+DOS VBE: DPMI device mapping (0508h extension required) failed (0x8001).
+DOS VBE: DPMI video selector allocation failed (0x8001).
+DOS VBE: DPMI video selector setup failed (0x8001).
+DOS VBE: DPMI video selector setup failed (0x8001).
+DOS VBE: DPMI video selector setup failed (0x8001).
+DOS VBE: DPMI video selector setup failed (0x8001).
+DOS VBE: DPMI video selector release failed (0x8001).
+DOS VBE: DPMI managed video block release failed (0x8001).
+DOS VBE: DPMI device mapping (0508h extension required) failed (0x8001).
+DOS VBE: DPMI managed video block release failed (0x8001).
+DOS VBE: DPMI video selector setup failed (0x8001).
+DOS VBE: DPMI video selector release failed (0x8001).
+DPMI hardware behavior tests passed (real vbe_hw.c, host stubs).

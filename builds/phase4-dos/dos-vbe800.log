@@ -1,0 +1,7 @@
+INIT VBECHECK: real BIOS/DPMI display only; not gameplay
+DOS VBE: BIOS mode 0x0114, 800x600x16, pitch 1600, RGB565 LFB 0xfd000000 initialized.
+PASS MODE 0x0114 800x600 bpp=16 pitch=1600 attributes=0x00bb physical=0xfd000000 RGB=5@11/6@5/5@0
+READY visible RGB bars and checkerboard; complete pitch*height LFB readback passed; idempotent init passed
+WAIT Q to restore original text mode and release display
+PASS Q received
+EXIT SUCCESS: observed BIOS text mode 3; repeated shutdown checked

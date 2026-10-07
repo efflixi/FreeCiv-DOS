@@ -1,0 +1,118 @@
+Freeciv DOS Source Cleanup Findings
+
+Purpose:
+Record the targeted source/build cleanup recommended before extending the DOS port. This document supplements checklist.txt; it is not a replacement for the full completion checklist or DOS_PORT_SPEC.md.
+
+Assessment:
+The existing source is workable as a starting point and should not be discarded or broadly rewritten. The priority is to establish trustworthy build and interface boundaries, distinguish placeholders from functional implementations, and resolve the offline engine architecture before adding substantial gameplay features.
+
+Evidence note:
+The initial findings were based on source/artifact review and follow-up source inspection, without a clean cross-build or gameplay validation. Phases 1/2 established engine/transport architecture and clean production linkage; Phase 3 verified actual DOS/CWSDPMI runtime components. Phase 4 replaces the VBE placeholders with a visibly tested real display lifecycle; Phase 5 verifies clipped primitives/font/partial-map/dirty-presentation foundations. The normal candidate still fails unavailable game-resource/input/GUI integration. Component/display success is not a playable-game claim. Verified results are recorded below and in progress.txt. Historical build failures must not be assumed to describe the current environment without verification.
+
+Cleanup checklist:
+
+Execution policy:
+Cleanup work follows the currently authorized Phase in checklist.txt. Check off matching items only when their complete outcomes are verified and recorded in progress.txt. Do not expand into later Phases or mark an architecture implementation complete merely because a design was selected.
+
+1. Establish one trustworthy build path
+- [x] Reproduce the intended DOS build from source with a consistent DJGPP compiler, linker, archiver, and runtime.
+  - Finding: client/gui-dos-vbe/Makefile.am lists the real backend sources, but the reviewed libguiclient.a contains only dos_client_stubs.o.
+  - Resolution: build-dos.sh performs fresh source/bootstrap/out-of-tree configuration/build using target GCC/Binutils/CRT, with verified archives/indexing/isolation/linkage. Repeated clean builds and source-distribution rebuild pass. Phase 3 also executes the candidate CRT/--version and separate real-service diagnostics under DOS/CWSDPMI; the production GUI stays gated.
+- [x] Make backend selection, archive contents, and final executable linkage consistent.
+  - Requirement: a normal DOS build must compile/link the intended implementation without relying on manually assembled archives or stale objects.
+  - Resolution: Phase 2 built all 26 actual DOS backend modules, real common timers, offline broker, and isolated common/server/AI engine. Phase 4 adds the hardware-service module and Phase 5 adds the original bitmap font for 28 backend archive members; fresh clean production linkage still excludes diagnostic ABI/test sources.
+- [x] Establish the authoritative configure input and verify regeneration preserves DOS support.
+  - Finding: configure.ac includes dos-vbe support while legacy configure.in does not.
+  - Resolution: configure.ac/Makefile.am, bootstrap.sh, and the delegating autogen.sh are authoritative; legacy input switching is rejected. Generated templates and source distribution are verified, including required gettext support and all DOS/offline headers.
+- [x] Verify a clean replacement before retiring existing artifacts.
+  - Requirement: keep diagnostic artifacts separate from production output; do not delete the only evidence of a previously successful DOS link prematurely.
+  - Resolution: new linked candidate/configuration/source distribution and evidence are retained in builds/phase2-dos/. Phase 3 deploys the hash-verified candidate, preserves the old installed client as ARCHIVE\OLDCLI.EXE, and retains named image backups. Separate runtime evidence is in builds/phase3-runtime/; this is still not a playable replacement.
+
+2. Isolate link-only ABI stubs
+- [x] Remove dos_client_stubs.c from the production linkage once working replacements are available.
+  - Finding: the file duplicates GUI entry points and substitutes no-op rendering, gameplay UI, and timer functions.
+  - Resolution: excluded from fresh linkage; actual backend modules satisfy declarations and common/timing.c provides timers. Remaining GUI placeholders are gated before startup, not claimed to be functional replacements.
+- [x] Compile implementations against the existing generic headers and correct incompatible signatures and function/data definitions.
+  - Finding: examples include update_map_canvas, get_center_tile_mapcanvas, update_turn_done_button, and timer hooks.
+  - Resolution: all real DOS modules compile under fatal interface checks, with no missing generic symbols or duplicate backend definitions. Fixed race/help signatures, missing returns/hooks, notification ownership, and command declarations.
+- [ ] If link-only stubs remain useful, keep them in an explicitly separate diagnostic target.
+  - Requirement: a stub executable must not be mistaken for the functional DOS backend or used as proof of gameplay.
+  - Status: historical ABI-stub source is retained only as unlinked EXTRA_DIST/reference; no stub-linked diagnostic target is provided. Phase 3's distinct runtime-check builder uses real DOS/DPMI/common/engine code, not ABI stubs, and cannot complete this optional stub-target item. The normal candidate has an explicit unavailable startup gate.
+- [ ] Replace required no-op hooks deliberately rather than deleting stubs before replacements work.
+
+3. Make incomplete functionality report its actual state
+- [x] Replace placeholder VBE detection/query/set operations with real BIOS calls and verified return handling.
+  - Finding: vbe_init.c reports detection/success although its BIOS functions do not invoke the BIOS.
+  - Resolution: real INT 10h queries/set/current/state services and DPMI transfer storage; bounded controller/mode-list validation, decoded VBE 2/3 fields, and checked BIOS status replace all detection/query/set placeholders. Actual DOS graphics and negative BIOS-service tests are retained in builds/phase4-dos/.
+- [x] Distinguish a RAM-only test framebuffer from a working graphical display.
+  - Finding: framebuffer.c allocates ordinary RAM without presenting it to video memory.
+  - Resolution: historical front_buffer name explicitly denotes the offscreen allocation; a distinct managed LFB mapping/LDT selector receives real presentation. RGB bar/checkerboard captures match every expected pixel at 640/800. No RAM-only successful display fallback remains; production GUI is still gated.
+- [ ] Report unavailable audio initialization/playback honestly and retain a safe no-audio mode.
+  - Finding: audio_dos.c can report successful initialization or sample playback without device detection or actual output.
+- [ ] Audit required hooks for silent no-ops, invalid returns, and success-shaped placeholders.
+  - Requirement: errors must remain actionable; unsupported functionality must not leave later code assuming it initialized correctly.
+  - Status: Phase 2 gates both GUI entry points before incomplete device/resource/input initialization. Host wrapper tests and actual Phase 3 DOS execution verify failure exit/diagnostic. The separate runtime test reports only exercised services and fails missing-fixture initialization without READY. Full hook replacement and real device paths remain pending.
+
+4. Separate demonstrations from normal execution
+- [ ] Move the scripted command sequence out of the normal GUI startup path and into a clearly identified test/demo path if still useful.
+  - Finding: gui_main.c:ui_main() enqueues a predefined sequence, drains it, redraws, and returns instead of waiting for real input.
+- [ ] Provide a persistent user-driven event loop as the normal execution path.
+  - Requirement: service input, local engine/state updates, timers, audio, and display work until the user exits.
+- [x] Give shared command definitions one authoritative declaration.
+  - Finding: the DOS command enum is duplicated in gui_main.c and mapview.c.
+  - Resolution: gui_main.h owns the command enum/declarations and mapview.h owns dispatch; both real modules compile against the shared types.
+- [ ] Remove misleading scaffold/milestone descriptions as implementations change.
+  - Requirement: comments and diagnostics must describe actual behavior, not imply that scripted activity proves a live game session.
+
+5. Correct tightly coupled interface and rendering defects
+- [x] Fix missing return values and other generic-interface contract violations.
+  - Finding: messagewin.c:is_meswin_open() has no return value.
+  - Resolution: message/city state queries return defined FALSE while unavailable; signatures, missing generic hooks, and common-notification ownership are corrected. Required unavailable behavior cannot enter normal startup until the fatal readiness gate is replaced with verified implementations.
+- [x] Check framebuffer allocation, dimensions, pitch, supported formats, and size arithmetic before drawing.
+  - Finding: framebuffer initialization does not report allocation failure and drawing assumes two bytes per pixel despite accepting other depths.
+  - Resolution: checked 16-bit-only allocator with BIOS pitch, nonzero/signed-coordinate-compatible dimensions, even/minimum pitch, size/width overflow and explicit allocation failure; old storage is replaced only after successful allocation. VBE accepts validated RGB565 metadata. Phase 5 adds owned-size validation at primitive/presentation/readback boundaries, padding guards and failure-atomic/sanitizer tests. The broader selection/control independence item below remains incomplete.
+- [x] Correct VBE mode constants and validate selected modes using BIOS metadata.
+  - Finding: vbe_init.h labels standard 8-bit modes 0x101, 0x103, and 0x105 as 16-bit modes.
+  - Resolution: corrected standard candidates to 0x111/0x114/0x117; actual modes are enumerated/decoded/validated rather than inferred from constants. Native tests use nonstandard IDs, VBE 2/3 pitches and reject incompatible masks/depths; actual DOS 640/800 use reported RGB565 metadata.
+- [x] Convert overlays from world coordinates to viewport-relative screen coordinates and clip every write.
+  - Finding: terrain uses viewport indices while unit/city/selection overlays use world coordinates; selection writes lack horizontal bounds checks.
+  - Resolution: composed terrain/city/unit/selection pixels share viewport-relative coordinates and bounded writes. Requested world rectangles clip before lookup/drawing; tiny HUD dimensions and extreme signed coordinates are behaviorally tested. No direct unchecked mapview buffer writes remain.
+- [ ] Preserve selection independently of redraw and viewport movement.
+  - Finding: map redraw resets the selected coordinates to center + (3,2).
+  - Partial resolution: redraw no longer resets selection, verified by tests; viewport motion and movement-command selection/control coupling still remain. Do not check this broader independence item until playable-map/input work resolves those semantics.
+- [x] Validate these fixes with behavioral tests before extending the renderer or input layer.
+  - Requirement: source-presence grep checks do not verify bounds, coordinates, interfaces, or device behavior.
+  - Resolution: five integrated backend tests pass, including real primitive/mapview/color and low/upper VBE suites under ASan/UBSan. Exact separate RNDCHECK actual DOS640/800 output matches every pixel; dirty byte counts, Q/restoration/repeat launch and post-render engine/runtime regression pass. This validates exercised rendering fixes, not unfinished gameplay or input.
+
+6. Resolve the offline engine architecture
+- [x] Choose a local authoritative engine/action-state integration approach before substantial gameplay implementation.
+  - Finding: disabling sockets does not provide game generation, AI, action validation, turns, or save/load to the client.
+  - Resolution: approved isolated embedded engine and copied-byte bridge implemented in client/offline and documented in DOS_PORT_SPEC.md; real engine component tests pass natively and the harness cross-builds for DJGPP.
+- [x] Define ownership and lifecycle boundaries between authoritative state and the client-visible cache.
+  - Finding: existing client/server processes rely on shared globals within their separate executables; a combined runtime needs deliberate separation.
+  - Resolution: separate common instances and symbol namespaces; engine owns authoritative state, broker owns transport/queues, client owns its cache. Repeated real-game/pregame cleanup tests preserve client state and pass ASan leak/error detection.
+- [x] Resolve duplicate entry points, is_server definitions, shared-state assumptions, and local scheduling.
+  - Requirement: simply linking server objects into the client is not a complete integration strategy.
+  - Resolution: exclude the server entry point, rename engine-defined external symbols, expose only opaque APIs, and reuse cooperative startup/turn/game-over helpers rather than the blocking server loop. Production build/event-loop wiring remains in later authorized Phases.
+- [x] Preserve game rules, AI behavior, fog of war, request ordering, and authoritative updates.
+  - Requirement: this is architectural integration work, not cosmetic cleanup.
+  - Resolution: retain rules/AI and existing packet handlers; verify capabilities, processing boundaries, ordered request IDs, player-filtered map delivery, real AI/game generation, rates updates, and turn advancement. This verifies exercised component behavior, not every gameplay action or DOS hardware behavior.
+
+Preservation constraints:
+- Leave upstream rules, AI, and reusable engine logic alone unless a specific platform/integration change is necessary.
+- Do not broadly rename, reformat, or modernize unrelated code.
+- Do not manually treat generated build files as authoritative before understanding their regeneration process.
+- Do not remove existing artifacts until a reproducible replacement is verified.
+- Preserve assets/freeciv-1.14.1-rh9/ as the unchanged extracted RPM reference; do not merge it over source data or rename its assets in place. Later DOS asset conversion/8.3 staging must be separate, retain attribution, and validate internal references. DOS_PORT_SPEC.md records the inventory; extraction alone completes no backend/packaging cleanup item.
+- Keep DOS compatibility changes isolated and preserve supported non-DOS behavior.
+- Address correctness and misleading success paths before cosmetic cleanup.
+
+Recommended order:
+1. Stabilize the intended build and generic-interface boundaries.
+2. Resolve the offline engine design before substantial gameplay additions.
+3. Implement honest DOS runtime/video initialization and persistent input/event servicing.
+4. Correct renderer/resource defects and add behavioral tests.
+5. Extend gameplay features on the verified foundation.
+
+Outcome:
+Keep the scaffold. Offline architecture, clean real-backend/engine linkage, DOS/CWSDPMI, real VBE display and clipped rendering/font/partial-update/dirty-presentation foundations are verified. Phase 5 completes the two matching overlay/behavioral-test cleanup items; selection/control independence, event loop/resources/gameplay/audio and the other unchecked items remain incomplete. Stop for Phase 5 completion review; do not begin Phase 6 without explicit permission.

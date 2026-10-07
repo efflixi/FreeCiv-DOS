@@ -1,0 +1,352 @@
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+make  distdir-am
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+if test -d "freeciv-1.14.1"; then find "freeciv-1.14.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "freeciv-1.14.1" || { sleep 5 && rm -rf "freeciv-1.14.1"; }; else :; fi
+test -d "freeciv-1.14.1" || mkdir "freeciv-1.14.1"
+ (cd data && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/data \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data'
+ (cd misc && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/misc \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/misc'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/misc'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/misc'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/misc'
+ (cd isotrident && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/isotrident \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/isotrident'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/isotrident'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/isotrident'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/isotrident'
+ (cd trident && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/trident \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/trident'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/trident'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/trident'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/trident'
+ (cd default && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/default \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/default'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/default'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/default'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/default'
+ (cd civ1 && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/civ1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ1'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ1'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ1'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ1'
+ (cd civ2 && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/civ2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ2'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ2'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ2'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/civ2'
+ (cd scenario && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/scenario \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/scenario'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/scenario'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/scenario'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/scenario'
+ (cd nation && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/nation \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/nation'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/nation'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/nation'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/nation'
+ (cd history && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/data/history \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/history'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/history'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/history'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data/history'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/data'
+ (cd intl && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/intl \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+if test "freeciv" = gettext; then \
+  additional="libintl.glibc"; \
+else \
+  additional="VERSION"; \
+fi; \
+make Makefile.in config.charset locale.alias ref-add.sin ref-del.sin gettext.h gettextP.h hash-string.h libgnuintl.h libgettext.h loadinfo.h bindtextdom.c dcgettext.c dgettext.c gettext.c finddomain.c loadmsgcat.c localealias.c textdomain.c l10nflist.c explodename.c dcigettext.c dcngettext.c dngettext.c ngettext.c plural.y localcharset.c intl-compat.c plural.c $additional; \
+for file in ChangeLog Makefile.in config.charset locale.alias ref-add.sin ref-del.sin gettext.h gettextP.h hash-string.h libgnuintl.h libgettext.h loadinfo.h bindtextdom.c dcgettext.c dgettext.c gettext.c finddomain.c loadmsgcat.c localealias.c textdomain.c l10nflist.c explodename.c dcigettext.c dcngettext.c dngettext.c ngettext.c plural.y localcharset.c intl-compat.c plural.c $additional; do \
+  if test -f $file; then dir=.; else dir=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl; fi; \
+  ln $dir/$file ../freeciv-1.14.1/intl 2> /dev/null \
+    || cp -p $dir/$file ../freeciv-1.14.1/intl; \
+done
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/Makefile.in'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/config.charset'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/locale.alias'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/ref-add.sin'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/ref-del.sin'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/gettext.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/gettextP.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/hash-string.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/libgnuintl.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/libgettext.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/loadinfo.h'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/bindtextdom.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/dcgettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/dgettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/gettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/finddomain.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/loadmsgcat.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/localealias.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/textdomain.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/l10nflist.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/explodename.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/dcigettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/dcngettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/dngettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/ngettext.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/plural.y'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/localcharset.c'.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/intl-compat.c'.
+make[4]: '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/plural.c' is up to date.
+make[4]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/intl/VERSION'.
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+ (cd common && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/common \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+ (cd ai && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/ai \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/ai'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/ai'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/ai'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/ai'
+ (cd server && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/server \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/server'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/server'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/server'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/server'
+ (cd client && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/client \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+ (cd offline && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/offline \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+ (cd gui-dos-vbe && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-dos-vbe \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+ (cd gui-gtk-2.0 && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-gtk-2.0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk-2.0'
+echo '/*********************************************************/' > Freeciv.h
+echo '/* DO NOT EDIT THIS FILE, EDIT ../../data/freeciv.rc-2.0 */' >> Freeciv.h
+echo '/*********************************************************/' >> Freeciv.h
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-gtk-2.0/rc2c /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/data/freeciv.rc-2.0 >> Freeciv.h
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk-2.0'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk-2.0'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk-2.0'
+ (cd gui-gtk && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-gtk \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk'
+echo '/*****************************************************/' > Freeciv.h
+echo '/* DO NOT EDIT THIS FILE, EDIT ../../data/freeciv.rc */' >> Freeciv.h
+echo '/*****************************************************/' >> Freeciv.h
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-gtk/rc2c /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/data/freeciv.rc >> Freeciv.h
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-gtk'
+ (cd gui-stub && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-stub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-stub'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-stub'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-stub'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-stub'
+ (cd gui-win32 && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-win32 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-win32'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-win32'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-win32'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-win32'
+ (cd gui-xaw && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/gui-xaw \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-xaw'
+echo '/**************************************************/' > Freeciv.h
+echo '/* DO NOT EDIT THIS FILE, EDIT ../../data/Freeciv */' >> Freeciv.h
+echo '/**************************************************/' >> Freeciv.h
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-xaw/ad2c /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/data/Freeciv >> Freeciv.h
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-xaw'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-xaw'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-xaw'
+ (cd include && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/include \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/include'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/include'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/include'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/include'
+ (cd agents && make  top_distdir=../../freeciv-1.14.1 distdir=../../freeciv-1.14.1/client/agents \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+make  distdir-am
+make[6]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+make[6]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+ (cd po && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/po \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+make update-po
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+make freeciv.pot
+make[5]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+default-domain=freeciv --directory=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source \
+  --add-comments="TRANS:" --escape --keyword=_ --keyword=N_ --keyword=Q_ --keyword=PL_:1,2 \
+  --language=C --files-from=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/POTFILES.in \
+&& test ! -f freeciv.po \
+   || ( rm -f /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot \
+	&& mv freeciv.po /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot )
+/bin/sh: 1: default-domain=freeciv: not found
+mv: cannot stat 'freeciv.po': No such file or directory
+make[5]: [Makefile:343: /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot] Error 1 (ignored)
+make[5]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+if test "freeciv" = "gettext"; then PATH=`pwd`/../src:$PATH; fi; \
+cd /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po; \
+catalogs='da.gmo de.gmo en_GB.gmo es.gmo et.gmo fi.gmo fr.gmo hu.gmo it.gmo ja.gmo nl.gmo no.gmo pl.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo sv.gmo uk.gmo'; \
+for cat in $catalogs; do \
+  cat=`basename $cat`; \
+  lang=`echo $cat | sed 's/\.gmo$//'`; \
+  echo "$lang:"; \
+  if msgmerge $lang.po freeciv.pot -o $lang.new.po; then \
+    mv -f $lang.new.po $lang.po; \
+  else \
+    echo "msgmerge for $cat failed!"; \
+    rm -f $lang.new.po; \
+  fi; \
+done
+da:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for da.gmo failed!
+de:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for de.gmo failed!
+en_GB:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for en_GB.gmo failed!
+es:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for es.gmo failed!
+et:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for et.gmo failed!
+fi:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for fi.gmo failed!
+fr:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for fr.gmo failed!
+hu:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for hu.gmo failed!
+it:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for it.gmo failed!
+ja:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for ja.gmo failed!
+nl:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for nl.gmo failed!
+no:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for no.gmo failed!
+pl:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for pl.gmo failed!
+pt:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for pt.gmo failed!
+pt_BR:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for pt_BR.gmo failed!
+ro:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for ro.gmo failed!
+ru:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for ru.gmo failed!
+sv:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for sv.gmo failed!
+uk:
+msgmerge: error while opening "freeciv.pot" for reading: No such file or directory
+msgmerge for uk.gmo failed!
+make update-gmo
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+default-domain=freeciv --directory=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source \
+  --add-comments="TRANS:" --escape --keyword=_ --keyword=N_ --keyword=Q_ --keyword=PL_:1,2 \
+  --language=C --files-from=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/POTFILES.in \
+&& test ! -f freeciv.po \
+   || ( rm -f /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot \
+	&& mv freeciv.po /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot )
+/bin/sh: 1: default-domain=freeciv: not found
+mv: cannot stat 'freeciv.po': No such file or directory
+make[4]: [Makefile:343: /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot] Error 1 (ignored)
+dists="ChangeLog Makefile.in.in POTFILES.in freeciv.pot da.po de.po en_GB.po es.po et.po fi.po fr.po hu.po it.po ja.po nl.po no.po pl.po pt.po pt_BR.po ro.po ru.po sv.po uk.po da.gmo de.gmo en_GB.gmo es.gmo et.gmo fi.gmo fr.gmo hu.gmo it.gmo ja.gmo nl.gmo no.gmo pl.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo sv.gmo uk.gmo"; \
+for file in $dists; do \
+  if test -f $file; then dir=.; else dir=/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po; fi; \
+  cp -p $dir/$file ../freeciv-1.14.1/po; \
+done
+cp: cannot stat '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/po/freeciv.pot': No such file or directory
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+ (cd doc && make  top_distdir=../freeciv-1.14.1 distdir=../freeciv-1.14.1/doc \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+make  distdir-am
+make[4]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+make[4]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+test -n "" \
+|| find "freeciv-1.14.1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "freeciv-1.14.1"
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+tardir=freeciv-1.14.1 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >freeciv-1.14.1.tar.gz
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+if test -d "freeciv-1.14.1"; then find "freeciv-1.14.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "freeciv-1.14.1" || { sleep 5 && rm -rf "freeciv-1.14.1"; }; else :; fi

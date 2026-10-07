@@ -1,0 +1,3 @@
+REM C: is currently reached through the A: boot floppy.
+REM Memory manager and DPMI configuration remain to be validated.
+COUNTRY=001,,C:\DOS\COUNTRY.SYS

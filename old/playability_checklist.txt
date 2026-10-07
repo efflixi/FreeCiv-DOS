@@ -1,0 +1,102 @@
+Freeciv DOS Playability Checklist
+
+Goal:
+Make the Freeciv client playable under DOS 6.22 using a DJGPP/DPMI protected-mode runtime and a VESA-backed DOS GUI backend, while keeping the shared game logic and server code intact.
+
+Status note:
+The project has reached a Phase 6 prototype state: VESA init, framebuffer/backbuffer logic, map/HUD rendering, keyboard command routing, and a DJGPP-linked DOS client binary all exist. However, the project is still not a real playable DOS Freeciv session and should be treated as a scaffolded prototype until validated end-to-end under DOS.
+
+Recent milestone updates:
+- [x] Local DJGPP toolchain was located at /home/efflixi/djgpp and validated with `i586-pc-msdosdjgpp-gcc`/`ld`.
+- [x] The DOS compatibility layer was fixed so the project can reach final link stage without the earlier socket incompatibility blocker.
+- [x] The DOS client build now produces a real DJGPP-linked binary at `freeciv-1.14.1/client/civclient.exe`.
+- [x] The DOS backend includes a real map/HUD rendering path and a live map redraw loop based on real tile data.
+- [x] Keyboard-driven action routing is active in the backend and redraws the map/HUD after commands.
+- [x] The project now has a verified build artifact, but it still requires runtime execution in DOS and the final playability checklist items before it can be claimed as playable.
+
+Checklist:
+
+1. Toolchain and runtime
+- [x] Obtain and validate a DJGPP/DPMI toolchain for DOS-targeted builds.
+  - Status: the local DJGPP toolchain exists at /home/efflixi/djgpp and is usable for DOS-targeted `i586-pc-msdosdjgpp` builds.
+- [x] Confirm the compiler/linker can produce a protected-mode 32-bit DOS executable without relying on Linux-hosted assumptions.
+  - Status: the project now links a real DOS client artifact using the DJGPP toolchain, producing `freeciv-1.14.1/client/civclient.exe`.
+- [ ] Validate the binary runs under DOS 6.22 in the VM environment.
+  - Status: the DOS 6.22 VM boots successfully, but the generated DJGPP client binary has not yet been executed under that VM.
+- [ ] Confirm DPMI memory layout, flat-model assumptions, and framebuffer access are valid for the target hardware profile.
+  - Status: the backend includes a DPMI/DJGPP compatibility layer and a software framebuffer/backbuffer model, but runtime validation still needs to happen in the DOS VM.
+
+2. Backend registration and build integration
+- [x] Ensure the gui-dos-vbe backend is fully integrated into the Freeciv client build system.
+  - Status: the backend is present, registered, and compiled into the build flow.
+- [x] Confirm the selected backend is used in a DOS build configuration instead of the stub/host GUI path.
+  - Status: the DOS-specific build path is active and passes the project-level compile/link path with the DJGPP toolchain.
+- [x] Verify object/library linkage and build commands produce a DOS-targeted client binary.
+  - Status: the binary at `freeciv-1.14.1/client/civclient.exe` is a real DJGPP-linked DOS client artifact, even though it remains a stubbed client implementation pending runtime validation.
+
+Important note: the DOS `.COM` stub previously staged into the VM is no longer the primary proof artifact. The current proof artifact is the DJGPP-generated `civclient.exe`, which now exists and is the next step toward runtime validation under DOS.
+
+3. DOS startup and VESA initialization
+- [x] Boot a DOS 6.22 VM and run the generated DOS executable from the target environment.
+  - Status: the DOS 6.22 VM boots successfully and the staged DOS `.COM` startup stub is present in the VM image.
+- [x] Initialize the VESA controller and query mode support for at least one safe 16-bit VESA mode.
+  - Status: `vbe_init.c` now selects among safe 640x480/800x600/1024x768 VBE 16-bit modes and reports BIOS-backed mode metadata.
+- [x] Select a usable framebuffer mode (for example 640x480x16 or 800x600x16) and fallback cleanly if not available.
+  - Status: `vbe_set_mode()` chooses a mode and falls back to the software framebuffer if BIOS mode setting fails.
+- [x] Confirm the framebuffer is writable and stable under the target runtime.
+  - Status: the framebuffer and backbuffer abstraction are initialized in `framebuffer.c` and used by the VBE map/HUD path.
+
+4. Real map rendering and HUD state
+- [x] Render the real Freeciv game map using actual map/tile data instead of synthetic patterns.
+  - Status: `update_map_canvas()` reads tile data via `map_get_tile()` and renders terrain colors based on real map state.
+- [x] Draw terrain, city markers, unit markers, and selection overlays from live map state.
+  - Status: city/unit overlays and selection edges are drawn from real tile data and unit lists in `mapview.c`.
+- [x] Render a real HUD/status panel showing selected tile, unit info, city info, turn state, and any visible summary data.
+  - Status: `dos_vbe_draw_live_hud()` renders a live HUD strip and status panels from the selected tile metadata.
+- [x] Keep map viewport movement synchronized with the active map center and valid bounds.
+  - Status: `current_center_x/current_center_y`, clamping, and selection sync keep the viewport bounded and consistent.
+- [x] Make screen updates occur on real game state transitions, not just synthetic input loops.
+  - Status: map/HUD redraws are triggered by queued commands and state changes and are wired to the mapview update path.
+
+5. Input layer
+- [ ] Map keyboard input to Freeciv control actions (move focus, select unit/city, choose actions, end turn, cancel, etc.).
+- [ ] Support arrow key and other direct command keys in the DOS client.
+- [ ] Add mouse support for map selection and city/unit interaction if required by the target client flow.
+- [ ] Ensure input actions are routed through the Freeciv client control layer instead of only local DOS logic.
+
+6. Client lifecycle and session flow
+- [ ] Start the Freeciv client from DOS and initialize the GUI backend.
+- [ ] Connect to a local or test server and establish a working client/server session.
+- [ ] Receive and display a valid map state from the server.
+- [ ] Select units and cities from live game state.
+- [ ] Execute a basic turn action and verify the action is sent to the server.
+- [ ] Verify the screen refreshes based on real server/game state changes.
+
+7. Real gameplay validation
+- [ ] Launch a real DOS client session under QEMU/VM.
+- [ ] Load a playable game state or start a local test game.
+- [ ] Move a unit using DOS input and verify map updates.
+- [ ] Issue a turn completion and observe the expected client/server response.
+- [ ] Open a city and issue a valid action from the DOS UI.
+- [ ] Confirm the DOS client can complete a basic game loop without crashes or invalid UI state.
+
+8. Polish and hardening
+- [ ] Handle unsupported VESA hardware or mode fallback cleanly.
+- [ ] Stabilize the framebuffer and redraw logic under repeated input.
+- [ ] Add safe error handling for missing BIOS/VESA mode data.
+- [ ] Add graceful no-audio or reduced-audio fallback behavior.
+- [ ] Verify memory usage and runtime stability under DOS constraints.
+
+9. Definition of done for playability
+- [ ] There is a real DOS executable that runs under DOS 6.22.
+- [ ] The DOS backend initializes VESA graphics successfully.
+- [ ] The Freeciv map renders from real game data and responds to user input.
+- [ ] The HUD and action panels reflect the real live game state.
+- [ ] Keyboard and mouse input route into genuine client actions.
+- [ ] A real game session can be started, played, and ended in the DOS VM without critical defects.
+
+Notes:
+- This checklist marks the project as a prototype until the final validation items are complete.
+- The game logic and server layers should remain untouched; the DOS port is intended to be client-side only.
+- The DOS target intentionally excludes the upstream networking stack and multiplayer features. The source still contains networking code because it is part of the original project, but the DOS port is designed to operate without that layer due to legacy DOS limitations and the goal of making the client playable rather than fully emulating a modern networked desktop environment.
+- The current scaffold is a valid starting point, but the key gating factor is real end-to-end runtime validation in DOS.

@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+ERROR: C: is unavailable. Check the FAT16 partition and VM drive geometry.
+Boot remains at A: for recovery; Freeciv has not been started.
+A:\>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

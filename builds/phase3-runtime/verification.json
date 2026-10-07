@@ -1,0 +1,44 @@
+{
+  "preserved_original_c_files_and_attributes": 129,
+  "preserved_non_autoexec_floppy_files": 60,
+  "installed_files": {
+    "::/FREECIV/FREECIV.EXE": {
+      "bytes": 5943415,
+      "sha256": "bfc18c218e5953b3a30bcb3c3b2b5ead16b6401f0b0bd660c2657ff7d13930df"
+    },
+    "::/FREECIV/RTCHECK.EXE": {
+      "bytes": 5073995,
+      "sha256": "043aaaa4c00a3abea8284260e58a596efb29a65b258adf9424f8ec6050190e48"
+    },
+    "::/FREECIV/CWSDPMI.EXE": {
+      "bytes": 21325,
+      "sha256": "2de899fecaa90632b8b9bdfc0305cb0375e59ae252c37e32d06c1ed3f98a8f44"
+    },
+    "::/FREECIV/CWSDPMI.DOC": {
+      "bytes": 9623,
+      "sha256": "4d278854e4ae881ebad408bb9c94dc4072f954875f29dc502b7847e06ba65978"
+    },
+    "::/FREECIV/DATA/RUNTIME.DAT": {
+      "bytes": 30,
+      "sha256": "749a33dbc9bb20cea7d4c4480e4dcf67e2fd865cf6b3e199bc94a758563b66f2"
+    },
+    "::/AUTOEXEC.BAT": {
+      "bytes": 86,
+      "sha256": "62cd7fa89071ae0ea680c64e86171a032eb1f5dca346cc4e14763486d9ca2d60"
+    },
+    "::/CONFIG.SYS": {
+      "bytes": 157,
+      "sha256": "7350e1cf299ff5dc2829ee06c04088fee747c66103d450673bae27ed51e684e8"
+    }
+  },
+  "disk_sha256": "f19bb8dab3e3d2253b7fc40e16fb3d2a4a58cf5e0deb71587abc0ec269b9fea5",
+  "floppy_sha256": "c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b",
+  "phase2_config_sha256": "9962e691c28e461c8d0b559116e1fe3cdd2f4d640d03a30f3edb766839af167a",
+  "tested_rebuild_sha256": "422dcc369248a03fe1014b473805ced14f1bbfee7c94f15cea179bc2ef8c52f8",
+  "source_sha256": {
+    "freeciv-1.14.1/client/offline/runtime_check.c": "f2251da3679059f46b2ae28433148cce39138612c61f81cbf9dd0382adc17bd8",
+    "freeciv-1.14.1/client/offline/build-runtime-check.sh": "b0bface6657a3d1bf83f149313047d89a78a37432b52031f98128fa635487b23",
+    "freeciv-1.14.1/client/offline/build-engine.sh": "a36d77a4a79aa7eb6b8c2639c9040fc4311b966ad12142e2ef90b95b3b23882b",
+    "dos-vm/partition_drive.py": "cfed9b3ddbfc1aecbe1b9c200ddf7349fd58b0f739288bdca8ba654a76df1504"
+  }
+}

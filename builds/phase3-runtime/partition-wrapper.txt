@@ -1,0 +1,3 @@
+Created FAT16 type-06 partition at LBA 63, 524288 sectors
+Geometry: 521/16/63; mtools offset: 32256 bytes
+Partition table only: continue booting DOS from A:, not this disk.

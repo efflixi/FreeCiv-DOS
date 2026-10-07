@@ -1,0 +1,25 @@
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>echo text_restore_marker
+text_restore_marker
+
+C:\>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\>vbecheck --640 --log c:\freeciv\vbe640.log
+VBECHECK passed; see log for display/restoration results.
+
+C:\>if not errorlevel 1 echo vbe640_success
+vbe640_success
+
+C:\>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\>vbecheck --log c:\freeciv\vbe800.log
+VBECHECK passed; see log for display/restoration results.
+
+C:\>if not errorlevel 1 echo vbe800_success
+vbe800_success
+
+C:\>

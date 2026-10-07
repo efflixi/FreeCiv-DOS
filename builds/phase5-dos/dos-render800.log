@@ -1,0 +1,9 @@
+RENDER CHECK start width=800
+DOS VBE: BIOS mode 0x0114, 800x600x16, pitch 1600, RGB565 LFB 0xfd000000 initialized.
+PASS initial readback 800x600
+PASS local bytes=32
+PASS repeated bytes=0
+PASS coalesced bytes=12
+READY original ASCII font/primitives; press Q
+PASS Q received
+EXIT SUCCESS

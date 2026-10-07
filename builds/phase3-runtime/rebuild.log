@@ -1,0 +1,738 @@
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c: In function 'astr_minsize':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c:77:22: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+   77 |   astr->n_alloc = (n > n1) ? n : n1;
+      |                      ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c:77:34: warning: operand of '?:' changes signedness from 'int' to 'size_t' {aka 'long unsigned int'} due to unsignedness of other operand [-Wsign-compare]
+   77 |   astr->n_alloc = (n > n1) ? n : n1;
+      |                                  ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c: In function 'ath_minnum':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c:132:21: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  132 |   ath->n_alloc = (n > n1) ? n : n1;
+      |                     ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.c:132:33: warning: operand of '?:' changes signedness from 'int' to 'size_t' {aka 'long unsigned int'} due to unsignedness of other operand [-Wsign-compare]
+  132 |   ath->n_alloc = (n > n1) ? n : n1;
+      |                                 ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/capability.c: In function 'my_has_capability':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/capability.c:49:22: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   49 |     if ((next-capstr == cap_len) && strncmp(cap, capstr, cap_len)==0) {
+      |                      ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/city.c: In function 'city_remove_improvement':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/city.c:2288:16: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 2288 |     for (i=0; i<ceff_vector_size(ceffs[j]); i++) {
+      |                ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/city.c:2299:16: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 2299 |     for (i=0; i<geff_vector_size(geffs[j]); i++) {
+      |                ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/combat.c: In function 'get_total_attack_power':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/combat.c:311:64: warning: unused parameter 'defender' [-Wunused-parameter]
+  311 | int get_total_attack_power(struct unit *attacker, struct unit *defender)
+      |                                                   ~~~~~~~~~~~~~^~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_bit_string':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:594:13: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  594 |   if (npack >= max_dest_size) {
+      |             ^~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:47:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h: In function 'dio_get_bool8':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:5: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  103 |     real_freelog((level), args); } \
+      |     ^~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_bool32':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:499:17: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  499 |   if (ival != 0 && ival != 1) {
+      |       ~~~~~~~~~~^~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:495:7: note: 'ival' was declared here
+  495 |   int ival;
+      |       ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_sint16':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:517:11: warning: 'tmp' may be used uninitialized [-Wmaybe-uninitialized]
+  517 |       tmp -= 0x10000;
+      |           ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:512:7: note: 'tmp' was declared here
+  512 |   int tmp;
+      |       ^~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/capability.h:17,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:45:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h: In function 'dio_get_bit_string':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:76:49: warning: 'byte_value' may be used uninitialized [-Wmaybe-uninitialized]
+   76 | #define TEST_BIT(val, bit_no)           (((val) & (1u << (bit_no))) == (1u << (bit_no)))
+      |                                                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:601:14: note: 'byte_value' was declared here
+  601 |     int bit, byte_value;
+      |              ^~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:600:17: warning: 'npack' may be used uninitialized [-Wmaybe-uninitialized]
+  600 |   for (i = 0; i < npack;) {
+      |               ~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:583:7: note: 'npack' was declared here
+  583 |   int npack;                    /* number claimed in packet */
+      |       ^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_city_map':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:657:9: warning: 'j' may be used uninitialized [-Wmaybe-uninitialized]
+  657 |       j %= 81;
+      |         ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:651:9: note: 'j' was declared here
+  651 |     int j;
+      |         ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_worklist':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:711:19: warning: 'length' may be used uninitialized [-Wmaybe-uninitialized]
+  711 |     for (i = 0; i < length; i++) {
+      |                 ~~^~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:696:12: note: 'length' was declared here
+  696 |     int i, length;
+      |            ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:695:6: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  695 |   if (pwl->is_valid) {
+      |      ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c: In function 'dio_get_uint8_vec8':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:729:21: warning: 'count' may be used uninitialized [-Wmaybe-uninitialized]
+  729 |   for (inx = 0; inx < count; inx++) {
+      |                 ~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/dataio.c:723:7: note: 'count' was declared here
+  723 |   int count, inx;
+      |       ^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.c: In function 'civ_score':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.c:497:29: warning: 'settledarea' may be used uninitialized [-Wmaybe-uninitialized]
+  497 |   pplayer->score.settledarea=settledarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.c:439:17: note: 'settledarea' was declared here
+  439 |   int landarea, settledarea;
+      |                 ^~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.c:496:26: warning: 'landarea' may be used uninitialized [-Wmaybe-uninitialized]
+  496 |   pplayer->score.landarea=landarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.c:439:7: note: 'landarea' was declared here
+  439 |   int landarea, settledarea;
+      |       ^~~~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.h:16,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/improvement.c:17:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/specvec_c.h: In function 'ceff_vector_get':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/specvec_c.h:59:27: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   59 |   assert(index>=0 && index<tthis->vector.n);
+      |                           ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/specvec_c.h: In function 'geff_vector_get':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/specvec_c.h:59:27: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   59 |   assert(index>=0 && index<tthis->vector.n);
+      |                           ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/improvement.c: In function 'improvement_status_init':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/improvement.c:425:17: warning: comparison of integer expressions of different signedness: 'Impr_Type_id' {aka 'int'} and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  425 |   for (i = 0; i < elements; i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/improvement.c: In function 'update_global_effect':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/improvement.c:636:16: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  636 |     for (i=0; i<geff_vector_size(effs[j]); i++) {
+      |                ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/inputfile.c:127:1: warning: 'static' is not at beginning of declaration [-Wold-style-declaration]
+  127 | static tok_tab[INF_TOK_LAST] =
+      | ^~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/inputfile.c:68:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/inputfile.c: In function 'at_eol':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/inputfile.c:295:28: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  295 |   assert(inf->cur_line_pos <= inf->cur_line.n);
+      |                            ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/inputfile.c:296:29: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  296 |   return (inf->cur_line_pos >= inf->cur_line.n - 1);
+      |                             ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'get_special_by_name':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:277:17: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  277 |   for (i = 0; i < ARRAY_SIZE(tile_special_type_names); i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'get_special_name':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:294:17: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  294 |   for (i = 0; i < ARRAY_SIZE(tile_special_type_names); i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'map_build_rail_time':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:736:29: warning: unused parameter 'x' [-Wunused-parameter]
+  736 | int map_build_rail_time(int x, int y)
+      |                         ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:736:36: warning: unused parameter 'y' [-Wunused-parameter]
+  736 | int map_build_rail_time(int x, int y)
+      |                                ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'map_build_airbase_time':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:744:32: warning: unused parameter 'x' [-Wunused-parameter]
+  744 | int map_build_airbase_time(int x, int y)
+      |                            ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:744:39: warning: unused parameter 'y' [-Wunused-parameter]
+  744 | int map_build_airbase_time(int x, int y)
+      |                                   ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'map_build_fortress_time':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:752:33: warning: unused parameter 'x' [-Wunused-parameter]
+  752 | int map_build_fortress_time(int x, int y)
+      |                             ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:752:40: warning: unused parameter 'y' [-Wunused-parameter]
+  752 | int map_build_fortress_time(int x, int y)
+      |                                    ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'map_clean_pollution_time':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:760:34: warning: unused parameter 'x' [-Wunused-parameter]
+  760 | int map_clean_pollution_time(int x, int y)
+      |                              ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:760:41: warning: unused parameter 'y' [-Wunused-parameter]
+  760 | int map_clean_pollution_time(int x, int y)
+      |                                     ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c: In function 'map_clean_fallout_time':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:768:32: warning: unused parameter 'x' [-Wunused-parameter]
+  768 | int map_clean_fallout_time(int x, int y)
+      |                            ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.c:768:39: warning: unused parameter 'y' [-Wunused-parameter]
+  768 | int map_clean_fallout_time(int x, int y)
+      |                                   ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/netintf.c: In function 'my_nonblock':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/netintf.c:133:22: warning: unused parameter 'sockfd' [-Wunused-parameter]
+  133 | void my_nonblock(int sockfd)
+      |                  ~~~~^~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.h:16,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.h:17,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.c:44:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.c: In function 'receive_packet_attribute_chunk':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.c:3072:36: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+ 3072 |   assert(dio_input_remaining(&din) != -1);
+      |                                    ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.c:3073:36: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+ 3073 |   assert(dio_input_remaining(&din) == packet->chunk_length);
+      |                                    ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/player.c: In function 'ai_fuzzy':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/player.c:490:20: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  490 |   if (myrand(1000) >= pplayer->ai.fuzzy) return normal_decision;
+      |                    ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c: In function 'section_file_load_dup':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:437:14: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  437 |         if (i<columns_tab.n) {
+      |              ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:480:26: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  480 |           for(j=n_prev; j<columns_tab.n_alloc; j++) {
+      |                          ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:524:13: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  524 |   for(i=0; i<columns_tab.n_alloc; i++) {
+      |             ^
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:151:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c: In function 'section_file_lookup_internal':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1076:15: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+ 1076 |     assert(len<sizeof(mod_fullpath));
+      |               ^
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/astring.h:23,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:153:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:23: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1097:20: note: in expansion of macro 'MIN'
+ 1097 |                    MIN(pdelim - fullpath + 1, sizeof(sec_name)));
+      |                    ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:29: warning: operand of '?:' changes signedness from 'int' to 'long unsigned int' due to unsignedness of other operand [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                             ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1097:20: note: in expansion of macro 'MIN'
+ 1097 |                    MIN(pdelim - fullpath + 1, sizeof(sec_name)));
+      |                    ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c: In function 'section_file_insert_internal':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:23: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1141:20: note: in expansion of macro 'MIN'
+ 1141 |                    MIN(pdelim - fullpath + 1, sizeof(sec_name)));
+      |                    ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:29: warning: operand of '?:' changes signedness from 'int' to 'long unsigned int' due to unsignedness of other operand [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                             ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1141:20: note: in expansion of macro 'MIN'
+ 1141 |                    MIN(pdelim - fullpath + 1, sizeof(sec_name)));
+      |                    ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c: In function 'sbuf_malloc':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c:144:12: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  144 |   if (size > (sb->size - sb->offset)) {
+      |            ^
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c:33:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c:147:17: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  147 |     assert(size <= (sb->size - sb->offset));
+      |                 ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c: In function 'sbuf_strdup':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c:167:12: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  167 |   if (size > (sb->size - sb->offset)) {
+      |            ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/sbuffer.c:169:17: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  169 |     assert(size <= (sb->size - sb->offset));
+      |                 ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c: In function 'get_tokens':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c:263:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  263 |     if (token >= num_tokens) {
+      |               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c: In function 'match_prefix':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c:1177:11: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 1177 |   if (len > max_len_name && max_len_name > 0) {
+      |           ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c:1182:13: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 1182 |   for(i=0; i<n_names; i++) {
+      |             ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.c:1185:24: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+ 1185 |       if (strlen(name) == len) {
+      |                        ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/support.c: In function 'my_vsnprintf':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/support.c:319:7: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+  319 |   int r;
+      |       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/unit.c: In function 'can_unit_do_activity_targeted':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/unit.c:763:26: warning: comparison of integer expressions of different signedness: 'enum tile_special_type' and 'int' [-Wsign-compare]
+  763 |                  (target != get_preferred_pillage(pspresent)))
+      |                          ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/unittype.c: In function 'unit_upgrade_price':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/unittype.c:316:39: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  316 | int unit_upgrade_price(struct player *pplayer, Unit_Type_id from,
+      |                        ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/barbarian.c: In function 'unleash_barbarians':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/barbarian.c:180:40: warning: unused parameter 'victim' [-Wunused-parameter]
+  180 | bool unleash_barbarians(struct player* victim, int x, int y)
+      |                         ~~~~~~~~~~~~~~~^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/barbarian.c: In function 'try_summon_barbarians':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/barbarian.c:350:22: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  350 |       || myrand(100) > get_gov_pcity(pc)->civil_war )
+      |                      ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/barbarian.c:363:17: warning: comparison of integer expressions of different signedness: 'int' and 'RANDOM_TYPE' {aka 'unsigned int'} [-Wsign-compare]
+  363 |     for( i=0; i < myrand(3) + uprise*(game.barbarianrate); i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/citytools.c: In function 'raze_city':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/citytools.c:715:39: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  715 |     if (!is_wonder(i) && (myrand(100) < razechance)) {
+      |                                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/cityturn.c: In function 'check_pollution':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/cityturn.c:1142:44: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1142 |   if (pcity->pollution != 0 && myrand(100) <= pcity->pollution) {
+      |                                            ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c: In function 'handle_diplomacy_remove_clause':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c:413:52: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  413 | void handle_diplomacy_remove_clause(struct player *pplayer,
+      |                                     ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c: In function 'handle_diplomacy_create_clause':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c:440:52: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  440 | void handle_diplomacy_create_clause(struct player *pplayer,
+      |                                     ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c: In function 'handle_diplomacy_init':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplhand.c:531:43: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  531 | void handle_diplomacy_init(struct player *pplayer,
+      |                            ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'diplomat_get_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:538:24: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  538 |       if (myrand (100) >= game.diplchance) {
+      |                        ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'diplomat_incite':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:767:20: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  767 |   if (myrand (100) >= game.diplchance) {
+      |                    ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'diplomat_sabotage':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:873:21: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  873 |   if ((myrand (100) >= game.diplchance) ||
+      |                     ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:874:49: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  874 |       ((improvement != B_LAST) && (myrand (100) >= game.diplchance))) {
+      |                                                 ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'diplomat_success_vs_defender':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:1097:24: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1097 |   return (myrand (100) < success);
+      |                        ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'diplomat_escape':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:1168:22: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1168 |     if (myrand (100) < game.diplchance) {
+      |                      ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c: In function 'maybe_cause_incident':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/diplomats.c:1238:59: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1238 |       (myrand(GAME_MAX_REPUTATION) - offender->reputation >
+      |                                                           ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c: In function 'dealloc_refuel_stack':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c:1491:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+ 1491 |   for (i = 0; i < refuellist_size; i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c: In function 'find_air_first_destination':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c:1582:40: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+ 1582 |   while (!reached_goal && (no_new_nodes<fullfuel)) {
+      |                                        ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c:1593:30: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+ 1593 |       for (j=turn_index[i]; j<turn_index[i+1]; j++) {
+      |                              ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gotohand.c:1607:20: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+ 1607 |         for (k=0; k<refuellist_size; k++) {
+      |                    ^
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/connection.h:26,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/game.h:21,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/handchat.c:21:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/handchat.c: In function 'handle_chat_msg':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:23: warning: comparison of integer expressions of different signedness: 'long unsigned int' and 'int' [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/handchat.c:238:22: note: in expansion of macro 'MIN'
+  238 |                      MIN(sizeof(name), cp - packet->message + 1));
+      |                      ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/shared.h:61:33: warning: operand of '?:' changes signedness from 'int' to 'long unsigned int' due to unsignedness of other operand [-Wsign-compare]
+   61 | #define MIN(x,y) (((x)<(y))?(x):(y))
+      |                                 ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/handchat.c:238:22: note: in expansion of macro 'MIN'
+  238 |                      MIN(sizeof(name), cp - packet->message + 1));
+      |                      ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'make_polar':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:113:42: warning: comparison of integer expressions of different signedness: 'int' and 'RANDOM_TYPE' {aka 'unsigned int'} [-Wsign-compare]
+  113 |       if ((hmap(x, y)+(map.ysize/10-y*25)>myrand(maxval) &&
+      |                                          ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:125:54: warning: comparison of integer expressions of different signedness: 'int' and 'RANDOM_TYPE' {aka 'unsigned int'} [-Wsign-compare]
+  125 |       if ((hmap(x, y)+(map.ysize/10-(map.ysize-y)*25)>myrand(maxval) &&
+      |                                                      ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'make_forest':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:182:5: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
+  182 |     else
+      |     ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:184:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
+  184 |       if (abs(hmap(x, y)-height)<diff) {
+      |       ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'add_specials':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1418:25: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1418 |         if (myrand(1000)<prob) {
+      |                         ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'is_cold':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1443:25: warning: unused parameter 'x' [-Wunused-parameter]
+ 1443 | static bool is_cold(int x, int y){
+      |                     ~~~~^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'fill_island':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1517:50: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1517 |            &&( !is_at_coast(x, y) || myrand(100) < coast )) {
+      |                                                  ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1520:69: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1520 |             map_set_terrain(x, y, (myrand(cold0_weight+cold1_weight)<cold0_weight)
+      |                                                                     ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1523:69: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1523 |             map_set_terrain(x, y, (myrand(warm0_weight+warm1_weight)<warm0_weight)
+      |                                                                     ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c: In function 'fill_island_rivers':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/mapgen.c:1567:50: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 1567 |            &&( !is_at_coast(x, y) || myrand(100) < coast )) {
+      |                                                  ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/meta.c:191:13: warning: 'metaserver_failed' defined but not used [-Wunused-function]
+  191 | static void metaserver_failed(void)
+      |             ^~~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/plrhand.c: In function 'handle_player_cancel_pact':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/plrhand.c:860:39: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  860 |       if (myrand(GAME_MAX_REPUTATION) > pplayer->reputation) {
+      |                                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/plrhand.c:887:9: warning: variable 'no_units' set but not used [-Wunused-but-set-variable]
+  887 |     int no_units = unit_list_size(&(pplayer->units));
+      |         ^~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/report.c: In function 'is_valid_demography':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/report.c:521:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  521 |     for (j = 0; j < ARRAY_SIZE(coltable); j++) {
+      |                   ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/report.c:533:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  533 |     for (j = 0; j < ARRAY_SIZE(rowtable); j++) {
+      |                   ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/report.c: In function 'page_conn_etype':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/report.c:1098:11: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+ 1098 |   if (len == -1) {
+      |           ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_techs':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:489:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  489 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_units':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:614:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  614 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_buildings':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:943:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  943 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_terrain':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:1301:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1301 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_governments':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:1478:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1478 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_nations':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:1974:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1974 |   char *datafile_options, *bad_leader, *g;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_cities':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:2230:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 2230 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c: In function 'load_ruleset_game':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/ruleset.c:2279:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 2279 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/map.h:16,
+                 from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sanitycheck.c:19:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sanitycheck.c: In function 'check_specials':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sanitycheck.c:46:52: warning: comparison of integer expressions of different signedness: 'enum tile_terrain_type' and 'int' [-Wsign-compare]
+   46 |       assert(get_tile_type(terrain)->mining_result == terrain);
+      |                                                    ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sanitycheck.c:48:56: warning: comparison of integer expressions of different signedness: 'enum tile_terrain_type' and 'int' [-Wsign-compare]
+   48 |       assert(get_tile_type(terrain)->irrigation_result == terrain);
+      |                                                        ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function 'map_tiles_load':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:314:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  314 |   LOAD_MAP_DATA(secfile_lookup_str(file, "map.t%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function 'map_rivers_overlay_load':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:333:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  333 |   LOAD_MAP_DATA(secfile_lookup_str_default(file, NULL, "map.n%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function 'map_load':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:361:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  361 |   LOAD_MAP_DATA(secfile_lookup_str(file, "map.l%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:363:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  363 |   LOAD_MAP_DATA(secfile_lookup_str(file, "map.u%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:365:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  365 |   LOAD_MAP_DATA(secfile_lookup_str_default(file, NULL, "map.n%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:367:3: note: in expansion of macro 'LOAD_MAP_DATA'
+  367 |   LOAD_MAP_DATA(secfile_lookup_str_default(file, NULL, "map.f%03d", y),
+      |   ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:374:5: note: in expansion of macro 'LOAD_MAP_DATA'
+  374 |     LOAD_MAP_DATA(secfile_lookup_str(file, "map.a%03d", y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:376:5: note: in expansion of macro 'LOAD_MAP_DATA'
+  376 |     LOAD_MAP_DATA(secfile_lookup_str(file, "map.b%03d", y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:378:5: note: in expansion of macro 'LOAD_MAP_DATA'
+  378 |     LOAD_MAP_DATA(secfile_lookup_str(file, "map.c%03d", y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:380:5: note: in expansion of macro 'LOAD_MAP_DATA'
+  380 |     LOAD_MAP_DATA(secfile_lookup_str(file, "map.d%03d", y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:385:7: note: in expansion of macro 'LOAD_MAP_DATA'
+  385 |       LOAD_MAP_DATA(secfile_lookup_str(file, "map.e%03d", y),
+      |       ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:387:7: note: in expansion of macro 'LOAD_MAP_DATA'
+  387 |       LOAD_MAP_DATA(secfile_lookup_str(file, "map.g%03d", y),
+      |       ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:389:7: note: in expansion of macro 'LOAD_MAP_DATA'
+  389 |       LOAD_MAP_DATA(secfile_lookup_str(file, "map.h%03d", y),
+      |       ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:391:7: note: in expansion of macro 'LOAD_MAP_DATA'
+  391 |       LOAD_MAP_DATA(secfile_lookup_str(file, "map.i%03d", y),
+      |       ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function 'player_map_load':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1134:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1134 |     LOAD_MAP_DATA(secfile_lookup_str(file, "player%d.map_t%03d", plrno, y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1139:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1139 |     LOAD_MAP_DATA(secfile_lookup_str(file, "player%d.map_l%03d", plrno, y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1142:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1142 |     LOAD_MAP_DATA(secfile_lookup_str(file, "player%d.map_u%03d", plrno, y),
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1145:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1145 |     LOAD_MAP_DATA(secfile_lookup_str_default
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1151:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1151 |     LOAD_MAP_DATA(secfile_lookup_str
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1155:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1155 |     LOAD_MAP_DATA(secfile_lookup_str
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1159:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1159 |     LOAD_MAP_DATA(secfile_lookup_str
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:124:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  124 |     if (!line || strlen(line) != map.xsize) {                                 \
+      |                               ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:1163:5: note: in expansion of macro 'LOAD_MAP_DATA'
+ 1163 |     LOAD_MAP_DATA(secfile_lookup_str
+      |     ^~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sernet.c:652:20: warning: 'makeup_connection_name' defined but not used [-Wunused-function]
+  652 | static const char *makeup_connection_name(int *id)
+      |                    ^~~~~~~~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/settlers.c: In function 'ai_manage_settler':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/settlers.c:425:39: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  425 | void ai_manage_settler(struct player *pplayer, struct unit *punit)
+      |                        ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/settlers.c: In function 'consider_settler_action':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/settlers.c:804:52: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  804 | static void consider_settler_action(struct player *pplayer, enum unit_activity act,
+      |                                     ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/srv_main.c: In function 'update_environmental_upset':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/srv_main.c:369:21: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  369 |     if (myrand(200) <= *accum) {
+      |                     ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'open_metaserver_connection':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:1517:59: warning: unused parameter 'caller' [-Wunused-parameter]
+ 1517 | static void open_metaserver_connection(struct connection *caller)
+      |                                        ~~~~~~~~~~~~~~~~~~~^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'close_metaserver_connection':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:1529:60: warning: unused parameter 'caller' [-Wunused-parameter]
+ 1529 | static void close_metaserver_connection(struct connection *caller)
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'rename_player':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:1836:60: warning: unused parameter 'arg' [-Wunused-parameter]
+ 1836 | static void rename_player(struct connection *caller, char *arg)
+      |                                                      ~~~~~~^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'write_command':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:1959:46: warning: unused parameter 'caller' [-Wunused-parameter]
+ 1959 | static void write_command(struct connection *caller, char *arg)
+      |                           ~~~~~~~~~~~~~~~~~~~^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'cut_comment':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3045:17: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 3045 |   for (i = 0; i < strlen(str); i++) {
+      |                 ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'show_help':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3550:11: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+ 3550 |   if (ind < SETTINGS_NUM) {
+      |           ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function 'autotoggle':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3745:43: warning: parameter 'reject_message' set but not used [-Wunused-but-set-parameter]
+ 3745 | static bool autotoggle(bool value, char **reject_message)
+      |                                    ~~~~~~~^~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unithand.c: In function 'handle_unit_info':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unithand.c:601:30: warning: comparison of integer expressions of different signedness: 'enum unit_activity' and 'int' [-Wsign-compare]
+  601 |   } else if (punit->activity != pinfo->activity ||
+      |                              ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unithand.c: In function 'handle_unit_attack_request':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unithand.c:790:39: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  790 |   if (pwinner == punit && myrand(100) < game.occupychance &&
+      |                                       ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'unit_versus_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:215:42: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  215 |     if (myrand(attackpower+defensepower) >= defensepower) {
+      |                                          ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'player_restore_units':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:485:24: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  485 |         && myrand(100) < trireme_loss_pct(pplayer, punit->x, punit->y)) {
+      |                        ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'unit_restore_movepoints':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:596:52: warning: unused parameter 'pplayer' [-Wunused-parameter]
+  596 | static void unit_restore_movepoints(struct player *pplayer, struct unit *punit)
+      |                                     ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'city_landlocked_sell_coastal_improvements':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:704:18: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  704 |       for (k=0; k<coastal_improvements_count; k++) {
+      |                  ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'update_unit_activity':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:977:28: warning: comparison of integer expressions of different signedness: 'enum unit_activity' and 'int' [-Wsign-compare]
+  977 |       if (punit2->activity == activity) {
+      |                            ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c: In function 'try_move_unit':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/unittools.c:2211:53: warning: comparison of integer expressions of different signedness: 'RANDOM_TYPE' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+ 2211 |   if (myrand(1+map_move_cost(punit, dest_x, dest_y))>punit->moves_left &&
+      |                                                     ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advattitude.c: In function 'attitude_advisor_choose_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advattitude.c:27:50: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   27 | void attitude_advisor_choose_tech(struct player *pplayer,
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advdomestic.c: In function 'ai_eval_threat_sea':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advdomestic.c:74:68: warning: unused parameter 'pcity' [-Wunused-parameter]
+   74 | static int ai_eval_threat_sea(struct player *pplayer, struct city *pcity)
+      |                                                       ~~~~~~~~~~~~~^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advdomestic.c: In function 'ai_eval_buildings':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advdomestic.c:513:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  513 |       if (built_elsewhere(pcity, B_SETI))
+      |          ^
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advdomestic.c:515:5: note: here
+  515 |     case B_UNIVERSITY:
+      |     ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advforeign.c: In function 'foreign_advisor_choose_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advforeign.c:27:49: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   27 | void foreign_advisor_choose_tech(struct player *pplayer,
+      |                                  ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advisland.c: In function 'island_adjust_build_choice':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advisland.c:25:48: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   25 | void island_adjust_build_choice(struct player *pplayer,
+      |                                 ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advisland.c:26:63: warning: unused parameter 'advisor' [-Wunused-parameter]
+   26 |                                 struct ai_choice *choice, int advisor)
+      |                                                           ~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c: In function 'military_advisor_choose_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c:41:50: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   41 | void military_advisor_choose_tech(struct player *pplayer,
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c: In function 'ai_reevaluate_building':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c:296:49: warning: unused parameter 'pcity' [-Wunused-parameter]
+  296 | static void ai_reevaluate_building(struct city *pcity, int *value,
+      |                                    ~~~~~~~~~~~~~^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c: In function 'kill_something_with':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advmilitary.c:940:22: warning: variable 'fstk' set but not used [-Wunused-but-set-variable]
+  940 |   int needferry = 0, fstk, boatspeed;
+      |                      ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advscience.c: In function 'science_advisor_choose_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advscience.c:27:49: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   27 | void science_advisor_choose_tech(struct player *pplayer,
+      |                                  ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advtrade.c: In function 'trade_advisor_choose_tech':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/advtrade.c:27:47: warning: unused parameter 'pplayer' [-Wunused-parameter]
+   27 | void trade_advisor_choose_tech(struct player *pplayer, struct ai_choice *choice)
+      |                                ~~~~~~~~~~~~~~~^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/aicity.c: In function 'ai_choose_defender_limited':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/aicity.c:655:12: warning: comparison of integer expressions of different signedness: 'int' and 'enum unit_move_type' [-Wsign-compare]
+  655 |         (m == which || which == 0)) {
+      |            ^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/aiunit.c: In function 'ai_military_gohome':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/aiunit.c:1572:47: warning: unused parameter 'pplayer' [-Wunused-parameter]
+ 1572 | static void ai_military_gohome(struct player *pplayer,struct unit *punit)
+      |                                ~~~~~~~~~~~~~~~^~~~~~~
+Built /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase3-runtime-rebuild/RTCHECK.EXE (not executed; DOS 6.22/DPMI verification pending).
+Stage DATA\RUNTIME.DAT beside RTCHECK.EXE with one ASCII line:
+FREECIV DOS RUNTIME FIXTURE 1
+Run: RTCHECK --log C:\FREECIV\RUNTIME.LOG [--fixture A:\RUNTIME.DAT] [--batch]

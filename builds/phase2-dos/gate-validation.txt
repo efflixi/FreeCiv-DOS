@@ -1,0 +1,20 @@
+PASS: isolated native fail-fast gate validation.
+
+Compiled gui_main.c with gate_wrapper.c using GCC -std=gnu89 -O2
+-ffunction-sections -fdata-sections and linker --gc-sections.
+TEST_UI_MAIN selected ui_main; otherwise the wrapper called ui_init.
+No production client, DOS executable, or graphics path was executed.
+
+ui_init: exit=1 (EXIT_FAILURE), stdout empty, stderr exactly one line.
+ui_main: exit=1 (EXIT_FAILURE), stdout empty, stderr exactly one line.
+Both stderr logs contain:
+DOS VBE client unavailable: real VBE/framebuffer setup, graphics resources and input handling are incomplete. Phase 2 provides compile/link stabilization only.
+
+Evidence files beside this summary:
+gate_wrapper.c
+gate-ui-init.result
+gate-ui-init.stderr
+gate-ui-init.stdout
+gate-ui-main.result
+gate-ui-main.stderr
+gate-ui-main.stdout

@@ -1,0 +1,49 @@
+# Local DOS installations contain separately licensed operating-system files.
+/*.img
+/*.vhd
+/dos-vm/*.img
+/dos-vm/*.vhd
+/dos-vm/backups/
+
+# Original RPMs/extracted Linux packages are local reference material.
+/*.rpm
+/assets/
+
+# Keep source and test evidence, not generated binaries/duplicate distributions.
+*.o
+*.a
+*.lo
+*.la
+*.so
+*.so.*
+*.[eE][xX][eE]
+*.[cC][oO][mM]
+*.[sS][wW][pP]
+!/runtime/cwsdpmi-r7/bin/*.[eE][xX][eE]
+/builds/**/*.tar.gz
+/builds/**/*.tar.bz2
+/builds/**/*.tar.xz
+/freeciv-1.14.1/client/civclient
+/freeciv-1.14.1/server/civserver
+.deps/
+.libs/
+autom4te.cache/
+*.d
+*~
+*.tmp
+/freeciv-1.14.1/**/Makefile
+/freeciv-1.14.1/config.h
+/freeciv-1.14.1/config.log
+/freeciv-1.14.1/config.status
+/freeciv-1.14.1/config.cache
+/freeciv-1.14.1/**/stamp-h*
+/freeciv-1.14.1/**/.*-check-*/
+
+# Editor/user settings and credentials never belong in the public repository.
+/.vscode/
+/*.code-workspace
+/workspace/
+.env
+.env.*
+*.pem
+*.key

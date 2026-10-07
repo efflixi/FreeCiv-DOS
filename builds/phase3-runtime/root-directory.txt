@@ -1,0 +1,16 @@
+ Volume in drive : is DOS622     
+ Volume Serial Number is 506A-27C9
+Directory for ::/
+
+AUTOEXEC BAT        86 2026-10-06   5:56 
+CONFIG   SYS       157 2026-10-06   5:56 
+DRVSPACE BIN     66294 2026-10-03  16:26 
+IO       SYS     40774 2026-10-03  16:26 
+MSDOS    SYS     38138 2026-10-03  16:26 
+COMMAND  COM     54645 2026-10-03  16:26 
+DOS          <DIR>     2026-10-06   5:56 
+FREECIV      <DIR>     2026-10-06   5:56 
+ARCHIVE      <DIR>     2026-10-06   5:56 
+        9 files             200 094 bytes
+                        248 553 472 bytes free
+

@@ -1,0 +1,98 @@
+Freeciv Phase 4 real VBE display lifecycle evidence
+
+Production candidate: civclient.exe, 5980210 bytes
+SHA-256: 70104ba29fc2da1ab0fb5414336bb5b2a6d77d07c3950ac78ba648008674f801
+Separate display diagnostic: VBECHECK.EXE, 289669 bytes
+SHA-256: 3e6ec5e4c34bcc5678d52f4863a4ec2a48b96aa96dc34d5760d311368fd20af6
+Both exact artifacts are installed under C:\FREECIV with unchanged CWSDPMI r7.
+The normal client still refuses unavailable production resources/input/GUI
+integration. It is not a playable game.
+
+Build from the project directory with DJGPP GCC 12.2.0/Binutils 2.30:
+  PATH=/home/efflixi/djgpp/bin:$PATH \
+  sh freeciv-1.14.1/build-dos.sh /absolute/new-production-directory
+  CC=/home/efflixi/djgpp/bin/i586-pc-msdosdjgpp-gcc \
+  sh freeciv-1.14.1/client/gui-dos-vbe/build-vbe-check.sh /absolute/new-vbe-directory
+Output directories must not already exist. Production build directories must
+follow build-dos.sh's out-of-source/no-whitespace rules.
+
+Actual final build locations:
+  /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build
+  /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-display-release
+The standalone diagnostic uses -std=gnu89 -O2 -g -Wall -Wextra -Werror.
+Production flags/configuration/tool versions are in build-info.txt/config.h.
+source-inputs.sha256 records copied source inputs before autotools regeneration.
+bootstrap/configure/make logs, 27-member GUI archive inventory, final symbols,
+source distribution and distribution-member evidence are retained alongside it.
+Tests/diagnostics do not enter the production GUI archive; ABI stubs remain out.
+Existing upstream build/autotools warnings were not broadly cleaned up.
+
+Validation:
+- make -C FINAL_BUILD/build/client/gui-dos-vbe check: 3/3 passed.
+  Source-presence smoke plus upper VBE and low DPMI behavioral tests.
+  Host ASan/UBSan suites validate enumeration, VBE 2/3 metadata, pitch/masks,
+  unsupported LFB/layouts, malformed list/status/addresses, mode verification,
+  presentation, alternative-mode/resolution fallback, allocation failure,
+  cleanup retries, text-memory preservation, and repeated lifecycle.
+  Low-level tests exercise real vbe_hw.c with fake DPMI APIs, including managed
+  mapping page/offset/handle/selector semantics and each setup/release failure.
+- Production clean build and make dist pass; all new module/test/stub-header
+  inputs are included in the source distribution.
+- Actual QEMU 8.2.2 pc/TCG/Pentium/16 MB/-vga std/no networking, dual-drive
+  521/16/63 untranslated IDE geometry, DOS 6.22, COUNTRY-only A: configuration,
+  no HIMEM/EMM386, original CWSDPMI r7 loaded with -s- immediately before each
+  diagnostic. These display tests do not use virtual-memory paging.
+- BIOS modes 0x111/0x114: 640x480/800x600, 16-bit RGB565 (5@11/6@5/5@0),
+  pitches 1280/1600, attributes 0x00bb, physical LFB 0xFD000000.
+- Each diagnostic presents and reads back all pitch*height mapped bytes,
+  remains waiting until real Q input, restores mode 3 and saved text pages,
+  frees the selector/managed block/conventional state storage, and exits zero.
+- Captured VGA pixels (not backbuffer data) match the expected RGB bars and
+  checkerboard at EVERY pixel: 307200/480000 matched, zero mismatches.
+  verify-pattern.py reproduces this check from the retained PPM files.
+- Repeated display launch and original RTCHECK real-engine/runtime regression
+  pass after restoration, with paging disabled.
+- Exact final production --version and normal nonzero readiness-gate behavior
+  are captured in production-gate.txt; GATE.OK records DOS errorlevel evidence.
+  --version writes to stderr, so console capture is used rather than claiming
+  stdout redirection captured it.
+- Exact final diagnostic on QEMU cirrus fails BIOS 4F04 size query, returns
+  nonzero and remains at a readable mode-3 DOS prompt. This adapter is outside
+  the declared tested state-service requirement, not silently accepted.
+
+Important runtime correction:
+The initial 0800/0801 physical mapping approach drew both resolutions but failed
+release: CWSDPMI r7 does not implement 0801 (observed error 0x0801 and confirmed
+in its supplied source). The final implementation uses managed 0501 allocation,
+0508 device-page mapping, and 0502 release. It neither suppresses the error nor
+leaves mappings behind until process exit.
+Likewise, BIOS 4F04 restore alone left the adapter graphics configuration wrong
+even when the BIOS data area reported mode 3. Final restoration explicitly sets
+the original mode FIRST, restores hardware/BDA/DAC/VBE state, then legacy text
+video pages. The restored-text image proves visible DOS recovery and contents.
+initial-cleanup-failure.log / cleanup.png / managed-cleanup-debug.log retain
+intermediate troubleshooting evidence; only final dos-vbe640/dos-vbe800 logs
+and screenshots are completion evidence.
+
+Published disk:
+  dos-vm/DOS622_VHD.img
+  SHA-256 664068c4848125e3dc57fd823be0a46bb06dcc924a69e7868ef1b87bc2c15a79
+Unchanged floppy SHA-256:
+  c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b
+Named before-phase4 recovery copies preserve the Phase 3 image pair.
+All 144 pre-Phase-4 regular files and attributes were verified unchanged,
+except the replaced client is preserved byte-for-byte as C:\ARCHIVE\PHASE2.EXE.
+Partition/BPB/startup/root layout remain unchanged; extracted FAT and partition
+checks pass. verify-images.py verifies a staged/current pair against an earlier
+partitioned baseline (arguments: disk floppy baseline-disk); verification.json
+records exact installed hashes and preservation counts.
+
+Scope limits:
+Requires VESA 2.0+ RGB565 LFB, 4F04 state services, and host 0508 support.
+No banked-only path, RGB555 conversion, optional 1024x768 certification, or
+physical-adapter compatibility beyond the tested emulator is claimed.
+No sprites/fonts/resources, playable map/UI, event loop, audio, full game or
+whole-game 16 MB memory fit is certified. Original graphical framebuffer
+contents are not backed up; legacy text pages are preserved.
+Phase 5 renderer correctness/dirty regions/clipping and every later gameplay
+requirement remain pending. Stop for Phase 4 review before starting Phase 5.

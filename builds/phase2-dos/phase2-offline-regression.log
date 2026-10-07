@@ -1,0 +1,162 @@
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c: In function ‘secfile_lookup_int_vec’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1323:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1323 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c: In function ‘secfile_lookup_str_vec’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/registry.c:1355:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1355 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gamelog.c: In function ‘gamelog_save’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gamelog.c:187:23: warning: format not a string literal and no format arguments [-Wformat-security]
+  187 |   gamelog(GAMELOG_EOT,buffer);
+      |                       ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gamelog.c:197:24: warning: format not a string literal and no format arguments [-Wformat-security]
+  197 |   gamelog(GAMELOG_RANK,buffer);
+      |                        ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/gamelog.c:207:27: warning: format not a string literal and no format arguments [-Wformat-security]
+  207 |   gamelog(GAMELOG_STATUS, buffer);
+      |                           ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function ‘game_load’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:2013:38: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2013 |       string=secfile_lookup_str(file,name);
+      |                                      ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c: In function ‘game_save’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/savegame.c:2245:37: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2245 |       secfile_insert_str(file, vec, name);
+      |                                     ^~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sernet.c:66:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sernet.c: In function ‘sniff_packets’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sernet.c:387:39: warning: format not a string literal and no format arguments [-Wformat-security]
+  387 |             freelog(LOG_NORMAL, srvarg.metaserver_info_line);
+      |                                 ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/sernet.c:400:37: warning: format not a string literal and no format arguments [-Wformat-security]
+  400 |           freelog(LOG_NORMAL, srvarg.metaserver_info_line);
+      |                               ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function ‘show_help_option_list’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2351:50: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2351 |           cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                                  ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2357:46: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2357 |       cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                              ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function ‘show_command’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2585:18: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2585 |   cmd_reply_show(buf);
+      |                  ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2571:72: note: in definition of macro ‘cmd_reply_show’
+ 2571 | #define cmd_reply_show(string)  cmd_reply(CMD_SHOW, caller, C_COMMENT, string)
+      |                                                                        ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2637:22: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2637 |       cmd_reply_show(buf);
+      |                      ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2571:72: note: in definition of macro ‘cmd_reply_show’
+ 2571 | #define cmd_reply_show(string)  cmd_reply(CMD_SHOW, caller, C_COMMENT, string)
+      |                                                                        ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function ‘set_command’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2799:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2799 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2821:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2821 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:2841:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2841 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function ‘show_help_intro’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3391:3: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3391 |   cmd_reply(help_cmd, caller, C_COMMENT, abuf.str);
+      |   ^~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c: In function ‘show_help_command_list’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3462:50: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3462 |           cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                                  ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/server/stdinhand.c:3468:46: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3468 |       cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                              ^~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c: In function ‘CITY_LOG’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:56:40: warning: format not a string literal and no format arguments [-Wformat-security]
+   56 |   cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                        ^~~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:20:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:57:21: warning: format not a string literal and no format arguments [-Wformat-security]
+   57 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c: In function ‘UNIT_LOG’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:85:40: warning: format not a string literal and no format arguments [-Wformat-security]
+   85 |   cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                        ^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:86:21: warning: format not a string literal and no format arguments [-Wformat-security]
+   86 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c: In function ‘GOTO_LOG’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:114:42: warning: format not a string literal and no format arguments [-Wformat-security]
+  114 |     cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                          ^~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:115:23: warning: format not a string literal and no format arguments [-Wformat-security]
+  115 |     freelog(minlevel, buffer);
+      |                       ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c: In function ‘BODYGUARD_LOG’:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:154:3: warning: format not a string literal and no format arguments [-Wformat-security]
+  154 |   cat_snprintf(buffer, sizeof(buffer), msg);
+      |   ^~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/ai/ailog.c:155:21: warning: format not a string literal and no format arguments [-Wformat-security]
+  155 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+1: Offline engine: invalid or repeated initialization
+1: Offline engine: invalid poll
+1: Offline engine: invalid poll
+1: Offline engine: invalid packet header
+1: Offline engine: local transport failed
+1: Offline engine: invalid packet header
+1: Offline engine: local transport failed
+1: Offline engine: invalid packet header
+1: Offline engine: local transport failed
+1: Local transport receive buffer limit exceeded
+1: Local transport callback missing for server (connection incomplete)
+1: Local transport receive buffer limit exceeded
+1: Local transport write failed for server (connection incomplete)
+1: Local transport receive buffer limit exceeded
+1: Local transport write failed for server (connection incomplete)
+1: Offline engine: recursive poll is not allowed
+1: Offline engine: cannot close during packet processing
+1: Offline engine: request rejected; session must close
+1: Offline session: engine connection failed
+1: Offline session: invalid pump
+1: Cannot start local game in state 0
+1: You are running Freeciv without using iconv.  Unless
+you are using the latin1 character set, some characters
+may not be displayed properly.  You can download iconv
+at http://gnu.org/.
+1: Cannot start local game in state 1
+1: Cannot start local game in state 0
+1: Cannot start local game in state 1
+1: last message repeated 2 times
+DOSPlayer: '/set xsize 40'
+DOSPlayer: '/set ysize 40'
+DOSPlayer: '/set aifill 2'
+DOSPlayer: '/set timeout 0'
+Player 'Eleanore Roosevelt' now has AI skill level 'easy'.
+DOSPlayer: '/set xsize 40'
+DOSPlayer: '/set ysize 40'
+DOSPlayer: '/set aifill 2'
+DOSPlayer: '/set timeout 0'
+Player 'Eleanore Roosevelt' now has AI skill level 'easy'.
+Offline transport tests passed: isolated real engine join, request boundaries, fragmented packets, buffering, backpressure, wraparound, invalid frames, explicit failures, reentrancy guards, rejection delivery, reset, real map/AI initialization, rates action, and authoritative turn advancement.

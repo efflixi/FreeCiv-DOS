@@ -1,0 +1,257 @@
+make  all-recursive
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub'
+Making all in intl
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/intl'
+Making all in common
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/common'
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT astring.o -MD -MP -MF .deps/astring.Tpo -c -o astring.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/astring.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT capability.o -MD -MP -MF .deps/capability.Tpo -c -o capability.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/capability.c
+mv -f .deps/capability.Tpo .deps/capability.Po
+mv -f .deps/astring.Tpo .deps/astring.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT capstr.o -MD -MP -MF .deps/capstr.Tpo -c -o capstr.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/capstr.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT city.o -MD -MP -MF .deps/city.Tpo -c -o city.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/city.c
+mv -f .deps/capstr.Tpo .deps/capstr.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT combat.o -MD -MP -MF .deps/combat.Tpo -c -o combat.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/combat.c
+mv -f .deps/combat.Tpo .deps/combat.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT connection.o -MD -MP -MF .deps/connection.Tpo -c -o connection.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/connection.c
+mv -f .deps/city.Tpo .deps/city.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT dataio.o -MD -MP -MF .deps/dataio.Tpo -c -o dataio.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/dataio.c
+mv -f .deps/connection.Tpo .deps/connection.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT diptreaty.o -MD -MP -MF .deps/diptreaty.Tpo -c -o diptreaty.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/diptreaty.c
+mv -f .deps/diptreaty.Tpo .deps/diptreaty.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT fcintl.o -MD -MP -MF .deps/fcintl.Tpo -c -o fcintl.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/fcintl.c
+mv -f .deps/fcintl.Tpo .deps/fcintl.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT game.o -MD -MP -MF .deps/game.Tpo -c -o game.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/game.c
+mv -f .deps/dataio.Tpo .deps/dataio.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT genlist.o -MD -MP -MF .deps/genlist.Tpo -c -o genlist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/genlist.c
+mv -f .deps/genlist.Tpo .deps/genlist.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT government.o -MD -MP -MF .deps/government.Tpo -c -o government.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/government.c
+mv -f .deps/government.Tpo .deps/government.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT hash.o -MD -MP -MF .deps/hash.Tpo -c -o hash.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/hash.c
+mv -f .deps/game.Tpo .deps/game.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT idex.o -MD -MP -MF .deps/idex.Tpo -c -o idex.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/idex.c
+mv -f .deps/idex.Tpo .deps/idex.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT improvement.o -MD -MP -MF .deps/improvement.Tpo -c -o improvement.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/improvement.c
+mv -f .deps/hash.Tpo .deps/hash.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT inputfile.o -MD -MP -MF .deps/inputfile.Tpo -c -o inputfile.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/inputfile.c
+mv -f .deps/inputfile.Tpo .deps/inputfile.Po
+mv -f .deps/improvement.Tpo .deps/improvement.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT ioz.o -MD -MP -MF .deps/ioz.Tpo -c -o ioz.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/ioz.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT log.o -MD -MP -MF .deps/log.Tpo -c -o log.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.c
+mv -f .deps/ioz.Tpo .deps/ioz.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT map.o -MD -MP -MF .deps/map.Tpo -c -o map.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/map.c
+mv -f .deps/log.Tpo .deps/log.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT nation.o -MD -MP -MF .deps/nation.Tpo -c -o nation.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/nation.c
+mv -f .deps/nation.Tpo .deps/nation.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT netintf.o -MD -MP -MF .deps/netintf.Tpo -c -o netintf.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/netintf.c
+mv -f .deps/netintf.Tpo .deps/netintf.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT packets.o -MD -MP -MF .deps/packets.Tpo -c -o packets.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/packets.c
+mv -f .deps/map.Tpo .deps/map.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT packets_lsend.o -MD -MP -MF .deps/packets_lsend.Tpo -c -o packets_lsend.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/packets_lsend.c
+mv -f .deps/packets_lsend.Tpo .deps/packets_lsend.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT player.o -MD -MP -MF .deps/player.Tpo -c -o player.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/player.c
+mv -f .deps/player.Tpo .deps/player.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT mem.o -MD -MP -MF .deps/mem.Tpo -c -o mem.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/mem.c
+mv -f .deps/mem.Tpo .deps/mem.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT rand.o -MD -MP -MF .deps/rand.Tpo -c -o rand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/rand.c
+mv -f .deps/rand.Tpo .deps/rand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT registry.o -MD -MP -MF .deps/registry.Tpo -c -o registry.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/registry.c
+mv -f .deps/packets.Tpo .deps/packets.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT sbuffer.o -MD -MP -MF .deps/sbuffer.Tpo -c -o sbuffer.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/sbuffer.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/registry.c: In function ‘secfile_lookup_int_vec’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/registry.c:1323:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1323 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/registry.c: In function ‘secfile_lookup_str_vec’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/registry.c:1355:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1355 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+mv -f .deps/sbuffer.Tpo .deps/sbuffer.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT shared.o -MD -MP -MF .deps/shared.Tpo -c -o shared.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/shared.c
+mv -f .deps/registry.Tpo .deps/registry.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT spaceship.o -MD -MP -MF .deps/spaceship.Tpo -c -o spaceship.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/spaceship.c
+mv -f .deps/shared.Tpo .deps/shared.Po
+mv -f .deps/spaceship.Tpo .deps/spaceship.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT support.o -MD -MP -MF .deps/support.Tpo -c -o support.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/support.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT tech.o -MD -MP -MF .deps/tech.Tpo -c -o tech.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/tech.c
+mv -f .deps/support.Tpo .deps/support.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT timing.o -MD -MP -MF .deps/timing.Tpo -c -o timing.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/timing.c
+mv -f .deps/tech.Tpo .deps/tech.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unit.o -MD -MP -MF .deps/unit.Tpo -c -o unit.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/unit.c
+mv -f .deps/timing.Tpo .deps/timing.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unittype.o -MD -MP -MF .deps/unittype.Tpo -c -o unittype.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/unittype.c
+mv -f .deps/unittype.Tpo .deps/unittype.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT worklist.o -MD -MP -MF .deps/worklist.Tpo -c -o worklist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/worklist.c
+mv -f .deps/unit.Tpo .deps/unit.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT version.o -MD -MP -MF .deps/version.Tpo -c -o version.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/version.c
+mv -f .deps/worklist.Tpo .deps/worklist.Po
+mv -f .deps/version.Tpo .deps/version.Po
+rm -f libcivcommon.a
+ar cru libcivcommon.a astring.o capability.o capstr.o city.o combat.o connection.o dataio.o diptreaty.o fcintl.o game.o genlist.o government.o hash.o idex.o improvement.o inputfile.o ioz.o log.o map.o nation.o netintf.o packets.o packets_lsend.o player.o mem.o rand.o registry.o sbuffer.o shared.o spaceship.o support.o tech.o timing.o unit.o unittype.o worklist.o version.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcivcommon.a
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/common'
+Making all in client
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/client'
+Making all in gui-stub
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/client/gui-stub'
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT chatline.o -MD -MP -MF .deps/chatline.Tpo -c -o chatline.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/chatline.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT citydlg.o -MD -MP -MF .deps/citydlg.Tpo -c -o citydlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/citydlg.c
+mv -f .deps/chatline.Tpo .deps/chatline.Po
+mv -f .deps/citydlg.Tpo .deps/citydlg.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT cityrep.o -MD -MP -MF .deps/cityrep.Tpo -c -o cityrep.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/cityrep.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT colors.o -MD -MP -MF .deps/colors.Tpo -c -o colors.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/colors.c
+mv -f .deps/colors.Tpo .deps/colors.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT connectdlg.o -MD -MP -MF .deps/connectdlg.Tpo -c -o connectdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c
+mv -f .deps/cityrep.Tpo .deps/cityrep.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common -I../../intl     -O0 -g -std=gnu89 -fcommon -Wall -MT dialogs.o -MD -MP -MF .deps/dialogs.Tpo -c -o dialogs.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/dialogs.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: In function ‘server_autoconnect’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:31:3: warning: implicit declaration of function ‘my_snprintf’; did you mean ‘cat_snprintf’? [-Wimplicit-function-declaration]
+   31 |   my_snprintf(buf, sizeof(buf),
+      |   ^~~~~~~~~~~
+      |   cat_snprintf
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:32:15: warning: implicit declaration of function ‘_’ [-Wimplicit-function-declaration]
+   32 |               _("Auto-connecting to server \"%s\" at port %d as \"%s\""),
+      |               ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:33:15: error: ‘server_host’ undeclared (first use in this function)
+   33 |               server_host, server_port, connect_name);
+      |               ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:33:15: note: each undeclared identifier is reported only once for each function it appears in
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:33:28: error: ‘server_port’ undeclared (first use in this function)
+   33 |               server_host, server_port, connect_name);
+      |                            ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:33:41: error: ‘connect_name’ undeclared (first use in this function)
+   33 |               server_host, server_port, connect_name);
+      |                                         ^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:34:3: warning: implicit declaration of function ‘append_output_window’ [-Wimplicit-function-declaration]
+   34 |   append_output_window(buf);
+      |   ^~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:35:13: warning: implicit declaration of function ‘get_server_address’ [-Wimplicit-function-declaration]
+   35 |   outcome = get_server_address(server_host, server_port, buf, sizeof(buf));
+      |             ^~~~~~~~~~~~~~~~~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:5:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:38:13: warning: passing argument 2 of ‘real_freelog’ makes pointer from integer without a cast [-Wint-conversion]
+   38 |             _("Error contacting server \"%s\" at port %d "
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |             |
+      |             int
+   39 |               "as \"%s\":\n %s\n"),
+      |               ~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:60:42: note: expected ‘const char *’ but argument is of type ‘int’
+   60 | void real_freelog(int level, const char *message, ...)
+      |                              ~~~~~~~~~~~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: At top level:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:52:12: error: conflicting types for ‘try_to_autoconnect’; have ‘int()’
+   52 | static int try_to_autoconnect()
+      |            ^~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:9:13: note: previous declaration of ‘try_to_autoconnect’ with type ‘void(void)’
+    9 | static void try_to_autoconnect(void);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: In function ‘try_to_autoconnect’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:61:7: error: ‘AUTOCONNECT_INTERVAL’ undeclared (first use in this function)
+   61 |   if (AUTOCONNECT_INTERVAL * count >= 10000) {
+      |       ^~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:65:13: error: ‘server_host’ undeclared (first use in this function)
+   65 |             server_host, server_port, connect_name, count);
+      |             ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:65:26: error: ‘server_port’ undeclared (first use in this function)
+   65 |             server_host, server_port, connect_name, count);
+      |                          ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:65:39: error: ‘connect_name’ undeclared (first use in this function)
+   65 |             server_host, server_port, connect_name, count);
+      |                                       ^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:63:13: warning: passing argument 2 of ‘real_freelog’ makes pointer from integer without a cast [-Wint-conversion]
+   63 |             _("Failed to contact server \"%s\" at port "
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |             |
+      |             int
+   64 |               "%d as \"%s\" after %d attempts"),
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:60:42: note: expected ‘const char *’ but argument is of type ‘int’
+   60 | void real_freelog(int level, const char *message, ...)
+      |                              ~~~~~~~~~~~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:66:5: warning: implicit declaration of function ‘gtk_exit’ [-Wimplicit-function-declaration]
+   66 |     gtk_exit(EXIT_FAILURE);
+      |     ^~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/dialogs.c:37:1: error: conflicting types for ‘races_toggles_set_sensitive’; have ‘void(int,  int)’
+   37 | races_toggles_set_sensitive(int bits1, int bits2)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/dialogs.h:5,
+                 from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/dialogs.c:3:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/../include/dialogs_g.h:32:6: note: previous declaration of ‘races_toggles_set_sensitive’ with type ‘void(struct packet_nations_used *)’
+   32 | void races_toggles_set_sensitive(struct packet_nations_used *packet);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:69:11: warning: implicit declaration of function ‘try_to_connect’; did you mean ‘try_to_autoconnect’? [-Wimplicit-function-declaration]
+   69 |   switch (try_to_connect(connect_name, errbuf, sizeof(errbuf))) {
+      |           ^~~~~~~~~~~~~~
+      |           try_to_autoconnect
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:71:5: warning: ‘return’ with no value, in function returning non-void [-Wreturn-type]
+   71 |     return;
+      |     ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:52:12: note: declared here
+   52 | static int try_to_autoconnect()
+      |            ^~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:73:17: warning: implicit declaration of function ‘schedule_timer’ [-Wimplicit-function-declaration]
+   73 |      /*PORTME*/ schedule_timer
+      |                 ^~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:77:13: warning: passing argument 2 of ‘real_freelog’ makes pointer from integer without a cast [-Wint-conversion]
+   77 |             _("Error contacting server \"%s\" at port %d "
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |             |
+      |             int
+   78 |               "as \"%s\":\n %s\n"),
+      |               ~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/common/log.h:60:42: note: expected ‘const char *’ but argument is of type ‘int’
+   60 | void real_freelog(int level, const char *message, ...)
+      |                              ~~~~~~~~~~~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:80:17: warning: implicit declaration of function ‘exit_application’ [-Wimplicit-function-declaration]
+   80 |      /*PORTME*/ exit_application(error code);
+      |                 ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:80:34: error: ‘error’ undeclared (first use in this function)
+   80 |      /*PORTME*/ exit_application(error code);
+      |                                  ^~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:80:39: error: expected ‘)’ before ‘code’
+   80 |      /*PORTME*/ exit_application(error code);
+      |                                 ~     ^~~~~
+      |                                       )
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: At top level:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:9:13: warning: ‘try_to_autoconnect’ used but never defined
+    9 | static void try_to_autoconnect(void);
+      |             ^~~~~~~~~~~~~~~~~~
+make[3]: *** [Makefile:472: dialogs.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: In function ‘try_to_autoconnect’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:82:1: warning: control reaches end of non-void function [-Wreturn-type]
+   82 | }
+      | ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c: At top level:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-build-verified/source/client/gui-stub/connectdlg.c:52:12: warning: ‘try_to_autoconnect’ defined but not used [-Wunused-function]
+   52 | static int try_to_autoconnect()
+      |            ^~~~~~~~~~~~~~~~~~
+make[3]: *** [Makefile:472: connectdlg.o] Error 1
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/client/gui-stub'
+make[2]: *** [Makefile:690: all-recursive] Error 1
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub/client'
+make[1]: *** [Makefile:496: all-recursive] Error 1
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-stub'
+make: *** [Makefile:433: all] Error 2

@@ -1,0 +1,43 @@
+DOS VBE framebuffer: unable to allocate backbuffer.
+DOS VBE framebuffer: unable to allocate backbuffer.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: incompatible RGB565 masks or RGB888 color.
+DOS VBE framebuffer: incompatible RGB565 masks or RGB888 color.
+DOS VBE framebuffer: incompatible RGB565 masks or RGB888 color.
+DOS VBE framebuffer: incompatible RGB565 masks or RGB888 color.
+DOS VBE framebuffer: incompatible RGB565 masks or RGB888 color.
+DOS VBE framebuffer: missing initialization target.
+DOS VBE framebuffer: width overflows pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: invalid RGB565 dimensions or pitch.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: allocation size does not match buffer metadata.
+DOS VBE framebuffer: allocation size does not match buffer metadata.
+DOS VBE framebuffer: allocation size does not match buffer metadata.
+DOS VBE framebuffer: invalid dirty bounds.
+DOS VBE framebuffer: invalid dirty state.
+DOS VBE framebuffer: aliased buffers have different layouts.
+DOS VBE framebuffer: negative rectangle dimensions.
+DOS VBE framebuffer: negative rectangle dimensions.
+DOS VBE framebuffer: color is not packed RGB565.
+DOS VBE framebuffer: invalid blit dimensions or transparency.
+DOS VBE framebuffer: invalid blit dimensions or transparency.
+DOS VBE framebuffer: invalid blit dimensions or transparency.
+DOS VBE framebuffer: missing text.
+DOS VBE framebuffer: invalid bitmap font scale.
+DOS VBE framebuffer: invalid bitmap font scale.
+DOS VBE framebuffer: missing dirty rectangle output.
+DOS VBE framebuffer: missing buffer.
+DOS VBE framebuffer: missing buffer.
+framebuffer: allocation, clipping, 10000 extreme lines, 588 snapshot blits, ASCII, masks, dirty lifecycle and guards passed (ASan/UBSan)

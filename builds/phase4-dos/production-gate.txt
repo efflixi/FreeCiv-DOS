@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>freeciv --version>c:\freeciv\cliver.txt
+Freeciv version 1.14.1 gui-dos-vbe
+
+C:\>freeciv
+DOS VBE client unavailable: production graphics resources, input handling and GU
+I integration are incomplete. The separately tested VBE display is not a playabl
+e client.
+
+C:\>if errorlevel 1 echo production_gate_preserved>c:\freeciv\gate.ok
+
+C:\>type c:\freeciv\cliver.txt
+
+C:\>type c:\freeciv\gate.ok
+production_gate_preserved
+
+C:\>
+
+
+
+
+

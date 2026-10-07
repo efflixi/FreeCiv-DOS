@@ -1,0 +1,4 @@
+INIT VBECHECK: real BIOS/DPMI display only; not gameplay
+DOS VBE: BIOS display-state size query failed (AX=0x014f).
+FAIL real display initialization
+EXIT FAILURE: observed BIOS text mode 3; repeated shutdown checked

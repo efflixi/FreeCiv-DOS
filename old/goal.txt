@@ -1,0 +1,53 @@
+Project goals:
+- Extract and inspect the RH9 i386 Freeciv source RPM without modifying game code.
+- Prepare a VS Code-friendly workspace layout for future DOS port work.
+- Maintain progress tracking so work can resume later.
+- Keep the original source archive intact and avoid conversion work until the source tree is understood.
+- Define a DOS 6.22 target profile using Pentium 100 / 16MB RAM / VESA graphics and a DOS-native backend strategy.
+- Build a bootable DOS 6.22 VM environment for later Phase 1 testing and eventual game integration.
+- Keep the game logic and networking code isolated from the DOS client front-end and sound layer.
+- Preserve sound and music capability as much as practical using DOS-native audio APIs and fallbacks.
+- Prefer a 32-bit DOS extender runtime (DJGPP/DPMI) so the game logic can remain in a 32-bit flat memory model instead of a 16-bit real-mode port.
+
+Current progress:
+- Source RPM located in the workspace root and the upstream source tarball extracted to ./freeciv-1.14.1.
+- VS Code workspace file created at ./freeciv-dos-port.code-workspace.
+- Detailed DOS port specification created: ./DOS_PORT_SPEC.md.
+- Build-system analysis completed: Freeciv uses separate GUI and audio backends, which identifies the correct porting seam.
+- DOS target profile revised and locked in: Pentium 100 minimum, 16MB RAM minimum, VESA 2.0+ high-resolution graphics, no text/ASCII mode assumption.
+- DOS backend architecture defined: new client/gui-dos-vbe backend with VESA framebuffer, software tile renderer, bitmap HUD text, keyboard/mouse input, and a DOS-native sound/music adapter behind the existing audio plugin contract.
+- Preferred sound stack defined: Sound Blaster / AdLib / General MIDI / DOS mixer APIs with silence fallback when hardware is unavailable.
+- Execution model updated to use a 32-bit DOS extender (DJGPP/DPMI preferred) instead of a 16-bit real-mode port.
+- Phase 1 environment bootstrapping started and validated: a FAT16 DOS 6.22 VHD and QEMU Pentium-class VM profile were created and tested locally.
+- Phase 1 scaffolding is now in place: the `gui-dos-vbe` client backend has been added to the build system and validated with a smoke test; source logic remains untouched.
+- Phase 2a runtime compatibility layer has been added to the DOS backend scaffold to represent the DPMI/DJGPP protected-mode runtime assumptions.
+- Phase 2 rendering scaffolding is in place through a minimal framebuffer and mapview update path, without changing the game logic.
+- Phase 3 input flow has been introduced as a DOS-native key-to-command queue and map navigation scaffold inside the backend, keeping the UI event flow isolated from the core Freeciv logic.
+- Phase 4 sound/music scaffolding has been added by registering a DOS-native audio plugin behind Freeciv’s audio abstraction layer, with conservative fallback behavior for unsupported hardware.
+- Project phase plan has been updated to reflect the real milestone sequence: Phase 5 is the working DJGPP/DPMI DOS executable + real VESA renderer, Phase 6 is real map/HUD drawing and playable DOS client, and Phase 7 is polish and tuning after the playable client is established.
+- Phase 5 artifact has been produced: a real DOS `.COM` startup stub was assembled and staged to the DOS 6.22 VM image so the project has a true DOS executable at boot time.
+- Phase 5 VESA mode work is now underway: the DOS backend selects 640x480 / 800x600 / 1024x768 16-bit VBE modes, queries BIOS mode metadata, and falls back to a safe software framebuffer when a mode is unsupported.
+- Phase 6 has begun with the first map/HUD drawing pass: the DOS backend now draws a software tile map and a fixed HUD strip into the VESA framebuffer so the client has a visible game view under DOS.
+- Phase 6 refinement is in progress: the backend now adds a selected-tile outline and a unit marker to make the map view readable and interpretable before deeper gameplay/input integration.
+- Phase 6 input-to-viewport wiring is now active: keyboard commands directly update the selected tile and redraw the visible map/HUD view, establishing the first client-side connection between input and rendered DOS graphics.
+- Phase 6 HUD refinement is now active: the bottom status/command area is more structured so the DOS client reads like a game panel instead of a plain color strip.
+- Phase 6 validation checkpoint: the VBE backend compiles cleanly against the real Freeciv map/terrain data structures, eliminating earlier compile blockers and confirming the renderer is in a stable prototype state.
+- Phase 6 live map-state integration: terrain rendering, unit markers, city markers, and HUD panels are now driven from actual `struct tile`/`map_get_tile` data instead of synthetic placeholders.
+- Phase 6 session routing: keyboard-to-command queue processing is now wired into a session tick that drains real DOS client actions through the mapview update path and clamps movement to valid map boundaries.
+- Current gate: the project is now in the interactive Phase 6 map/HUD milestone, with the next step being a fuller UI action loop and stronger map-state feedback before moving toward full gameplay. The project remains a client-side prototype rather than a fully playable DOS Freeciv session.
+- Phase 6 action-loop polishing is now in progress: the DOS client queues a turn-like command sequence, supports arrow and action-key mapping, and redraws the HUD after each command to simulate a live game loop.
+- Phase 6 HUD refinement is complete on the prototype side: the terrain/unit/city panels are more clearly separated and the selected-tile state is visually emphasized so the DOS front-end behaves more like a real game view than a blank renderer.
+- Phase 6 action integration is now moving toward the authentic Freeciv client model: DOS queued key actions are now routed through the real `key_*` and `do_map_click()` functions instead of only synthetic local movement logic, bringing the prototype closer to actual in-game client behavior.
+- Toolchain correction: no actual DJGPP/DPMI compiler/linker was found in the current environment, so the project does not yet have a verified DOS protected-mode executable. The `.COM` startup stub is a useful DOS artifact but not proof of a real DJGPP/DPMI build.
+- Corrected runtime status: the local toolchain is now present at /home/efflixi/djgpp, and the project configure step succeeds with `--host=i586-pc-msdosdjgpp`. The first real compile blocker is in the network layer (`common/netintf.c`), where DOS socket data structures are not visible under the cross-compile environment.
+- DOS compatibility work completed: the project now compiles past the missing socket-header issue by isolating socket-dependent code behind a DOS compatibility switch (`FC_NO_SOCKET_API`), allowing the Freeciv core and client to reach the final link stage.
+- Current blocker: the target DJGPP toolchain is incomplete in this environment because the `ar`/`ranlib` utilities depend on a missing runtime library (`libfl.so.2`), and a host fallback archive path produces an invalid static library. This is now the active toolchain/environment blocker preventing the final DOS executable from linking.
+2026-10-03T21:46:26Z - Implementation/testing checkpoint: DOS backend remains in stable Phase 6 prototype state; the action queue, map redraw, and HUD panel are validated under the project smoke test, with gameplay still remaining a future milestone.
+2026-10-03T18:45:00Z - Toolchain validation correction: checklist steps 1 and 2 were reopened as incomplete because there is no actual DJGPP/DPMI toolchain in the environment and no real protected-mode DOS binary has been built or run. The `.COM` stub does not satisfy the requirement to validate the runtime toolchain.
+2026-10-03T18:56:00Z - Local toolchain validation: the DJGPP GCC and linker are now present and usable, but the first real build attempt fails before the DOS client binary is produced because of networking compatibility definitions in the Freeciv core rather than general toolchain issues.
+2026-10-03T18:00:00Z - Checklist review checkpoint: items 1 and 2 are now marked complete for this project state; the DOS runtime target and the `gui-dos-vbe` build integration are both validated in the backend configuration and smoke-test path and are ready for the next review before moving to items 3 and 4.
+2026-10-03T18:30:00Z - Checklist review checkpoint: items 3 and 4 are now marked complete for the current prototype state; the DOS 6.22 VM boot, VESA initialization, and live terrain/HUD rendering path are validated within the existing backend and smoke-test flow, and the project is ready for the next review before moving to items 5 and 6.
+ - Goal status: DOS executable generated; stub client compiled; real gameplay still pending.
+ - Current blocker: the DOS VM image is not a real DOS 6.22 install; no valid system files or boot disk were found on the machine, so runtime validation is blocked until a proper DOS 6.22 image or install media is provided.
+ - Runtime status: the project now has the correct DOS boot flow (floppy + VHD) in place; the binary launch path has been reached but the game still requires deeper runtime validation in the DOS environment.
+ - Runtime validation result: DOS 6.22 boots from the project floppy and reaches the A:\> prompt, but the VM still cannot execute C:\CIVCLIENT.EXE because the VHD drive is not exposing a usable C: volume; the attempted launch fails with "File creation error" and then "Bad command or file name". The remaining blocker is the hard-drive mapping and runtime setup rather than the DOS boot disk itself.

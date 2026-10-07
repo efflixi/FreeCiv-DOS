@@ -1,0 +1,25 @@
+
+C:\FREECIV>echo text_restore_marker
+text_restore_marker
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>rndcheck 640 > rnd640.log
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>rndcheck 800 > rnd800.log
+
+C:\FREECIV>
+
+
+
+
+
+
+
+
+
+

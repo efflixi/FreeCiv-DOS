@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>c:\freeciv\freeciv
+DOS VBE client unavailable: real VBE/framebuffer setup, graphics resources and i
+nput handling are incomplete. Phase 2 provides compile/link stabilization only.
+
+C:\>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

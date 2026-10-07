@@ -1,0 +1,380 @@
+make  all-recursive
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server'
+Making all in intl
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/intl'
+Making all in common
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/common'
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT astring.o -MD -MP -MF .deps/astring.Tpo -c -o astring.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/astring.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT capability.o -MD -MP -MF .deps/capability.Tpo -c -o capability.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/capability.c
+mv -f .deps/capability.Tpo .deps/capability.Po
+mv -f .deps/astring.Tpo .deps/astring.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT capstr.o -MD -MP -MF .deps/capstr.Tpo -c -o capstr.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/capstr.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT city.o -MD -MP -MF .deps/city.Tpo -c -o city.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/city.c
+mv -f .deps/capstr.Tpo .deps/capstr.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT combat.o -MD -MP -MF .deps/combat.Tpo -c -o combat.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/combat.c
+mv -f .deps/combat.Tpo .deps/combat.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT connection.o -MD -MP -MF .deps/connection.Tpo -c -o connection.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/connection.c
+mv -f .deps/city.Tpo .deps/city.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT dataio.o -MD -MP -MF .deps/dataio.Tpo -c -o dataio.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/dataio.c
+mv -f .deps/connection.Tpo .deps/connection.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT diptreaty.o -MD -MP -MF .deps/diptreaty.Tpo -c -o diptreaty.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/diptreaty.c
+mv -f .deps/diptreaty.Tpo .deps/diptreaty.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT fcintl.o -MD -MP -MF .deps/fcintl.Tpo -c -o fcintl.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/fcintl.c
+mv -f .deps/dataio.Tpo .deps/dataio.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT game.o -MD -MP -MF .deps/game.Tpo -c -o game.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/game.c
+mv -f .deps/fcintl.Tpo .deps/fcintl.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT genlist.o -MD -MP -MF .deps/genlist.Tpo -c -o genlist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/genlist.c
+mv -f .deps/genlist.Tpo .deps/genlist.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT government.o -MD -MP -MF .deps/government.Tpo -c -o government.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/government.c
+mv -f .deps/government.Tpo .deps/government.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT hash.o -MD -MP -MF .deps/hash.Tpo -c -o hash.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/hash.c
+mv -f .deps/game.Tpo .deps/game.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT idex.o -MD -MP -MF .deps/idex.Tpo -c -o idex.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/idex.c
+mv -f .deps/idex.Tpo .deps/idex.Po
+mv -f .deps/hash.Tpo .deps/hash.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT improvement.o -MD -MP -MF .deps/improvement.Tpo -c -o improvement.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/improvement.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT inputfile.o -MD -MP -MF .deps/inputfile.Tpo -c -o inputfile.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/inputfile.c
+mv -f .deps/inputfile.Tpo .deps/inputfile.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT ioz.o -MD -MP -MF .deps/ioz.Tpo -c -o ioz.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/ioz.c
+mv -f .deps/improvement.Tpo .deps/improvement.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT log.o -MD -MP -MF .deps/log.Tpo -c -o log.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/log.c
+mv -f .deps/ioz.Tpo .deps/ioz.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT map.o -MD -MP -MF .deps/map.Tpo -c -o map.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/map.c
+mv -f .deps/log.Tpo .deps/log.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT nation.o -MD -MP -MF .deps/nation.Tpo -c -o nation.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/nation.c
+mv -f .deps/nation.Tpo .deps/nation.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT netintf.o -MD -MP -MF .deps/netintf.Tpo -c -o netintf.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/netintf.c
+mv -f .deps/netintf.Tpo .deps/netintf.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT packets.o -MD -MP -MF .deps/packets.Tpo -c -o packets.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/packets.c
+mv -f .deps/map.Tpo .deps/map.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT packets_lsend.o -MD -MP -MF .deps/packets_lsend.Tpo -c -o packets_lsend.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/packets_lsend.c
+mv -f .deps/packets_lsend.Tpo .deps/packets_lsend.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT player.o -MD -MP -MF .deps/player.Tpo -c -o player.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/player.c
+mv -f .deps/player.Tpo .deps/player.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT mem.o -MD -MP -MF .deps/mem.Tpo -c -o mem.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/mem.c
+mv -f .deps/mem.Tpo .deps/mem.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT rand.o -MD -MP -MF .deps/rand.Tpo -c -o rand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/rand.c
+mv -f .deps/rand.Tpo .deps/rand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT registry.o -MD -MP -MF .deps/registry.Tpo -c -o registry.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/registry.c
+mv -f .deps/packets.Tpo .deps/packets.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT sbuffer.o -MD -MP -MF .deps/sbuffer.Tpo -c -o sbuffer.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/sbuffer.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/registry.c: In function ‘secfile_lookup_int_vec’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/registry.c:1323:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1323 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/registry.c: In function ‘secfile_lookup_str_vec’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/registry.c:1355:54: warning: format not a string literal and no format arguments [-Wformat-security]
+ 1355 |   *dimen = secfile_lookup_vec_dimen(my_section_file, buf);
+      |                                                      ^~~
+mv -f .deps/sbuffer.Tpo .deps/sbuffer.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT shared.o -MD -MP -MF .deps/shared.Tpo -c -o shared.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/shared.c
+mv -f .deps/registry.Tpo .deps/registry.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT spaceship.o -MD -MP -MF .deps/spaceship.Tpo -c -o spaceship.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/spaceship.c
+mv -f .deps/shared.Tpo .deps/shared.Po
+mv -f .deps/spaceship.Tpo .deps/spaceship.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT support.o -MD -MP -MF .deps/support.Tpo -c -o support.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/support.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT tech.o -MD -MP -MF .deps/tech.Tpo -c -o tech.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/tech.c
+mv -f .deps/support.Tpo .deps/support.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT timing.o -MD -MP -MF .deps/timing.Tpo -c -o timing.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/timing.c
+mv -f .deps/tech.Tpo .deps/tech.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unit.o -MD -MP -MF .deps/unit.Tpo -c -o unit.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/unit.c
+mv -f .deps/timing.Tpo .deps/timing.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unittype.o -MD -MP -MF .deps/unittype.Tpo -c -o unittype.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/unittype.c
+mv -f .deps/unittype.Tpo .deps/unittype.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT worklist.o -MD -MP -MF .deps/worklist.Tpo -c -o worklist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/worklist.c
+mv -f .deps/unit.Tpo .deps/unit.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common -I.. -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT version.o -MD -MP -MF .deps/version.Tpo -c -o version.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/common/version.c
+mv -f .deps/worklist.Tpo .deps/worklist.Po
+mv -f .deps/version.Tpo .deps/version.Po
+rm -f libcivcommon.a
+ar cru libcivcommon.a astring.o capability.o capstr.o city.o combat.o connection.o dataio.o diptreaty.o fcintl.o game.o genlist.o government.o hash.o idex.o improvement.o inputfile.o ioz.o log.o map.o nation.o netintf.o packets.o packets_lsend.o player.o mem.o rand.o registry.o sbuffer.o shared.o spaceship.o support.o tech.o timing.o unit.o unittype.o worklist.o version.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcivcommon.a
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/common'
+Making all in ai
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/ai'
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advattitude.o -MD -MP -MF .deps/advattitude.Tpo -c -o advattitude.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advattitude.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advdomestic.o -MD -MP -MF .deps/advdomestic.Tpo -c -o advdomestic.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advdomestic.c
+mv -f .deps/advattitude.Tpo .deps/advattitude.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advforeign.o -MD -MP -MF .deps/advforeign.Tpo -c -o advforeign.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advforeign.c
+mv -f .deps/advforeign.Tpo .deps/advforeign.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advisland.o -MD -MP -MF .deps/advisland.Tpo -c -o advisland.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advisland.c
+mv -f .deps/advisland.Tpo .deps/advisland.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advleader.o -MD -MP -MF .deps/advleader.Tpo -c -o advleader.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advleader.c
+mv -f .deps/advdomestic.Tpo .deps/advdomestic.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advmilitary.o -MD -MP -MF .deps/advmilitary.Tpo -c -o advmilitary.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advmilitary.c
+mv -f .deps/advleader.Tpo .deps/advleader.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advscience.o -MD -MP -MF .deps/advscience.Tpo -c -o advscience.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advscience.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advmilitary.c: In function ‘kill_something_with’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advmilitary.c:940:22: warning: variable ‘fstk’ set but not used [-Wunused-but-set-variable]
+  940 |   int needferry = 0, fstk, boatspeed;
+      |                      ^~~~
+mv -f .deps/advscience.Tpo .deps/advscience.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advspace.o -MD -MP -MF .deps/advspace.Tpo -c -o advspace.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advspace.c
+mv -f .deps/advspace.Tpo .deps/advspace.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT advtrade.o -MD -MP -MF .deps/advtrade.Tpo -c -o advtrade.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/advtrade.c
+mv -f .deps/advmilitary.Tpo .deps/advmilitary.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aicity.o -MD -MP -MF .deps/aicity.Tpo -c -o aicity.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aicity.c
+mv -f .deps/advtrade.Tpo .deps/advtrade.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aidata.o -MD -MP -MF .deps/aidata.Tpo -c -o aidata.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aidata.c
+mv -f .deps/aidata.Tpo .deps/aidata.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aihand.o -MD -MP -MF .deps/aihand.Tpo -c -o aihand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aihand.c
+mv -f .deps/aicity.Tpo .deps/aicity.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT ailog.o -MD -MP -MF .deps/ailog.Tpo -c -o ailog.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c: In function ‘CITY_LOG’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:56:40: warning: format not a string literal and no format arguments [-Wformat-security]
+   56 |   cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                        ^~~~~~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:20:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:57:21: warning: format not a string literal and no format arguments [-Wformat-security]
+   57 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c: In function ‘UNIT_LOG’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:85:40: warning: format not a string literal and no format arguments [-Wformat-security]
+   85 |   cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                        ^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:86:21: warning: format not a string literal and no format arguments [-Wformat-security]
+   86 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c: In function ‘GOTO_LOG’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:114:42: warning: format not a string literal and no format arguments [-Wformat-security]
+  114 |     cat_snprintf(buffer, sizeof(buffer), buffer2);
+      |                                          ^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:115:23: warning: format not a string literal and no format arguments [-Wformat-security]
+  115 |     freelog(minlevel, buffer);
+      |                       ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c: In function ‘BODYGUARD_LOG’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:154:3: warning: format not a string literal and no format arguments [-Wformat-security]
+  154 |   cat_snprintf(buffer, sizeof(buffer), msg);
+      |   ^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/ailog.c:155:21: warning: format not a string literal and no format arguments [-Wformat-security]
+  155 |   freelog(minlevel, buffer);
+      |                     ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+mv -f .deps/aihand.Tpo .deps/aihand.Po
+mv -f .deps/ailog.Tpo .deps/ailog.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aitech.o -MD -MP -MF .deps/aitech.Tpo -c -o aitech.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aitech.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aitools.o -MD -MP -MF .deps/aitools.Tpo -c -o aitools.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aitools.c
+mv -f .deps/aitech.Tpo .deps/aitech.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/../server -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT aiunit.o -MD -MP -MF .deps/aiunit.Tpo -c -o aiunit.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/ai/aiunit.c
+mv -f .deps/aitools.Tpo .deps/aitools.Po
+mv -f .deps/aiunit.Tpo .deps/aiunit.Po
+rm -f libcivai.a
+ar cru libcivai.a advattitude.o advdomestic.o advforeign.o advisland.o advleader.o advmilitary.o advscience.o advspace.o advtrade.o aicity.o aidata.o aihand.o ailog.o aitech.o aitools.o aiunit.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcivai.a
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/ai'
+Making all in server
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/server'
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT civserver.o -MD -MP -MF .deps/civserver.Tpo -c -o civserver.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/civserver.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT autoattack.o -MD -MP -MF .deps/autoattack.Tpo -c -o autoattack.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/autoattack.c
+mv -f .deps/civserver.Tpo .deps/civserver.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT barbarian.o -MD -MP -MF .deps/barbarian.Tpo -c -o barbarian.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/barbarian.c
+mv -f .deps/autoattack.Tpo .deps/autoattack.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT cityhand.o -MD -MP -MF .deps/cityhand.Tpo -c -o cityhand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/cityhand.c
+mv -f .deps/cityhand.Tpo .deps/cityhand.Po
+mv -f .deps/barbarian.Tpo .deps/barbarian.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT citytools.o -MD -MP -MF .deps/citytools.Tpo -c -o citytools.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/citytools.c
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT cityturn.o -MD -MP -MF .deps/cityturn.Tpo -c -o cityturn.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/cityturn.c
+mv -f .deps/cityturn.Tpo .deps/cityturn.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT console.o -MD -MP -MF .deps/console.Tpo -c -o console.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/console.c
+mv -f .deps/citytools.Tpo .deps/citytools.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT diplhand.o -MD -MP -MF .deps/diplhand.Tpo -c -o diplhand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/diplhand.c
+mv -f .deps/console.Tpo .deps/console.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT diplomats.o -MD -MP -MF .deps/diplomats.Tpo -c -o diplomats.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/diplomats.c
+mv -f .deps/diplhand.Tpo .deps/diplhand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT gamehand.o -MD -MP -MF .deps/gamehand.Tpo -c -o gamehand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamehand.c
+mv -f .deps/diplomats.Tpo .deps/diplomats.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT gamelog.o -MD -MP -MF .deps/gamelog.Tpo -c -o gamelog.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamelog.c
+mv -f .deps/gamehand.Tpo .deps/gamehand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT gotohand.o -MD -MP -MF .deps/gotohand.Tpo -c -o gotohand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gotohand.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamelog.c: In function ‘gamelog_save’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamelog.c:187:23: warning: format not a string literal and no format arguments [-Wformat-security]
+  187 |   gamelog(GAMELOG_EOT,buffer);
+      |                       ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamelog.c:197:24: warning: format not a string literal and no format arguments [-Wformat-security]
+  197 |   gamelog(GAMELOG_RANK,buffer);
+      |                        ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/gamelog.c:207:27: warning: format not a string literal and no format arguments [-Wformat-security]
+  207 |   gamelog(GAMELOG_STATUS, buffer);
+      |                           ^~~~~~
+mv -f .deps/gamelog.Tpo .deps/gamelog.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT handchat.o -MD -MP -MF .deps/handchat.Tpo -c -o handchat.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/handchat.c
+mv -f .deps/handchat.Tpo .deps/handchat.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT mapgen.o -MD -MP -MF .deps/mapgen.Tpo -c -o mapgen.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/mapgen.c
+mv -f .deps/gotohand.Tpo .deps/gotohand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT maphand.o -MD -MP -MF .deps/maphand.Tpo -c -o maphand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/maphand.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/mapgen.c: In function ‘make_forest’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/mapgen.c:182:5: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+  182 |     else
+      |     ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/mapgen.c:184:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+  184 |       if (abs(hmap(x, y)-height)<diff) {
+      |       ^~
+mv -f .deps/maphand.Tpo .deps/maphand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT meta.o -MD -MP -MF .deps/meta.Tpo -c -o meta.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/meta.c
+mv -f .deps/mapgen.Tpo .deps/mapgen.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT plrhand.o -MD -MP -MF .deps/plrhand.Tpo -c -o plrhand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/plrhand.c
+mv -f .deps/meta.Tpo .deps/meta.Po
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/plrhand.c: In function ‘handle_player_cancel_pact’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/plrhand.c:887:9: warning: variable ‘no_units’ set but not used [-Wunused-but-set-variable]
+  887 |     int no_units = unit_list_size(&(pplayer->units));
+      |         ^~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT report.o -MD -MP -MF .deps/report.Tpo -c -o report.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/report.c
+mv -f .deps/report.Tpo .deps/report.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT ruleset.o -MD -MP -MF .deps/ruleset.Tpo -c -o ruleset.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c
+mv -f .deps/plrhand.Tpo .deps/plrhand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT sanitycheck.o -MD -MP -MF .deps/sanitycheck.Tpo -c -o sanitycheck.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sanitycheck.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_techs’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:489:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+  489 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_units’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:614:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+  614 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_buildings’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:943:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+  943 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_terrain’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:1301:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+ 1301 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_governments’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:1478:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+ 1478 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_nations’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:1974:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+ 1974 |   char *datafile_options, *bad_leader, *g;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_cities’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:2230:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+ 2230 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c: In function ‘load_ruleset_game’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/ruleset.c:2279:9: warning: variable ‘datafile_options’ set but not used [-Wunused-but-set-variable]
+ 2279 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+mv -f .deps/sanitycheck.Tpo .deps/sanitycheck.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT savegame.o -MD -MP -MF .deps/savegame.Tpo -c -o savegame.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/savegame.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/savegame.c: In function ‘game_load’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/savegame.c:2013:38: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2013 |       string=secfile_lookup_str(file,name);
+      |                                      ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/savegame.c: In function ‘game_save’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/savegame.c:2245:37: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2245 |       secfile_insert_str(file, vec, name);
+      |                                     ^~~~
+mv -f .deps/ruleset.Tpo .deps/ruleset.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT sernet.o -MD -MP -MF .deps/sernet.Tpo -c -o sernet.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c:66:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c: In function ‘sniff_packets’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c:387:39: warning: format not a string literal and no format arguments [-Wformat-security]
+  387 |             freelog(LOG_NORMAL, srvarg.metaserver_info_line);
+      |                                 ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c:400:37: warning: format not a string literal and no format arguments [-Wformat-security]
+  400 |           freelog(LOG_NORMAL, srvarg.metaserver_info_line);
+      |                               ~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common/log.h:103:27: note: in definition of macro ‘freelog’
+  103 |     real_freelog((level), args); } \
+      |                           ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c: In function ‘server_accept_connection’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c:693:62: warning: pointer targets in passing argument 3 of ‘accept’ differ in signedness [-Wpointer-sign]
+  693 |   if ((new_sock=accept(sockfd, (struct sockaddr *) &fromend, &fromlen)) == -1) {
+      |                                                              ^~~~~~~~
+      |                                                              |
+      |                                                              int *
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/sernet.c:42:
+/usr/include/x86_64-linux-gnu/sys/socket.h:307:42: note: expected ‘socklen_t * __restrict__’ {aka ‘unsigned int * __restrict__’} but argument is of type ‘int *’
+  307 |                    socklen_t *__restrict __addr_len);
+      |                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+mv -f .deps/sernet.Tpo .deps/sernet.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT settlers.o -MD -MP -MF .deps/settlers.Tpo -c -o settlers.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/settlers.c
+mv -f .deps/savegame.Tpo .deps/savegame.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT spacerace.o -MD -MP -MF .deps/spacerace.Tpo -c -o spacerace.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/spacerace.c
+mv -f .deps/spacerace.Tpo .deps/spacerace.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT srv_main.o -MD -MP -MF .deps/srv_main.Tpo -c -o srv_main.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/srv_main.c
+mv -f .deps/settlers.Tpo .deps/settlers.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT stdinhand.o -MD -MP -MF .deps/stdinhand.Tpo -c -o stdinhand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c: In function ‘show_help_option_list’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2351:50: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2351 |           cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                                  ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2357:46: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2357 |       cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                              ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c: In function ‘show_command’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2585:18: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2585 |   cmd_reply_show(buf);
+      |                  ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2571:72: note: in definition of macro ‘cmd_reply_show’
+ 2571 | #define cmd_reply_show(string)  cmd_reply(CMD_SHOW, caller, C_COMMENT, string)
+      |                                                                        ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2637:22: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2637 |       cmd_reply_show(buf);
+      |                      ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2571:72: note: in definition of macro ‘cmd_reply_show’
+ 2571 | #define cmd_reply_show(string)  cmd_reply(CMD_SHOW, caller, C_COMMENT, string)
+      |                                                                        ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c: In function ‘set_command’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2799:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2799 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2821:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2821 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:2841:9: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2841 |         cmd_reply(CMD_SET, caller, C_SYNTAX, reject_message);
+      |         ^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c: In function ‘show_help_intro’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:3391:3: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3391 |   cmd_reply(help_cmd, caller, C_COMMENT, abuf.str);
+      |   ^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c: In function ‘show_help_command_list’:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:3462:50: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3462 |           cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                                  ^~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/stdinhand.c:3468:46: warning: format not a string literal and no format arguments [-Wformat-security]
+ 3468 |       cmd_reply(help_cmd, caller, C_COMMENT, buf);
+      |                                              ^~~
+mv -f .deps/srv_main.Tpo .deps/srv_main.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unithand.o -MD -MP -MF .deps/unithand.Tpo -c -o unithand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/unithand.c
+mv -f .deps/stdinhand.Tpo .deps/stdinhand.Po
+gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../common -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/../ai -I../intl    -O0 -g -std=gnu89 -fcommon -Wall -MT unittools.o -MD -MP -MF .deps/unittools.Tpo -c -o unittools.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos/source/server/unittools.c
+mv -f .deps/unithand.Tpo .deps/unithand.Po
+mv -f .deps/unittools.Tpo .deps/unittools.Po
+rm -f libcivserver.a
+ar cru libcivserver.a autoattack.o barbarian.o cityhand.o citytools.o cityturn.o console.o diplhand.o diplomats.o gamehand.o gamelog.o gotohand.o handchat.o mapgen.o maphand.o meta.o plrhand.o report.o ruleset.o sanitycheck.o savegame.o sernet.o settlers.o spacerace.o srv_main.o stdinhand.o unithand.o unittools.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcivserver.a
+gcc  -O0 -g -std=gnu89 -fcommon -Wall   -o civserver civserver.o ../common/libcivcommon.a ../ai/libcivai.a ./libcivserver.a  ../common/libcivcommon.a ../ai/libcivai.a ./libcivserver.a -lm 
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/server'
+Making all in po
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/po'
+Making all in doc
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server/doc'
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server'
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server'
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-native-server'

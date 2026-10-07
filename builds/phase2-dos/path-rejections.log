@@ -1,0 +1,3 @@
+Build directory must be absolute.
+Build directory must not already exist: /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase2-final-dos
+Autotools build directories must not contain whitespace or colons.

@@ -1,0 +1,25 @@
+PASS TRANSFER: DPMI conventional buffer released
+INFO DATA runtime-test fixture lookup: c:\freeciv\data\missing.dat
+FAIL DATA: cannot read runtime-test fixture: No such file or directory (ENOENT)
+FAIL RTCHECK initialization; no READY and no keyboard wait
+EXIT FAILURE
+
+C:\FREECIV>if errorlevel 1 echo missingdata_ok
+missingdata_ok
+
+C:\FREECIV>a:
+
+A:\>freeciv --version
+Freeciv version 1.14.1 gui-dos-vbe
+
+A:\>c:
+
+C:\FREECIV>freeciv --version
+Freeciv version 1.14.1 gui-dos-vbe
+
+C:\FREECIV>cd \freeciv
+
+C:\FREECIV>freeciv --version
+Freeciv version 1.14.1 gui-dos-vbe
+
+C:\FREECIV>

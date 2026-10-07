@@ -1,0 +1,483 @@
+make  all-recursive
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+Making all in intl
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/intl'
+Making all in common
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT astring.o -MD -MP -MF .deps/astring.Tpo -c -o astring.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/astring.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT capability.o -MD -MP -MF .deps/capability.Tpo -c -o capability.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/capability.c
+mv -f .deps/capability.Tpo .deps/capability.Po
+mv -f .deps/astring.Tpo .deps/astring.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT capstr.o -MD -MP -MF .deps/capstr.Tpo -c -o capstr.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/capstr.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT city.o -MD -MP -MF .deps/city.Tpo -c -o city.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/city.c
+mv -f .deps/capstr.Tpo .deps/capstr.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT combat.o -MD -MP -MF .deps/combat.Tpo -c -o combat.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/combat.c
+mv -f .deps/combat.Tpo .deps/combat.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT connection.o -MD -MP -MF .deps/connection.Tpo -c -o connection.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/connection.c
+mv -f .deps/connection.Tpo .deps/connection.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT dataio.o -MD -MP -MF .deps/dataio.Tpo -c -o dataio.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:47:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/log.h: In function 'dio_get_bool8':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/log.h:103:5: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  103 |     real_freelog((level), args); } \
+      |     ^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_bool32':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:499:17: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  499 |   if (ival != 0 && ival != 1) {
+      |       ~~~~~~~~~~^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:495:7: note: 'ival' was declared here
+  495 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_sint16':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:517:11: warning: 'tmp' may be used uninitialized [-Wmaybe-uninitialized]
+  517 |       tmp -= 0x10000;
+      |           ^~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:512:7: note: 'tmp' was declared here
+  512 |   int tmp;
+      |       ^~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/capability.h:17,
+                 from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:45:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/shared.h: In function 'dio_get_bit_string':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/shared.h:76:49: warning: 'byte_value' may be used uninitialized [-Wmaybe-uninitialized]
+   76 | #define TEST_BIT(val, bit_no)           (((val) & (1u << (bit_no))) == (1u << (bit_no)))
+      |                                                 ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:601:14: note: 'byte_value' was declared here
+  601 |     int bit, byte_value;
+      |              ^~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:600:17: warning: 'npack' may be used uninitialized [-Wmaybe-uninitialized]
+  600 |   for (i = 0; i < npack;) {
+      |               ~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:583:7: note: 'npack' was declared here
+  583 |   int npack;                    /* number claimed in packet */
+      |       ^~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_city_map':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:657:9: warning: 'j' may be used uninitialized [-Wmaybe-uninitialized]
+  657 |       j %= 81;
+      |         ^~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:651:9: note: 'j' was declared here
+  651 |     int j;
+      |         ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_worklist':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:711:19: warning: 'length' may be used uninitialized [-Wmaybe-uninitialized]
+  711 |     for (i = 0; i < length; i++) {
+      |                 ~~^~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:696:12: note: 'length' was declared here
+  696 |     int i, length;
+      |            ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:695:6: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  695 |   if (pwl->is_valid) {
+      |      ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_uint8_vec8':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:729:21: warning: 'count' may be used uninitialized [-Wmaybe-uninitialized]
+  729 |   for (inx = 0; inx < count; inx++) {
+      |                 ~~~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:723:7: note: 'count' was declared here
+  723 |   int count, inx;
+      |       ^~~~~
+mv -f .deps/dataio.Tpo .deps/dataio.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT diptreaty.o -MD -MP -MF .deps/diptreaty.Tpo -c -o diptreaty.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/diptreaty.c
+mv -f .deps/diptreaty.Tpo .deps/diptreaty.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT fcintl.o -MD -MP -MF .deps/fcintl.Tpo -c -o fcintl.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/fcintl.c
+mv -f .deps/fcintl.Tpo .deps/fcintl.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT game.o -MD -MP -MF .deps/game.Tpo -c -o game.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c
+mv -f .deps/city.Tpo .deps/city.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT genlist.o -MD -MP -MF .deps/genlist.Tpo -c -o genlist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/genlist.c
+mv -f .deps/genlist.Tpo .deps/genlist.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT government.o -MD -MP -MF .deps/government.Tpo -c -o government.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/government.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c: In function 'civ_score':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:497:29: warning: 'settledarea' may be used uninitialized [-Wmaybe-uninitialized]
+  497 |   pplayer->score.settledarea=settledarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:439:17: note: 'settledarea' was declared here
+  439 |   int landarea, settledarea;
+      |                 ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:496:26: warning: 'landarea' may be used uninitialized [-Wmaybe-uninitialized]
+  496 |   pplayer->score.landarea=landarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:439:7: note: 'landarea' was declared here
+  439 |   int landarea, settledarea;
+      |       ^~~~~~~~
+mv -f .deps/government.Tpo .deps/government.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT hash.o -MD -MP -MF .deps/hash.Tpo -c -o hash.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/hash.c
+mv -f .deps/game.Tpo .deps/game.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT idex.o -MD -MP -MF .deps/idex.Tpo -c -o idex.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/idex.c
+mv -f .deps/hash.Tpo .deps/hash.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT improvement.o -MD -MP -MF .deps/improvement.Tpo -c -o improvement.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/improvement.c
+mv -f .deps/idex.Tpo .deps/idex.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT inputfile.o -MD -MP -MF .deps/inputfile.Tpo -c -o inputfile.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/inputfile.c
+mv -f .deps/improvement.Tpo .deps/improvement.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT ioz.o -MD -MP -MF .deps/ioz.Tpo -c -o ioz.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/ioz.c
+mv -f .deps/inputfile.Tpo .deps/inputfile.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT log.o -MD -MP -MF .deps/log.Tpo -c -o log.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/log.c
+mv -f .deps/ioz.Tpo .deps/ioz.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT map.o -MD -MP -MF .deps/map.Tpo -c -o map.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/map.c
+mv -f .deps/log.Tpo .deps/log.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT nation.o -MD -MP -MF .deps/nation.Tpo -c -o nation.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/nation.c
+mv -f .deps/nation.Tpo .deps/nation.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT netintf.o -MD -MP -MF .deps/netintf.Tpo -c -o netintf.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/netintf.c
+mv -f .deps/netintf.Tpo .deps/netintf.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT packets.o -MD -MP -MF .deps/packets.Tpo -c -o packets.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/packets.c
+mv -f .deps/map.Tpo .deps/map.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT packets_lsend.o -MD -MP -MF .deps/packets_lsend.Tpo -c -o packets_lsend.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/packets_lsend.c
+mv -f .deps/packets_lsend.Tpo .deps/packets_lsend.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT player.o -MD -MP -MF .deps/player.Tpo -c -o player.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/player.c
+mv -f .deps/player.Tpo .deps/player.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT mem.o -MD -MP -MF .deps/mem.Tpo -c -o mem.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/mem.c
+mv -f .deps/mem.Tpo .deps/mem.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT rand.o -MD -MP -MF .deps/rand.Tpo -c -o rand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/rand.c
+mv -f .deps/packets.Tpo .deps/packets.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT registry.o -MD -MP -MF .deps/registry.Tpo -c -o registry.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/registry.c
+mv -f .deps/rand.Tpo .deps/rand.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT sbuffer.o -MD -MP -MF .deps/sbuffer.Tpo -c -o sbuffer.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/sbuffer.c
+mv -f .deps/sbuffer.Tpo .deps/sbuffer.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT shared.o -MD -MP -MF .deps/shared.Tpo -c -o shared.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/shared.c
+mv -f .deps/registry.Tpo .deps/registry.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT spaceship.o -MD -MP -MF .deps/spaceship.Tpo -c -o spaceship.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/spaceship.c
+mv -f .deps/shared.Tpo .deps/shared.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT support.o -MD -MP -MF .deps/support.Tpo -c -o support.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/support.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/support.c: In function 'my_vsnprintf':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/support.c:319:7: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+  319 |   int r;
+      |       ^
+mv -f .deps/spaceship.Tpo .deps/spaceship.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT tech.o -MD -MP -MF .deps/tech.Tpo -c -o tech.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/tech.c
+mv -f .deps/support.Tpo .deps/support.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT timing.o -MD -MP -MF .deps/timing.Tpo -c -o timing.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/timing.c
+mv -f .deps/timing.Tpo .deps/timing.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT unit.o -MD -MP -MF .deps/unit.Tpo -c -o unit.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/unit.c
+mv -f .deps/tech.Tpo .deps/tech.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT unittype.o -MD -MP -MF .deps/unittype.Tpo -c -o unittype.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/unittype.c
+mv -f .deps/unittype.Tpo .deps/unittype.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT worklist.o -MD -MP -MF .deps/worklist.Tpo -c -o worklist.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/worklist.c
+mv -f .deps/worklist.Tpo .deps/worklist.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I.. -I../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT version.o -MD -MP -MF .deps/version.Tpo -c -o version.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/version.c
+mv -f .deps/version.Tpo .deps/version.Po
+mv -f .deps/unit.Tpo .deps/unit.Po
+rm -f libcivcommon.a
+i586-pc-msdosdjgpp-ar cru libcivcommon.a astring.o capability.o capstr.o city.o combat.o connection.o dataio.o diptreaty.o fcintl.o game.o genlist.o government.o hash.o idex.o improvement.o inputfile.o ioz.o log.o map.o nation.o netintf.o packets.o packets_lsend.o player.o mem.o rand.o registry.o sbuffer.o shared.o spaceship.o support.o tech.o timing.o unit.o unittype.o worklist.o version.o 
+i586-pc-msdosdjgpp-ranlib libcivcommon.a
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/common'
+Making all in client
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+Making all in offline
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/offline -I../.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT local_queue.o -MD -MP -MF .deps/local_queue.Tpo -c -o local_queue.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/offline/local_queue.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/offline -I../.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -O2 -g -Wall -std=gnu89 -fcommon -MT session.o -MD -MP -MF .deps/session.Tpo -c -o session.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/offline/session.c
+mv -f .deps/local_queue.Tpo .deps/local_queue.Po
+CC="i586-pc-msdosdjgpp-gcc" LD="i586-pc-msdosdjgpp-ld" NM="i586-pc-msdosdjgpp-nm" OBJCOPY="i586-pc-msdosdjgpp-objcopy" \
+CPPFLAGS="" CFLAGS="-O2 -g -Wall -std=gnu89 -fcommon" \
+/bin/bash "/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/offline/build-engine.sh" "/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline/engine-build" \
+"/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build"
+mv -f .deps/session.Tpo .deps/session.Po
+rm -f liboffline.a
+i586-pc-msdosdjgpp-ar cru liboffline.a local_queue.o session.o 
+i586-pc-msdosdjgpp-ranlib liboffline.a
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:47:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/log.h: In function 'dio_get_bool8':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/log.h:103:5: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  103 |     real_freelog((level), args); } \
+      |     ^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_bool32':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:499:17: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  499 |   if (ival != 0 && ival != 1) {
+      |       ~~~~~~~~~~^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:495:7: note: 'ival' was declared here
+  495 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_sint16':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:517:11: warning: 'tmp' may be used uninitialized [-Wmaybe-uninitialized]
+  517 |       tmp -= 0x10000;
+      |           ^~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:512:7: note: 'tmp' was declared here
+  512 |   int tmp;
+      |       ^~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/capability.h:17,
+                 from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:45:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/shared.h: In function 'dio_get_bit_string':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/shared.h:76:49: warning: 'byte_value' may be used uninitialized [-Wmaybe-uninitialized]
+   76 | #define TEST_BIT(val, bit_no)           (((val) & (1u << (bit_no))) == (1u << (bit_no)))
+      |                                                 ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:601:14: note: 'byte_value' was declared here
+  601 |     int bit, byte_value;
+      |              ^~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:600:17: warning: 'npack' may be used uninitialized [-Wmaybe-uninitialized]
+  600 |   for (i = 0; i < npack;) {
+      |               ~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:583:7: note: 'npack' was declared here
+  583 |   int npack;                    /* number claimed in packet */
+      |       ^~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_city_map':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:657:9: warning: 'j' may be used uninitialized [-Wmaybe-uninitialized]
+  657 |       j %= 81;
+      |         ^~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:651:9: note: 'j' was declared here
+  651 |     int j;
+      |         ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_worklist':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:711:19: warning: 'length' may be used uninitialized [-Wmaybe-uninitialized]
+  711 |     for (i = 0; i < length; i++) {
+      |                 ~~^~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:696:12: note: 'length' was declared here
+  696 |     int i, length;
+      |            ^~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:695:6: warning: 'ival' may be used uninitialized [-Wmaybe-uninitialized]
+  695 |   if (pwl->is_valid) {
+      |      ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:478:7: note: 'ival' was declared here
+  478 |   int ival;
+      |       ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c: In function 'dio_get_uint8_vec8':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:729:21: warning: 'count' may be used uninitialized [-Wmaybe-uninitialized]
+  729 |   for (inx = 0; inx < count; inx++) {
+      |                 ~~~~^~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/dataio.c:723:7: note: 'count' was declared here
+  723 |   int count, inx;
+      |       ^~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c: In function 'civ_score':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:497:29: warning: 'settledarea' may be used uninitialized [-Wmaybe-uninitialized]
+  497 |   pplayer->score.settledarea=settledarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:439:17: note: 'settledarea' was declared here
+  439 |   int landarea, settledarea;
+      |                 ^~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:496:26: warning: 'landarea' may be used uninitialized [-Wmaybe-uninitialized]
+  496 |   pplayer->score.landarea=landarea;
+      |   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/game.c:439:7: note: 'landarea' was declared here
+  439 |   int landarea, settledarea;
+      |       ^~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/support.c: In function 'my_vsnprintf':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/support.c:319:7: warning: variable 'r' set but not used [-Wunused-but-set-variable]
+  319 |   int r;
+      |       ^
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/mapgen.c: In function 'make_forest':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/mapgen.c:182:5: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
+  182 |     else
+      |     ^~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/mapgen.c:184:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
+  184 |       if (abs(hmap(x, y)-height)<diff) {
+      |       ^~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/meta.c:191:13: warning: 'metaserver_failed' defined but not used [-Wunused-function]
+  191 | static void metaserver_failed(void)
+      |             ^~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/plrhand.c: In function 'handle_player_cancel_pact':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/plrhand.c:887:9: warning: variable 'no_units' set but not used [-Wunused-but-set-variable]
+  887 |     int no_units = unit_list_size(&(pplayer->units));
+      |         ^~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_techs':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:489:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  489 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_units':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:614:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  614 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_buildings':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:943:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+  943 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_terrain':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:1301:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1301 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_governments':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:1478:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1478 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_nations':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:1974:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 1974 |   char *datafile_options, *bad_leader, *g;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_cities':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:2230:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 2230 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c: In function 'load_ruleset_game':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/ruleset.c:2279:9: warning: variable 'datafile_options' set but not used [-Wunused-but-set-variable]
+ 2279 |   char *datafile_options;
+      |         ^~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/server/sernet.c:652:20: warning: 'makeup_connection_name' defined but not used [-Wunused-function]
+  652 | static const char *makeup_connection_name(int *id)
+      |                    ^~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/ai/advmilitary.c: In function 'kill_something_with':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/ai/advmilitary.c:940:22: warning: variable 'fstk' set but not used [-Wunused-but-set-variable]
+  940 |   int needferry = 0, fstk, boatspeed;
+      |                      ^~~~
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/offline'
+Making all in gui-dos-vbe
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT chatline.o -MD -MP -MF .deps/chatline.Tpo -c -o chatline.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/chatline.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT citydlg.o -MD -MP -MF .deps/citydlg.Tpo -c -o citydlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/citydlg.c
+mv -f .deps/chatline.Tpo .deps/chatline.Po
+mv -f .deps/citydlg.Tpo .deps/citydlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT cityrep.o -MD -MP -MF .deps/cityrep.Tpo -c -o cityrep.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/cityrep.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT colors.o -MD -MP -MF .deps/colors.Tpo -c -o colors.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/colors.c
+mv -f .deps/cityrep.Tpo .deps/cityrep.Po
+mv -f .deps/colors.Tpo .deps/colors.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT connectdlg.o -MD -MP -MF .deps/connectdlg.Tpo -c -o connectdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/connectdlg.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT dialogs.o -MD -MP -MF .deps/dialogs.Tpo -c -o dialogs.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/dialogs.c
+mv -f .deps/connectdlg.Tpo .deps/connectdlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT diplodlg.o -MD -MP -MF .deps/diplodlg.Tpo -c -o diplodlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/diplodlg.c
+mv -f .deps/dialogs.Tpo .deps/dialogs.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT extender_compat.o -MD -MP -MF .deps/extender_compat.Tpo -c -o extender_compat.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/extender_compat.c
+mv -f .deps/diplodlg.Tpo .deps/diplodlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT finddlg.o -MD -MP -MF .deps/finddlg.Tpo -c -o finddlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/finddlg.c
+mv -f .deps/extender_compat.Tpo .deps/extender_compat.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT framebuffer.o -MD -MP -MF .deps/framebuffer.Tpo -c -o framebuffer.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/framebuffer.c
+mv -f .deps/finddlg.Tpo .deps/finddlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT gotodlg.o -MD -MP -MF .deps/gotodlg.Tpo -c -o gotodlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/gotodlg.c
+mv -f .deps/gotodlg.Tpo .deps/gotodlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT graphics.o -MD -MP -MF .deps/graphics.Tpo -c -o graphics.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/graphics.c
+mv -f .deps/framebuffer.Tpo .deps/framebuffer.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT gui_main.o -MD -MP -MF .deps/gui_main.Tpo -c -o gui_main.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/gui_main.c
+mv -f .deps/graphics.Tpo .deps/graphics.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT helpdlg.o -MD -MP -MF .deps/helpdlg.Tpo -c -o helpdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/helpdlg.c
+mv -f .deps/helpdlg.Tpo .deps/helpdlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT inteldlg.o -MD -MP -MF .deps/inteldlg.Tpo -c -o inteldlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/inteldlg.c
+mv -f .deps/gui_main.Tpo .deps/gui_main.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT mapctrl.o -MD -MP -MF .deps/mapctrl.Tpo -c -o mapctrl.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/mapctrl.c
+mv -f .deps/inteldlg.Tpo .deps/inteldlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT mapview.o -MD -MP -MF .deps/mapview.Tpo -c -o mapview.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/mapview.c
+mv -f .deps/mapctrl.Tpo .deps/mapctrl.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT menu.o -MD -MP -MF .deps/menu.Tpo -c -o menu.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/menu.c
+mv -f .deps/menu.Tpo .deps/menu.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT messagedlg.o -MD -MP -MF .deps/messagedlg.Tpo -c -o messagedlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/messagedlg.c
+mv -f .deps/messagedlg.Tpo .deps/messagedlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT messagewin.o -MD -MP -MF .deps/messagewin.Tpo -c -o messagewin.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/messagewin.c
+mv -f .deps/messagewin.Tpo .deps/messagewin.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT plrdlg.o -MD -MP -MF .deps/plrdlg.Tpo -c -o plrdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/plrdlg.c
+mv -f .deps/plrdlg.Tpo .deps/plrdlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT ratesdlg.o -MD -MP -MF .deps/ratesdlg.Tpo -c -o ratesdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/ratesdlg.c
+mv -f .deps/ratesdlg.Tpo .deps/ratesdlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT repodlgs.o -MD -MP -MF .deps/repodlgs.Tpo -c -o repodlgs.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/repodlgs.c
+mv -f .deps/repodlgs.Tpo .deps/repodlgs.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT spaceshipdlg.o -MD -MP -MF .deps/spaceshipdlg.Tpo -c -o spaceshipdlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/spaceshipdlg.c
+mv -f .deps/mapview.Tpo .deps/mapview.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT vbe_init.o -MD -MP -MF .deps/vbe_init.Tpo -c -o vbe_init.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/vbe_init.c
+mv -f .deps/spaceshipdlg.Tpo .deps/spaceshipdlg.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT vbe_hw.o -MD -MP -MF .deps/vbe_hw.Tpo -c -o vbe_hw.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/vbe_hw.c
+mv -f .deps/vbe_hw.Tpo .deps/vbe_hw.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl    -Werror=return-type -Werror=implicit-function-declaration -Werror=incompatible-pointer-types -Werror=missing-prototypes -O2 -g -Wall -std=gnu89 -fcommon -MT wldlg.o -MD -MP -MF .deps/wldlg.Tpo -c -o wldlg.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/gui-dos-vbe/wldlg.c
+mv -f .deps/wldlg.Tpo .deps/wldlg.Po
+mv -f .deps/vbe_init.Tpo .deps/vbe_init.Po
+rm -f libguiclient.a
+i586-pc-msdosdjgpp-ar cru libguiclient.a chatline.o citydlg.o cityrep.o colors.o connectdlg.o dialogs.o diplodlg.o extender_compat.o finddlg.o framebuffer.o gotodlg.o graphics.o gui_main.o helpdlg.o inteldlg.o mapctrl.o mapview.o menu.o messagedlg.o messagewin.o plrdlg.o ratesdlg.o repodlgs.o spaceshipdlg.o vbe_init.o vbe_hw.o wldlg.o 
+i586-pc-msdosdjgpp-ranlib libguiclient.a
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/gui-dos-vbe'
+Making all in agents
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../gui-gtk     -O2 -g -Wall -std=gnu89 -fcommon -MT agents.o -MD -MP -MF .deps/agents.Tpo -c -o agents.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/agents.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../gui-gtk     -O2 -g -Wall -std=gnu89 -fcommon -MT cma_core.o -MD -MP -MF .deps/cma_core.Tpo -c -o cma_core.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c
+mv -f .deps/agents.Tpo .deps/agents.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents -I../.. -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/../gui-gtk     -O2 -g -Wall -std=gnu89 -fcommon -MT cma_fec.o -MD -MP -MF .deps/cma_fec.Tpo -c -o cma_fec.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_fec.c
+In function 'find_best_specialist_arrangement',
+    inlined from 'optimize_final' at /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1717:7:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1641:19: warning: 'minor_fitness' may be used uninitialized [-Wmaybe-uninitialized]
+ 1640 |               || (major_fitness == *best_major_fitness
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1641 |                   && minor_fitness > *best_minor_fitness))) {
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c: In function 'optimize_final':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1677:32: note: 'minor_fitness' was declared here
+ 1677 |       int stat, major_fitness, minor_fitness;
+      |                                ^~~~~~~~~~~~~
+In function 'find_best_specialist_arrangement',
+    inlined from 'optimize_final' at /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1717:7:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1640:15: warning: 'major_fitness' may be used uninitialized [-Wmaybe-uninitialized]
+ 1639 |           || ((major_fitness > *best_major_fitness)
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1640 |               || (major_fitness == *best_major_fitness
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1641 |                   && minor_fitness > *best_minor_fitness))) {
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c: In function 'optimize_final':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents/cma_core.c:1677:17: note: 'major_fitness' was declared here
+ 1677 |       int stat, major_fitness, minor_fitness;
+      |                 ^~~~~~~~~~~~~
+mv -f .deps/cma_fec.Tpo .deps/cma_fec.Po
+mv -f .deps/cma_core.Tpo .deps/cma_core.Po
+rm -f libagents.a
+i586-pc-msdosdjgpp-ar cru libagents.a agents.o cma_core.o cma_fec.o 
+i586-pc-msdosdjgpp-ranlib libagents.a
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client/agents'
+make[3]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT audio_dos.o -MD -MP -MF .deps/audio_dos.Tpo -c -o audio_dos.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/audio_dos.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT attribute.o -MD -MP -MF .deps/attribute.Tpo -c -o attribute.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/attribute.c
+mv -f .deps/audio_dos.Tpo .deps/audio_dos.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT citydlg_common.o -MD -MP -MF .deps/citydlg_common.Tpo -c -o citydlg_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/citydlg_common.c
+mv -f .deps/attribute.Tpo .deps/attribute.Po
+mv -f .deps/citydlg_common.Tpo .deps/citydlg_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT cityrepdata.o -MD -MP -MF .deps/cityrepdata.Tpo -c -o cityrepdata.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/cityrepdata.c
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT civclient.o -MD -MP -MF .deps/civclient.Tpo -c -o civclient.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/civclient.c
+mv -f .deps/cityrepdata.Tpo .deps/cityrepdata.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT chatline_common.o -MD -MP -MF .deps/chatline_common.Tpo -c -o chatline_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/chatline_common.c
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/civclient.c: In function 'send_attribute_block_request':
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/civclient.c:735:3: warning: 'packet' may be used uninitialized [-Wmaybe-uninitialized]
+  735 |   send_packet_player_request(&aconnection, &packet,
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  736 |                              PACKET_PLAYER_ATTRIBUTE_BLOCK);
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/civclient.c:41:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common/packets.h:1005:5: note: by argument 2 of type 'const struct packet_player_request *' to 'send_packet_player_request' declared here
+ 1005 | int send_packet_player_request(struct connection *pc,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/civclient.c:733:32: note: 'packet' declared here
+  733 |   struct packet_player_request packet;
+      |                                ^~~~~~
+mv -f .deps/chatline_common.Tpo .deps/chatline_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT climisc.o -MD -MP -MF .deps/climisc.Tpo -c -o climisc.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/climisc.c
+mv -f .deps/civclient.Tpo .deps/civclient.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT clinet.o -MD -MP -MF .deps/clinet.Tpo -c -o clinet.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/clinet.c
+mv -f .deps/clinet.Tpo .deps/clinet.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT control.o -MD -MP -MF .deps/control.Tpo -c -o control.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/control.c
+mv -f .deps/climisc.Tpo .deps/climisc.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT goto.o -MD -MP -MF .deps/goto.Tpo -c -o goto.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/goto.c
+mv -f .deps/control.Tpo .deps/control.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT helpdata.o -MD -MP -MF .deps/helpdata.Tpo -c -o helpdata.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/helpdata.c
+mv -f .deps/goto.Tpo .deps/goto.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT mapctrl_common.o -MD -MP -MF .deps/mapctrl_common.Tpo -c -o mapctrl_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/mapctrl_common.c
+mv -f .deps/mapctrl_common.Tpo .deps/mapctrl_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT mapview_common.o -MD -MP -MF .deps/mapview_common.Tpo -c -o mapview_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/mapview_common.c
+mv -f .deps/mapview_common.Tpo .deps/mapview_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT messagewin_common.o -MD -MP -MF .deps/messagewin_common.Tpo -c -o messagewin_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/messagewin_common.c
+mv -f .deps/messagewin_common.Tpo .deps/messagewin_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT packhand.o -MD -MP -MF .deps/packhand.Tpo -c -o packhand.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/packhand.c
+mv -f .deps/helpdata.Tpo .deps/helpdata.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT plrdlg_common.o -MD -MP -MF .deps/plrdlg_common.Tpo -c -o plrdlg_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/plrdlg_common.c
+mv -f .deps/plrdlg_common.Tpo .deps/plrdlg_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT options.o -MD -MP -MF .deps/options.Tpo -c -o options.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/options.c
+mv -f .deps/options.Tpo .deps/options.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT repodlgs_common.o -MD -MP -MF .deps/repodlgs_common.Tpo -c -o repodlgs_common.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/repodlgs_common.c
+mv -f .deps/repodlgs_common.Tpo .deps/repodlgs_common.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT tilespec.o -MD -MP -MF .deps/tilespec.Tpo -c -o tilespec.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/tilespec.c
+mv -f .deps/packhand.Tpo .deps/packhand.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT audio.o -MD -MP -MF .deps/audio.Tpo -c -o audio.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/audio.c
+mv -f .deps/audio.Tpo .deps/audio.Po
+i586-pc-msdosdjgpp-gcc -DHAVE_CONFIG_H -I. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client -I.. -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/include -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/common -I../intl -I/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/agents     -O2 -g -Wall -std=gnu89 -fcommon -MT audio_none.o -MD -MP -MF .deps/audio_none.Tpo -c -o audio_none.o /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/source/client/audio_none.c
+mv -f .deps/audio_none.Tpo .deps/audio_none.Po
+mv -f .deps/tilespec.Tpo .deps/tilespec.Po
+i586-pc-msdosdjgpp-gcc  -O2 -g -Wall -std=gnu89 -fcommon   -o civclient.exe    audio_dos.o attribute.o citydlg_common.o cityrepdata.o civclient.o chatline_common.o climisc.o clinet.o control.o goto.o helpdata.o mapctrl_common.o mapview_common.o messagewin_common.o packhand.o plrdlg_common.o options.o repodlgs_common.o tilespec.o audio.o audio_none.o gui-dos-vbe/libguiclient.a ../common/libcivcommon.a  gui-dos-vbe/libguiclient.a ../common/libcivcommon.a -lm agents/libagents.a ../common/libcivcommon.a -lm  offline/liboffline.a offline/engine-build/engine.o 
+make[3]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/client'
+Making all in po
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/po'
+Making all in doc
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build/doc'
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase4-verified-build/build'
