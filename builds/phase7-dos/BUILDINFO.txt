@@ -29,8 +29,12 @@ closeout-engine-ui.log records ASan/UBSan/leak-checked real game generation,
 AI/rates/turn integration. Actual event queue and editable modal widgets are
 serviced from guarded engine callbacks without recursive engine polling or
 client-state mutation. The native harness uses a tracked configuration rather
-than an ignored checkout config.h. Exact committed clean-clone validation is
-recorded separately during publication.
+than an ignored checkout config.h.
+Exact committed clean-clone validation (2026-10-08T23:34:41Z):
+26d8ccdbef62f5909429e19fae60e321d284b324 was cloned without ignored data,
+configuration or objects. Its clean DJGPP build, all10 integrated suites,
+INPUTCHK linkage and native real-engine/AI/editable-modal ASan/UBSan/leak test
+pass. clean-clone-build/check/input/engine-ui.log retain the evidence.
 
 Actual DOS:
 DOS6.22, CWSDPMI r7 -s- before each protected-mode process, QEMU std VGA,
