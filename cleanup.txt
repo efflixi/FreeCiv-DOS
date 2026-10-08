@@ -7,7 +7,7 @@ Assessment:
 The existing source is workable as a starting point and should not be discarded or broadly rewritten. The priority is to establish trustworthy build and interface boundaries, distinguish placeholders from functional implementations, and resolve the offline engine architecture before adding substantial gameplay features.
 
 Evidence note:
-The initial findings were based on source/artifact review, without a clean cross-build or gameplay validation. Phases 1/2 established engine/transport architecture and production linkage; Phases 3-5 verified DOS/CWSDPMI, VBE and rendering foundations. Phase 6 verifies actual tileset/map/HUD components. Normal startup still explicitly fails unfinished persistent input/session startup/GUI integration. Component/display success is not a playable-game claim. Verified results are recorded below and in progress.txt; historical failures do not describe the current environment without verification.
+The initial findings were based on source/artifact review, without a clean cross-build or gameplay validation. Phases 1-6 established engine/transport/build/DOS/graphics/map foundations. Phase 7 verifies persistent input, reusable widgets, cooperative servicing and the normal pregame interface. Production no longer has a fatal startup gate, but new/load-game startup and gameplay remain unavailable. Component/UI success is not a playable-game claim. Verified results are recorded below and in progress.txt; historical failures do not describe the current environment without verification.
 
 Cleanup checklist:
 
@@ -17,10 +17,10 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
 1. Establish one trustworthy build path
 - [x] Reproduce the intended DOS build from source with a consistent DJGPP compiler, linker, archiver, and runtime.
   - Finding: client/gui-dos-vbe/Makefile.am lists the real backend sources, but the reviewed libguiclient.a contains only dos_client_stubs.o.
-  - Resolution: build-dos.sh performs fresh source/bootstrap/out-of-tree configuration/build using target GCC/Binutils/CRT, with verified archives/indexing/isolation/linkage. Repeated clean builds and source-distribution rebuild pass. Phase 3 also executes the candidate CRT/--version and separate real-service diagnostics under DOS/CWSDPMI; the production GUI stays gated.
+  - Resolution: build-dos.sh performs fresh source/bootstrap/out-of-tree configuration/build using target GCC/Binutils/CRT, with verified archives/indexing/isolation/linkage. Repeated clean builds and source-distribution rebuild pass. Actual DOS/CWSDPMI --version and diagnostics pass; Phase 7 normal pregame/repeat launches restore text and return zero after confirmed quit.
 - [x] Make backend selection, archive contents, and final executable linkage consistent.
   - Requirement: a normal DOS build must compile/link the intended implementation without relying on manually assembled archives or stale objects.
-  - Resolution: Phase 2 built all 26 actual DOS backend modules, real common timers, offline broker, and isolated common/server/AI engine. Phases 4/5 add hardware services/font; Phase 6 adds XPM conversion for 29 backend members. Fresh clean production linkage excludes diagnostic ABI/test sources.
+  - Resolution: clean builds link real backend/common timers/broker/isolated engine. Phase 7 adds input/widgets/commands/event loop for 33 backend members; all 10 integrated suites pass. Fresh production linkage excludes diagnostic ABI/test sources.
 - [x] Establish the authoritative configure input and verify regeneration preserves DOS support.
   - Finding: configure.ac includes dos-vbe support while legacy configure.in does not.
   - Resolution: configure.ac/Makefile.am, bootstrap.sh, and the delegating autogen.sh are authoritative; legacy input switching is rejected. Generated templates and source distribution are verified, including required gettext support and all DOS/offline headers.
@@ -31,14 +31,15 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
 2. Isolate link-only ABI stubs
 - [x] Remove dos_client_stubs.c from the production linkage once working replacements are available.
   - Finding: the file duplicates GUI entry points and substitutes no-op rendering, gameplay UI, and timer functions.
-  - Resolution: excluded from fresh linkage; actual backend modules satisfy declarations and common/timing.c provides timers. Remaining GUI placeholders are gated before startup, not claimed to be functional replacements.
+  - Resolution: excluded from fresh linkage; actual backend modules satisfy declarations and common/timing.c provides timers. Persistent pregame/input/widgets now work. Remaining gameplay placeholders are not exposed as finished controls.
 - [x] Compile implementations against the existing generic headers and correct incompatible signatures and function/data definitions.
   - Finding: examples include update_map_canvas, get_center_tile_mapcanvas, update_turn_done_button, and timer hooks.
   - Resolution: all real DOS modules compile under fatal interface checks, with no missing generic symbols or duplicate backend definitions. Fixed race/help signatures, missing returns/hooks, notification ownership, and command declarations.
 - [ ] If link-only stubs remain useful, keep them in an explicitly separate diagnostic target.
   - Requirement: a stub executable must not be mistaken for the functional DOS backend or used as proof of gameplay.
-  - Status: historical ABI-stub source is retained only as unlinked EXTRA_DIST/reference; no stub-linked diagnostic target is provided. Phase 3's distinct runtime-check builder uses real DOS/DPMI/common/engine code, not ABI stubs, and cannot complete this optional stub-target item. The normal candidate has an explicit unavailable startup gate.
+  - Status: historical ABI-stub source is retained only as unlinked EXTRA_DIST/reference; no stub-linked diagnostic target is provided or needed for current acceptance. Distinct RTCHECK/MAPCHECK/INPUTCHK diagnostics use real code, not ABI stubs. This optional stub-target item remains unchecked.
 - [ ] Replace required no-op hooks deliberately rather than deleting stubs before replacements work.
+  - Partial: real graphics/map/HUD/input/widgets/chat status/pregame/command hooks replace their placeholders. City/research/diplomacy/reports/session setup and other required gameplay hooks remain future work.
 
 3. Make incomplete functionality report its actual state
 - [x] Replace placeholder VBE detection/query/set operations with real BIOS calls and verified return handling.
@@ -46,28 +47,32 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
   - Resolution: real INT 10h queries/set/current/state services and DPMI transfer storage; bounded controller/mode-list validation, decoded VBE 2/3 fields, and checked BIOS status replace all detection/query/set placeholders. Actual DOS graphics and negative BIOS-service tests are retained in builds/phase4-dos/.
 - [x] Distinguish a RAM-only test framebuffer from a working graphical display.
   - Finding: framebuffer.c allocates ordinary RAM without presenting it to video memory.
-  - Resolution: historical front_buffer name explicitly denotes the offscreen allocation; a distinct managed LFB mapping/LDT selector receives real presentation. RGB bar/checkerboard captures match every expected pixel at 640/800. No RAM-only successful display fallback remains; production GUI is still gated.
+  - Resolution: historical front_buffer name explicitly denotes the offscreen allocation; a distinct managed LFB mapping/LDT selector receives real presentation. Reference component pixels match at 640/800. Phase 7 also presents the persistent production GUI; no RAM-only successful display fallback remains.
 - [ ] Report unavailable audio initialization/playback honestly and retain a safe no-audio mode.
   - Finding: audio_dos.c can report successful initialization or sample playback without device detection or actual output.
+  - Partial: normal DOS startup explicitly forces the existing audio-none plugin and reports that choice; no hardware playback is claimed. The unselected DOS hardware plugin still requires honest implementation/audit, so this broader item remains unchecked.
 - [ ] Audit required hooks for silent no-ops, invalid returns, and success-shaped placeholders.
   - Requirement: errors must remain actionable; unsupported functionality must not leave later code assuming it initialized correctly.
-  - Status: Phase 2 gates both GUI entry points before incomplete device/resource/input initialization. Host wrapper tests and actual Phase 3 DOS execution verify failure exit/diagnostic. The separate runtime test reports only exercised services and fails missing-fixture initialization without READY. Full hook replacement and real device paths remain pending.
+  - Status: obsolete fatal GUI startup gate is replaced by verified pregame/input/display behavior. Autoconnect/gameplay orders fail or report unavailable explicitly. Full gameplay/audio-hook replacement remains pending; diagnostics continue to identify their limited scope.
 
 4. Separate demonstrations from normal execution
-- [ ] Move the scripted command sequence out of the normal GUI startup path and into a clearly identified test/demo path if still useful.
+- [x] Move the scripted command sequence out of the normal GUI startup path and into a clearly identified test/demo path if still useful.
   - Finding: gui_main.c:ui_main() enqueues a predefined sequence, drains it, redraws, and returns instead of waiting for real input.
-- [ ] Provide a persistent user-driven event loop as the normal execution path.
+  - Resolution: removed the obsolete startup sequence entirely. Separate INPUTCHK exercises the real production loop with explicitly labeled fixture/pregame bridge modes; normal startup does not fabricate a game or scripted actions.
+- [x] Provide a persistent user-driven event loop as the normal execution path.
   - Requirement: service input, local engine/state updates, timers, audio, and display work until the user exits.
+  - Resolution: bounded 64-event FIFO, eight-event slices, real BIOS/INT33 input, 16-packet polling, timers, UI-only engine/wait service, idle yield and visible modal/pointer/chrome presentation. Normal/repeated DOS quit, keyboard fallback, fast clicks, real pregame join and native real-AI modal service are verified. Audio explicitly stays disabled.
 - [x] Give shared command definitions one authoritative declaration.
   - Finding: the DOS command enum is duplicated in gui_main.c and mapview.c.
   - Resolution: gui_main.h owns the command enum/declarations and mapview.h owns dispatch; both real modules compile against the shared types.
 - [ ] Remove misleading scaffold/milestone descriptions as implementations change.
   - Requirement: comments and diagnostics must describe actual behavior, not imply that scripted activity proves a live game session.
+  - Partial: rewritten runtime/connect/status messages and current documentation distinguish production pregame, diagnostic map/bridge and missing session setup. Broader remaining gameplay/audio scaffolds still need review as their implementations change.
 
 5. Correct tightly coupled interface and rendering defects
 - [x] Fix missing return values and other generic-interface contract violations.
   - Finding: messagewin.c:is_meswin_open() has no return value.
-  - Resolution: message/city state queries return defined FALSE while unavailable; signatures, missing generic hooks, and common-notification ownership are corrected. Required unavailable behavior cannot enter normal startup until the fatal readiness gate is replaced with verified implementations.
+  - Resolution: message/city state queries return defined FALSE while unavailable; signatures, missing generic hooks, and common-notification ownership are corrected. Verified pregame functionality replaces the fatal gate without exposing unavailable gameplay dialogs as working features.
 - [x] Check framebuffer allocation, dimensions, pitch, supported formats, and size arithmetic before drawing.
   - Finding: framebuffer initialization does not report allocation failure and drawing assumes two bytes per pixel despite accepting other depths.
   - Resolution: checked 16-bit-only allocator with BIOS pitch, nonzero/signed-coordinate-compatible dimensions, even/minimum pitch, size/width overflow and explicit allocation failure; old storage is replaced only after successful allocation. VBE accepts validated RGB565 metadata. Phase 5 adds owned-size validation at primitive/presentation/readback boundaries, padding guards and failure-atomic/sanitizer tests. The broader selection/control independence item below remains incomplete.
@@ -115,4 +120,4 @@ Recommended order:
 5. Extend gameplay features on the verified foundation.
 
 Outcome:
-Keep the scaffold. Offline architecture, clean real-backend/engine linkage, DOS/CWSDPMI, VBE/primitives and actual Trident resources/map/HUD/overview are verified. Phase 6 completes selection/viewport independence and replaces resource/map no-ops, but does not complete the broader all-hooks/audio/input/gameplay cleanup items. Integration also corrected intermediate HUD erase dirtiness and preserved requested map/label damage; identical presentations write zero bytes natively and under DOS. Evidence: builds/phase6-dos/ and progress.txt. Stop for Phase 6 review; do not begin Phase 7 without permission.
+Keep the reusable source. Architecture/build/DOS/graphics/map foundations and Phase 7 persistent pregame/input/widgets/cooperative servicing are verified. The two scripted-loop cleanup items are complete; broad gameplay-hook/audio/scaffold audits are not. Integration corrected BIOS buffered modifiers, DJGPP zero-delay idle, lost quick mouse clicks and toolbar/map transforms without changing game rules. Evidence: builds/phase7-dos/ and progress.txt. Finish documented GitHub closeout and stop for Phase 7 review; do not begin Phase 8 without permission.

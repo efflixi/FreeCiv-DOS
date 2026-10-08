@@ -52,6 +52,9 @@
 #include "aiunit.h"
 
 #include "aicity.h"
+#ifdef FC_LOCAL_ENGINE
+#include "engine.h"
+#endif
 
 static void ai_manage_city(struct player *pplayer, struct city *pcity);
      
@@ -494,12 +497,18 @@ void ai_manage_cities(struct player *pplayer)
   pplayer->ai.maxbuycost = 0;
 
   city_list_iterate(pplayer->cities, pcity)
+#ifdef FC_LOCAL_ENGINE
+    fc_offline_engine_yield();
+#endif
     ai_manage_city(pplayer, pcity);
   city_list_iterate_end;
 
   ai_manage_buildings(pplayer);
 
   city_list_iterate(pplayer->cities, pcity)
+#ifdef FC_LOCAL_ENGINE
+    fc_offline_engine_yield();
+#endif
     military_advisor_choose_build(pplayer, pcity, &pcity->ai.choice);
 /* note that m_a_c_b mungs the seamap, but we don't care */
     establish_city_distances(pplayer, pcity); /* in advmilitary for warmap */
@@ -513,6 +522,9 @@ we don't rely on the seamap being current since we will recalculate. -- Syela */
   city_list_iterate_end;
 
   city_list_iterate(pplayer->cities, pcity)
+#ifdef FC_LOCAL_ENGINE
+    fc_offline_engine_yield();
+#endif
     ai_city_choose_build(pplayer, pcity);
   city_list_iterate_end;
 

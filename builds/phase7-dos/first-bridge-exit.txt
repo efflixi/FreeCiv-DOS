@@ -1,0 +1,25 @@
+C:\FREECIV>set home=c:\freeciv
+
+C:\FREECIV>set freeciv_path=c:\freeciv\gfx8
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 640>kbd640.log
+
+C:\FREECIV>ctmouse
+
+CuteMouse v2.1 beta4 [FreeDOS]
+Installed at PS/2 port
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 800>mouse800.log
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk --bridge>bridge.log
+
+C:\FREECIV>

@@ -24,6 +24,24 @@
 static struct connection local_connection;
 static bool active;
 static bool polling;
+static fc_offline_service_fn service_callback;
+static void *service_context;
+static bool servicing;
+
+void fc_offline_engine_set_service(fc_offline_service_fn service, void *context)
+{
+  service_callback = service;
+  service_context = context;
+}
+
+void fc_offline_engine_yield(void)
+{
+  if (polling && service_callback && !servicing) {
+    servicing = TRUE;
+    service_callback(service_context);
+    servicing = FALSE;
+  }
+}
 
 int fc_offline_engine_open(fc_offline_write_fn write, void *context)
 {
@@ -124,15 +142,18 @@ static int poll_packets(unsigned int packet_budget)
       return -1;
     }
     processed++;
+    fc_offline_engine_yield();
     if (local_connection.delayed_disconnect) {
       freelog(LOG_ERROR, "Offline engine: failed to deliver response");
       return -1;
     }
   }
+  fc_offline_engine_yield();
   if (srv_local_step() < 0) {
     return -1;
   }
   flush_connection_send_buffer_all(&local_connection);
+  fc_offline_engine_yield();
   return local_connection.delayed_disconnect ? -1 : (int)processed;
 }
 

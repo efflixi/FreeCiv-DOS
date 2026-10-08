@@ -42,7 +42,7 @@ compile "$SOURCE/client/offline/engine.c" "$BUILD/engine/adapter.o"
 "$NM" --defined-only --extern-only --format=posix "$BUILD/engine.raw.o" \
   > "$BUILD/engine.defined"
 awk '$2 ~ /^[ABCDGIRSTVW]$/ &&
-       $1 !~ /^_?fc_offline_engine_(open|feed|start|poll|snapshot|close)$/ {
+       $1 !~ /^_?fc_offline_engine_(open|feed|start|poll|snapshot|close|set_service)$/ {
          if (substr($1, 1, 1) == "_") {
            print $1, "_fc_engine_" substr($1, 2)
          } else {
@@ -61,7 +61,7 @@ fi
   > "$BUILD/engine.isolated"
 if awk '$2 ~ /^[ABCDGIRSTVW]$/ &&
         $1 !~ /^_?fc_engine_/ &&
-        $1 !~ /^_?fc_offline_engine_(open|feed|start|poll|snapshot|close)$/ {
+        $1 !~ /^_?fc_offline_engine_(open|feed|start|poll|snapshot|close|set_service)$/ {
           print; bad=1
         } END {exit !bad}' "$BUILD/engine.isolated"; then
   echo "Unisolated engine symbols remain; refusing to link." >&2

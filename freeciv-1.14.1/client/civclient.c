@@ -53,6 +53,9 @@
 #include "dialogs_g.h"
 #include "diplodlg_g.h"
 #include "gui_main_g.h"
+#ifdef FC_LOCAL_ENGINE
+#include "gui-dos-vbe/gui_main.h"
+#endif
 #include "goto.h"
 #include "helpdata.h"		/* boot_help_texts() */
 #include "mapctrl_g.h"
@@ -184,6 +187,12 @@ int main(int argc, char *argv[])
   } /* of while */
 
   log_init(logfile, loglevel, NULL);
+#ifdef FC_LOCAL_ENGINE
+  if (auto_connect) {
+    freelog(LOG_ERROR, "DOS autoconnect is unavailable until session startup is implemented.");
+    return EXIT_FAILURE;
+  }
+#endif
 
   /* after log_init: */
 
@@ -217,11 +226,18 @@ int main(int argc, char *argv[])
      have cosmetic effects only (eg city name suggestions).  --dwp */
   mysrand(time(NULL));
 
+#ifndef FC_LOCAL_ENGINE
   boot_help_texts();
   tilespec_read_toplevel(tile_set_name); /* get tile sizes etc */
 
   audio_real_init(sound_set_name, sound_plugin_name);
   audio_play_music("music_start", NULL);
+#else
+  /* The pregame interface needs no game resources or unimplemented audio.
+   * Session startup will load the selected ruleset/tileset separately. */
+  audio_real_init(sound_set_name, "none");
+  freelog(LOG_NORMAL, "DOS interface: audio disabled; game startup is not implemented.");
+#endif
 
   /* run gui-specific client */
 
@@ -232,8 +248,13 @@ int main(int argc, char *argv[])
   my_shutdown_network();
 
   client_game_free();
+#ifdef FC_LOCAL_ENGINE
+  dos_vbe_gui_shutdown();
+  return dos_vbe_gui_result();
+#else
 
   exit(EXIT_SUCCESS);
+#endif
 }
 
 

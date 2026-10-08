@@ -1,0 +1,8 @@
+DOS event loop: event rejected; queue is full or inactive.
+DOS event loop: inactive or recursive step.
+DOS event loop: inactive or recursive step.
+DOS event loop: inactive or recursive step.
+DOS event loop: inactive or recursive step.
+DOS event loop: input, engine or presentation failed.
+DOS event loop: incomplete service hooks.
+PASS bounded input/dispatch/engine/presentation fairness, FIFO/backpressure, 1000 repeats, idle yielding, modal service, failure/reentry and ASCII/scan commands

@@ -9,10 +9,10 @@ engine, a 16-bit rewrite, or a text-mode adaptation: it reuses Freeciv's existin
 rules, AI, server engine and client logic while replacing the platform-facing
 parts needed for DOS.
 
-> **Development status: tileset/map/HUD rendering is verified; the game is not
-> playable yet.** The normal DOS client deliberately exits with an explicit
-> unavailable-integration diagnostic. Separate diagnostics verify real DOS,
-> DPMI, graphics and rendering behavior without pretending to be a complete game.
+> **Development status: a persistent graphical pregame interface, keyboard/mouse
+> input and cooperative servicing are verified; the game is not playable yet.**
+> The normal DOS client now stays open for Help, Options, Commands and confirmed
+> Quit. New/load-game startup is explicitly unavailable, and audio is disabled.
 
 ## Upstream project and credit
 
@@ -80,7 +80,9 @@ are isolated from the client-side cache, and only a small opaque API crosses
 that boundary. Ordered requests and cooperative scheduling preserve the
 authoritative rules instead of replacing gameplay with client-side shortcuts.
 The architecture and component tests are in [client/offline](freeciv-1.14.1/client/offline/).
-Connecting this foundation to the finished user-driven GUI remains unfinished.
+The persistent GUI now services the local bridge, request waits and engine/AI
+yield callbacks without recursive engine processing. Complete production game
+setup and joined gameplay still remain unfinished.
 
 ### Replace the platform layer, not the game rules
 
@@ -113,10 +115,11 @@ reference pixels, not just an offscreen buffer.
 
 ## Current progress
 
-As of **2026-10-08**, **Phase 6 graphics resources and map display are complete
-and verified as components**. The production client remains gated and is not
-playable. Persistent input, session startup and the interactive GUI are still
-required; a diagnostic scene is not a joined game.
+As of **2026-10-08**, **Phase 7 persistent event loop and input are complete
+and verified at the UI/runtime-foundation boundary**. Normal startup opens an
+honest, resource-independent pregame interface rather than exiting at a gate.
+It is not a playable session: new/load-game setup, save/load and complete
+gameplay dialogs remain unfinished.
 
 | Foundation | What has been verified |
 | --- | --- |
@@ -127,27 +130,52 @@ required; a diagnostic scene is not a joined game.
 | Rendering | Clipped fill/line/blit/icon/text, original font, checked allocation/pitch, viewport-relative partial updates and dirty-region presentation |
 | Graphics resources | XPM3 conversion, transparent owned sprites/crops, shared tilespec caching; all 21 original atlases and 1,238 source/staged tag crops tested |
 | Map/HUD | Real client map/unit/city state and shared Trident composition; fog, improvements, ownership/status, wrapped transforms, independent selection, overview, economy/research and action overlays |
+| Input | Enhanced BIOS keyboard, buffered modifiers/keypad, keyboard-only fallback, optional INT 33h mouse, latched clicks and clipped software pointer |
+| Interaction | Nonblocking buttons/lists/text/dialogs, Tab/Shift-Tab focus, help/options/commands, visible unavailable-action feedback and default-Cancel quit confirmation |
+| Cooperative runtime | Bounded FIFO/input/packet slices, request-wait and engine/AI UI yields, timers, input capture during map rows and actual idle delay |
 
-The clean DOS build links **29 real backend modules** and passes **6/6 integrated
-test suites**. Native map tests use actual common/client state and packet hooks,
-not a fictional renderer-only map. Actual DOS 6.22/CWSDPMI tests run with a
-Pentium CPU model, **16 MB and paging disabled**. The 640x480 and 800x600 VGA
-captures match **307,200 and 480,000 reference pixels**, respectively, with
-**zero mismatches**. Repeated identical map/HUD/overview presentation writes
-zero bytes; Q/text restoration, repeated launch and post-map runtime checks pass.
+The clean DOS build links **33 real backend modules** and passes **10/10
+integrated test suites**, with a complete source distribution. Native sanitizer
+tests exercise real engine/AI turns while the actual event queue and editable
+modal widgets are serviced, checking state isolation and recursive-poll rejection.
+These host tests are not a full graphical game or a Pentium performance claim.
 
-![Verified 800x600 DOS map/HUD diagnostic](builds/phase6-dos/map800.png)
+Actual DOS 6.22/CWSDPMI tests use a Pentium CPU model, **16 MB, no network and
+paging disabled**:
 
-This is an explicitly initialized diagnostic scene with real Trident assets,
-default ruleset fields, two players, four units and four cities. It does not
-prove production game setup, mouse/keyboard gameplay, AI-turn responsiveness,
-save/load or whole-game memory/performance. Movement/combat rendering hooks show
-endpoint states rather than timed animation. Selected **overhead Trident** is
-supported; isometric tilesets and XPM2/extensions are not.
+- The normal pregame interface persists, works without a mouse driver, and
+  returns successfully only after confirmed quit; repeat launch and `--version`
+  work. Unsupported autoconnect fails explicitly.
+- The 640/800 input fixtures exercise navigation without moving focused units,
+  modified/keypad keys, text/list editing, cancellation and guarded orders.
+- An optional CuteMouse driver provides real mouse motion/map/UI hits and a
+  software pointer. Nine **25 ms clicks** are received, including complete
+  press/release pairs during idle; a held button does not repeat.
+- Mouse list selection plus keyboard editing applies `Mouse`/scroll 3;
+  clicking the text field and typing applies `Mouse7`, without creating a game.
+- The actual pregame bridge establishes both client and engine, services
+  **89 packet polls / 179 UI yields**, and disconnects cleanly after quit.
+  No generated map or playable session is claimed.
+- Idle checks require `timers >= 3`, `idle >= 10` and
+  `ticks <= 20 * timers + 128`, rejecting the earlier busy-loop behavior.
+  Text restoration and a subsequent real-runtime/engine diagnostic pass.
+
+![Verified normal DOS pregame interface](builds/phase7-dos/pregame800.png)
+
+![Verified mouse text/list editing over the diagnostic map](builds/phase7-dos/mouse-edit800.png)
+
+The second image uses explicitly initialized real client map/unit/city state
+and Trident assets, not a joined running game. Existing rendering/reference
+tests still pass; the toolbar reserves 32 pixels without hiding the overview
+or HUD. The bitmap font remains a working ASCII fallback, not full localization.
+Selected **overhead Trident** is supported; isometric tilesets and XPM2/extensions
+are not. Movement/combat hooks show endpoints rather than timed interpolation.
 
 The staged graphics package uses DOS-safe 8.3 names and a validated `RESMAP.TXT`;
-original source/RPM assets are unchanged. Evidence and reproduction records are
-in [builds/phase6-dos/](builds/phase6-dos/).
+original source/RPM assets are unchanged. Final source/configuration/archive
+records, DOS logs, input/image verifiers and
+[BUILDINFO.txt](builds/phase7-dos/BUILDINFO.txt) are in
+[builds/phase7-dos/](builds/phase7-dos/).
 Historical validation records remain under [builds/](builds/) and
 [progress.txt](progress.txt), rather than an accumulating phase diary here.
 
@@ -157,9 +185,8 @@ The next work connects these foundations into an actual game:
 
 - Connect verified resources/map rendering to a real joined playable session.
 - Complete HUD, menus, dialogs and reports with consistent text metrics/character coverage.
-- Persistent keyboard/mouse/event servicing and client/engine update integration.
 - End-to-end game setup, authoritative actions, AI turns, save/load and completion.
-- Honest DOS audio support or a reliable disabled-audio configuration.
+- Honest DOS hardware audio support; the current production mode is explicitly no-audio.
 - Filesystem/error handling, packaging, licensing checks and final memory/performance
   and physical-hardware validation.
 
@@ -201,8 +228,9 @@ standalone server/network transport, disabled NLS and no external GUI/audio
 library requirements. `configure.ac` and `Makefile.am` are authoritative;
 legacy `configure.in` is not the DOS regeneration input.
 
-**A successful build is not a playable release.** `--version` works; normal
-startup intentionally fails until required production integration is ready.
+**A successful build is not a playable release.** `--version` works and normal
+startup opens the persistent pregame interface; actual game/session startup
+remains unavailable.
 
 ## Tests and separate DOS diagnostics
 
@@ -215,14 +243,28 @@ sh freeciv-1.14.1/client/gui-dos-vbe/dpmi_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/framebuffer_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/mapview_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/resource_check.sh
+sh freeciv-1.14.1/client/gui-dos-vbe/input_check.sh
+sh freeciv-1.14.1/client/gui-dos-vbe/tests/widgets_check.sh
+sh freeciv-1.14.1/client/gui-dos-vbe/event_loop_check.sh
+sh freeciv-1.14.1/client/gui-dos-vbe/frontend_check.sh
 ```
 
 The first is a source-presence smoke check, not gameplay validation. The other
-five exercise real implementations with controlled host services and sanitizers.
+nine exercise real implementations with controlled host services and sanitizers.
 After a cross-build, the integrated suite is also available through:
 
 ```sh
 make -C /tmp/freeciv-dos-build/build/client/gui-dos-vbe check
+```
+
+The native real-engine/AI/UI component harness does not require an ignored
+checkout configuration:
+
+```sh
+ASAN_OPTIONS=detect_leaks=1:halt_on_error=1 UBSAN_OPTIONS=halt_on_error=1 \
+CFLAGS='-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie' \
+LDFLAGS='-fsanitize=address,undefined -no-pie' \
+sh freeciv-1.14.1/client/offline/check.sh /tmp/freeciv-engine-ui-check
 ```
 
 Build target diagnostics into separate, nonexistent directories:
@@ -235,9 +277,11 @@ sh freeciv-1.14.1/client/offline/build-runtime-check.sh \
   /tmp/freeciv-runtime-check /tmp/freeciv-dos-build/build
 sh freeciv-1.14.1/client/gui-dos-vbe/build-map-check.sh \
   /tmp/freeciv-map-check /tmp/freeciv-dos-build/build
+sh freeciv-1.14.1/client/gui-dos-vbe/build-input-check.sh \
+  /tmp/freeciv-input-check /tmp/freeciv-dos-build/build
 ```
 
-These produce `VBECHECK.EXE`, `RNDCHECK.EXE`, `RTCHECK.EXE` and `MAPCHECK.EXE`. They are not part
+These produce `VBECHECK.EXE`, `RNDCHECK.EXE`, `RTCHECK.EXE`, `MAPCHECK.EXE` and `INPUTCHK.EXE`. They are not part
 of the production GUI archive. Use your own licensed DOS installation, a
 supported display and the documented CWSDPMI configuration.
 
@@ -267,6 +311,22 @@ Set `FREECIV_PATH=C:\FREECIV\GFX8`, then run `CWSDPMI -s-` immediately followed
 by `MAPCHECK 640 > MAP640.LOG` (or `800`). Q restores DOS. These four rulesets
 are fixture inputs, **not the final production data package**.
 
+For the production interface, set `HOME=C:\FREECIV`, run `CWSDPMI -s-`, then
+`FREECIV`. Game graphics/rulesets are not needed just to open pregame. F1/F2/F3
+open help/options/commands. Esc closes an action dialog first; Q requests quit
+from home/the map with Cancel selected. Tab/Enter
+confirms. Options are in-memory only and saving is not implemented.
+
+For input diagnostics, use `INPUTCHK 640 > KBD640.LOG` or
+`INPUTCHK 800 > MOUSE800.LOG` after setting the fixture path above.
+`INPUTCHK --bridge > BRIDGE7.LOG` tests the actual pregame bridge without a game
+start. Repeat `CWSDPMI -s-` immediately before each application.
+
+Mouse support is optional. Install the unchanged driver from
+[runtime/cutemouse/](runtime/cutemouse/) into your DOS utilities directory and
+explicitly run `CTMOUSE` before the application. No boot/client code loads it
+automatically; keyboard-only operation is mandatory.
+
 QEMU, Python 3, mtools and FAT/partition utilities are needed for the recorded
 VM/image validation workflow, not for every native test.
 
@@ -278,6 +338,7 @@ VM/image validation workflow, not for every native test.
 | [client/gui-dos-vbe/](freeciv-1.14.1/client/gui-dos-vbe/) | DOS graphics/rendering backend, diagnostics and tests |
 | [client/offline/](freeciv-1.14.1/client/offline/) | Embedded-engine isolation, in-memory transport and tests |
 | [runtime/cwsdpmi-r7/](runtime/cwsdpmi-r7/) | Unchanged supplier runtime, notices and original binary/source archives |
+| [runtime/cutemouse/](runtime/cutemouse/) | Optional unchanged GPL mouse driver, notices and complete supplier source package |
 | [dos-vm/](dos-vm/) | Boot configuration, partition tooling and historical scaffold source; no DOS disk images |
 | [builds/](builds/) | Retained text/image/configuration validation records; not a binary release |
 | [old/](old/) | Archived, superseded documents; not current requirements |
@@ -328,6 +389,12 @@ archive is included. Users have the right to obtain source/binary updates:
 see [the runtime notices](runtime/cwsdpmi-r7/bin/cwsdpmi.doc),
 [runtime provenance](runtime/cwsdpmi-r7/README.txt), and the
 [supplier source archive](https://www.delorie.com/pub/djgpp/current/v2misc/csdpmi7s.zip).
+
+CuteMouse is credited to **Nagy Daniel** and maintainer **Eric Auer** and is
+distributed under GNU GPL version 2. The unchanged FreeDOS supplier package
+includes corresponding source, notices and documentation; see
+[its provenance](runtime/cutemouse/README.txt) and
+[license](runtime/cutemouse/COPYING). It is not Freeciv port code.
 
 DOS itself and a DJGPP toolchain are not redistributed here. If distributing
 new game binaries or converted assets, provide the required corresponding source

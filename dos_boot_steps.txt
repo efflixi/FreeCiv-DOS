@@ -12,7 +12,7 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 
 3. From the project directory, boot the tested Pentium / 16 MB configuration:
    qemu-system-i386 \
-     -machine pc -accel tcg -m 16 -cpu pentium \
+     -machine pc -accel tcg -m 16 -cpu pentium -vga std \
      -drive file=DOS622.img,format=raw,if=floppy \
      -drive file=dos-vm/DOS622_VHD.img,format=raw,if=none,id=drivec \
      -device ide-hd,drive=drivec,bus=ide.0,unit=0,cyls=521,heads=16,secs=63,bios-chs-trans=none \
@@ -22,8 +22,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
    The graphical QEMU window shows the DOS screen; the terminal is the QEMU
    monitor, not a DOS input console. Use the window keyboard for DOS commands.
    Stop QEMU using "quit" at its monitor before accessing images with host tools.
-   The equivalent headless test used QMP keyboard injection/text-screen capture;
-   it did not validate a Freeciv graphics mode.
+   Equivalent headless tests use QMP keyboard/mouse injection and live VGA
+   captures. BIOS text-screen capture alone does not validate graphics.
 
 4. Startup stops at C:\>, without launching a game or demo. Run:
    ver
@@ -38,20 +38,25 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 5. C: root retains only IO.SYS, MSDOS.SYS, COMMAND.COM, DRVSPACE.BIN,
    AUTOEXEC.BAT, CONFIG.SYS, and DOS/FREECIV/ARCHIVE directories.
    - C:\DOS contains DOS utilities/support files.
-   - C:\FREECIV\FREECIV.EXE is the verified builds/phase6-dos/civclient.exe.
+   - C:\FREECIV\FREECIV.EXE is the verified builds/phase7-dos/civclient.exe.
    - C:\FREECIV\CWSDPMI.EXE and CWSDPMI.DOC are unchanged CWSDPMI r7 files.
    - C:\FREECIV\RTCHECK.EXE is the separate runtime diagnostic.
    - C:\FREECIV\VBECHECK.EXE is the separate actual VBE display diagnostic.
    - C:\FREECIV\RNDCHECK.EXE is the separate primitive/font/dirty-render diagnostic.
    - C:\FREECIV\MAPCHECK.EXE is the separate actual-state map/HUD diagnostic.
+   - C:\FREECIV\INPUTCHK.EXE is the separate production-loop input diagnostic.
    - C:\FREECIV\GFX8 contains selected Trident 8.3 graphics/specs/manifests
-     and four default .RUL aliases for MAPCHECK only, NOT a complete game install.
+     and four default .RUL aliases for MAPCHECK/INPUTCHK fixtures only,
+     NOT a complete game install.
    - C:\FREECIV\DATA\RUNTIME.DAT is its test marker, NOT game resources.
    - C:\ARCHIVE\OLDCLI.EXE preserves the previous installed client unchanged.
      PHASE2.EXE preserves the Phase 2 candidate installed during Phase 3.
      PHASE4.EXE preserves the preceding Phase 4 candidate unchanged.
      PHASE5.EXE preserves the preceding Phase 5 candidate unchanged.
+     PHASE6.EXE preserves the preceding Phase 6 candidate unchanged.
      FCSTUB.COM, AUTOOLD.BAT, and IMPORT.TMP preserve the older demo/startup.
+   - Optional C:\DOS\CTMOUSE.EXE/CTMOUSE.TXT/CTMLIC.TXT/CTMSRC.ZIP preserve
+     the unchanged GPL driver, documentation, license and full source package.
 
 6. Host startup sources are dos-vm/BOOT_A.BAT and dos-vm/AUTOEXEC.BAT.
    Floppy AUTOEXEC checks C:\COMMAND.COM before handing off to C:\AUTOEXEC.BAT.
@@ -65,15 +70,27 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
    combinations are untested; do not prescribe them as prerequisites.
 
 7. Test the normal client:
+   cd \FREECIV
+   set HOME=C:\FREECIV
+   CWSDPMI -s-
    FREECIV --version
+   CWSDPMI -s-
    FREECIV
-   if errorlevel 1 echo Expected unavailable-GUI failure
 
    --version prints "Freeciv version 1.14.1 gui-dos-vbe". CWSDPMI can auto-load
-   from the executable directory. Normal startup explicitly reports unavailable
-   persistent input/session startup/GUI integration and returns failure to DOS.
-   The real VBE display is tested separately as described below. This gate is
-   intentional; the installed program is not yet a playable graphical game.
+   from the executable directory, but repeat -s- before each no-paging process.
+   Normal startup opens a persistent pregame interface using real VBE/input.
+   F1/F2/F3 open Help/Options/Commands; Tab/Shift-Tab and Enter navigate widgets.
+   Esc cancels the current dialog/action first. From home/the map,
+   Q/Ctrl-Q/Alt-F4 requests quit with
+   Cancel selected: Enter cancels, Tab/Enter confirms and returns zero to DOS.
+   New/load-game setup is explicitly unavailable. Options are in-memory only;
+   no session is created, no current player is renamed, and no save is written.
+   Audio is explicitly disabled. The installed program is not yet playable.
+   HOME avoids the original options subsystem's missing-home warning; without
+   it, the warning is surfaced rather than silently hidden.
+   FREECIV -a fails nonzero with an actionable unavailable-autoconnect message.
+   Upstream --version writes to stderr, so >VERSION.TXT alone captures no text.
    Without a DPMI host the DJGPP loader reports "Load error: no DPMI".
 
 8. For the verified runtime-only test, explicitly disable paging:
@@ -113,7 +130,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 
 10. Host-side installation/inspection must use the PARTITION offset:
     mdir -i dos-vm/DOS622_VHD.img@@32256 ::/
-    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase6-dos/civclient.exe ::/FREECIV/FREECIV.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase7-dos/civclient.exe ::/FREECIV/FREECIV.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase7-dos/INPUTCHK.EXE ::/FREECIV/INPUTCHK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase6-dos/MAPCHECK.EXE ::/FREECIV/MAPCHECK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase5-dos/RNDCHECK.EXE ::/FREECIV/RNDCHECK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase4-dos/VBECHECK.EXE ::/FREECIV/VBECHECK.EXE
@@ -130,6 +148,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     output file; do not run it on the already partitioned working image.
 
 11. Recovery copies:
+    - dos-vm/backups/DOS622_VHD.before-phase7.img and DOS622.before-phase7.img
+      preserve the verified Phase 6 pair and preceding client.
     - dos-vm/backups/DOS622_VHD.before-phase6.img and DOS622.before-phase6.img
       preserve the verified Phase 5 pair and preceding candidate.
     - dos-vm/backups/DOS622_VHD.before-phase5.img and DOS622.before-phase5.img
@@ -229,8 +249,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     These tests certify rendering foundations, NOT usable tileset loading,
     an interactive game HUD/map/event loop, DOS dialog/report integration,
     localized fonts, audio, complete gameplay or whole-game 16 MB memory fit.
-    The normal FREECIV startup still returns nonzero with its honest readiness
-    diagnostic; --version remains available.
+    Normal FREECIV now opens the separately verified persistent pregame
+    interface; that does not turn these component tests into full-game proof.
 
 15. Actual-state map/HUD diagnostic (not a playable session):
     cd \FREECIV
@@ -262,5 +282,68 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     final source/config/archive evidence and BUILDINFO.txt. All 159 preceding
     regular files/attributes are preserved, with the old client in PHASE5.EXE;
     root/partition/boot layout and floppy bytes are unchanged.
-    The production client still fails explicitly for unfinished persistent
-    input/session startup/GUI integration. Phase 7 requires separate permission.
+    These retained map tests are component evidence. Production now has
+    persistent pregame/input; joined gameplay/session setup remains unfinished.
+
+16. Persistent input/GUI diagnostic (uses the real production event loop):
+    cd \FREECIV
+    set HOME=C:\FREECIV
+    set FREECIV_PATH=C:\FREECIV\GFX8
+    CWSDPMI -s-
+    INPUTCHK 640 > KBD640.LOG
+
+    Before loading a driver, this explicitly reports keyboard-only input.
+    Arrows move tile selection, Shift-arrows scroll and Ctrl-arrows/numeric
+    keypad/WASD issue guarded orders. Selection/scrolling never move a unit
+    locally. The fixture is not an established authoritative gameplay session,
+    so game orders are visibly rejected. Enter/select, Tab/5 next, period wait,
+    F done, E/Space end-turn and O overview have guarded command paths.
+    Help/options/commands, list paging, text entry and safe quit are interactive.
+
+    To enable optional tested mouse support, explicitly run:
+    CTMOUSE
+    CWSDPMI -s-
+    INPUTCHK 800 > MOUSE800.LOG
+
+    Left click selects map/UI items; right click opens commands. The client
+    hides the driver cursor and draws a clipped software pointer. Latched
+    INT33 press/release counters preserve quick clicks during idle. Actual
+    tests receive nine 25 ms toolbar clicks and no repeat from a held button.
+    Mouse list/text plus keyboard focus/edit/apply is verified separately.
+    CTMOUSE is never loaded automatically. Keyboard-only remains supported.
+    Keep its full source package/notices alongside redistributed driver files;
+    runtime/cutemouse/README.txt records provenance and checksums.
+
+    CWSDPMI -s-
+    INPUTCHK --bridge > BRIDGE7.LOG
+    This joins the actual local engine in pregame and services packets/timers/
+    yields while the UI stays interactive. It does NOT call start_local_game
+    or generate a map. Trace proves both client/engine establishment before
+    clean disconnect; it must not inspect connection state after disconnect
+    as though the session should still be established.
+
+    All INPUTCHK modes require confirmed quit, restore BIOS text mode 3 and
+    end with EXIT SUCCESS. Repeat the diagnostic and normal client; then:
+    CWSDPMI -s-
+    RTCHECK --batch --log C:\FREECIV\POSTINP.LOG
+    Wait for EXIT SUCCESS before stopping QEMU or reading its disk.
+    The unchanged older RTCHECK still prints its original readiness-gate note.
+    That is historical diagnostic text, not the current production GUI status;
+    use only its explicitly exercised runtime/engine service results.
+
+    Verified bounds: FIFO64, eight-event acquisition/dispatch, packet budget16,
+    500 ms timers; idle100000 us (~55-110 ms with BIOS clock granularity).
+    10000 us truncates to zero in the tested DJGPP libc and must not be used.
+    Acceptance rejects runaway loops with timers>=3, idle>=10 and
+    ticks<=20*timers+128; acquired/dispatched event counts must match.
+    Buffered BIOS Shift-Tab/Ctrl-Q/Alt-F4/modified arrows are normalized even
+    after modifier release; NumLock digits remain orders.
+
+    Actual input/bridge/display/teardown passes DOS6.22/Pentium/16 MB/-s-.
+    Native real-engine/AI tests service actual editable modal widgets, but
+    full joined-game/minimum-hardware AI timing/save/load remain unverified.
+    builds/phase7-dos/ contains definitive logs/captures/BUILDINFO and verifiers.
+    All 193 preceding regular files/attributes are preserved, including older
+    diagnostics/assets/logs; the replaced client is archived as PHASE6.EXE.
+    Root/partition/boot/floppy bytes are unchanged; FAT/partition checks pass.
+    Stop for Phase 7 review. Do not start Phase 8 without explicit permission.

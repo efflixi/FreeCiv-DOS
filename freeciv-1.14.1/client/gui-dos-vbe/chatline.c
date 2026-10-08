@@ -1,12 +1,13 @@
 /* chatline.c -- PLACEHOLDER */
 
 #include "chatline.h"
+#include "gui_main.h"
 
 
 void
 real_append_output_window(const char *astring)
 {
-	/* PORTME */
+	dos_vbe_gui_status(astring);
 }
 
 void

@@ -6,7 +6,8 @@ AM_CFLAGS = -Werror=return-type -Werror=implicit-function-declaration \
 	-Werror=incompatible-pointer-types -Werror=missing-prototypes
 
 TESTS = dos_vbe_backend_check.sh vbe_check.sh dpmi_check.sh \
-	framebuffer_check.sh mapview_check.sh resource_check.sh
+	framebuffer_check.sh mapview_check.sh resource_check.sh input_check.sh \
+	tests/widgets_check.sh event_loop_check.sh frontend_check.sh
 check_SCRIPTS = $(TESTS)
 EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
 	build-vbe-check.sh tests/vbe_test.c tests/vbe_check.c dpmi_check.sh \
@@ -20,6 +21,10 @@ EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
 	tools/stage_resources.py build-map-check.sh tests/map_check.c \
 	tests/phase6_scene.c tests/phase6_scene.h tests/map-config.h \
 	tests/stage_phase6_fixture.py
+EXTRA_DIST += input_check.sh tests/input_test.c tests/input-stubs/dpmi.h \
+	tests/input-stubs/go32.h tests/input-stubs/unistd.h tests/input-stubs/sys/farptr.h \
+	tests/widgets_check.sh tests/widgets_test.c event_loop_check.sh tests/event_loop_test.c \
+	build-input-check.sh tests/input_check.c frontend_check.sh tests/frontend_test.c
 
 ## Above, note -I../../intl instead of -I$(top_srdir)/intl is deliberate.
 
@@ -39,6 +44,10 @@ libguiclient_a_SOURCES = \
 	graphics.c \
 	resource_xpm.c \
 	gui_main.c \
+	commands.c \
+	event_loop.c \
+	input.c \
+	widgets.c \
 	helpdlg.c \
 	inteldlg.c \
 	mapctrl.c \
@@ -68,6 +77,10 @@ libguiclient_a_SOURCES = \
 	resource_xpm.h \
 	resource_colors.h \
 	gui_main.h \
+	commands.h \
+	event_loop.h \
+	input.h \
+	widgets.h \
 	helpdlg.h \
 	mapctrl.h \
 	mapview.h \

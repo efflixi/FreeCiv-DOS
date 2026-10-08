@@ -1,0 +1,25 @@
+SeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Floppy...
+Starting MS-DOS...
+
+C:\>cd \freeciv
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv
+
+C:\FREECIV>set home=c:\freeciv
+
+C:\FREECIV>set freeciv_path=c:\freeciv\gfx8
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 640>kbd640.log
+
+C:\FREECIV>
+
+
+
+

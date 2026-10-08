@@ -108,7 +108,7 @@ Outputs are under `<destination>/build/`, with the executable at `client/civclie
 
 Build evidence and a reference candidate are retained in [builds/phase2-dos/](./builds/phase2-dos/), alongside a regenerated source-distribution archive. These are build artifacts, not a DOS installation or asset package. Do not use the checkout's older in-place executable/archive as the result of this procedure.
 
-Incomplete GUI implementations must not be exercised as though they were functional. Keep DOS GUI startup gated with an explicit unavailable diagnostic and failure exit before graphics initialization or scripted actions until production resource loading, persistent input/event servicing, and display integration are verified together. A separately validated display or correctly linked candidate is not playable-game acceptance; replace the gate only alongside verified required implementations.
+Incomplete GUI implementations must not be exercised as though they were functional. Normal DOS startup opens the resource-independent persistent pregame interface, not a generated or joined game. It explicitly reports unavailable new/load-game setup, forces the audio-none plugin with a notice, and rejects autoconnect. Required game resources and client/engine state must be initialized before gameplay controls are enabled. A separately validated display, pregame interface or correctly linked candidate is not playable-game acceptance.
 
 ## Offline engine architecture
 
@@ -129,7 +129,7 @@ Architecture requirements:
 ### State isolation and transport contract
 
 - Compile the engine's common/server/AI sources separately from the client's common sources. Exclude the server executable entry point and do not invoke its blocking `srv_main()` loop.
-- Combine the engine objects with a relocatable link, then rename every engine-defined external symbol, including its internal references, using the `fc_engine_` namespace. Preserve the target ABI's leading underscore when present. Only the six `fc_offline_engine_*` APIs in `client/offline/engine.h` remain unprefixed.
+- Combine the engine objects with a relocatable link, then rename every engine-defined external symbol, including its internal references, using the `fc_engine_` namespace. Preserve the target ABI's leading underscore when present. Only the seven public `fc_offline_engine_*` APIs in `client/offline/engine.h` remain unprefixed; the internal yield helper is renamed with the engine.
 - Keep engine game/map/ruleset, mode, connection, RNG, and module state distinct from the client-visible cache. Do not exchange player, city, unit, map, or connection pointers across the boundary. CRT services may be shared.
 - Compile participating client/common/engine code with consistent `FC_LOCAL_ENGINE` connection layouts and `FC_NO_SOCKET_API`. External connection, lookup, discovery, and autoconnect paths are unsupported.
 - Preserve the existing wire encoders/decoders, capability negotiation, authoritative request handlers, request IDs, processing-start/finish notifications, and player-specific visibility filtering.
@@ -138,6 +138,7 @@ Architecture requirements:
 - The engine owns authoritative initialization and teardown. The broker owns its queues and the client transport buffers; closing it must not free the client-visible game cache. Release active-turn AI allocations before freeing authoritative players/maps and reset local lifecycle/RNG state for a fresh session.
 - Starting a game is explicit and requires an established human connection. Cooperative polling accepts a positive packet budget no larger than `INT_MAX` and advances at most one startup, turn-begin, turn-end, or game-over phase per call. It returns while waiting for player input and does not enter socket sniffing loops.
 - A lifecycle phase can still perform substantial map generation or AI work. Packet budgeting is not a wall-clock responsiveness guarantee; minimum-hardware timing and event-loop integration must meet the reliability/performance requirements separately.
+- The opaque UI service callback runs only inside guarded engine polling, between packets/steps and AI unit/city passes. It may acquire/dispatch interface input, service timers and present; it must not recursively poll or close the engine. Defer gameplay orders and confirmed teardown to a safe boundary.
 
 ### Component verification
 
@@ -147,14 +148,15 @@ Run the isolated engine/transport harness from the project root using an absolut
 sh freeciv-1.14.1/client/offline/check.sh /absolute/new/native-build
 ```
 
-The script uses the configured source tree and shipped data, compiles separate client/engine common instances, checks the state-symbol renaming, and runs the native harness outside the source tree. It keeps assertions enabled even if caller flags define `NDEBUG`. Compiler/linker tools and flags can be supplied through `CC`, `LD`, `NM`, `OBJCOPY`, `CFLAGS`, and `LDFLAGS`.
+The native script uses the tracked diagnostic configuration in `client/gui-dos-vbe/tests/map-config.h` and shipped data; it does not depend on an ignored source `config.h`. It compiles separate client/engine common instances, checks symbol renaming, and runs outside the source tree with assertions enabled even if caller flags define `NDEBUG`. Compiler/linker tools and flags may be supplied through `CC`, `LD`, `NM`, `OBJCOPY`, `CFLAGS`, and `LDFLAGS`.
 
 For memory/ownership validation:
 
 ```sh
 ASAN_OPTIONS='detect_leaks=1:halt_on_error=1' \
-CFLAGS='-O0 -g -std=gnu89 -fsanitize=address -fno-omit-frame-pointer' \
-LDFLAGS='-fsanitize=address' \
+UBSAN_OPTIONS='halt_on_error=1' \
+CFLAGS='-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie' \
+LDFLAGS='-fsanitize=address,undefined -no-pie' \
 sh freeciv-1.14.1/client/offline/check.sh /absolute/new/asan-build
 ```
 
@@ -164,10 +166,11 @@ For target compilation, place the DJGPP tools on `PATH` and use:
 CC=i586-pc-msdosdjgpp-gcc LD=i586-pc-msdosdjgpp-ld \
 NM=i586-pc-msdosdjgpp-nm OBJCOPY=i586-pc-msdosdjgpp-objcopy \
 CROSS_COMPILE=1 CFLAGS='-O0 -g -std=gnu89' \
+OFFLINE_CONFIG_DIR=/absolute/freeciv-dos-build/build \
 sh freeciv-1.14.1/client/offline/check.sh /absolute/new/dos-build
 ```
 
-The harness checks joins, packet ordering/fragmentation, bounded polling/buffering, backpressure, rejection/error delivery, reentrancy guards, state isolation, cleanup/restart, and real map/AI initialization, rates changes, and turn advancement. Its packet observer is not the graphical client; decoded ruleset payloads are released rather than installed in a UI cache. Test-only linkage helpers are confined to this diagnostic executable.
+The harness checks joins, packet ordering/fragmentation, bounded polling/buffering, backpressure, rejection/error delivery, reentrancy guards, state isolation, cleanup/restart, and real map/AI initialization, rates changes, and turn advancement. Native engine/AI callbacks additionally service the real event queue and editable modal widgets without recursive polling. Its packet observer is not the complete graphical client; decoded ruleset payloads are released rather than installed in a UI cache. Test-only linkage helpers are confined to this diagnostic executable.
 
 These commands verify the architecture component, not the production autotools linkage, graphical event loop, save/load UI, full-game completion, DOS runtime, 16 MB fit, or VESA display. They do not regenerate or replace `client/civclient.exe`. Actual DOS and user-driven gameplay acceptance remain mandatory.
 
@@ -235,7 +238,7 @@ CC=i586-pc-msdosdjgpp-gcc \
 sh client/gui-dos-vbe/build-vbe-check.sh /tmp/freeciv-vbe-new
 ```
 
-The normal production build links real VBE modules but keeps its readiness gate.
+The normal production interface initializes these real VBE services; no RAM-only display or fatal pregame readiness gate substitutes for them.
 
 ### Software renderer
 
@@ -384,6 +387,38 @@ The graphical UI must expose the supported ruleset's required operations:
 
 External multiplayer chat is not required, but game messages and command feedback must remain visible in the graphical UI.
 
+### Persistent runtime and interaction contract
+
+- Use enhanced BIOS INT 16h keyboard polling and keep ASCII separate from scan codes. Preserve BIOS-encoded buffered modifier combinations, including Shift-Tab, Ctrl-Q, modified directional scans and Alt-F4. With NumLock off, Shift-cardinal keys may arrive as digits; with NumLock on, keypad digits remain orders. BIOS modifiers not encoded in a key use the current shift flags.
+- Arrows navigate selection; Shift-arrows scroll; Ctrl-arrows, WASD and numeric/keypad directions issue guarded unit orders. Enter selects, Tab/5 cycles focus, period waits, F marks done, E/Space ends the turn and O toggles overview. F1/F2/F3 open help/options/commands. Esc cancels the current interaction; from home/the map, Q/Ctrl-Q/Alt-F4 requests quit. Within an action dialog, cancel/close it first; ordinary Q remains valid text entry.
+- Guard gameplay commands with an established local human connection, running/alive/owned player and unit, and active turn. Selection/viewport changes must not move an authoritative unit locally.
+- Use a bounded 64-event FIFO with explicit enqueue failure and acquisition backpressure, never silent oldest-event eviction. Normal slices acquire and dispatch at most eight events, pump/decode at most 16 local packets and service 500 ms timers/presentation.
+- UI-only service during request waits or engine callbacks must not recursively pump packets, run gameplay orders or tear down the engine. Capture input during scratch map rows without reentrant map rendering. Keyboard and menu orders share a central guard/deferral path: validated internal command events preserve the selected operation in the same bounded FIFO. Recheck availability when dispatching at a safe outer boundary; confirmation/teardown is also deferred.
+- Idle uses DJGPP `usleep(100000)` with INT 2Fh host yield. The smaller 10000 us request truncates to zero in the reference libc. BIOS clock granularity gives approximately 55-110 ms idle latency; native tests model this conversion and DOS tests reject runaway tick counts.
+- Detect an installed INT 33h vector/driver safely; absence is an explicitly reported keyboard-only mode. Hide its hardware cursor, set screen ranges and draw a clipped save-under software pointer. Read latched press/release counts as well as current position/buttons so complete clicks during idle survive. Drain repeated counts; when multiple presses accumulate, the driver provides only its latest press position.
+- Reserve the top 32 pixels for toolbar/status, shift public map hit/presentation coordinates accordingly, and leave the bottom HUD and overview unobscured. Compose final toolbar pixels offscreen rather than dirtying an intermediate erase. Erase/redraw the software pointer around underlying changes.
+- Reusable buttons, lists, bounded printable-ASCII text entry, dialogs, focus and confirmations are asynchronous; no nested widget event loop. Tab/Shift-Tab, Enter/Esc, list arrows/Home/End/PageUp/PageDown and mouse activation must agree. Invalid specifications/dimensions/capacities report errors; unchanged drawing is clean.
+- Interface options hold a next-session player name and 1/3/5-tile scroll step in memory only. They neither persist settings nor rename a current authoritative player.
+- Quit defaults to Cancel and warns about potentially unsaved state; saving must not be claimed until implemented. Action cancellation is not application quit. Disconnect and restore text/device state only after the event/engine/request stack has returned.
+
+An optional unmodified GPL CuteMouse package, driver, notices and corresponding
+source are in `runtime/cutemouse/`. No driver is automatically installed by the
+client or boot scripts; keyboard-only operation remains required.
+
+For actual DOS input acceptance, build a separate diagnostic:
+
+```sh
+sh freeciv-1.14.1/client/gui-dos-vbe/build-input-check.sh \
+  /absolute/new/input-check /absolute/freeciv-dos-build/build
+```
+
+`INPUTCHK 640`/`800` exercise the production loop on an explicitly initialized
+map fixture; `INPUTCHK --bridge` exercises actual pregame join/packets without
+starting a game. Redirect its log to a writable DOS file. It reports both
+client/engine establishment before disconnect, event/idle/timer/packet/yield
+metrics, confirmed quit and text restoration. These modes do not certify
+production game setup, complete gameplay or minimum-hardware AI performance.
+
 ## Sound and music
 
 Preserve sound and music capability as much as practical while keeping device handling separate from game logic and the GUI renderer.
@@ -459,7 +494,7 @@ The remaining package contents are Linux clients/server and launcher scripts, de
 - Preserve the original binary/source archives and notices in `runtime/cwsdpmi-r7/`. Users have the right to receive source/binary updates; source is included as `csdpmi7s.zip` and available from [the DJGPP distributor](https://www.delorie.com/pub/djgpp/current/v2misc/csdpmi7s.zip). Redistribution must follow the supplied CWSDPMI terms.
 - Keep `client/offline/runtime_check.c` and `build-runtime-check.sh` separate from normal GUI linkage. This diagnostic uses real DOS/DPMI services and isolated-engine join/reset tests; `RTCHECK.EXE` must identify its limited scope rather than report production GUI readiness.
 - The diagnostic's executable-relative `DATA\RUNTIME.DAT` is an explicitly labeled test fixture, not packaged rulesets, graphics, or fonts. Its path tests do not satisfy actual game-resource acceptance.
-- Diagnostic initialization must log failures, release acquired resources, and return nonzero without entering its keyboard wait on failure. Successful interactive operation waits for Q and returns to DOS. Preserve the production GUI failure gate until actual required video/resources/input implementations are verified.
+- Diagnostic initialization must log failures, release acquired resources, and return nonzero without entering its keyboard wait on failure. Successful RTCHECK interactive operation waits for Q and returns to DOS. Keep this distinct from the production graphical pregame interface and its confirmed quit.
 - Preserve executable/build provenance and actual DOS logs separately from the normal candidate. Runtime component success does not certify video mapping, production startup, full gameplay, or the complete game's 16 MB fit.
 
 ## Reliability and performance

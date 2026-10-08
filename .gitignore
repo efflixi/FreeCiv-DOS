@@ -20,6 +20,7 @@
 *.[cC][oO][mM]
 *.[sS][wW][pP]
 !/runtime/cwsdpmi-r7/bin/*.[eE][xX][eE]
+!/runtime/cutemouse/bin/*.[eE][xX][eE]
 /builds/**/*.tar.gz
 /builds/**/*.tar.bz2
 /builds/**/*.tar.xz

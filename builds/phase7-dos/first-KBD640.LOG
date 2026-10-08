@@ -1,0 +1,49 @@
+DOS VBE: BIOS mode 0x0111, 640x480x16, pitch 1280, RGB565 LFB 0xfd000000 initialized.
+DOS input: no INT 33h mouse driver; keyboard-only input.
+FIXTURE initializing from DATA path: c:\freeciv\gfx8;
+FIXTURE loaded ruleset TERRAIN.RUL from c:\freeciv\gfx8/TERRAIN.RUL
+FIXTURE loaded ruleset UNITS.RUL from c:\freeciv\gfx8/UNITS.RUL
+FIXTURE loaded ruleset GOVERN.RUL from c:\freeciv\gfx8/GOVERN.RUL
+FIXTURE loaded ruleset TECHS.RUL from c:\freeciv\gfx8/TECHS.RUL
+FIXTURE reading default Trident tilespec; staged lookup uses RESMAP.TXT/TRIDENT.TSP
+FIXTURE loading Trident specs and atlases
+SCENE actual game/map/list/idex; Trident 30x30; 2 players, 4 units, 4 cities
+SCENE HUD: Roman player  Year 3500 BC  Despotism
+Gold 123  Tax 40% Lux 10% Sci 50%
+Research Alphabet (17 bulbs)
+Tile 5,9: Grassland [visible]
+Warriors (Roman player) HP 8/10 MP 1/1 Moves: 1 veteran
+City Rome size 7 owner Roman player
+Turn ACTIVE  Timeout 42
+SCENE framebuffer 640x480 RGB565 FNV1a 02263d82 (visible pixels, no pitch padding)
+READY actual-state map input fixture; no authoritative gameplay
+INPUT mouse=0 width=640
+EVENT type=0 ascii=0 scan=77 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=0 scan=77 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=0 scan=80 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=0 scan=80 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=52 scan=75 mods=1 x=0 y=0 pressed=0
+COMMAND MOVE_WEST
+PASS rejected unavailable order
+EVENT type=0 ascii=52 scan=75 mods=1 x=0 y=0 pressed=0
+COMMAND MOVE_WEST
+PASS rejected unavailable order
+EVENT type=0 ascii=0 scan=116 mods=2 x=0 y=0 pressed=0
+COMMAND NONE
+EVENT type=0 ascii=0 scan=116 mods=2 x=0 y=0 pressed=0
+COMMAND NONE
+EVENT type=0 ascii=0 scan=79 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=0 scan=73 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=27 scan=1 mods=0 x=0 y=0 pressed=0
+COMMAND CANCEL
+EVENT type=0 ascii=113 scan=16 mods=0 x=0 y=0 pressed=0
+COMMAND QUIT
+EVENT type=0 ascii=13 scan=28 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=113 scan=16 mods=0 x=0 y=0 pressed=0
+COMMAND QUIT
+EVENT type=0 ascii=9 scan=15 mods=0 x=0 y=0 pressed=0
+EVENT type=0 ascii=13 scan=28 mods=0 x=0 y=0 pressed=0
+PASS confirmed quit at safe boundary
+LOOP ticks=74078 events=16 dispatch=16 idle=74066 timers=34 packets=0 yields=0
+PASS persistent event loop returned after explicit confirmed quit
+EXIT SUCCESS

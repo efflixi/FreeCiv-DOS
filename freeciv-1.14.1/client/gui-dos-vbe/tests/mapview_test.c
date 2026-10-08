@@ -40,6 +40,7 @@ static unsigned int display_width = 640;
 static unsigned int display_height = 480;
 
 void dealloc_id(int id) { (void)id; }
+void dos_vbe_gui_capture_input(void) { }
 int dos_vbe_display_active(void) { return active; }
 unsigned long dos_vbe_display_generation(void) { return generation; }
 int dos_vbe_current_mode(struct dos_vbe_mode_info *info, unsigned int *mode)
@@ -351,6 +352,30 @@ static void test_display_sizes(void)
   printf("PASS 640x480, 800x600, 1024x768 resize, bounded extreme damage/overview dimensions\n");
 }
 
+static void test_toolbar_and_cursor_navigation(void)
+{
+  int x, y, cx, cy;
+  struct unit before = *find_unit_by_id(100);
+  assert(dos_vbe_mapview_set_top(32) == 0);
+  assert(dos_vbe_framebuffer_fill(&dos_vbe_front_buffer, 0, 0,
+                                dos_vbe_front_buffer.width, 32, 0x1234U) == 0);
+  center_tile_mapcanvas(8, 7);
+  dos_vbe_select_tile(5, 9);
+  assert(dos_vbe_map_to_canvas(5, 9, &cx, &cy) && cy >= 32);
+  assert(dos_vbe_canvas_to_map(cx + 1, cy + 1, &x, &y) && x == 5 && y == 9);
+  assert(!dos_vbe_canvas_to_map(cx, 31, &x, &y));
+  dos_vbe_move_selection(1, 0);
+  assert(dos_vbe_get_selected_tile(&x, &y) && x == 6 && y == 9);
+  dos_vbe_move_selection(INT_MAX, INT_MIN);
+  assert(dos_vbe_get_selected_tile(&x, &y) && y == 0);
+  assert(!memcmp(&before, find_unit_by_id(100), sizeof(before)));
+  assert(pixel(0, 0) == 0x1234U && pixel(639, 31) == 0x1234U);
+  assert(dos_vbe_mapview_set_top(UINT_MAX) == -1);
+  assert(dos_vbe_mapview_set_top(0) == 0);
+  update_map_canvas_visible();
+  puts("PASS reserved toolbar screen/map transforms, preserved chrome, independent cursor and extreme navigation");
+}
+
 static void test_combat_packet_ownership(void)
 {
   struct unit *attacker = find_unit_by_id(100);
@@ -570,6 +595,7 @@ int main(int argc, char **argv)
     test_partial_and_noop();
     assert_padding();
     test_display_sizes();
+    test_toolbar_and_cursor_navigation();
   }
   assert(present_count > 0);
   dos_phase6_scene_free();

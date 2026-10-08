@@ -194,35 +194,52 @@ Phase 6. Graphics resources and playable map display
   - Boundary: normal FREECIV still fails explicitly for unfinished persistent input, session startup and GUI integration. Phase 6 graphics/map component completion does not certify playable gameplay. Stop for review; Phase 7 requires permission.
 
 Phase 7. Persistent event loop and input
-- [ ] Replace the scripted turn sequence with a persistent user-driven DOS event loop and an explicit quit path.
-  - Status: gui_main.c:ui_main() queues eight predefined commands, drains them, redraws, and returns. It does not poll input or wait for a game.
-  - Dependency correction: retain production startup/input-wait validation formerly bundled into Phase 3. Replace the readiness gate only after required GUI/resources/input are functional; RTCHECK's READY/Q loop is not production implementation.
-- [ ] Poll real keyboard events and distinguish ASCII keys from extended scan codes.
-  - Status: raw scan values 72/80/77/75 overlap printable characters; the current mapping alone is not a working arrow-key reader.
-- [ ] Support keypad/diagonal movement, modifiers, focus cycling, selection, cancellation, end-turn, and command/menu navigation.
-- [ ] Separate viewport/cursor navigation from movement orders for the focused unit.
-  - Status: current movement commands both invoke key_move_* and change the viewport locally before authoritative results are received.
-- [ ] Route supported actions through genuine client controls and the offline engine bridge, with correct client-state/ownership checks.
-- [ ] Implement a usable GUI interaction layer for buttons, lists, dialogs, text entry, focus, and confirmation prompts.
-- [ ] Add DOS mouse-driver detection and mouse event handling when a driver is available.
-  - Status: no mouse acquisition or click handling exists. Convert pixel positions to correct tile/UI coordinates and provide a visible cursor.
-- [ ] Keep every required operation accessible by keyboard when no mouse driver is installed.
-- [ ] Handle key repeat and queue capacity predictably without silently losing important actions.
-  - Status: the 32-slot command queue currently discards the oldest command on overflow.
-- [ ] Interleave input, local engine/packet work, timers, audio service, and presentation without starving any subsystem.
-- [ ] Limit idle CPU use and keep the GUI responsive during AI turns, modal dialogs, and large redraws.
-- [ ] Define safe cancellation/quit behavior separately from action cancellation and guard accidental unsaved-game loss.
+- [x] Replace the scripted turn sequence with a persistent user-driven DOS event loop and an explicit quit path.
+  - Verified: normal FREECIV opens the user-approved, resource-independent pregame interface and remains until confirmed quit. Help/options/commands/quit work; new/load-game setup is explicitly unavailable, not simulated. Actual normal/repeated DOS launches return zero after confirmation.
+- [x] Poll real keyboard events and distinguish ASCII keys from extended scan codes.
+  - Verified: enhanced BIOS INT 16h input preserves printable H/P/M/K and recognizes extended/modified scans. Buffered Shift-Tab, Ctrl-Q, Alt-F4 and Shift-arrow encodings survive released modifiers; NumLock keypad digits retain their meaning.
+- [x] Support keypad/diagonal movement, modifiers, focus cycling, selection, cancellation, end-turn, and command/menu navigation.
+  - Verified: numeric/WASD/keypad orders, next/wait/done/end-turn/select/overview, Tab/Shift-Tab, list paging and F1/F2/F3. Actual Ctrl scans 116/141, keypad diagonals, uppercase letters, Ctrl-Q and Alt-F4 pass. Unavailable gameplay orders produce visible feedback.
+- [x] Separate viewport/cursor navigation from movement orders for the focused unit.
+  - Verified: arrows navigate selection, Shift-arrows scroll, Ctrl-arrows/numbers issue guarded orders. Actual selected coordinates change while focus stays 7,9; scrolling leaves selection unchanged. Toolbar reserves 32 pixels; inverse map transforms, overview and HUD are tested.
+- [x] Route supported actions through genuine client controls and the offline engine bridge, with correct client-state/ownership checks.
+  - Verified: real control hooks, established local human connection, active/alive owned player/unit and turn-state guards. Native real-type guard tests and actual unavailable-order rejection pass. Joined running-game action acceptance remains Phase 8/9, not inferred from a fixture.
+- [x] Implement a usable GUI interaction layer for buttons, lists, dialogs, text entry, focus, and confirmation prompts.
+  - Verified: bounded nonblocking widgets, keyboard/mouse equivalence, explicit errors and unchanged-draw behavior. Actual options edit DOS7/scroll 5; mouse selects scroll 3, Shift-Tab edits Mouse, clicking the text field appends Mouse7. Settings are in-memory only.
+- [x] Add DOS mouse-driver detection and mouse event handling when a driver is available.
+  - Verified: absent-vector keyboard fallback, real INT 33h, clipped software pointer, map/UI hits, right-click commands and latched press/release counters. Nine 25 ms toolbar clicks are received; a held map button does not repeat.
+  - Optional unchanged GPL CuteMouse driver, notices and complete supplier source package are preserved. It is not auto-loaded.
+- [x] Keep every required operation accessible by keyboard when no mouse driver is installed.
+  - Verified: production pregame and 640 input fixture work without a driver; all currently exposed widgets/commands have keyboard paths. Future gameplay dialogs must preserve this contract.
+- [x] Handle key repeat and queue capacity predictably without silently losing important actions.
+  - Verified: FIFO 64, explicit enqueue failure, acquisition backpressure rather than eviction, eight-event acquisition/dispatch slices. Keyboard/menu gameplay orders share central deferral with validated internal command events. Native 1000-repeat/full-queue/reentry/fairness/all-command-payload tests pass; actual acquired events equal dispatched events.
+- [x] Interleave input, local engine/packet work, timers, audio service, and presentation without starving any subsystem.
+  - Verified: packet/decode budget 16, 500 ms timers, bounded UI-only wait/engine callbacks, input capture during map rows and final-layer presentation. Actual bridge: 89 packet polls/179 yields; both client and engine established, request 1, no generated map. Production explicitly forces audio-none, so no DMA/IRQ/audio polling is required.
+- [x] Limit idle CPU use and keep the GUI responsive during AI turns, modal dialogs, and large redraws.
+  - Verified: DJGPP 100000 us idle avoids zero-delay quantization; actual tests require timers>=3, idle>=10 and ticks<=20*timers+128. AI unit/city checkpoints service the actual event queue/editable modal under native ASan/UBSan without recursive engine polling. Full-game minimum-hardware timing remains Phase 8/16 acceptance.
+- [x] Define safe cancellation/quit behavior separately from action cancellation and guard accidental unsaved-game loss.
+  - Verified: Esc closes/cancels the action, Q/Ctrl-Q/Alt-F4 request confirmation with Cancel selected. Enter cancels; Tab/Enter confirms. Unsaved-session warning states saving is unfinished. Disconnect/teardown occur only at a safe boundary; actual text restoration and post-input RTCHECK pass.
+
+Phase 7 completion boundary:
+All twelve input/runtime/UI-foundation requirements pass a clean 33-module
+DJGPP build, 10/10 integrated suites, source distribution, native real-engine/AI
+modal sanitizer tests and actual DOS6.22/CWSDPMI/Pentium/16 MB/no-paging acceptance.
+Evidence: builds/phase7-dos/. Production now has a persistent pregame interface,
+not a playable game. No new/load session, save/load, complete gameplay reports,
+hardware audio or whole-game performance is certified. Update/publish current
+documentation and verified source, then stop for review. Do not begin Phase 8
+without explicit permission.
 
 Phase 8. New-game, load-game, and session lifecycle
 - [ ] Provide an offline startup screen with new game, load game, options, and quit.
-  - Status: connectdlg.c only prints connection/autoconnect stub messages.
+  - Status: persistent pregame help/options/commands/quit is available; actual new/load-game setup remains missing and autoconnect fails explicitly.
 - [ ] Initialize rulesets, map generation or scenario loading, players, nations, and AI opponents.
 - [ ] Expose the supported single-player setup options, including nation/leader, map settings, and AI configuration.
   - Status: popup_races_dialog() and its selection/update hooks are empty.
 - [ ] Complete local join/start/state transitions and populate the client cache before enabling gameplay controls.
   - Dependency correction: retain complete production startup formerly bundled into Phase 3, including actual rulesets/map/AI and the DOS GUI. Diagnostic join/reset success alone is insufficient.
 - [ ] Replace socket/select-driven waits with a tested local scheduler while preserving engine turn and packet-order behavior.
-  - Status: server/sernet.c and common/connection.c assume socket servicing; server turns cannot simply run as a blocking desktop loop inside ui_main.
+  - Status: bounded local packet pumping, UI-serviced request waits and engine/AI yields are wired. Joined production game/turn transitions still require end-to-end session validation; do not enter the blocking socket/server loop.
 - [ ] Verify unit focus, selection, and command availability throughout pregame, running, AI processing, and game-over states.
 - [ ] Implement save, autosave, load, overwrite confirmation, and useful read/write error reporting.
   - Status: reusable server/savegame.c exists, but no DOS session/UI path invokes it for a playable game.
@@ -232,7 +249,7 @@ Phase 8. New-game, load-game, and session lifecycle
 
 Phase 9. Unit actions and turn controls
 - [ ] Select the intended unit from stacked units and maintain focus/next-unit/wait/done behavior.
-  - Status: popup_unit_select_dialog() and unit-icon hooks are empty.
+  - Status: popup_unit_select_dialog() remains empty. Focused-unit HUD and next/wait/done command hooks exist, but stacked-unit selection and joined gameplay validation remain pending.
 - [ ] Implement movement, goto/route selection, patrol where supported, and cancellation with authoritative movement-point feedback.
 - [ ] Implement founding/naming cities and the required confirmation/text-entry path.
   - Status: mapctrl.c:popup_newcity_dialog() is empty.

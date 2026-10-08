@@ -48,6 +48,9 @@
 #include "ailog.h"
 
 #include "aiunit.h"
+#ifdef FC_LOCAL_ENGINE
+#include "engine.h"
+#endif
 
 static void ai_manage_diplomat(struct player *pplayer, struct unit *pdiplomat);
 static void ai_manage_military(struct player *pplayer,struct unit *punit);
@@ -2438,6 +2441,9 @@ void ai_manage_units(struct player *pplayer)
     unit_list_iterate_end;
 
     for (index = 0; index < count; index++) {
+#ifdef FC_LOCAL_ENGINE
+      fc_offline_engine_yield();
+#endif
       punit = player_find_unit_by_id(pplayer, unitids[index]);
       if (!punit) {
 	freelog(LOG_DEBUG, "Can't manage %s's dead unit %d", pplayer->name,

@@ -14,8 +14,8 @@ if ! grep -q 'dos_vbe_apply_command' "$SCRIPT_DIR/mapview.c"; then
   echo "DOS VBE mapview missing command routing" >&2
   exit 1
 fi
-if ! grep -q 'dos_vbe_process_session_queue' "$SCRIPT_DIR/gui_main.c"; then
-  echo "DOS VBE session queue missing real input processing" >&2
+if ! grep -q 'dos_event_loop_step' "$SCRIPT_DIR/gui_main.c"; then
+  echo "DOS VBE persistent event loop missing input processing" >&2
   exit 1
 fi
 if ! grep -q 'dos_vbe_mode_for_resolution' "$SCRIPT_DIR/vbe_init.c"; then

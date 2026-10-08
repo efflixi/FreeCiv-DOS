@@ -1,0 +1,51 @@
+{
+  "KBD640": {
+    "ticks": 105,
+    "events": 60,
+    "dispatch": 60,
+    "idle": 65,
+    "timers": 13,
+    "packets": 0,
+    "yields": 0
+  },
+  "MOUSE800": {
+    "ticks": 131,
+    "events": 37,
+    "dispatch": 37,
+    "idle": 99,
+    "timers": 25,
+    "packets": 0,
+    "yields": 0
+  },
+  "MUI800": {
+    "ticks": 72,
+    "events": 23,
+    "dispatch": 23,
+    "idle": 51,
+    "timers": 11,
+    "packets": 0,
+    "yields": 0
+  },
+  "BRIDGE7": {
+    "ticks": 90,
+    "events": 35,
+    "dispatch": 35,
+    "idle": 66,
+    "timers": 13,
+    "packets": 89,
+    "yields": 179
+  },
+  "REPEAT7": {
+    "ticks": 24,
+    "events": 5,
+    "dispatch": 5,
+    "idle": 19,
+    "timers": 4,
+    "packets": 0,
+    "yields": 0
+  },
+  "idle_acceptance": "timers>=3, idle>=10, ticks<=20*timers+128",
+  "quick_click_seconds": 0.025,
+  "quick_toolbar_clicks_received": 9,
+  "scope": "persistent pregame UI, real-state fixture, actual pregame bridge; no game start"
+}

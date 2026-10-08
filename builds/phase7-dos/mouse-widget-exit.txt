@@ -1,0 +1,25 @@
+C:\FREECIV>freeciv
+
+C:\FREECIV>if not errorlevel 1 echo production_quit_success>prod7.ok
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 640>kbd640.log
+
+C:\FREECIV>ctmouse
+
+CuteMouse v2.1 beta4 [FreeDOS]
+Installed at PS/2 port
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 800>mouse800.log
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>inputchk 800>mui800.log
+
+C:\FREECIV>

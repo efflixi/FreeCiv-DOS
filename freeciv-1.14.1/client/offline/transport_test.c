@@ -20,8 +20,60 @@
 #include "engine.h"
 #include "local_queue.h"
 #include "session.h"
+#include "event_loop.h"
+#include "widgets.h"
 
 bool is_server = FALSE;
+static unsigned long ui_service_calls;
+static int test_service_reentry;
+static struct dos_event_loop test_ui_loop;
+static struct dos_vbe_framebuffer test_ui_buffer;
+static char test_text[16];
+static unsigned int ui_events, ui_activations;
+static int ui_allow, ui_take;
+
+static int ui_poll(struct dos_input_event *event, void *context)
+{
+  static const unsigned int keys[] = {'A', 'I', '\t', '\r'};
+  (void)context;
+  if (!ui_allow || !ui_take || ui_events >= sizeof(keys) / sizeof(keys[0])) return 0;
+  ui_take = 0;
+  memset(event, 0, sizeof(*event));
+  event->ascii = keys[ui_events++];
+  return 1;
+}
+
+static int ui_dispatch(const struct dos_input_event *event, void *context)
+{
+  int result;
+  (void)context;
+  result = dos_widgets_event(event);
+  assert(result >= 0);
+  if (result == 1) ui_activations++;
+  return 0;
+}
+
+static int ui_present(void *context)
+{
+  (void)context;
+  assert(dos_widgets_draw(&test_ui_buffer) >= 0);
+  return dos_vbe_framebuffer_dirty_clear(&test_ui_buffer);
+}
+static int ui_no_service(void *context) { (void)context; return 0; }
+static void ui_idle(void *context) { (void)context; }
+
+static void service_ui(void *context)
+{
+  assert(context == &ui_service_calls);
+  ui_service_calls++;
+  assert(!is_server);
+  ui_take = 1;
+  assert(dos_event_loop_ui_service(&test_ui_loop) == 0);
+  if (test_service_reentry) {
+    test_service_reentry = 0;
+    assert(fc_offline_engine_poll(1) == -1);
+  }
+}
 
 void dealloc_id(int id)
 {
@@ -473,6 +525,20 @@ static void command(struct connection *client, const char *text)
 static void test_gameplay_bridge(void)
 {
   int cycle;
+  struct dos_widget_spec widgets[2];
+  struct dos_event_hooks hooks = {ui_poll, ui_dispatch, ui_no_service,
+                                 ui_present, ui_idle, NULL};
+  memset(widgets, 0, sizeof(widgets));
+  widgets[0].type = DOS_WIDGET_TEXT;
+  widgets[0].label = "Responsive UI during real engine turns";
+  widgets[0].text = test_text; widgets[0].capacity = sizeof(test_text);
+  widgets[1].type = DOS_WIDGET_BUTTON;
+  widgets[1].label = "Continue"; widgets[1].action = 1;
+  assert(dos_vbe_framebuffer_init(&test_ui_buffer, 640, 480, 16) == 0);
+  assert(dos_widgets_begin(&test_ui_buffer, "AI-turn UI service", "", widgets, 2) == 0);
+  assert(dos_event_loop_init(&test_ui_loop, &hooks) == 0);
+  fc_offline_engine_set_service(service_ui, &ui_service_calls);
+  test_service_reentry = 1;
 
   for (cycle = 0; cycle < 2; cycle++) {
     struct offline_session session = {0};
@@ -483,6 +549,7 @@ static void test_gameplay_bridge(void)
     struct packet_player_request rates;
     struct packet_generic_message turn_done;
     struct tile *client_tiles = map.tiles;
+    unsigned long services_before = ui_service_calls;
 
     memset(&client, 0, sizeof(client));
     assert(offline_session_open(&session, &client, "DOSPlayer") == 0);
@@ -505,6 +572,7 @@ static void test_gameplay_bridge(void)
     nation.nation_no = 0;
     nation.is_male = TRUE;
     sz_strlcpy(nation.name, "DOSRuler");
+    ui_allow = 1;
     send_packet_alloc_nation(&client, &nation);
     drain_game(&session, &seen);
     assert(fc_offline_engine_snapshot(&before) == 0);
@@ -529,11 +597,20 @@ static void test_gameplay_bridge(void)
     assert(after.turn == before.turn + 1 && after.year > before.year);
     assert(after.last_request == client.client.last_request_id_used);
     assert(seen.start_turns >= 2);
+    assert(ui_service_calls > services_before + 8);
     assert(fc_offline_engine_poll(1) == 0);
 
     offline_session_close(&session);
     assert(game.nplayers == 0 && map.tiles == client_tiles);
   }
+  assert(!test_service_reentry);
+  assert(!strcmp(test_text, "AI") && ui_activations == 1);
+  assert(test_ui_loop.received == 4 && test_ui_loop.dispatched == 4);
+  fc_offline_engine_set_service(NULL, NULL);
+  dos_widgets_close();
+  dos_event_loop_stop(&test_ui_loop);
+  dos_vbe_framebuffer_destroy(&test_ui_buffer);
+  puts("PASS real engine/AI turns service the actual event queue and editable modal widgets without recursive engine polling");
 }
 
 int main(void)

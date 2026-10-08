@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 SOURCE=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
-if [ "$#" -ne 2 ]; then
-  echo "Usage: sh build-map-check.sh /absolute/new-output-dir /absolute/production-build-root" >&2
+if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
+  echo "Usage: sh build-map-check.sh /absolute/new-output-dir /absolute/production-build-root [input]" >&2
   exit 1
 fi
 case "$1:$2" in
@@ -15,6 +15,16 @@ if [ -e "$OUTPUT" ] || [ ! -f "$BUILD/config.h" ] \
   exit 1
 fi
 CC=${CC:-i586-pc-msdosdjgpp-gcc}
+CHECK=map_check
+EXE=MAPCHECK.EXE
+if [ "$#" -eq 3 ]; then
+  if [ "$3" != input ]; then
+    echo "Unknown diagnostic selection: $3" >&2
+    exit 1
+  fi
+  CHECK=input_check
+  EXE=INPUTCHK.EXE
+fi
 if ! "$CC" -dumpmachine | grep -q msdosdjgpp; then
   echo "A real DJGPP target compiler is required." >&2
   exit 1
@@ -27,11 +37,11 @@ set -- -DHAVE_CONFIG_H -DFC_LOCAL_ENGINE -I"$BUILD" -I"$SOURCE" \
   -I"$SOURCE/client/gui-dos-vbe"
 "$CC" $CFLAGS "$@" -Dmain=fc_dos_unused_client_main \
   -c "$SOURCE/client/civclient.c" -o "$OUTPUT/client_state.o"
-"$CC" $CFLAGS "$@" -c "$SOURCE/client/gui-dos-vbe/tests/map_check.c" \
-  -o "$OUTPUT/map_check.o"
+"$CC" $CFLAGS "$@" -c "$SOURCE/client/gui-dos-vbe/tests/$CHECK.c" \
+  -o "$OUTPUT/check.o"
 "$CC" $CFLAGS "$@" -c "$SOURCE/client/gui-dos-vbe/tests/phase6_scene.c" \
   -o "$OUTPUT/phase6_scene.o"
-set -- "$OUTPUT/map_check.o" "$OUTPUT/phase6_scene.o" "$OUTPUT/client_state.o"
+set -- "$OUTPUT/check.o" "$OUTPUT/phase6_scene.o" "$OUTPUT/client_state.o"
 for object in "$BUILD/client/"*.o; do
   case "$object" in */civclient.o) continue ;; esac
   set -- "$@" "$object"
@@ -41,5 +51,5 @@ done
   "$BUILD/client/agents/libagents.a" "$BUILD/client/gui-dos-vbe/libguiclient.a" \
   "$BUILD/common/libcivcommon.a" "$BUILD/client/offline/liboffline.a" \
   "$BUILD/client/offline/engine-build/engine.o" "$BUILD/common/libcivcommon.a" \
-  -lm -o "$OUTPUT/MAPCHECK.EXE"
-echo "Built $OUTPUT/MAPCHECK.EXE; fixture/resource rendering, not a playable game."
+  -lm -o "$OUTPUT/$EXE"
+echo "Built $OUTPUT/$EXE; component diagnostic, not a playable game."

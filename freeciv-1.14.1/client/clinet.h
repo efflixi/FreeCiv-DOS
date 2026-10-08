@@ -36,6 +36,7 @@ void disconnect_from_server(void);
 #ifdef FC_LOCAL_ENGINE
 int connect_to_local_game(const char *name, char *errbuf, int errbufsize);
 int start_local_game(void);
+int poll_local_game(unsigned int packet_budget);
 #endif
 
 extern struct connection aconnection;

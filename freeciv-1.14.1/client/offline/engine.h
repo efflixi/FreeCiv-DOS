@@ -3,6 +3,7 @@
 
 typedef int (*fc_offline_write_fn)(void *context,
                                    const unsigned char *data, int len);
+typedef void (*fc_offline_service_fn)(void *context);
 
 struct fc_offline_snapshot {
   int players;
@@ -21,5 +22,7 @@ int fc_offline_engine_start(void);
 int fc_offline_engine_poll(unsigned int packet_budget);
 int fc_offline_engine_snapshot(struct fc_offline_snapshot *snapshot);
 void fc_offline_engine_close(void);
+void fc_offline_engine_set_service(fc_offline_service_fn service, void *context);
+void fc_offline_engine_yield(void);
 
 #endif

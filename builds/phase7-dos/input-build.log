@@ -1,0 +1,40 @@
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:66:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/options.h:110:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+  110 | const char *const get_message_text(enum event_type event);
+      | ^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/options.h:117:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+  117 | const char *const get_sound_tag_for_event(enum event_type event);
+      | ^~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:73:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/audio.h:45:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   45 | const char *const audio_get_all_plugin_names(void);
+      | ^~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:75:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/agents/cma_core.h:99:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   99 | const char *const cma_get_stat_name(enum cma_stat stat);
+      | ^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c: In function 'dealloc_id':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:747:21: warning: unused parameter 'id' [-Wunused-parameter]
+  747 | void dealloc_id(int id) { }/* kludge */
+      |                 ~~~~^~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c: In function 'send_attribute_block_request':
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:756:3: warning: 'packet' may be used uninitialized [-Wmaybe-uninitialized]
+  756 |   send_packet_player_request(&aconnection, &packet,
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  757 |                              PACKET_PLAYER_ATTRIBUTE_BLOCK);
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:41:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/common/packets.h:1005:5: note: by argument 2 of type 'const struct packet_player_request *' to 'send_packet_player_request' declared here
+ 1005 | int send_packet_player_request(struct connection *pc,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/civclient.c:754:32: note: 'packet' declared here
+  754 |   struct packet_player_request packet;
+      |                                ^~~~~~
+In file included from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/gui-dos-vbe/tests/phase6_scene.c:23:
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/options.h:110:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+  110 | const char *const get_message_text(enum event_type event);
+      | ^~~~~
+/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/freeciv-1.14.1/client/options.h:117:1: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+  117 | const char *const get_sound_tag_for_event(enum event_type event);
+      | ^~~~~
+Built /home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase7-first-input/INPUTCHK.EXE; component diagnostic, not a playable game.

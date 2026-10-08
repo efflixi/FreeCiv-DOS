@@ -29,6 +29,7 @@
 
 static struct dos_vbe_framebuffer map_canvas;
 static struct dos_vbe_framebuffer ui_canvas;
+static unsigned int map_top;
 static int center_x, center_y, view_x, view_y;
 static int selected_x, selected_y;
 static bool selected;
@@ -98,8 +99,8 @@ static int canvas_width(void)
 }
 static int canvas_height(void)
 {
-  return dos_vbe_front_buffer.height > HUD_HEIGHT
-         ? (int)(dos_vbe_front_buffer.height - HUD_HEIGHT) : 0;
+  return dos_vbe_front_buffer.height > HUD_HEIGHT + map_top
+         ? (int)(dos_vbe_front_buffer.height - HUD_HEIGHT - map_top) : 0;
 }
 static int columns(void)
 {
@@ -141,7 +142,7 @@ static void update_origin(void)
   if (view_y < 0) view_y = 0;
 }
 
-bool dos_vbe_map_to_canvas(int x, int y, int *cx, int *cy)
+static bool map_to_local_canvas(int x, int y, int *cx, int *cy)
 {
   int dx;
   if (!cx || !cy || !normalize_position(&x, &y)) {
@@ -155,8 +156,28 @@ bool dos_vbe_map_to_canvas(int x, int y, int *cx, int *cy)
          && *cy >= 0 && *cy < canvas_height();
 }
 
+bool dos_vbe_map_to_canvas(int x, int y, int *cx, int *cy)
+{
+  if (!map_to_local_canvas(x, y, cx, cy)) return FALSE;
+  *cy += (int)map_top;
+  return TRUE;
+}
+
+int dos_vbe_mapview_set_top(unsigned int pixels)
+{
+  if (pixels > INT_MAX || dos_vbe_front_buffer.height <= HUD_HEIGHT
+      || pixels >= dos_vbe_front_buffer.height - HUD_HEIGHT) {
+    fprintf(stderr, "DOS map: invalid reserved toolbar height.\n");
+    return -1;
+  }
+  map_top = pixels;
+  return 0;
+}
+
 bool dos_vbe_canvas_to_map(int cx, int cy, int *x, int *y)
 {
+  if (cy < (int)map_top) return FALSE;
+  cy -= (int)map_top;
   if (!x || !y || !have_map() || cx < 0 || cy < 0
       || cx >= canvas_width() || cy >= canvas_height()) return FALSE;
   update_origin();
@@ -277,11 +298,11 @@ static void draw_overlays(void)
 {
   int cx, cy, wx, wy, px, py, step;
   struct city *pcity = workers_city_id ? find_city_by_id(workers_city_id) : NULL;
-  if (selected && dos_vbe_map_to_canvas(selected_x, selected_y, &cx, &cy)) {
+  if (selected && map_to_local_canvas(selected_x, selected_y, &cx, &cy)) {
     box(&map_canvas, cx, cy, tile_width(), tile_height(),
         dos_vbe_standard_color(COLOR_STD_YELLOW));
   }
-  if (target && dos_vbe_map_to_canvas(target_x, target_y, &cx, &cy)) {
+  if (target && map_to_local_canvas(target_x, target_y, &cx, &cy)) {
     if (sprites.user.attention) {
       dos_vbe_sprite_draw(&map_canvas, sprites.user.attention, cx, cy);
     }
@@ -292,7 +313,7 @@ static void draw_overlays(void)
       if (!is_city_center(x, y) && worked != C_TILE_UNAVAILABLE
           && city_map_to_map(&wx, &wy, pcity, x, y)
           && tile_get_known(wx, wy) != TILE_UNKNOWN
-          && dos_vbe_map_to_canvas(wx, wy, &cx, &cy)) {
+          && map_to_local_canvas(wx, wy, &cx, &cy)) {
         step = worked == C_TILE_WORKER ? 2 : 4;
         for (py = 2; py < tile_height() - 2; py += step) {
           for (px = 2; px < tile_width() - 2; px += step) {
@@ -328,7 +349,7 @@ static void draw_hud(void)
   char moves[32], rate[32];
   char readable[sizeof(hud_text)];
   int x = selected_x, y = selected_y, i, ix, iy;
-  int top = canvas_height();
+  int top = canvas_height() + (int)map_top;
   if (punit && !selected) { x = punit->x; y = punit->y; }
   ptile = (selected || punit) ? safe_tile(x, y) : NULL;
   if (ptile && tile_get_known(x, y) != TILE_UNKNOWN) {
@@ -412,7 +433,7 @@ static void draw_overview(void)
   int ow, oh, x, y, px, py, ex, ey, dx, dy, visible_cols, visible_rows;
   unsigned int color;
   if (!pw || !height) return;
-  dos_vbe_framebuffer_fill(&ui_canvas, left, 0, pw, height, 0x18c3U);
+  dos_vbe_framebuffer_fill(&ui_canvas, left, map_top, pw, height, 0x18c3U);
   if (!have_map()) return;
   ow = overview_width > 0 ? overview_width : map.xsize * 2;
   oh = overview_height > 0 ? overview_height : map.ysize * 2;
@@ -425,14 +446,14 @@ static void draw_overview(void)
     oh = height - 44;
   }
   if (ow <= 0 || oh <= 0) return;
-  dos_vbe_framebuffer_text(&ui_canvas, left + 2, 2, "OVERVIEW", 0xffffU, 1);
+  dos_vbe_framebuffer_text(&ui_canvas, left + 2, (int)map_top + 2, "OVERVIEW", 0xffffU, 1);
   /* Sample every destination pixel: small overviews never omit entire rows. */
   for (py = 0; py < oh; ++py) {
     for (px = 0; px < ow; ++px) {
       x = px * map.xsize / ow;
       y = py * map.ysize / oh;
       color = dos_vbe_standard_color(overview_tile_color(x, y));
-      dos_vbe_framebuffer_put_pixel(&ui_canvas, left + 2 + px, 14 + py, color);
+      dos_vbe_framebuffer_put_pixel(&ui_canvas, left + 2 + px, (int)map_top + 14 + py, color);
     }
   }
   /* Draw both sides of a viewport crossing the longitude seam. */
@@ -450,13 +471,13 @@ static void draw_overview(void)
         if (ey < py) ey = py;
         if (dx == 0 || dx == visible_cols - 1) {
           int edge = dx == 0 ? px : ex;
-          dos_vbe_framebuffer_line(&ui_canvas, left + 2 + edge, 14 + py,
-                                  left + 2 + edge, 14 + ey, 0xffffU);
+          dos_vbe_framebuffer_line(&ui_canvas, left + 2 + edge, (int)map_top + 14 + py,
+                                  left + 2 + edge, (int)map_top + 14 + ey, 0xffffU);
         }
         if (dy == 0 || dy == visible_rows - 1) {
           int edge = dy == 0 ? py : ey;
-          dos_vbe_framebuffer_line(&ui_canvas, left + 2 + px, 14 + edge,
-                                  left + 2 + ex, 14 + edge, 0xffffU);
+          dos_vbe_framebuffer_line(&ui_canvas, left + 2 + px, (int)map_top + 14 + edge,
+                                  left + 2 + ex, (int)map_top + 14 + edge, 0xffffU);
         }
       }
     }
@@ -464,7 +485,7 @@ static void draw_overview(void)
   if (selected && normalize_position(&selected_x, &selected_y)) {
     ex = selected_x * ow / map.xsize;
     ey = selected_y * oh / map.ysize;
-    box(&ui_canvas, left + ex + 1, ey + 13, 3, 3,
+    box(&ui_canvas, left + ex + 1, (int)map_top + ey + 13, 3, 3,
         dos_vbe_standard_color(COLOR_STD_YELLOW));
   }
 }
@@ -503,14 +524,15 @@ void dos_vbe_mapview_free(void)
   selected = target = FALSE;
   workers_city_id = info_unit_id = 0;
   hud_text[0] = '\0';
+  map_top = 0;
 }
 
 static void copy_ui(void)
 {
-  int top = canvas_height(), left = canvas_width();
+  int top = canvas_height() + (int)map_top, left = canvas_width();
   if (panel_width()) {
-    dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, left, 0, &ui_canvas,
-                            left, 0, panel_width(), top, 0, 0);
+    dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, left, map_top, &ui_canvas,
+                            left, map_top, panel_width(), canvas_height(), 0, 0);
   }
   dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, 0, top, &ui_canvas,
                           0, top, dos_vbe_front_buffer.width,
@@ -535,6 +557,7 @@ void update_map_canvas(int x, int y, int width, int height, bool write_to_screen
   dos_vbe_framebuffer_clear(&map_canvas, 0);
   if (have_map() && NORMAL_TILE_WIDTH > 0 && NORMAL_TILE_HEIGHT > 0 && !is_isometric) {
     for (cy = 0; cy < canvas_height(); cy += tile_height()) {
+      dos_vbe_gui_capture_input();
       for (cx = 0; cx < canvas_width(); cx += tile_width()) {
         mx = view_x + cx / tile_width();
         my = view_y + cy / tile_height();
@@ -542,6 +565,7 @@ void update_map_canvas(int x, int y, int width, int height, bool write_to_screen
       }
     }
     for (cy = 0; cy < canvas_height(); cy += tile_height()) {
+      dos_vbe_gui_capture_input();
       for (cx = 0; cx < canvas_width(); cx += tile_width()) {
         draw_city_label(view_x + cx / tile_width(), view_y + cy / tile_height(), cx, cy);
       }
@@ -549,7 +573,7 @@ void update_map_canvas(int x, int y, int width, int height, bool write_to_screen
     draw_overlays();
   }
   if (full || !have_map()) {
-    dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, 0, 0, &map_canvas, 0, 0,
+    dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, 0, map_top, &map_canvas, 0, 0,
                             canvas_width(), canvas_height(), 0, 0);
   } else {
     for (cy = 0; cy < canvas_height(); cy += tile_height()) {
@@ -560,7 +584,7 @@ void update_map_canvas(int x, int y, int width, int height, bool write_to_screen
         if (width < map.xsize && map_adjust_x(mx - start_x) >= width) continue;
         /* City labels/production extend right and below the changed tile.
          * Recompose there too, including when a city was removed. */
-        dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, cx, cy, &map_canvas,
+        dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, cx, cy + (int)map_top, &map_canvas,
                                 cx, cy,
                                 (unsigned int)(canvas_width() - cx) < CITY_LABEL_DAMAGE
                                   ? canvas_width() - cx : (int)CITY_LABEL_DAMAGE,
@@ -590,7 +614,7 @@ bool tile_visible_mapcanvas(int x, int y)
 bool tile_visible_and_not_on_border_mapcanvas(int x, int y)
 {
   int cx, cy;
-  return dos_vbe_map_to_canvas(x, y, &cx, &cy) && cx > 0 && cy > 0
+  return map_to_local_canvas(x, y, &cx, &cy) && cx > 0 && cy > 0
          && cx + tile_width() < canvas_width() && cy + tile_height() < canvas_height();
 }
 void center_tile_mapcanvas(int x, int y)
@@ -678,7 +702,7 @@ static void draw_unit_endpoint(struct unit *punit, int x, int y, int hp)
   int cx, cy, count, solid, i;
   if (!punit || !normalize_position(&x, &y)
       || tile_get_known(x, y) == TILE_UNKNOWN
-      || !dos_vbe_map_to_canvas(x, y, &cx, &cy)) return;
+      || !map_to_local_canvas(x, y, &cx, &cy)) return;
   /* Animation coordinates/HP are packet-derived display inputs, not writes
    * to the client's unit object (the packet handler owns that object). */
   image = *punit;
@@ -696,7 +720,7 @@ static void draw_unit_endpoint(struct unit *punit, int x, int y, int hp)
 
 static void present_map_layer(void)
 {
-  dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, 0, 0, &map_canvas, 0, 0,
+  dos_vbe_framebuffer_blit(&dos_vbe_front_buffer, 0, map_top, &map_canvas, 0, 0,
                           canvas_width(), canvas_height(), 0, 0);
   dos_vbe_present();
 }
@@ -727,7 +751,7 @@ void put_nuke_mushroom_pixmaps(int x, int y)
   if (!normalize_position(&x, &y)) return;
   for (j = 0; j < 3; ++j) {
     for (i = 0; i < 3; ++i) {
-      if (dos_vbe_map_to_canvas(x + i - 1, y + j - 1, &cx, &cy)
+      if (map_to_local_canvas(x + i - 1, y + j - 1, &cx, &cy)
           && sprites.explode.nuke[j][i]) {
         dos_vbe_sprite_draw(&map_canvas, sprites.explode.nuke[j][i], cx, cy);
       }
@@ -759,6 +783,13 @@ void dos_vbe_apply_command(enum dos_vbe_ui_command cmd)
   case DOS_VBE_CMD_MOVE_SOUTH: key_move_south(); break;
   case DOS_VBE_CMD_MOVE_EAST: key_move_east(); break;
   case DOS_VBE_CMD_MOVE_WEST: key_move_west(); break;
+  case DOS_VBE_CMD_MOVE_NORTH_EAST: key_move_north_east(); break;
+  case DOS_VBE_CMD_MOVE_SOUTH_EAST: key_move_south_east(); break;
+  case DOS_VBE_CMD_MOVE_SOUTH_WEST: key_move_south_west(); break;
+  case DOS_VBE_CMD_MOVE_NORTH_WEST: key_move_north_west(); break;
+  case DOS_VBE_CMD_NEXT_UNIT: advance_unit_focus(); break;
+  case DOS_VBE_CMD_WAIT_UNIT: key_unit_wait(); break;
+  case DOS_VBE_CMD_DONE_UNIT: key_unit_done(); break;
   case DOS_VBE_CMD_SELECT_TILE:
     if (selected && safe_tile(selected_x, selected_y)) do_map_click(selected_x, selected_y);
     break;
@@ -770,4 +801,24 @@ void dos_vbe_apply_command(enum dos_vbe_ui_command cmd)
     key_cancel_action(); update_map_canvas_visible(); break;
   default: break;
   }
+}
+
+bool dos_vbe_get_selected_tile(int *x, int *y)
+{
+  if (!x || !y || !selected || !safe_tile(selected_x, selected_y)) return FALSE;
+  *x = selected_x;
+  *y = selected_y;
+  return TRUE;
+}
+
+void dos_vbe_move_selection(int dx, int dy)
+{
+  int x, y;
+  if (!have_map()) return;
+  if (!dos_vbe_get_selected_tile(&x, &y)) get_center_tile_mapcanvas(&x, &y);
+  x = map_adjust_x((int)(((int64_t)x + dx) % map.xsize));
+  y = (int)((int64_t)y + dy < 0 ? 0 :
+            (int64_t)y + dy >= map.ysize ? map.ysize - 1 : (int64_t)y + dy);
+  dos_vbe_select_tile(x, y);
+  if (!tile_visible_mapcanvas(x, y)) center_tile_mapcanvas(x, y);
 }

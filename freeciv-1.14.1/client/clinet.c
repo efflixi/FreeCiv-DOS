@@ -81,6 +81,7 @@
 #ifdef FC_LOCAL_ENGINE
 #include "offline/engine.h"
 #include "offline/session.h"
+#include "gui-dos-vbe/gui_main.h"
 static struct offline_session local_game;
 #endif
 
@@ -294,6 +295,30 @@ int start_local_game(void)
 {
   return fc_offline_engine_start();
 }
+
+int poll_local_game(unsigned int packet_budget)
+{
+  unsigned int processed = 0;
+  if (!local_game.client) return 0;
+  if (!packet_budget || packet_budget > 32U) {
+    freelog(LOG_ERROR, "Offline client: invalid packet budget");
+    return -1;
+  }
+  if (offline_session_pump(&local_game, packet_budget) < 0) {
+    close_socket_callback(&aconnection);
+    return -1;
+  }
+  while (processed < packet_budget && aconnection.used) {
+    enum packet_type type;
+    bool available;
+    void *packet = get_packet_from_connection(&aconnection, &type, &available);
+    if (!available) break;
+    handle_packet_input(packet, type);
+    processed++;
+  }
+  unqueue_mapview_update();
+  return (int)processed;
+}
 #endif
 
 /**************************************************************************
@@ -394,6 +419,9 @@ void input_from_server(int fd)
 {
   assert(fd == aconnection.sock);
 
+#ifdef FC_LOCAL_ENGINE
+  (void)poll_local_game(32);
+#else
   if (read_from_connection(&aconnection, FALSE) >= 0) {
     enum packet_type type;
     bool result;
@@ -413,6 +441,7 @@ void input_from_server(int fd)
   }
 
   unqueue_mapview_update();
+#endif
 }
 
 /**************************************************************************
@@ -432,6 +461,9 @@ void input_from_server_till_request_got_processed(int fd,
 	  "expected_request_id=%d)", expected_request_id);
 
   while (TRUE) {
+#ifdef FC_LOCAL_ENGINE
+    if (dos_vbe_gui_service_wait() != 0) break;
+#endif
     if (read_from_connection(&aconnection, TRUE) >= 0) {
       enum packet_type type;
       bool result;

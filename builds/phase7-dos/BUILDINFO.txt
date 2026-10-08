@@ -1,0 +1,122 @@
+Freeciv 1.14.1 DOS Phase 7 - persistent input/runtime/UI foundation
+
+Authorized scope:
+Phase 7 only. User explicitly selected a normal persistent pregame interface.
+Do not begin Phase 8 new/load-game/session setup without further permission.
+
+Final source build:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase7-closeout-build
+Separate INPUTCHK link:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase7-closeout-input
+Driver: sh freeciv-1.14.1/build-dos.sh NEW_ABSOLUTE_DIRECTORY
+Reference tools: DJGPP GCC12.2.0/Binutils2.30, Autoconf2.71/Automake1.16.5.
+Standard configure: dos-vbe/local isolated engine/no sockets, standalone server,
+NLS, readline, zlib and host audio disabled; -O2 -g, GNU89/fcommon compatibility.
+Source-input manifest matches the final workspace source; source/configuration,
+archive membership, complete source distribution and build/test logs retained.
+33 real backend members, no diagnostic ABI stubs; all 10 integrated suites pass.
+Tests include VBE/DPMI, primitives/map/resources, input/widgets/FIFO/frontend.
+
+Final production candidate:
+6260415 bytes
+SHA256 5ec6d6a1db00bc4e0f189ef2993a3385d774024b38a3ac55fef6bb86f5aabcb5
+Final separate INPUTCHK.EXE:
+6327059 bytes
+SHA256 4c7ec0a0310bd1e73adca1749d389de3a9f89aad995de9283f36635fc5d2f3f0
+
+Native engine/AI/UI:
+closeout-engine-ui.log records ASan/UBSan/leak-checked real game generation,
+AI/rates/turn integration. Actual event queue and editable modal widgets are
+serviced from guarded engine callbacks without recursive engine polling or
+client-state mutation. The native harness uses a tracked configuration rather
+than an ignored checkout config.h. Exact committed clean-clone validation is
+recorded separately during publication.
+
+Actual DOS:
+DOS6.22, CWSDPMI r7 -s- before each protected-mode process, QEMU std VGA,
+Pentium CPU model, 16 MB, no network, COUNTRY-only boot/no HIMEM/EMM386.
+Set HOME=C:\FREECIV; diagnostic map fixture FREECIV_PATH=C:\FREECIV\GFX8.
+Production opens resource-independent pregame Help/Options/Commands/Quit.
+Confirmed quit and repeat launch return zero. --version returns zero and writes
+its text to stderr (VERSION7.TXT is intentionally empty; version-exit.txt shows
+the actual console). Autoconnect fails nonzero with an actionable diagnostic.
+Exit markers were explicitly removed before the final status tests to prevent
+stale markers from masquerading as a successful command.
+
+Definitive logs only:
+KBD640.LOG: no driver, ASCII/extended/modified/keypad, independent navigation,
+DOS7/scroll5 options, list paging, guarded orders, cancel/default-Cancel quit.
+MOUSE800.LOG: installed driver, motion/map/UI hits, right-click commands,
+held-button nonrepeat, nine measured 25 ms help-toolbar clicks received.
+MUI800.LOG: real mouse list row selects scroll3; Shift-Tab/name edit applies
+Mouse; actual mouse text-field click and keyboard append applies Mouse7.
+BRIDGE7.LOG: actual client/engine join, request1, both established, no map;
+89 packet polls/179 UI yields, editable modal/timers and safe disconnect.
+REPEAT7.LOG: repeated fixture, BIOS Ctrl-Q and Alt-F4, confirmed quit.
+POSTINP.LOG: subsequent real DOS/DPMI/heap/local-engine runtime test succeeds.
+All restore BIOS text mode3 and EXIT SUCCESS. The unchanged older RTCHECK
+binary's original readiness-gate message is historical, not current GUI status;
+only its explicitly exercised runtime/engine services are used as regression.
+Live VGA PPM/PNG captures were
+visually inspected at both resolutions; toolbar/map/overview/HUD remain readable.
+These interactive screenshots are not deterministic whole-frame pixel proofs.
+Existing rendering/resource/native regressions pass; prior static diagnostics
+and their pixel evidence remain unchanged.
+
+Machine-checked acceptance:
+python3 builds/phase7-dos/verify-input.py
+input-verification.json records all event/dispatch/idle/timer/packet/yield counts.
+Require timers>=3, idle>=10, ticks<=20*timers+128; acquired=dispatched.
+Nine quick toolbar presses are confirmed by resulting Help modal cancellation,
+including pressed1/buttons0/released1 events from complete clicks during idle.
+Two map presses include exactly one from a held button, not poll-generated repeats.
+
+Corrections / intermediate evidence:
+first-* and pre-* logs/captures, earlier *build/check logs are INTERMEDIATE,
+not proof of the final binary. First idle had 157871 ticks/83 timers: FAILED.
+DJGPP 10000 us usleep quantizes to zero; final100000 us yields ~55-110 ms.
+BIOS modifiers may be released before buffered keys are read; preserve encoded
+Shift-Tab, Ctrl-Q, Alt-F4 and directional combinations, including Shift-arrow
+digits with NumLock off. NumLock digits remain orders.
+Both zero and E0 BIOS prefixes preserve encoded Ctrl/Alt combinations.
+Final shared command guard/deferral covers menu activation as well as keyboard
+input. Validated internal command events preserve the operation instead of
+replaying a menu's Enter as an unrelated key action. All gameplay command
+payloads, queue-full and inactive errors are tested; no recursive orders execute
+inside engine/request callbacks. Actual running-game UI orders remain a later
+session/action acceptance requirement, not a diagnostic fixture claim.
+Read INT33 latched press/release counts rather than just function3 current state.
+Reserve top32 pixels and compose final chrome offscreen; transform map hits.
+A failed intermediate bridge assertion incorrectly checked establishment after
+ui_main had already disconnected. Final trace observes real client/engine state
+before safe disconnect; diagnostic separately checks the closed connection.
+
+Optional driver:
+Unmodified FreeDOS CuteMouse v2.1 beta4; original Nagy Daniel, maintainer Eric Auer.
+GNU GPL2 package includes corresponding source, notices and docs.
+Package SHA256 fd47069fb3d9559604dcaef34ca4f3705a7f2f2cff3e4b205e361b79f10a8200
+Executable SHA256 822cf550c9e19a22785722d2306aa08ede10ff20bfe931d5a81a15f77c5f363e
+C:\DOS\CTMOUSE.EXE/CTMOUSE.TXT/CTMLIC.TXT/CTMSRC.ZIP match supplier host bytes.
+Never automatically loaded; keyboard-only support is required.
+
+Published stopped image:
+Before-phase7 backups retain exact Phase6 C/floppy; old client PHASE6.EXE.
+All193 preceding regular files AND attributes, old diagnostics/resources/logs,
+boot/root/MBR/BPB/geometry are preserved. FAT217 files14345/65467 clusters;
+partition verification passes. No VM remains running.
+Baseline disk SHA256 042667b9d88a517457219cbad4646974541907293c9bd8e27b121a89d525e15f
+Published disk SHA256 e07262aa55e8c1cf3acae6e4e3d00fbf59ebac0aee21628fe9fdc37194f5d619
+Unchanged floppy SHA256 c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b
+verify-images.py rechecks the published pair against before-phase7 baseline;
+verification.json, published-image-check.log, FAT/partition reports retain results.
+
+Boundary:
+Not a playable release. No production new/load-game, save/autosave/load,
+complete city/research/diplomacy/reports, hardware audio, full localization,
+whole-game16 MB fit or Pentium100/physical-hardware AI latency is certified.
+Production explicitly forces audio-none; unselected hardware plugin scaffolds
+still need later honest implementation. AI checkpoints prove cooperative UI
+integration, not a wall-clock bound for every individual algorithm/redraw.
+Phase7 closes with docs/current-only README/GitHub verification and then review.
+Generated binaries/source archives, DOS images/backups and Linux RPM/reference
+assets remain local-only; optional licensed driver package/source is public.

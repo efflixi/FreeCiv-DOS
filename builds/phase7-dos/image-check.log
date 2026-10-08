@@ -1,0 +1,49 @@
+{
+  "preserved_pre_phase7_files_and_attributes": 193,
+  "floppy_sha256": "c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b",
+  "disk_sha256": "e07262aa55e8c1cf3acae6e4e3d00fbf59ebac0aee21628fe9fdc37194f5d619",
+  "baseline_disk_sha256": "042667b9d88a517457219cbad4646974541907293c9bd8e27b121a89d525e15f",
+  "installed_files": {
+    "::/FREECIV/FREECIV.EXE": {
+      "bytes": 6260415,
+      "sha256": "5ec6d6a1db00bc4e0f189ef2993a3385d774024b38a3ac55fef6bb86f5aabcb5"
+    },
+    "::/FREECIV/INPUTCHK.EXE": {
+      "bytes": 6327059,
+      "sha256": "4c7ec0a0310bd1e73adca1749d389de3a9f89aad995de9283f36635fc5d2f3f0"
+    },
+    "::/FREECIV/MAPCHECK.EXE": {
+      "bytes": 6206682,
+      "sha256": "a309069a0ccf8a772dee1f6ba30ae64b880c739eec8414339c3c96309f52c409"
+    },
+    "::/FREECIV/RNDCHECK.EXE": {
+      "bytes": 308144,
+      "sha256": "aab4fbda81e8a8db63b0308685f2e28f65be19887787d04aca537703e4035f68"
+    },
+    "::/FREECIV/VBECHECK.EXE": {
+      "bytes": 289669,
+      "sha256": "3e6ec5e4c34bcc5678d52f4863a4ec2a48b96aa96dc34d5760d311368fd20af6"
+    },
+    "::/FREECIV/RTCHECK.EXE": {
+      "bytes": 5073995,
+      "sha256": "043aaaa4c00a3abea8284260e58a596efb29a65b258adf9424f8ec6050190e48"
+    },
+    "::/DOS/CTMOUSE.EXE": {
+      "bytes": 5829,
+      "sha256": "822cf550c9e19a22785722d2306aa08ede10ff20bfe931d5a81a15f77c5f363e"
+    },
+    "::/DOS/CTMOUSE.TXT": {
+      "bytes": 12058,
+      "sha256": "d309cbf5159c4d1095ac5d3b1cb66b193f103f87651ed44ad4b32386f429b43e"
+    },
+    "::/DOS/CTMLIC.TXT": {
+      "bytes": 18349,
+      "sha256": "19404e184cf45ec991b54e1e6f05f847ad8f13fee2a51f3a2d9a960c8f7cb26b"
+    },
+    "::/DOS/CTMSRC.ZIP": {
+      "bytes": 272026,
+      "sha256": "fd47069fb3d9559604dcaef34ca4f3705a7f2f2cff3e4b205e361b79f10a8200"
+    }
+  },
+  "phase8_not_started": true
+}

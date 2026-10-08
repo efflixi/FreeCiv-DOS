@@ -1,0 +1,25 @@
+INFO ENGINE authoritative last_request=2 players=1
+PASS ENGINE: clean idempotent teardown; client state preserved
+PASS ENGINE: reopen confirms clean authoritative reset
+INFO ENGINE no rulesets/assets loaded; gameplay/map/AI untested
+INIT SUCCESS: diagnostic DOS/DPMI/memory/data/local-engine only
+READY RTCHECK (not production GUI readiness)
+PASS QUIT: --batch skips keyboard wait; resources released
+EXIT SUCCESS
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv -a
+1: DOS autoconnect is unavailable until session startup is implemented.
+
+C:\FREECIV>if errorlevel 1 echo autoconnect_rejected>auto7.ok
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv
+
+C:\FREECIV>if not errorlevel 1 echo repeat_production_success>repeat7.ok
+
+C:\FREECIV>
