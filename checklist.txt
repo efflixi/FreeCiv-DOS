@@ -152,33 +152,46 @@ Phase 5. Framebuffer correctness and rendering primitives
 Phase 5 completion boundary:
 All nine rendering-foundation requirements are verified by native behavioral/sanitizer tests, a clean 28-module DJGPP production build, 5/5 integrated backend checks, source distribution and a separate actual no-paging DOS RNDCHECK. Evidence is in builds/phase5-dos/. The production candidate remains gated: this does not certify tileset loaders, a playable map/HUD/dialog/event loop, audio, localization or whole-game 16 MB fit. Stop for user review; do not begin Phase 6 without explicit permission.
 
+Phase closeout and publication policy:
+For each authorized Phase, verify the complete outcome before checking items.
+Update progress.txt, matching cleanup items, stable specification/boot procedures
+and the GitHub README. The README must describe only the current verified status,
+replacing superseded phase-status text rather than accumulating a phase diary;
+historical details belong in progress.txt and retained validation evidence.
+Commit and push the verified source/documentation changes to efflixi/FreeCiv-DOS
+at the end of each Phase, preserving the repository's local-only exclusions.
+Verify a clean working tree and synchronized upstream, then stop for review.
+Do not begin the next Phase without explicit permission. If validation or GitHub
+publication is blocked, report the blocker and do not claim full closeout.
+
 Phase 6. Graphics resources and playable map display
-- [ ] Implement a usable graphics-resource path compatible with the selected tileset.
-  - Status: graphics.c advertises xpm but load_gfxfile() and crop_sprite() return NULL. client/tilespec.c exits fatally when a referenced graphics file cannot load.
-  - Assets: the RPM provides Trident, Trident with shields, and MacroIsoTrident tilesets, 20 sprite specs, and 21 runtime XPMs, all byte-identical to existing source data. File references resolve; a working DOS loader/conversion path must still preserve atlas tags, transparency, and one-/two-character pixel codes.
-- [ ] Either support packaged tileset sprites or provide a complete simplified DOS graphics/resource adapter that satisfies shared client expectations.
-  - Status: a full upstream sprite pipeline is not mandatory, but NULL placeholders cannot remain in required startup paths.
-- [ ] Implement sprite/icon allocation, cropping or its supported equivalent, caching, and release with correct ownership.
-- [ ] Draw terrain from a valid initialized game map and distinguish unknown, explored, and currently visible tiles.
-  - Status: no playable map/session source is present in the DOS scaffold; synthetic fallback colors must not masquerade as live game state.
-- [ ] Display terrain improvements and strategically important features such as roads, railroads, irrigation, mines, rivers, resources, pollution, and fortifications.
-- [ ] Distinguish unit types, owners, focus, stacks, and relevant status, not merely the presence of a green square.
-- [ ] Distinguish city ownership and show readable city names, sizes, and relevant status.
-- [ ] Convert world coordinates to viewport-relative screen coordinates for all markers and selections.
-  - Status: mapview.c renders terrain using viewport indices but unit/city/selection overlays use world coordinates. Scrolling misplaces them and can cause selection writes outside the buffer.
-- [ ] Keep the selected tile/focused unit independent of redraw and viewport position.
-  - Status: every map redraw overwrites selection with center + (3,2), and SELECT_TILE changes coordinates after acting.
-- [ ] Implement map wrapping/normalization and consistent map-to-screen/screen-to-map transforms using existing map helpers.
-  - Status: current rectangular clamping and unnormalized rendering do not preserve wrapped-map behavior.
-- [ ] Make tile_visible_mapcanvas() and border visibility describe the visible viewport, not the whole map.
-- [ ] Implement correct centering, scrolling, border clipping, and redraw behavior for small maps and map edges.
-- [ ] Implement overview/minimap dimensions, drawing, selection/view rectangle, and refresh.
-  - Status: overview hooks are empty; the current overview command calls request_toggle_map_grid() instead of showing an overview.
-- [ ] Display a readable HUD with year/turn, player/economy/research/government data, selected tile, unit movement/HP/activity, and city details.
-  - Status: update_info_label, update_unit_info_label, indicator, timeout, and turn-button hooks are empty.
-- [ ] Update map/HUD/overview after authoritative state changes, including movement, combat, city changes, visibility updates, and turn transitions.
-- [ ] Provide route/target and city-worker overlays needed for supported actions.
-  - Status: put_cross_overlay_tile, put_city_workers, draw_segment, and related functions are empty.
+- [x] Implement a usable graphics-resource path compatible with the selected tileset.
+  - Verified: real XPM3 RGB565 conversion, one-/two-character pixels, transparency and atlas tags. Selected overhead Trident stages separately into DOS 8.3 names with RESMAP.TXT/TRIDENT.TSP; original assets remain unchanged.
+- [x] Either support packaged tileset sprites or provide a complete simplified DOS graphics/resource adapter that satisfies shared client expectations.
+  - Verified: actual shared tilespec/compositor path, not replacement square icons. All 21 source XPM atlases and 1238 source/staged tag crops pass sanitizer tests.
+- [x] Implement sprite/icon allocation, cropping or its supported equivalent, caching, and release with correct ownership.
+  - Verified: tilespec owns the tag cache; returned sprites/crops own independent pixels/opacity. Legitimate atlas overhang is transparent; malformed input/allocation/lifecycle paths are tested.
+- [x] Draw terrain from a valid initialized game map and distinguish unknown, explored, and currently visible tiles.
+  - Verified: actual common/client map, lists and unit/city state with default ruleset fields and Trident. MAPCHECK deliberately initializes a diagnostic fixture, NOT a joined playable session; production session creation remains Phase 8.
+- [x] Display terrain improvements and strategically important features such as roads, railroads, irrigation, mines, rivers, resources, pollution, and fortifications.
+- [x] Distinguish unit types, owners, focus, stacks, and relevant status, not merely the presence of a green square.
+- [x] Distinguish city ownership and show readable city names, sizes, and relevant status.
+  - Verified: map labels and HUD include city status/ownership; display-only Latin-1/UTF-8 accent folding preserves stored names. Full localization/dialog character handling remains later work.
+- [x] Convert world coordinates to viewport-relative screen coordinates for all markers and selections.
+- [x] Keep the selected tile/focused unit independent of redraw and viewport position.
+  - Verified: wrapping, scrolling and redraw preserve selection and authoritative focus/unit position. Viewport navigation does not issue movement orders.
+- [x] Implement map wrapping/normalization and consistent map-to-screen/screen-to-map transforms using existing map helpers.
+- [x] Make tile_visible_mapcanvas() and border visibility describe the visible viewport, not the whole map.
+- [x] Implement correct centering, scrolling, border clipping, and redraw behavior for small maps and map edges.
+  - Verified: poles/seams/small maps, inverse transforms, resized/padded buffers and extreme damage bounds. Requested world damage copies only affected map/label footprints; FALSE batches without presenting. Repeated identical composed map/HUD/overview presents zero bytes.
+- [x] Implement overview/minimap dimensions, drawing, selection/view rectangle, and refresh.
+- [x] Display a readable HUD with year/turn, player/economy/research/government data, selected tile, unit movement/HP/activity, and city details.
+- [x] Update map/HUD/overview after authoritative state changes, including movement, combat, city changes, visibility updates, and turn transitions.
+  - Verified: real generic client repaint hooks and visible combat packet handler; rendering does not mutate map/unit/city/economy state. Animation hooks show endpoint states; timed interpolation is not required. Persistent engine/input servicing remains Phase 7/8.
+- [x] Provide route/target and city-worker overlays needed for supported actions.
+  - Verified: attention targets, counted wrapped routes, workers/stipples and removal/refresh.
+  - Acceptance: clean DJGPP production build (29 real backend modules), 6/6 integrated suites and source distribution pass. Actual DOS 6.22/CWSDPMI/Pentium/16 MB/no-paging MAPCHECK 640/800 captures match all 307200/480000 reference pixels with zero mismatches; zero-byte repeated presentation, Q/text restoration, repeat launch and post-map RTCHECK pass. Evidence: builds/phase6-dos/.
+  - Boundary: normal FREECIV still fails explicitly for unfinished persistent input, session startup and GUI integration. Phase 6 graphics/map component completion does not certify playable gameplay. Stop for review; Phase 7 requires permission.
 
 Phase 7. Persistent event loop and input
 - [ ] Replace the scripted turn sequence with a persistent user-driven DOS event loop and an explicit quit path.

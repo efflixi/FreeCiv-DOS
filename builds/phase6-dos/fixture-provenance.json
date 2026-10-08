@@ -1,0 +1,29 @@
+{
+  "scope": "Read-only MAPCHECK fixture subsets, not a complete DOS game ruleset installation",
+  "files": [
+    {
+      "original": "data/default/terrain.ruleset",
+      "fixture_alias": "TERRAIN.RUL",
+      "bytes": 17810,
+      "sha256": "c2fc0911b37bf1d66051181d3d6150c434e4a733727c6fb8040d387aeaecc241"
+    },
+    {
+      "original": "data/default/units.ruleset",
+      "fixture_alias": "UNITS.RUL",
+      "bytes": 44600,
+      "sha256": "d7d5424b0133ea0070a787b1c3a5e3a17ec300f463a2f07f5b4d5a4957929f6d"
+    },
+    {
+      "original": "data/default/governments.ruleset",
+      "fixture_alias": "GOVERN.RUL",
+      "bytes": 17791,
+      "sha256": "14ab224ab389beba4b2b3cacc042bcb7a8f0df3f569d5701a2ccf1e3b6be43be"
+    },
+    {
+      "original": "data/default/techs.ruleset",
+      "fixture_alias": "TECHS.RUL",
+      "bytes": 12540,
+      "sha256": "54a276f492663d11edccfd667217747ea41856af411ed9cc41bf3dc692cbf588"
+    }
+  ]
+}

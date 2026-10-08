@@ -38,15 +38,19 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 5. C: root retains only IO.SYS, MSDOS.SYS, COMMAND.COM, DRVSPACE.BIN,
    AUTOEXEC.BAT, CONFIG.SYS, and DOS/FREECIV/ARCHIVE directories.
    - C:\DOS contains DOS utilities/support files.
-   - C:\FREECIV\FREECIV.EXE is the verified builds/phase5-dos/civclient.exe.
+   - C:\FREECIV\FREECIV.EXE is the verified builds/phase6-dos/civclient.exe.
    - C:\FREECIV\CWSDPMI.EXE and CWSDPMI.DOC are unchanged CWSDPMI r7 files.
    - C:\FREECIV\RTCHECK.EXE is the separate runtime diagnostic.
    - C:\FREECIV\VBECHECK.EXE is the separate actual VBE display diagnostic.
    - C:\FREECIV\RNDCHECK.EXE is the separate primitive/font/dirty-render diagnostic.
+   - C:\FREECIV\MAPCHECK.EXE is the separate actual-state map/HUD diagnostic.
+   - C:\FREECIV\GFX8 contains selected Trident 8.3 graphics/specs/manifests
+     and four default .RUL aliases for MAPCHECK only, NOT a complete game install.
    - C:\FREECIV\DATA\RUNTIME.DAT is its test marker, NOT game resources.
    - C:\ARCHIVE\OLDCLI.EXE preserves the previous installed client unchanged.
      PHASE2.EXE preserves the Phase 2 candidate installed during Phase 3.
      PHASE4.EXE preserves the preceding Phase 4 candidate unchanged.
+     PHASE5.EXE preserves the preceding Phase 5 candidate unchanged.
      FCSTUB.COM, AUTOOLD.BAT, and IMPORT.TMP preserve the older demo/startup.
 
 6. Host startup sources are dos-vm/BOOT_A.BAT and dos-vm/AUTOEXEC.BAT.
@@ -67,7 +71,7 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 
    --version prints "Freeciv version 1.14.1 gui-dos-vbe". CWSDPMI can auto-load
    from the executable directory. Normal startup explicitly reports unavailable
-   production graphics resources/input/GUI integration and returns failure to DOS.
+   persistent input/session startup/GUI integration and returns failure to DOS.
    The real VBE display is tested separately as described below. This gate is
    intentional; the installed program is not yet a playable graphical game.
    Without a DPMI host the DJGPP loader reports "Load error: no DPMI".
@@ -109,7 +113,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
 
 10. Host-side installation/inspection must use the PARTITION offset:
     mdir -i dos-vm/DOS622_VHD.img@@32256 ::/
-    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase5-dos/civclient.exe ::/FREECIV/FREECIV.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase6-dos/civclient.exe ::/FREECIV/FREECIV.EXE
+    mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase6-dos/MAPCHECK.EXE ::/FREECIV/MAPCHECK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase5-dos/RNDCHECK.EXE ::/FREECIV/RNDCHECK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase4-dos/VBECHECK.EXE ::/FREECIV/VBECHECK.EXE
     mcopy -o -i dos-vm/DOS622_VHD.img@@32256 builds/phase3-runtime/RTCHECK.EXE ::/FREECIV/RTCHECK.EXE
@@ -125,6 +130,8 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     output file; do not run it on the already partitioned working image.
 
 11. Recovery copies:
+    - dos-vm/backups/DOS622_VHD.before-phase6.img and DOS622.before-phase6.img
+      preserve the verified Phase 5 pair and preceding candidate.
     - dos-vm/backups/DOS622_VHD.before-phase5.img and DOS622.before-phase5.img
       preserve the verified Phase 4 display/runtime pair and previous candidate.
     - dos-vm/backups/DOS622_VHD.before-phase4.img and DOS622.before-phase4.img
@@ -224,3 +231,36 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     localized fonts, audio, complete gameplay or whole-game 16 MB memory fit.
     The normal FREECIV startup still returns nonzero with its honest readiness
     diagnostic; --version remains available.
+
+15. Actual-state map/HUD diagnostic (not a playable session):
+    cd \FREECIV
+    set FREECIV_PATH=C:\FREECIV\GFX8
+    CWSDPMI -s-
+    MAPCHECK 640 > MAP640.LOG
+    Press Q after the map is visible; then inspect the log in DOS.
+    CWSDPMI -s-
+    MAPCHECK 800 > MAP800.LOG
+
+    GFX8 contains TRIDENT.TSP, .SPC/.XPM files, RESMAP.TXT/PROVEN.TXT and
+    TERRAIN.RUL, UNITS.RUL, GOVERN.RUL, TECHS.RUL. The four ruleset files are
+    byte-identical default source files read for selected fixture fields.
+    This is NOT the full production data package or a joined game.
+    See README.md for the two host staging commands; use new output directories.
+    Copy staged files into the already existing GFX8 only while QEMU is stopped.
+    Original source and extracted RPM assets are never rewritten.
+
+    Required logs: PASS resource/map fixture and full readback, PASS repeated
+    map bytes=0, READY, PASS Q received and EXIT SUCCESS. Actual captures match
+    every native reference pixel at 640/800; repeat launch and subsequent
+    RTCHECK --batch pass with 16 MB/Pentium/CWSDPMI -s-. Text mode and prior
+    DOS screen content are restored. Native tests additionally exercise fog,
+    strategic features, ownership/status, seams/poles/small maps, viewport
+    selection, partial map/label damage, overlays and real combat packets.
+    Map/HUD accent folding is display-only, not complete localization.
+
+    builds/phase6-dos/ retains logs, previews, references, pixel/image checks,
+    final source/config/archive evidence and BUILDINFO.txt. All 159 preceding
+    regular files/attributes are preserved, with the old client in PHASE5.EXE;
+    root/partition/boot layout and floppy bytes are unchanged.
+    The production client still fails explicitly for unfinished persistent
+    input/session startup/GUI integration. Phase 7 requires separate permission.

@@ -111,12 +111,12 @@ am_libguiclient_a_OBJECTS = chatline.$(OBJEXT) citydlg.$(OBJEXT) \
 	cityrep.$(OBJEXT) colors.$(OBJEXT) connectdlg.$(OBJEXT) \
 	dialogs.$(OBJEXT) diplodlg.$(OBJEXT) extender_compat.$(OBJEXT) \
 	finddlg.$(OBJEXT) framebuffer.$(OBJEXT) bitmap_font.$(OBJEXT) \
-	gotodlg.$(OBJEXT) graphics.$(OBJEXT) gui_main.$(OBJEXT) \
-	helpdlg.$(OBJEXT) inteldlg.$(OBJEXT) mapctrl.$(OBJEXT) \
-	mapview.$(OBJEXT) menu.$(OBJEXT) messagedlg.$(OBJEXT) \
-	messagewin.$(OBJEXT) plrdlg.$(OBJEXT) ratesdlg.$(OBJEXT) \
-	repodlgs.$(OBJEXT) spaceshipdlg.$(OBJEXT) vbe_init.$(OBJEXT) \
-	vbe_hw.$(OBJEXT) wldlg.$(OBJEXT)
+	gotodlg.$(OBJEXT) graphics.$(OBJEXT) resource_xpm.$(OBJEXT) \
+	gui_main.$(OBJEXT) helpdlg.$(OBJEXT) inteldlg.$(OBJEXT) \
+	mapctrl.$(OBJEXT) mapview.$(OBJEXT) menu.$(OBJEXT) \
+	messagedlg.$(OBJEXT) messagewin.$(OBJEXT) plrdlg.$(OBJEXT) \
+	ratesdlg.$(OBJEXT) repodlgs.$(OBJEXT) spaceshipdlg.$(OBJEXT) \
+	vbe_init.$(OBJEXT) vbe_hw.$(OBJEXT) wldlg.$(OBJEXT)
 libguiclient_a_OBJECTS = $(am_libguiclient_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -145,9 +145,9 @@ am__depfiles_remade = ./$(DEPDIR)/bitmap_font.Po \
 	./$(DEPDIR)/mapview.Po ./$(DEPDIR)/menu.Po \
 	./$(DEPDIR)/messagedlg.Po ./$(DEPDIR)/messagewin.Po \
 	./$(DEPDIR)/plrdlg.Po ./$(DEPDIR)/ratesdlg.Po \
-	./$(DEPDIR)/repodlgs.Po ./$(DEPDIR)/spaceshipdlg.Po \
-	./$(DEPDIR)/vbe_hw.Po ./$(DEPDIR)/vbe_init.Po \
-	./$(DEPDIR)/wldlg.Po
+	./$(DEPDIR)/repodlgs.Po ./$(DEPDIR)/resource_xpm.Po \
+	./$(DEPDIR)/spaceshipdlg.Po ./$(DEPDIR)/vbe_hw.Po \
+	./$(DEPDIR)/vbe_init.Po ./$(DEPDIR)/wldlg.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -560,7 +560,7 @@ AM_CFLAGS = -Werror=return-type -Werror=implicit-function-declaration \
 	-Werror=incompatible-pointer-types -Werror=missing-prototypes
 
 TESTS = dos_vbe_backend_check.sh vbe_check.sh dpmi_check.sh \
-	framebuffer_check.sh mapview_check.sh
+	framebuffer_check.sh mapview_check.sh resource_check.sh
 
 check_SCRIPTS = $(TESTS)
 EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
@@ -570,7 +570,11 @@ EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
 	framebuffer_check.sh tests/framebuffer_test.c mapview_check.sh \
 	tests/mapview_test.c tests/map-stubs/control.h tests/map-stubs/map.h \
 	tests/map-stubs/mapview.h build-render-check.sh tests/render_check.c \
-	tests/render_pattern.c tests/render_pattern.h tests/render_reference.c
+	tests/render_pattern.c tests/render_pattern.h tests/render_reference.c \
+	resource_check.sh tests/resource_test.c tests/resource_manifest_test.py \
+	tools/stage_resources.py build-map-check.sh tests/map_check.c \
+	tests/phase6_scene.c tests/phase6_scene.h tests/map-config.h \
+	tests/stage_phase6_fixture.py
 
 libguiclient_a_SOURCES = \
 	chatline.c \
@@ -586,6 +590,7 @@ libguiclient_a_SOURCES = \
 	bitmap_font.c \
 	gotodlg.c \
 	graphics.c \
+	resource_xpm.c \
 	gui_main.c \
 	helpdlg.c \
 	inteldlg.c \
@@ -613,6 +618,8 @@ libguiclient_a_SOURCES = \
 	bitmap_font.h \
 	gotodlg.h \
 	graphics.h \
+	resource_xpm.h \
+	resource_colors.h \
 	gui_main.h \
 	helpdlg.h \
 	mapctrl.h \
@@ -639,9 +646,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign client/gui-dos-vbe/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu client/gui-dos-vbe/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign client/gui-dos-vbe/Makefile
+	  $(AUTOMAKE) --gnu client/gui-dos-vbe/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -698,6 +705,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plrdlg.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ratesdlg.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/repodlgs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/resource_xpm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/spaceshipdlg.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vbe_hw.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vbe_init.Po@am__quote@ # am--include-marker
@@ -951,6 +959,13 @@ mapview_check.sh.log: mapview_check.sh
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+resource_check.sh.log: resource_check.sh
+	@p='resource_check.sh'; \
+	b='resource_check.sh'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 .test.log:
 	@p='$<'; \
 	$(am__set_b); \
@@ -1066,6 +1081,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/plrdlg.Po
 	-rm -f ./$(DEPDIR)/ratesdlg.Po
 	-rm -f ./$(DEPDIR)/repodlgs.Po
+	-rm -f ./$(DEPDIR)/resource_xpm.Po
 	-rm -f ./$(DEPDIR)/spaceshipdlg.Po
 	-rm -f ./$(DEPDIR)/vbe_hw.Po
 	-rm -f ./$(DEPDIR)/vbe_init.Po
@@ -1139,6 +1155,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/plrdlg.Po
 	-rm -f ./$(DEPDIR)/ratesdlg.Po
 	-rm -f ./$(DEPDIR)/repodlgs.Po
+	-rm -f ./$(DEPDIR)/resource_xpm.Po
 	-rm -f ./$(DEPDIR)/spaceshipdlg.Po
 	-rm -f ./$(DEPDIR)/vbe_hw.Po
 	-rm -f ./$(DEPDIR)/vbe_init.Po

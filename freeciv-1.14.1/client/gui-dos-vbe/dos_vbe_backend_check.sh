@@ -26,11 +26,11 @@ if ! grep -q 'dos_vbe_get_mode_info' "$SCRIPT_DIR/vbe_init.c"; then
   echo "DOS VBE mode info missing VESA metadata" >&2
   exit 1
 fi
-if ! grep -q 'dos_vbe_draw_hud' "$SCRIPT_DIR/mapview.c"; then
+if ! grep -q 'update_info_label' "$SCRIPT_DIR/mapview.c"; then
   echo "DOS VBE mapview missing a HUD drawing pass" >&2
   exit 1
 fi
-if ! grep -q 'dos_vbe_draw_map_tile' "$SCRIPT_DIR/mapview.c"; then
+if ! grep -q 'fill_tile_sprite_array' "$SCRIPT_DIR/mapview.c"; then
   echo "DOS VBE mapview missing tile rendering" >&2
   exit 1
 fi

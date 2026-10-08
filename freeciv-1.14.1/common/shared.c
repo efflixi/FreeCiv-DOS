@@ -374,7 +374,7 @@ static bool is_iso_latin1(char ch)
     if (ch < ' ')  return FALSE;
     if (ch <= '~')  return TRUE;
   }
-  if (ch < '¡')  return FALSE; /* FIXME: Is it really a good idea to
+  if (ch < 'ï¿½')  return FALSE; /* FIXME: Is it really a good idea to
 				 use 8 bit characters in source code? */
   return TRUE;
 }
@@ -885,7 +885,11 @@ const char **datafilelist(const char* suffix)
 
       /* Make sure the file name matches. */
       if (len > suffix_len
+#ifdef __DJGPP__
+	  && mystrcasecmp(suffix, entry->d_name + len - suffix_len) == 0) {
+#else
 	  && strcmp(suffix, entry->d_name + len - suffix_len) == 0) {
+#endif
 	/* Strdup the entry so we can safely write to it. */
 	char *match = mystrdup(entry->d_name);
 
@@ -909,7 +913,9 @@ const char **datafilelist(const char* suffix)
   }
 
   /* Sort the list. */
-  qsort(file_list, num_matches, sizeof(*file_list), compare_strings_ptrs);
+  if (num_matches > 1) {
+    qsort(file_list, num_matches, sizeof(*file_list), compare_strings_ptrs);
+  }
 
   /* Remove duplicates (easy since it's sorted). */
   i = j = 0;

@@ -1,0 +1,9 @@
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake: warning: 'configure.ac' and 'configure.in' both present.
+automake: proceeding with 'configure.ac'
+configure.ac:41: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.ac:41: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+client/gui-dos-vbe/Makefile.am:4: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake: warning: 'configure.ac' and 'configure.in' both present.
+automake: proceeding with 'configure.ac'

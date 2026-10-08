@@ -18,6 +18,14 @@ licensed runtime supply, port changes and text/image validation records remain
 available. A clone requires its own licensed DOS environment and locally built
 executables for image-based acceptance.
 
+Development follows one explicitly authorized Phase at a time. Phase closeout
+requires verified outcomes, current checklist/cleanup/specification/boot records
+and a progress-history entry. Replace the README's current-status section with
+the latest verified state; do not accumulate obsolete phase-status summaries.
+Commit and push verified changes to the GitHub repository after each Phase,
+confirm synchronization, and stop for review before starting another Phase.
+Unverified outcomes or blocked publication must be reported explicitly.
+
 ## Scope
 
 ### Supported experience
@@ -257,8 +265,11 @@ not included. `dos_vbe_last_present_bytes()` reports actual bytes written by the
 last presentation, including zero for a clean buffer. Drawing final composed
 tile pixels avoids erase/redraw dirtiness when terrain and overlays are unchanged.
 
-Map updates use the requested world-tile rectangle, clipped to the viewport
-before tile lookup/drawing. They must not clear unrelated map pixels, reset
+Map updates use the requested world-tile rectangle and clip copied damage to the
+viewport, including label footprints that cross tile boundaries. Compositors
+may rebuild a bounded scratch viewport to preserve shared layer ordering, but
+must not clear unrelated visible map pixels or copy intermediate HUD erasures.
+They must not reset
 selection during redraw, or interpret negative dimensions as unsigned loop
 bounds. Unit/city/selection overlays must use the same viewport-relative
 coordinates as terrain. HUD drawing must remain clipped even if the drawing
@@ -288,12 +299,41 @@ sh client/gui-dos-vbe/build-render-check.sh /tmp/freeciv-render-new
 
 `RNDCHECK.EXE` accepts `640` or `800`, renders the deterministic test pattern,
 checks mapped readback and bounded/zero-byte dirty updates, waits for Q, and
-restores DOS text mode. It is not the production GUI. The map/HUD foundation
-uses viewport-relative rendering and cached clipped ASCII labels; scrolling,
-selection/control independence, fog-of-war semantics and real tileset/game HUD
-integration remain requirements of the playable client.
+restores DOS text mode. It is not the production GUI. Map/HUD composition uses independent offscreen map/UI storage; compare final
+pixels during front-buffer blits so unchanged repeats remain clean. Destroy
+that storage with `dos_vbe_mapview_free()` before display teardown when ending
+a session. Display reinitialization/resizing must safely replace owned storage.
 
 A simplified tile renderer and icon cache are acceptable. A full upstream sprite pipeline is not mandatory, but required resource-loading contracts must remain functional.
+
+### Selected tileset resource contract
+
+The supported initial tileset is overhead Trident, using the shared client
+tilespec/tag cache and `fill_tile_sprite_array()` compositor. Isometric drawing
+is not supported by this backend. The XPM3 loader accepts one-/two-character
+pixel codes, required X11/hex palette forms and transparency; unsupported XPM2,
+extensions and malformed data fail explicitly. Sprites own RGB565 pixels and
+separate opacity, so transparent pixels cannot collide with a visible color.
+Crops have independent lifetime; origins must be inside the atlas, with
+right/bottom overhang padded transparently for upstream explosion rectangles.
+Tilespec, not the backend loader, owns cached tags and alias reference counts.
+
+`tools/stage_resources.py` creates a separate flat DOS 8.3 package. It rewrites
+tilespec/spec references into `.TSP`/`.SPC` names, preserves original XPM bytes
+and notices, and records aliases/provenance in `RESMAP.TXT`/`PROVEN.TXT`.
+Do not rename or rewrite the source or extracted RPM reference assets in place.
+DOS tileset discovery is case-insensitive and accepts `.TSP`; manifest lookup
+must validate safe aliases, malformed mappings and duplicates. Host tests must
+also resolve the actual uppercase `.XPM` package, without renamed substitutes.
+
+The separate `build-map-check.sh` links `MAPCHECK.EXE` against a completed
+production build while using an explicitly initialized actual common/client
+state fixture. `tests/stage_phase6_fixture.py` copies four byte-identical default
+rulesets into fixture-only `.RUL` aliases. These inputs supply selected terrain,
+unit, government and research fields; they are not a complete production ruleset
+package or evidence of a joined playable session. Required acceptance includes
+real DOS visible output, readback, clean repeated presentation, Q/text
+restoration and unchanged authoritative state during rendering.
 
 ### Map and HUD
 
@@ -308,6 +348,17 @@ The map display must provide:
 - Updates driven by authoritative game-state changes.
 
 The HUD must show readable turn/year, player, economy, research, government, selected-tile, unit, and city information. Simplified visuals must still convey the information needed to play the supported ruleset.
+
+Viewport/selection helpers must normalize longitude, clamp polar centering and
+preserve selection and unit focus independently of scrolling/redraw. Overview
+sampling must distinguish unknown/explored/visible tiles and show wrapped view
+edges and selection. Route overlays retain shared counted-segment semantics.
+Movement/combat hooks may show endpoint states without timed interpolation;
+client packet handlers, not rendering helpers, own authoritative HP updates.
+
+Map/HUD display may fold supported Latin-1 and UTF-8 accented names to readable
+ASCII while keeping stored names unchanged. This is a display fallback, not
+full localization or a substitute for later dialog/report encoding/layout.
 
 ## Input and gameplay UI
 

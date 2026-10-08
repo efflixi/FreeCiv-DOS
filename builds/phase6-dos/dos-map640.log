@@ -1,0 +1,23 @@
+MAPCHECK: real tileset/client-state fixture; NOT gameplay
+DOS VBE: BIOS mode 0x0111, 640x480x16, pitch 1280, RGB565 LFB 0xfd000000 initialized.
+FIXTURE initializing from DATA path: c:\freeciv\gfx8;
+FIXTURE loaded ruleset TERRAIN.RUL from c:\freeciv\gfx8/TERRAIN.RUL
+FIXTURE loaded ruleset UNITS.RUL from c:\freeciv\gfx8/UNITS.RUL
+FIXTURE loaded ruleset GOVERN.RUL from c:\freeciv\gfx8/GOVERN.RUL
+FIXTURE loaded ruleset TECHS.RUL from c:\freeciv\gfx8/TECHS.RUL
+FIXTURE reading default Trident tilespec; staged lookup uses RESMAP.TXT/TRIDENT.TSP
+FIXTURE loading Trident specs and atlases
+SCENE actual game/map/list/idex; Trident 30x30; 2 players, 4 units, 4 cities
+SCENE HUD: Roman player  Year 3500 BC  Despotism
+Gold 123  Tax 40% Lux 10% Sci 50%
+Research Alphabet (17 bulbs)
+Tile 5,9: Grassland [visible]
+Warriors (Roman player) HP 8/10 MP 1/1 Moves: 1 veteran
+City Rome size 7 owner Roman player
+Turn ACTIVE  Timeout 42
+SCENE framebuffer 640x480 RGB565 FNV1a 02263d82 (visible pixels, no pitch padding)
+PASS resource/map fixture and full readback 640x480
+PASS repeated map bytes=0
+READY map/HUD/overview fixture; Q restores DOS
+PASS Q received
+EXIT SUCCESS

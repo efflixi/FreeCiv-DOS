@@ -6,7 +6,7 @@ AM_CFLAGS = -Werror=return-type -Werror=implicit-function-declaration \
 	-Werror=incompatible-pointer-types -Werror=missing-prototypes
 
 TESTS = dos_vbe_backend_check.sh vbe_check.sh dpmi_check.sh \
-	framebuffer_check.sh mapview_check.sh
+	framebuffer_check.sh mapview_check.sh resource_check.sh
 check_SCRIPTS = $(TESTS)
 EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
 	build-vbe-check.sh tests/vbe_test.c tests/vbe_check.c dpmi_check.sh \
@@ -15,7 +15,11 @@ EXTRA_DIST = dos_vbe_backend_check.sh dos_client_stubs.c vbe_check.sh \
 	framebuffer_check.sh tests/framebuffer_test.c mapview_check.sh \
 	tests/mapview_test.c tests/map-stubs/control.h tests/map-stubs/map.h \
 	tests/map-stubs/mapview.h build-render-check.sh tests/render_check.c \
-	tests/render_pattern.c tests/render_pattern.h tests/render_reference.c
+	tests/render_pattern.c tests/render_pattern.h tests/render_reference.c \
+	resource_check.sh tests/resource_test.c tests/resource_manifest_test.py \
+	tools/stage_resources.py build-map-check.sh tests/map_check.c \
+	tests/phase6_scene.c tests/phase6_scene.h tests/map-config.h \
+	tests/stage_phase6_fixture.py
 
 ## Above, note -I../../intl instead of -I$(top_srdir)/intl is deliberate.
 
@@ -33,6 +37,7 @@ libguiclient_a_SOURCES = \
 	bitmap_font.c \
 	gotodlg.c \
 	graphics.c \
+	resource_xpm.c \
 	gui_main.c \
 	helpdlg.c \
 	inteldlg.c \
@@ -60,6 +65,8 @@ libguiclient_a_SOURCES = \
 	bitmap_font.h \
 	gotodlg.h \
 	graphics.h \
+	resource_xpm.h \
+	resource_colors.h \
 	gui_main.h \
 	helpdlg.h \
 	mapctrl.h \

@@ -1,0 +1,38 @@
+make: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make  dos_vbe_backend_check.sh vbe_check.sh dpmi_check.sh framebuffer_check.sh mapview_check.sh resource_check.sh
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/dos_vbe_backend_check.sh'.
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/vbe_check.sh'.
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/dpmi_check.sh'.
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/framebuffer_check.sh'.
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/mapview_check.sh'.
+make[1]: Nothing to be done for '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/source/client/gui-dos-vbe/resource_check.sh'.
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make  check-TESTS
+make[1]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make[2]: Entering directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+FAIL: dos_vbe_backend_check.sh
+PASS: vbe_check.sh
+PASS: dpmi_check.sh
+PASS: framebuffer_check.sh
+FAIL: mapview_check.sh
+FAIL: resource_check.sh
+============================================================================
+Testsuite summary for 
+============================================================================
+# TOTAL: 6
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  3
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See client/gui-dos-vbe/test-suite.log
+============================================================================
+make[2]: *** [Makefile:801: test-suite.log] Error 1
+make[2]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make[1]: *** [Makefile:909: check-TESTS] Error 2
+make[1]: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'
+make: *** [Makefile:1017: check-am] Error 2
+make: Leaving directory '/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-integration-build/build/client/gui-dos-vbe'

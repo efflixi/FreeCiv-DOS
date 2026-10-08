@@ -49,6 +49,10 @@
 
 #include "tilespec.h"
 
+#ifdef FC_LOCAL_ENGINE
+#include "gui-dos-vbe/graphics.h"
+#endif
+
 #define TILESPEC_SUFFIX ".tilespec"
 
 char *main_intro_filename;
@@ -125,6 +129,34 @@ const char **get_tileset_list(void)
     /* Note: this means you must restart the client after installing a new
        tileset. */
     tileset_list = datafilelist(TILESPEC_SUFFIX);
+#ifdef FC_LOCAL_ENGINE
+    {
+      const char **short_names = datafilelist(DOS_VBE_TILESPEC_SUFFIX);
+      size_t count = 0;
+      size_t extra = 0;
+      size_t i;
+      size_t j;
+
+      while (tileset_list[count]) count++;
+      while (short_names[extra]) extra++;
+      tileset_list = fc_realloc(tileset_list,
+                               (count + extra + 1) * sizeof(*tileset_list));
+      for (i = 0; i < extra; i++) {
+        for (j = 0; j < count; j++) {
+          if (!mystrcasecmp(tileset_list[j], short_names[i])) {
+            break;
+          }
+        }
+        if (j == count) {
+          tileset_list[count++] = short_names[i];
+        } else {
+          free((void *)short_names[i]);
+        }
+      }
+      tileset_list[count] = NULL;
+      free(short_names);
+    }
+#endif
   }
 
   return tileset_list;
@@ -156,6 +188,21 @@ static char *tilespec_fullname(const char *tileset_name)
   sprintf(fname, "%s%s", tileset_name, TILESPEC_SUFFIX);
   
   dname = datafilename(fname);
+#ifdef FC_LOCAL_ENGINE
+  if (!dname) {
+    char *map_name = datafilename("RESMAP.TXT");
+    if (map_name) {
+      char *alias = dos_vbe_resource_filename(map_name, fname);
+      if (alias) {
+        dname = datafilename(alias);
+        free(alias);
+      } else {
+        freelog(LOG_ERROR, "DOS resource lookup: %s",
+                dos_vbe_graphics_error());
+      }
+    }
+  }
+#endif
   free(fname);
 
   if (dname) {

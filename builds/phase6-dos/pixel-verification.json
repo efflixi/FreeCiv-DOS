@@ -1,0 +1,18 @@
+[
+  {
+    "width": 640,
+    "height": 480,
+    "matched_pixels": 307200,
+    "mismatched_pixels": 0,
+    "capture_sha256": "127014ec83c081137a5c710874b3eccbbe8b8c3098b1d6237c6aebdcf1dc5d71",
+    "reference_sha256": "127014ec83c081137a5c710874b3eccbbe8b8c3098b1d6237c6aebdcf1dc5d71"
+  },
+  {
+    "width": 800,
+    "height": 600,
+    "matched_pixels": 480000,
+    "mismatched_pixels": 0,
+    "capture_sha256": "232cd00d5de4166a2f3f1190f350f9df34b81d7b3a81bdb555fac066a0067615",
+    "reference_sha256": "232cd00d5de4166a2f3f1190f350f9df34b81d7b3a81bdb555fac066a0067615"
+  }
+]

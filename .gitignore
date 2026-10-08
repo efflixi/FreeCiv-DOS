@@ -28,6 +28,8 @@
 .deps/
 .libs/
 autom4te.cache/
+__pycache__/
+*.pyc
 *.d
 *~
 *.tmp

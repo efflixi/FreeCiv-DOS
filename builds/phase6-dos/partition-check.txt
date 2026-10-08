@@ -1,0 +1,3 @@
+dos-vm/DOS622_VHD.img:
+No errors detected.
+Remaining 817 unallocated 512-byte sectors.

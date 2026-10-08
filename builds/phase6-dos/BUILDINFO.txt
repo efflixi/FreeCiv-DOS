@@ -1,0 +1,76 @@
+Freeciv DOS Phase 6 graphics resources/map display acceptance
+Date: 2026-10-08
+
+Scope:
+Actual XPM/tilespec/sprite and shared map/HUD/overview components only.
+Normal startup remains deliberately unavailable. No Phase 7 event loop or
+Phase 8 production game setup is certified by the diagnostic fixture.
+
+Final build:
+DJGPP GCC 12.2.0 / Binutils 2.30; authoritative configure.ac/Makefile.am.
+Clean snapshot/out-of-tree root:
+/home/efflixi/.copilot/session-state/ad752174-0eda-40ca-ba61-6614cfe47e56/files/phase6-final-build
+Executable: civclient.exe, 6133506 bytes
+SHA256: 3f2822635bd83243dedbbb57898eaeaa22536d80450773edbf498518a9b924dd
+Separate MAPCHECK.EXE: 6206682 bytes
+SHA256: a309069a0ccf8a772dee1f6ba30ae64b880c739eec8414339c3c96309f52c409
+29 real backend archive members; no diagnostic ABI stubs.
+6/6 integrated backend tests pass; source distribution generated successfully,
+including tests/map-config.h and tests/stage_phase6_fixture.py.
+Exact source inputs/configuration are retained; executables/distribution remain
+local-only and ignored by public Git. Rebuild from a clone rather than assuming
+debug-path/timestamp-dependent binary hashes will be identical.
+
+Resource contract:
+Selected overhead Trident uses real shared tilespec/tag ownership/composition.
+XPM3: one-/two-character pixels, named/hex colors and independent transparency.
+All 21 original atlases load; 1238 source/staged tag crops/draws pass ASan/UBSan.
+Invalid input/allocation/crop/cleanup/manifest cases fail explicitly.
+XPM2/extensions/isometric display are not supported.
+GFX8: 23 graphics/spec/manifest files, 32 validated filename/reference mappings.
+Original XPM bytes/notices unchanged; .TSP/.SPC references rewritten separately.
+MAPFIX: four default fixture rulesets and provenance; not production setup.
+Guest aliases TERRAIN.RUL/UNITS.RUL/GOVERN.RUL/TECHS.RUL are byte-identical
+to source default rulesets. Original source/RPM reference assets are untouched.
+
+Rendering acceptance:
+Native tests use actual common/client map, lists/idex, tilespec/control/goto/
+options/packet handlers, not fictional map-only implementations.
+Terrain/fog/strategic improvements, unit/city status and ownership, wrapping,
+selection/viewport independence, inverse transforms, overview and HUD pass.
+Routes/targets/workers and generic state-change repaint hooks pass.
+Renderer preserves actual map/unit/city/economy state; packet handler owns HP.
+Movement/combat hooks display endpoint states rather than timed interpolation.
+Accented labels use display-only ASCII folding; stored names remain unchanged.
+Requested damage copies map/label dependencies only. Full bounded scratch
+composition preserves shared layer ordering; final UI blits avoid intermediate
+erase dirtiness. FALSE batches; unchanged repeats write zero presentation bytes.
+Whole-game CPU/memory performance and complete encoding/layout remain pending.
+
+Actual DOS:
+QEMU pc/TCG/Pentium/std VGA, 16 MB, no network; DOS 6.22, CWSDPMI r7 -s-.
+640x480: 307200 exact matching VGA/reference pixels; zero mismatches.
+800x600: 480000 exact matching VGA/reference pixels; zero mismatches.
+Mapped readback, zero-byte repeated presentation, Q, original text contents/
+mode 3, repeated launch and subsequent engine/runtime diagnostic all pass.
+Normal --version works; startup returns nonzero with an honest incomplete
+persistent-input/session/GUI message. It is not a playable-game result.
+See final-check.log, dos-map*.log, dos-repeat.log, dos-runtime-regression.log,
+pixel-verification.json, PNG/PPM captures and production-gate.txt.
+Initial integration-check.log and initial-missing-fixture.log retain FAILED
+intermediate attempts; only final-* and the acceptance records certify success.
+
+Published local disk:
+dos-vm/DOS622_VHD.img SHA256:
+042667b9d88a517457219cbad4646974541907293c9bd8e27b121a89d525e15f
+DOS622.img unchanged SHA256:
+c0735e2f800ba685ed21f6db115c6495741ab681bd0697801e3eac881493f76b
+Recovery: dos-vm/backups/DOS622_VHD.before-phase6.img and DOS622.before-phase6.img.
+All 159 baseline regular files/attributes preserved; candidate archived as
+ARCHIVE/PHASE5.EXE. Older diagnostics/runtime are unchanged. Root whitelist,
+MBR/BPB/active partition/geometry/floppy bytes and FAT/partition checks pass.
+verify-images.py also checks all graphics/fixture bytes and diagnostic logs.
+Never access images with host tools while QEMU uses them. DOS images and
+recovery copies are licensed local-only material, not public repository files.
+
+Stop for Phase 6 review. Do not start Phase 7 without explicit permission.

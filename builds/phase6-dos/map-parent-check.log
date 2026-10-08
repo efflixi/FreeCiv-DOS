@@ -1,0 +1,34 @@
+Staged 4 byte-identical default fixture rulesets in /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets
+STAGED fixture DATA: unchanged original graphics package; private 8.3 rulesets
+FIXTURE initializing from DATA path: /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/builds/phase6-dos/GFX8:/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets:
+FIXTURE loaded ruleset TERRAIN.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets/TERRAIN.RUL
+FIXTURE loaded ruleset UNITS.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets/UNITS.RUL
+FIXTURE loaded ruleset GOVERN.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets/GOVERN.RUL
+FIXTURE loaded ruleset TECHS.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3015376/fixture-rulesets/TECHS.RUL
+FIXTURE reading default Trident tilespec; staged lookup uses RESMAP.TXT/TRIDENT.TSP
+FIXTURE loading Trident specs and atlases
+SCENE actual game/map/list/idex; Trident 30x30; 2 players, 4 units, 4 cities
+PASS staged 8.3 rulesets, RESMAP/default and independent intro/radar aliases
+PASS Trident tileset discovery
+PASS real known/unknown/fog terrain, road/rail, irrigation/farmland, mine,
+     river/resource/pollution/fortress/airbase/hut/fallout and unit stack/type sprites
+PASS seam normalization, centering/poles, scroll, inverse transforms, borders;
+     selection and viewport do not move the authoritative focus unit
+SCENE HUD: Roman player  Year 3500 BC  Despotism
+Gold 123  Tax 40% Lux 10% Sci 50%
+Research Alphabet (17 bulbs)
+Tile 5,9: Grassland [visible]
+Warriors (Roman player) HP 8/10 MP 1/1 Moves: 1 veteran
+City Rome size 7 owner Roman player
+Turn ACTIVE  Timeout 42
+SCENE framebuffer 640x480 RGB565 FNV1a 02263d82 (visible pixels, no pitch padding)
+PASS HUD/economy/research/government/tile/unit/city, overview unknown/viewport,
+     persistent target/workers/routes, counted route removal, all repaint hooks;
+     render hooks leave actual map/unit/city/economy state unchanged
+PASS real combat packet owns visible animated/nonanimated HP updates;
+     renderer preserves other unit fields and offscreen notification behavior
+PASS readable Latin-1/UTF-8 accented fixture names without stored-name mutation
+PASS partial world damage retains unrelated map rows, FALSE batches,
+     repeated composed map/HUD/overview presentation writes zero bytes
+PASS 640x480, 800x600, 1024x768 resize, bounded extreme damage/overview dimensions
+PASS real-state DOS map rendering with ASan/UBSan and pitched guard bytes

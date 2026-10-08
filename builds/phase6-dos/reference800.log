@@ -1,0 +1,22 @@
+Staged 4 byte-identical default fixture rulesets in /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets
+STAGED fixture DATA: unchanged original graphics package; private 8.3 rulesets
+FIXTURE initializing from DATA path: /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/builds/phase6-dos/GFX8:/media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets:
+FIXTURE loaded ruleset TERRAIN.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets/TERRAIN.RUL
+FIXTURE loaded ruleset UNITS.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets/UNITS.RUL
+FIXTURE loaded ruleset GOVERN.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets/GOVERN.RUL
+FIXTURE loaded ruleset TECHS.RUL from /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/.dos-mapview-check-3021640/fixture-rulesets/TECHS.RUL
+FIXTURE reading default Trident tilespec; staged lookup uses RESMAP.TXT/TRIDENT.TSP
+FIXTURE loading Trident specs and atlases
+SCENE actual game/map/list/idex; Trident 30x30; 2 players, 4 units, 4 cities
+PASS staged 8.3 rulesets, RESMAP/default and independent intro/radar aliases
+PASS Trident tileset discovery
+SCENE HUD: Roman player  Year 3500 BC  Despotism
+Gold 123  Tax 40% Lux 10% Sci 50%
+Research Alphabet (17 bulbs)
+Tile 5,9: Grassland [visible]
+Warriors (Roman player) HP 8/10 MP 1/1 Moves: 1 veteran
+City Rome size 7 owner Roman player
+Turn ACTIVE  Timeout 42
+SCENE framebuffer 800x600 RGB565 FNV1a 0da301bf (visible pixels, no pitch padding)
+REFERENCE fixture-only 800x600 RGB565 FNV1a 0da301bf: /media/efflixi/Shinra/Dropbox/Dropbox/VS Code Projects/DOSCode/FREECIV/builds/phase6-dos/reference800.ppm
+PASS real-state DOS map rendering with ASan/UBSan and pitched guard bytes

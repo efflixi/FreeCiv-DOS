@@ -1,0 +1,4 @@
+MAPCHECK: real tileset/client-state fixture; NOT gameplay
+DOS VBE: BIOS mode 0x0111, 640x480x16, pitch 1280, RGB565 LFB 0xfd000000 initialized.
+FAIL resource/map rendering or full readback
+EXIT FAILURE

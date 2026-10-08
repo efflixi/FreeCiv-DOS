@@ -221,6 +221,11 @@ void handle_unit_combat(struct packet_unit_combat *packet)
 		       unit_type(punit1)->sound_fight_alt);
 
       if (do_combat_animation) {
+#ifdef FC_LOCAL_ENGINE
+        /* The DOS renderer does not own packet-derived client state. */
+        punit0->hp = hp0;
+        punit1->hp = hp1;
+#endif
 	decrease_unit_hp_smooth(punit0, hp0, punit1, hp1);
       } else {
 	punit0->hp = hp0;

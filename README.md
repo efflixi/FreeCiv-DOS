@@ -9,7 +9,7 @@ engine, a 16-bit rewrite, or a text-mode adaptation: it reuses Freeciv's existin
 rules, AI, server engine and client logic while replacing the platform-facing
 parts needed for DOS.
 
-> **Development status: rendering foundations are working; the game is not
+> **Development status: tileset/map/HUD rendering is verified; the game is not
 > playable yet.** The normal DOS client deliberately exits with an explicit
 > unavailable-integration diagnostic. Separate diagnostics verify real DOS,
 > DPMI, graphics and rendering behavior without pretending to be a complete game.
@@ -91,8 +91,9 @@ managed video mappings.
 
 The original printable-ASCII bitmap font is embedded and licensed under
 GPL-2.0-or-later; no third-party font was copied. It is a working fallback, not
-the final encoding/layout solution: accented game names, font metrics and
-remaining dialog/report integration still need deliberate handling.
+the final encoding/layout solution. Map/HUD labels fold supported Latin-1 and
+UTF-8 accented names into readable ASCII without changing stored names;
+full localization and remaining dialog/report integration are unfinished.
 
 DOS-specific changes are kept behind the backend and compatibility boundaries.
 Shared gameplay logic and supported upstream targets are not broadly rewritten.
@@ -112,8 +113,10 @@ reference pixels, not just an offscreen buffer.
 
 ## Current progress
 
-As of **2026-10-07**, checklist **Phases 1-5 are complete at their documented
-foundation boundaries**. Phase 6 is paused pending review and authorization.
+As of **2026-10-08**, **Phase 6 graphics resources and map display are complete
+and verified as components**. The production client remains gated and is not
+playable. Persistent input, session startup and the interactive GUI are still
+required; a diagnostic scene is not a joined game.
 
 | Foundation | What has been verified |
 | --- | --- |
@@ -122,30 +125,37 @@ foundation boundaries**. Phase 6 is paused pending review and authorization.
 | DOS runtime | DOS 6.22 boot/drive layout, CWSDPMI r7, real DOS/DPMI calls, heap/conventional transfer, resource-path fixture and engine join/reset diagnostic |
 | VBE lifecycle | Real enumeration/metadata, mode selection, RGB565 LFB mapping/presentation, fallbacks, state/text restoration and resource release |
 | Rendering | Clipped fill/line/blit/icon/text, original font, checked allocation/pitch, viewport-relative partial updates and dirty-region presentation |
+| Graphics resources | XPM3 conversion, transparent owned sprites/crops, shared tilespec caching; all 21 original atlases and 1,238 source/staged tag crops tested |
+| Map/HUD | Real client map/unit/city state and shared Trident composition; fog, improvements, ownership/status, wrapped transforms, independent selection, overview, economy/research and action overlays |
 
-Latest rendering verification includes:
+The clean DOS build links **29 real backend modules** and passes **6/6 integrated
+test suites**. Native map tests use actual common/client state and packet hooks,
+not a fictional renderer-only map. Actual DOS 6.22/CWSDPMI tests run with a
+Pentium CPU model, **16 MB and paging disabled**. The 640x480 and 800x600 VGA
+captures match **307,200 and 480,000 reference pixels**, respectively, with
+**zero mismatches**. Repeated identical map/HUD/overview presentation writes
+zero bytes; Q/text restoration, repeated launch and post-map runtime checks pass.
 
-- A clean **28-module** DOS backend archive, with no diagnostic ABI stubs.
-- **5/5 integrated backend tests passing**, including behavioral sanitizer suites.
-- Actual DOS diagnostics at **640x480 and 800x600**, with 16 MB and paging disabled.
-- **307,200 and 480,000 matching visible VGA pixels**, respectively, with zero mismatches.
-- A 4x4 update writing **32 bytes**, a clean repeat writing **0 bytes**, and nearby
-  coalesced updates writing **12 bytes**.
-- Real Q input, restored DOS text contents, repeated launch and subsequent
-  runtime/engine regression.
+![Verified 800x600 DOS map/HUD diagnostic](builds/phase6-dos/map800.png)
 
-![Actual 640x480 DOS rendering diagnostic](builds/phase5-dos/render640.png)
+This is an explicitly initialized diagnostic scene with real Trident assets,
+default ruleset fields, two players, four units and four cities. It does not
+prove production game setup, mouse/keyboard gameplay, AI-turn responsiveness,
+save/load or whole-game memory/performance. Movement/combat rendering hooks show
+endpoint states rather than timed animation. Selected **overhead Trident** is
+supported; isometric tilesets and XPM2/extensions are not.
 
-This is a **primitive/font diagnostic**, not a screenshot of playable Freeciv.
-See the [Phase 5 evidence summary](builds/phase5-dos/BUILDINFO.txt) and
-[pixel verification](builds/phase5-dos/pixel-verification.json).
+The staged graphics package uses DOS-safe 8.3 names and a validated `RESMAP.TXT`;
+original source/RPM assets are unchanged. Evidence and reproduction records are
+in [builds/phase6-dos/](builds/phase6-dos/).
+Historical validation records remain under [builds/](builds/) and
+[progress.txt](progress.txt), rather than an accumulating phase diary here.
 
 ### Major work still ahead
 
 The next work connects these foundations into an actual game:
 
-- Real graphics-resource loading, sprites/atlases, transparency and DOS filename handling.
-- A playable map with correct visibility/fog, units, cities, scrolling and selection.
+- Connect verified resources/map rendering to a real joined playable session.
 - Complete HUD, menus, dialogs and reports with consistent text metrics/character coverage.
 - Persistent keyboard/mouse/event servicing and client/engine update integration.
 - End-to-end game setup, authoritative actions, AI turns, save/load and completion.
@@ -204,10 +214,11 @@ sh freeciv-1.14.1/client/gui-dos-vbe/vbe_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/dpmi_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/framebuffer_check.sh
 sh freeciv-1.14.1/client/gui-dos-vbe/mapview_check.sh
+sh freeciv-1.14.1/client/gui-dos-vbe/resource_check.sh
 ```
 
 The first is a source-presence smoke check, not gameplay validation. The other
-four exercise real implementations with controlled host services and sanitizers.
+five exercise real implementations with controlled host services and sanitizers.
 After a cross-build, the integrated suite is also available through:
 
 ```sh
@@ -222,9 +233,11 @@ sh freeciv-1.14.1/client/gui-dos-vbe/build-vbe-check.sh /tmp/freeciv-vbe-check
 sh freeciv-1.14.1/client/gui-dos-vbe/build-render-check.sh /tmp/freeciv-render-check
 sh freeciv-1.14.1/client/offline/build-runtime-check.sh \
   /tmp/freeciv-runtime-check /tmp/freeciv-dos-build/build
+sh freeciv-1.14.1/client/gui-dos-vbe/build-map-check.sh \
+  /tmp/freeciv-map-check /tmp/freeciv-dos-build/build
 ```
 
-These produce `VBECHECK.EXE`, `RNDCHECK.EXE` and `RTCHECK.EXE`. They are not part
+These produce `VBECHECK.EXE`, `RNDCHECK.EXE`, `RTCHECK.EXE` and `MAPCHECK.EXE`. They are not part
 of the production GUI archive. Use your own licensed DOS installation, a
 supported display and the documented CWSDPMI configuration.
 
@@ -240,6 +253,20 @@ Press Q to restore text mode, then inspect the log. Repeat `CWSDPMI -s-`
 immediately before each no-paging application; that setting applies to one
 DPMI process. `RNDCHECK 800 > RND800.LOG` tests the preferred resolution.
 See [dos_boot_steps.txt](dos_boot_steps.txt) for the full procedure and limitations.
+For the map diagnostic, first stage its separate graphics/ruleset fixtures:
+
+```sh
+python3 freeciv-1.14.1/client/gui-dos-vbe/tools/stage_resources.py \
+  freeciv-1.14.1/data /tmp/freeciv-gfx8 --tileset trident
+python3 freeciv-1.14.1/client/gui-dos-vbe/tests/stage_phase6_fixture.py \
+  freeciv-1.14.1/data /tmp/freeciv-mapfix
+```
+
+Install the staged graphics and four `.RUL` files together in `C:\FREECIV\GFX8`.
+Set `FREECIV_PATH=C:\FREECIV\GFX8`, then run `CWSDPMI -s-` immediately followed
+by `MAPCHECK 640 > MAP640.LOG` (or `800`). Q restores DOS. These four rulesets
+are fixture inputs, **not the final production data package**.
+
 QEMU, Python 3, mtools and FAT/partition utilities are needed for the recorded
 VM/image validation workflow, not for every native test.
 
@@ -279,8 +306,13 @@ your own DOS installation and the relevant locally retained baseline/candidate.
 - [progress.txt](progress.txt): chronological work and validation history.
 - [dos_boot_steps.txt](dos_boot_steps.txt): DOS setup, diagnostic and recovery procedures.
 
-Development proceeds one authorized phase at a time. Completed phases stop for
-review; future features are not inferred from successful component diagnostics.
+Development proceeds one authorized phase at a time. At each completed Phase,
+verify outcomes, update project documents and replace this README's current
+status with the latest verified state, then commit/push to GitHub and confirm
+synchronization. Stop for review before starting another Phase. Historical
+status stays in progress/evidence, not repeated README phase summaries.
+Future features are not inferred from successful component diagnostics; blocked
+validation or publication is reported rather than described as complete.
 
 ## Licensing and redistribution
 

@@ -20,9 +20,9 @@ static void dos_vbe_require_runtime(void)
 {
   /* Later phases must replace this gate with real runtime readiness checks. */
   fprintf(stderr,
-          "DOS VBE client unavailable: production graphics resources, "
-          "input handling and GUI integration are incomplete. "
-          "The separately tested VBE display is not a playable client.\n");
+          "DOS VBE client unavailable: persistent input, session startup "
+          "and GUI integration are incomplete. Separately tested graphics "
+          "and map rendering do not make a playable client.\n");
   exit(EXIT_FAILURE);
 }
 

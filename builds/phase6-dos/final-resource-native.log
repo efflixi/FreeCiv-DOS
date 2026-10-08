@@ -1,0 +1,8 @@
+8.3 staging: 32 mappings; 619 source tag crops plus staged copies
+DOS VBE framebuffer: missing buffer.
+Production RESMAP lookup: all 32 aliases, repetition and invalid-map cleanup passed.
+Synthetic XPM, color-key collision, clipping, failures and cleanup passed.
+Loaded all 21 source XPM atlases.
+Validated 1238 actual source/staged Trident tag crops and draws.
+DOS graphics resource tests passed (ASan/UBSan).
+PASS resource_check.sh (exit status: 0)

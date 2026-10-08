@@ -1,0 +1,6 @@
+MAPCHECK fixture-only ruleset sections; NOT gameplay.
+Original bytes are unchanged; graphics are staged separately.
+TERRAIN.RUL	default/terrain.ruleset	SHA256 c2fc0911b37bf1d66051181d3d6150c434e4a733727c6fb8040d387aeaecc241
+UNITS.RUL	default/units.ruleset	SHA256 d7d5424b0133ea0070a787b1c3a5e3a17ec300f463a2f07f5b4d5a4957929f6d
+GOVERN.RUL	default/governments.ruleset	SHA256 14ab224ab389beba4b2b3cacc042bcb7a8f0df3f569d5701a2ccf1e3b6be43be
+TECHS.RUL	default/techs.ruleset	SHA256 54a276f492663d11edccfd667217747ea41856af411ed9cc41bf3dc692cbf588

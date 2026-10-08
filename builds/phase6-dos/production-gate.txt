@@ -1,0 +1,25 @@
+INIT SUCCESS: diagnostic DOS/DPMI/memory/data/local-engine only
+READY RTCHECK (not production GUI readiness)
+PASS QUIT: --batch skips keyboard wait; resources released
+EXIT SUCCESS
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv --version
+Freeciv version 1.14.1 gui-dos-vbe
+
+C:\FREECIV>cwsdpmi -s-
+CWSDPMI V0.90+ (r7) Copyright (C) 2010 CW Sandmann  ABSOLUTELY NO WARRANTY
+
+C:\FREECIV>freeciv
+DOS VBE client unavailable: persistent input, session startup and GUI integratio
+n are incomplete. Separately tested graphics and map rendering do not make a pla
+yable client.
+
+C:\FREECIV>if errorlevel 1 echo production_gate_preserved>gate6.ok
+
+C:\FREECIV>type gate6.ok
+production_gate_preserved
+
+C:\FREECIV>

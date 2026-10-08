@@ -1,0 +1,35 @@
+; Freeciv graphics resource lookup: original<TAB>8.3 staged
+; DOS tilespec lookup resolves .tilespec to .TSP using this map.
+; Graphics only; original data files are not changed.
+misc/intro	G0000000
+misc/intro.xpm	G0000000.XPM
+misc/radar	G0000001
+misc/radar.xpm	G0000001.XPM
+misc/small	G0000002
+misc/small.spec	S0000000.SPC
+misc/small.xpm	G0000002.XPM
+misc/space	G0000003
+misc/space.spec	S0000001.SPC
+misc/space.xpm	G0000003.XPM
+misc/treaty	G0000004
+misc/treaty.spec	S0000002.SPC
+misc/treaty.xpm	G0000004.XPM
+trident.tilespec	TRIDENT.TSP
+trident/cities	G0000005
+trident/cities.spec	S0000003.SPC
+trident/cities.xpm	G0000005.XPM
+trident/explosions	G0000006
+trident/explosions.spec	S0000004.SPC
+trident/explosions.xpm	G0000006.XPM
+trident/flags	G0000007
+trident/flags.spec	S0000005.SPC
+trident/flags.xpm	G0000007.XPM
+trident/roads	G0000008
+trident/roads.spec	S0000006.SPC
+trident/roads.xpm	G0000008.XPM
+trident/tiles	G0000009
+trident/tiles.spec	S0000007.SPC
+trident/tiles.xpm	G0000009.XPM
+trident/units	G0000010
+trident/units.spec	S0000008.SPC
+trident/units.xpm	G0000010.XPM

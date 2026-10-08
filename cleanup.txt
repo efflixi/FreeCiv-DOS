@@ -7,7 +7,7 @@ Assessment:
 The existing source is workable as a starting point and should not be discarded or broadly rewritten. The priority is to establish trustworthy build and interface boundaries, distinguish placeholders from functional implementations, and resolve the offline engine architecture before adding substantial gameplay features.
 
 Evidence note:
-The initial findings were based on source/artifact review and follow-up source inspection, without a clean cross-build or gameplay validation. Phases 1/2 established engine/transport architecture and clean production linkage; Phase 3 verified actual DOS/CWSDPMI runtime components. Phase 4 replaces the VBE placeholders with a visibly tested real display lifecycle; Phase 5 verifies clipped primitives/font/partial-map/dirty-presentation foundations. The normal candidate still fails unavailable game-resource/input/GUI integration. Component/display success is not a playable-game claim. Verified results are recorded below and in progress.txt. Historical build failures must not be assumed to describe the current environment without verification.
+The initial findings were based on source/artifact review, without a clean cross-build or gameplay validation. Phases 1/2 established engine/transport architecture and production linkage; Phases 3-5 verified DOS/CWSDPMI, VBE and rendering foundations. Phase 6 verifies actual tileset/map/HUD components. Normal startup still explicitly fails unfinished persistent input/session startup/GUI integration. Component/display success is not a playable-game claim. Verified results are recorded below and in progress.txt; historical failures do not describe the current environment without verification.
 
 Cleanup checklist:
 
@@ -20,7 +20,7 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
   - Resolution: build-dos.sh performs fresh source/bootstrap/out-of-tree configuration/build using target GCC/Binutils/CRT, with verified archives/indexing/isolation/linkage. Repeated clean builds and source-distribution rebuild pass. Phase 3 also executes the candidate CRT/--version and separate real-service diagnostics under DOS/CWSDPMI; the production GUI stays gated.
 - [x] Make backend selection, archive contents, and final executable linkage consistent.
   - Requirement: a normal DOS build must compile/link the intended implementation without relying on manually assembled archives or stale objects.
-  - Resolution: Phase 2 built all 26 actual DOS backend modules, real common timers, offline broker, and isolated common/server/AI engine. Phase 4 adds the hardware-service module and Phase 5 adds the original bitmap font for 28 backend archive members; fresh clean production linkage still excludes diagnostic ABI/test sources.
+  - Resolution: Phase 2 built all 26 actual DOS backend modules, real common timers, offline broker, and isolated common/server/AI engine. Phases 4/5 add hardware services/font; Phase 6 adds XPM conversion for 29 backend members. Fresh clean production linkage excludes diagnostic ABI/test sources.
 - [x] Establish the authoritative configure input and verify regeneration preserves DOS support.
   - Finding: configure.ac includes dos-vbe support while legacy configure.in does not.
   - Resolution: configure.ac/Makefile.am, bootstrap.sh, and the delegating autogen.sh are authoritative; legacy input switching is rejected. Generated templates and source distribution are verified, including required gettext support and all DOS/offline headers.
@@ -77,9 +77,9 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
 - [x] Convert overlays from world coordinates to viewport-relative screen coordinates and clip every write.
   - Finding: terrain uses viewport indices while unit/city/selection overlays use world coordinates; selection writes lack horizontal bounds checks.
   - Resolution: composed terrain/city/unit/selection pixels share viewport-relative coordinates and bounded writes. Requested world rectangles clip before lookup/drawing; tiny HUD dimensions and extreme signed coordinates are behaviorally tested. No direct unchecked mapview buffer writes remain.
-- [ ] Preserve selection independently of redraw and viewport movement.
+- [x] Preserve selection independently of redraw and viewport movement.
   - Finding: map redraw resets the selected coordinates to center + (3,2).
-  - Partial resolution: redraw no longer resets selection, verified by tests; viewport motion and movement-command selection/control coupling still remain. Do not check this broader independence item until playable-map/input work resolves those semantics.
+  - Resolution: actual-state tests verify redraw/scroll/wrapping preserve selected coordinates and unit focus/position. Viewport helpers only navigate; movement commands use client controls without moving the viewport locally. Real input/event servicing remains Phase 7, outside this rendering/API check.
 - [x] Validate these fixes with behavioral tests before extending the renderer or input layer.
   - Requirement: source-presence grep checks do not verify bounds, coordinates, interfaces, or device behavior.
   - Resolution: five integrated backend tests pass, including real primitive/mapview/color and low/upper VBE suites under ASan/UBSan. Exact separate RNDCHECK actual DOS640/800 output matches every pixel; dirty byte counts, Q/restoration/repeat launch and post-render engine/runtime regression pass. This validates exercised rendering fixes, not unfinished gameplay or input.
@@ -115,4 +115,4 @@ Recommended order:
 5. Extend gameplay features on the verified foundation.
 
 Outcome:
-Keep the scaffold. Offline architecture, clean real-backend/engine linkage, DOS/CWSDPMI, real VBE display and clipped rendering/font/partial-update/dirty-presentation foundations are verified. Phase 5 completes the two matching overlay/behavioral-test cleanup items; selection/control independence, event loop/resources/gameplay/audio and the other unchecked items remain incomplete. Stop for Phase 5 completion review; do not begin Phase 6 without explicit permission.
+Keep the scaffold. Offline architecture, clean real-backend/engine linkage, DOS/CWSDPMI, VBE/primitives and actual Trident resources/map/HUD/overview are verified. Phase 6 completes selection/viewport independence and replaces resource/map no-ops, but does not complete the broader all-hooks/audio/input/gameplay cleanup items. Integration also corrected intermediate HUD erase dirtiness and preserved requested map/label damage; identical presentations write zero bytes natively and under DOS. Evidence: builds/phase6-dos/ and progress.txt. Stop for Phase 6 review; do not begin Phase 7 without permission.
