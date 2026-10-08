@@ -73,4 +73,10 @@ verify-images.py also checks all graphics/fixture bytes and diagnostic logs.
 Never access images with host tools while QEMU uses them. DOS images and
 recovery copies are licensed local-only material, not public repository files.
 
+Clean committed-clone acceptance:
+Commit 8fdb231 builds successfully without ignored/generated checkout inputs.
+All six integrated suites pass with the clone's unchanged GFX8 selected.
+See clean-clone.log. Copied upstream asset/ruleset whitespace is preserved;
+the new source/current-documentation whitespace check passes.
+
 Stop for Phase 6 review. Do not start Phase 7 without explicit permission.
