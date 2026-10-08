@@ -80,3 +80,10 @@ See clean-clone.log. Copied upstream asset/ruleset whitespace is preserved;
 the new source/current-documentation whitespace check passes.
 
 Stop for Phase 6 review. Do not start Phase 7 without explicit permission.
+
+GitHub publication:
+Implementation 8fdb231 and clean-clone records 83720ac pushed to
+https://github.com/efflixi/FreeCiv-DOS (main).
+Remote/local HEAD 83720acee3e597b2fac6f60fdedb9790fb7bb236 matched, clean tree,
+0 ahead/0 behind; GitHub README blob exactly f8a841ea53a4d3332e2707708fd44f6cc7a290d2.
+This publication-history record follows in a documentation-only commit.
