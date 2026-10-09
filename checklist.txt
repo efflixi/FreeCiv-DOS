@@ -217,6 +217,7 @@ Phase 7. Persistent event loop and input
   - Verified: packet/decode budget 16, 500 ms timers, bounded UI-only wait/engine callbacks, input capture during map rows and final-layer presentation. Actual bridge: 89 packet polls/179 yields; both client and engine established, request 1, no generated map. Production explicitly forces audio-none, so no DMA/IRQ/audio polling is required.
 - [x] Limit idle CPU use and keep the GUI responsive during AI turns, modal dialogs, and large redraws.
   - Verified: DJGPP 100000 us idle avoids zero-delay quantization; actual tests require timers>=3, idle>=10 and ticks<=20*timers+128. AI unit/city checkpoints service the actual event queue/editable modal under native ASan/UBSan without recursive engine polling. Full-game minimum-hardware timing remains Phase 8/16 acceptance.
+  - Known limitation (user playtest 2026-10-09): mouse movement works but the software cursor tracks unevenly. Functional input/idle checks do not certify smooth motion. The approximately 55-110 ms idle polling gap is a likely contributor, not a measured diagnosis of the user's run. Acceptable for current testing; carry explicit correction/acceptance into Phases 15/16 below.
 - [x] Define safe cancellation/quit behavior separately from action cancellation and guard accidental unsaved-game loss.
   - Verified: Esc closes/cancels the action, Q/Ctrl-Q/Alt-F4 request confirmation with Cancel selected. Enter cancels; Tab/Enter confirms. Unsaved-session warning states saving is unfinished. Disconnect/teardown occur only at a safe boundary; actual text restoration and post-input RTCHECK pass.
 
@@ -352,6 +353,7 @@ Phase 15. Reliability and minimum-hardware performance
 - [ ] Define a supported map/AI/resolution profile that actually fits and runs on minimum hardware.
   - Status: do not claim unlimited map sizes or 1024x768 support as minimum-hardware requirements.
 - [ ] Benchmark input latency, map redraw/scroll, AI turns, and save/load for that profile.
+  - Required follow-up: measure and improve the user-reported uneven software mouse cursor tracking. Evaluate mouse polling/presentation cadence and idle scheduling, including movement starting during idle, while preserving low idle CPU use and subsystem fairness. Establish and record a measurable cursor update/input-latency target on the supported profile; do not count click detection or the existing idle tick bound as smoothness acceptance.
 - [ ] Optimize full-screen clearing, per-pixel loops, resource caching, redundant redraws, and update presentation where measurements show a need.
 - [ ] Test long sessions, repeated turns, city/unit removal, dialog churn, new-game/load cycles, and repeated resolution initialization for leaks and stale pointers.
 - [ ] Handle allocation, VBE, device, file, and engine errors explicitly and preserve actionable diagnostics.
@@ -365,6 +367,7 @@ Phase 16. Behavioral tests and DOS validation
 - [ ] Test VBE metadata parsing/mode selection, pitch/color handling, clipping, allocation failure, buffer bounds, and cleanup.
 - [ ] Test map-to-screen transforms, wrapping, off-origin unit/city overlays, selection persistence, visibility, small maps, and map edges.
 - [ ] Test keyboard extended events, command-queue behavior, mouse/no-mouse operation, and distinction between scrolling and unit movement.
+  - Required regression: visibly verify continuous cursor tracking and measure latency against the Phase 15 target, including start/stop motion, dialogs and redraw/engine work at 640x480 and supported 800x600. Retain quick-click/held-button, keyboard-only and idle-CPU tests when changing scheduling. The 2026-10-09 choppy-cursor report remains open until this is verified.
 - [ ] Test offline startup, packet/action delivery, client/engine state separation, AI turns, save/load, and repeated session resets.
 - [ ] Perform visible DOS graphics validation with the real executable, not just a headless boot prompt or .COM demonstration.
 - [ ] Exercise real user input in DOS: move a unit, found/manage a city, choose research/rates/production, interact with AI, and end turns.

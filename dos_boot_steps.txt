@@ -334,6 +334,12 @@ DOS 6.22 boot and runtime steps for the Freeciv DOS port project
     Verified bounds: FIFO64, eight-event acquisition/dispatch, packet budget16,
     500 ms timers; idle100000 us (~55-110 ms with BIOS clock granularity).
     10000 us truncates to zero in the tested DJGPP libc and must not be used.
+    Known limitation from the 2026-10-09 user playtest: mouse input works, but
+    software cursor motion is uneven. This is acceptable for current testing,
+    not final smoothness acceptance. The idle polling gap is a likely contributor,
+    not a measured diagnosis of that run. Checklist Phases 15/16 explicitly
+    require latency/cadence improvement and visible tracking regression while
+    preserving idle CPU limits, quick clicks and keyboard-only operation.
     Acceptance rejects runaway loops with timers>=3, idle>=10 and
     ticks<=20*timers+128; acquired/dispatched event counts must match.
     Buffered BIOS Shift-Tab/Ctrl-Q/Alt-F4/modified arrows are normalized even

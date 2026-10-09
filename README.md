@@ -160,6 +160,13 @@ paging disabled**:
   `ticks <= 20 * timers + 128`, rejecting the earlier busy-loop behavior.
   Text restoration and a subsequent real-runtime/engine diagnostic pass.
 
+**Known testing limitation:** a user playtest reports uneven software mouse
+cursor tracking. Mouse input is functional and acceptable for current testing,
+but smooth motion has not been certified. The approximately 55-110 ms idle
+polling gap is a likely contributor; the user's run has not been profiled.
+Explicit cursor-latency/scheduling work and visible regression acceptance are
+tracked in checklist Phases 15/16, including preservation of low idle CPU use.
+
 ![Verified normal DOS pregame interface](builds/phase7-dos/pregame800.png)
 
 ![Verified mouse text/list editing over the diagnostic map](builds/phase7-dos/mouse-edit800.png)

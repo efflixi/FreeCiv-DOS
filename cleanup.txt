@@ -62,6 +62,7 @@ Cleanup work follows the currently authorized Phase in checklist.txt. Check off 
 - [x] Provide a persistent user-driven event loop as the normal execution path.
   - Requirement: service input, local engine/state updates, timers, audio, and display work until the user exits.
   - Resolution: bounded 64-event FIFO, eight-event slices, real BIOS/INT33 input, 16-packet polling, timers, UI-only engine/wait service, idle yield and visible modal/pointer/chrome presentation. Normal/repeated DOS quit, keyboard fallback, fast clicks, real pregame join and native real-AI modal service are verified. Audio explicitly stays disabled.
+  - Open performance follow-up: 2026-10-09 user playtest reports uneven software mouse cursor tracking. Functional for current testing, but smoothness is not verified. Measure/improve polling/presentation and idle scheduling in checklist Phases 15/16 without busy-loop regression, starvation or lost clicks; the current 55-110 ms idle gap is a likely contributor, not a measured cause.
 - [x] Give shared command definitions one authoritative declaration.
   - Finding: the DOS command enum is duplicated in gui_main.c and mapview.c.
   - Resolution: gui_main.h owns the command enum/declarations and mapview.h owns dispatch; both real modules compile against the shared types.
